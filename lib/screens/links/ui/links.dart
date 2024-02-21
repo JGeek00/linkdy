@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:my_linkding/i18n/strings.g.dart';
+
 class Links extends StatelessWidget {
   const Links({Key? key}) : super(key: key);
 
@@ -16,7 +18,7 @@ class Links extends StatelessWidget {
               floating: true,
               centerTitle: false,
               forceElevated: innerBoxIsScrolled,
-              title: Text("Links"),
+              title: Text(t.links.links),
             ),
           ),
         ],

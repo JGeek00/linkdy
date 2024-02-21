@@ -1,0 +1,10 @@
+{
+  "connect": {
+    "connect": "Conectar",
+    "connecting": "Conectando...",
+    "cannotConnectToServer": "No se puede conectar con el servidor."
+  },
+  "links": {
+    "links": "Enlaces"
+  }
+}

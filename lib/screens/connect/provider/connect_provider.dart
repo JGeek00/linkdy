@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_linkding/providers/shared_preferences_provider.dart';
 import 'package:uuid/uuid.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:my_linkding/screens/connect/model/connect_model.dart';
 
 import 'package:my_linkding/providers/server_instances_provider.dart';
+import 'package:my_linkding/i18n/strings.g.dart';
 import 'package:my_linkding/constants/enums.dart';
 import 'package:my_linkding/utils/process_modal.dart';
-import 'package:my_linkding/providers/router_provider.dart';
-import 'package:my_linkding/router/paths.dart';
 import 'package:my_linkding/utils/snackbar.dart';
 import 'package:my_linkding/models/server_instance.dart';
 import 'package:my_linkding/providers/api_client_provider.dart';
@@ -89,7 +87,7 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
   final apiClient = ApiClient(serverInstance: serverInstance);
 
   final processModal = ProcessModal();
-  processModal.open("Connecting...");
+  processModal.open(t.connect.connecting);
 
   final result = await apiClient.checkConnectionInstance();
 
@@ -99,7 +97,7 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
     ref.read(serverInstancesProvider.notifier).saveNewInstance(serverInstance);
     // ref.watch(routerProvider).replace(RoutesPaths.links);
   } else {
-    showSnacbkar(label: "Invalida auth", color: Colors.red);
+    showSnacbkar(label: t.connect.cannotConnectToServer, color: Colors.red);
   }
 
   return false;
