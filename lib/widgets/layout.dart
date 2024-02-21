@@ -2,6 +2,8 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:my_linkding/widgets/system_overlay_style.dart';
+
 class Layout extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
 
@@ -19,33 +21,35 @@ class Layout extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      body: PageTransitionSwitcher(
-        duration: const Duration(milliseconds: 200),
-        transitionBuilder: (child, primaryAnimation, secondaryAnimation) => FadeThroughTransition(
-          animation: primaryAnimation,
-          secondaryAnimation: secondaryAnimation,
-          child: child,
+    return OverlayStyle(
+      child: Scaffold(
+        body: PageTransitionSwitcher(
+          duration: const Duration(milliseconds: 200),
+          transitionBuilder: (child, primaryAnimation, secondaryAnimation) => FadeThroughTransition(
+            animation: primaryAnimation,
+            secondaryAnimation: secondaryAnimation,
+            child: child,
+          ),
+          child: navigationShell,
         ),
-        child: navigationShell,
-      ),
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (s) => goBranch(s),
-        selectedIndex: navigationShell.currentIndex,
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.link_rounded),
-            label: "Links",
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.search_rounded),
-            label: "Search",
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.settings_rounded),
-            label: "Settings",
-          ),
-        ],
+        bottomNavigationBar: NavigationBar(
+          onDestinationSelected: (s) => goBranch(s),
+          selectedIndex: navigationShell.currentIndex,
+          destinations: const [
+            NavigationDestination(
+              icon: Icon(Icons.link_rounded),
+              label: "Links",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.search_rounded),
+              label: "Search",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.settings_rounded),
+              label: "Settings",
+            ),
+          ],
+        ),
       ),
     );
   }
