@@ -34,7 +34,7 @@ class OnboardingWelcome extends ConsumerWidget {
                     t.onboarding.title,
                     style: const TextStyle(fontSize: 28),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16),
                   Text(
                     t.onboarding.subtitle,
                     style: TextStyle(

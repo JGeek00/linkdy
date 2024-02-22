@@ -46,6 +46,7 @@ dependencies:
   slang: ^3.29.0
   slang_flutter: ^3.29.0
   flutter_svg: ^2.0.9
+  flutter_custom_tabs: ^2.0.0+1
 
 dev_dependencies:
   build_runner: ^2.4.8
