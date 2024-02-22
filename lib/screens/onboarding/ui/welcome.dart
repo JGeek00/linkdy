@@ -25,10 +25,10 @@ class OnboardingWelcome extends ConsumerWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
+                  Image.asset(
+                    'assets/icon/icon1024.png',
                     width: 50,
                     height: 50,
-                    color: Colors.red,
                   ),
                   const SizedBox(height: 24),
                   Text(
