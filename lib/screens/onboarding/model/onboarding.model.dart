@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class OnboardingModel {
   final PageController pageController;
-  final bool confirmServerRunning;
+  bool confirmServerRunning;
 
   OnboardingModel({
     required this.pageController,
-    required this.confirmServerRunning,
+    this.confirmServerRunning = false,
   });
 
   OnboardingModel toggleConfirmServerRunning(bool newValue) => OnboardingModel(

@@ -30,6 +30,7 @@ class Onboarding extends _$Onboarding {
   }
 
   void confirmServerRunning() {
-    state = state.toggleConfirmServerRunning(!state.confirmServerRunning);
+    state.confirmServerRunning = !state.confirmServerRunning;
+    ref.notifyListeners();
   }
 }

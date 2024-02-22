@@ -35,5 +35,9 @@
   "settings": {
     "settings": "Settings",
     "disconnectFromServer": "Disconnect from server"
+  },
+  "webview": {
+    "goBack": "Go back",
+    "goForward": "Go forward"
   }
 }

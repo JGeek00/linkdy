@@ -1,9 +1,15 @@
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class WebViewModel {
-  final WebViewController webViewController;
+  InAppWebViewController? inAppWebViewController;
+  int loadProgress;
+  bool canGoBack;
+  bool canGoForward;
 
   WebViewModel({
-    required this.webViewController,
+    this.inAppWebViewController,
+    this.loadProgress = 0,
+    this.canGoBack = false,
+    this.canGoForward = false,
   });
 }

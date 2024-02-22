@@ -35,5 +35,9 @@
   "settings": {
     "settings": "Ajustes",
     "disconnectFromServer": "Desconectar del servidor"
+  },
+  "webview": {
+    "goBack": "Ir atrás",
+    "goForward": "Ir adelante"
   }
 }

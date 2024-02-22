@@ -21,6 +21,10 @@ final List<RouteBase> appRoutes = [
     path: RoutesPaths.onboarding,
     builder: (context, state) => const Onboarding(),
   ),
+  GoRoute(
+    path: RoutesPaths.webview,
+    builder: (context, state) => WebView(bookmark: state.extra as Bookmark),
+  ),
   StatefulShellRoute.indexedStack(
     builder: (context, state, navigationShell) => Layout(
       navigationShell: navigationShell,
@@ -33,10 +37,6 @@ final List<RouteBase> appRoutes = [
           GoRoute(
             path: RoutesPaths.links,
             builder: (context, state) => const Links(),
-          ),
-          GoRoute(
-            path: RoutesPaths.webview,
-            builder: (context, state) => WebView(bookmark: state.extra as Bookmark),
           ),
         ],
       ),

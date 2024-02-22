@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/screens/webview/provider/webview.provider.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+
+import 'package:linkdy/models/data/bookmarks.dart';
+import 'package:linkdy/i18n/strings.g.dart';
 
 class WebView extends ConsumerWidget {
   final Bookmark bookmark;
@@ -15,17 +17,92 @@ class WebView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(webViewProvider.notifier).initialize(bookmark.url!);
-    });
-
-    final webViewController = ref.watch(webViewProvider).webViewController;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(bookmark.title != "" ? bookmark.title! : bookmark.websiteTitle!),
+        elevation: 3,
+        title: Column(
+          children: [
+            Text(
+              bookmark.title != "" ? bookmark.title! : bookmark.websiteTitle!,
+              style: const TextStyle(fontSize: 14),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              bookmark.url!,
+              style: TextStyle(
+                fontSize: 12,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
+            ),
+          ],
+        ),
+        bottom: PreferredSize(
+          preferredSize: const Size(double.maxFinite, 0),
+          child: ref.watch(webViewProvider).loadProgress < 100
+              ? LinearProgressIndicator(
+                  value: ref.watch(webViewProvider).loadProgress.toDouble(),
+                )
+              : const SizedBox(
+                  height: 4,
+                ),
+        ),
       ),
-      body: webViewController != null ? WebViewWidget(controller: ref.watch(webViewProvider).webViewController!) : null,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: InAppWebView(
+                initialUrlRequest: URLRequest(url: WebUri.uri(Uri.parse(bookmark.url!))),
+                onWebViewCreated: (controller) {
+                  ref.read(webViewProvider).inAppWebViewController = controller;
+                },
+                onPermissionRequest: (controller, request) async {
+                  return PermissionResponse(
+                    resources: request.resources,
+                    action: PermissionResponseAction.DENY,
+                  );
+                },
+                onProgressChanged: (controller, progress) {
+                  ref.read(webViewProvider.notifier).setLoadProgress(progress);
+                },
+                initialSettings: InAppWebViewSettings(
+                  allowContentAccess: false,
+                  allowFileAccess: false,
+                  applePayAPIEnabled: false,
+                  cacheEnabled: false,
+                  isInspectable: false,
+                ),
+                onUpdateVisitedHistory: (controller, url, androidIsReload) {
+                  controller.canGoBack().then((value) => ref.read(webViewProvider.notifier).setCanGoBack(value));
+                  controller.canGoForward().then((value) => ref.read(webViewProvider.notifier).setCanGoForward(value));
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: ref.watch(webViewProvider).canGoBack == true
+                        ? () => ref.watch(webViewProvider).inAppWebViewController?.goBack()
+                        : null,
+                    icon: const Icon(Icons.arrow_back_rounded),
+                    tooltip: t.webview.goForward,
+                  ),
+                  const SizedBox(width: 8),
+                  IconButton(
+                    onPressed: ref.watch(webViewProvider).canGoForward == true
+                        ? () => ref.watch(webViewProvider).inAppWebViewController?.goForward()
+                        : null,
+                    icon: const Icon(Icons.arrow_forward_rounded),
+                    tooltip: t.webview.goForward,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
