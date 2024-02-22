@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:my_linkding/screens/links/provider/links.provider.dart';
 
+import 'package:my_linkding/providers/router_provider.dart';
+import 'package:my_linkding/router/paths.dart';
 import 'package:my_linkding/i18n/strings.g.dart';
 
 class Links extends ConsumerWidget {
@@ -90,6 +92,7 @@ class Links extends ConsumerWidget {
                         return Column(
                           children: [
                             ListTile(
+                              onTap: () => ref.watch(routerProvider).push(RoutesPaths.webview, extra: link),
                               isThreeLine: true,
                               title: Text(
                                 validateStrings(link?.title, link?.websiteTitle),

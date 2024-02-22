@@ -5,8 +5,10 @@ import 'package:my_linkding/screens/links/ui/links.dart';
 import 'package:my_linkding/screens/onboarding/ui/onboarding.dart';
 import 'package:my_linkding/screens/search/ui/search.dart';
 import 'package:my_linkding/screens/settings/ui/settings.dart';
+import 'package:my_linkding/screens/webview/ui/webview.dart';
 import 'package:my_linkding/widgets/layout.dart';
 
+import 'package:my_linkding/models/data/bookmarks.dart';
 import 'package:my_linkding/router/paths.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -31,6 +33,10 @@ final List<RouteBase> appRoutes = [
           GoRoute(
             path: RoutesPaths.links,
             builder: (context, state) => const Links(),
+          ),
+          GoRoute(
+            path: RoutesPaths.webview,
+            builder: (context, state) => WebView(bookmark: state.extra as Bookmark),
           ),
         ],
       ),
