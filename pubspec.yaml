@@ -45,6 +45,7 @@ dependencies:
   uuid: ^4.3.3
   slang: ^3.29.0
   slang_flutter: ^3.29.0
+  flutter_svg: ^2.0.9
 
 dev_dependencies:
   build_runner: ^2.4.8
@@ -64,9 +65,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/resources/github.svg
+    - assets/resources/google-play.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

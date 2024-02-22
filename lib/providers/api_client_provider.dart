@@ -18,4 +18,9 @@ class ApiClientProvider extends _$ApiClientProvider {
   void setApiClient(ApiClient client) {
     state = client;
   }
+
+  void disconnectApiClient() {
+    state = null;
+    ref.read(serverInstancesProvider.notifier).removeServerInstances();
+  }
 }

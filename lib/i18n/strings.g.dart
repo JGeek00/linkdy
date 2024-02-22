@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 8 (4 per locale)
+/// Strings: 30 (15 per locale)
 ///
-/// Built on 2024-02-21 at 23:50 UTC
+/// Built on 2024-02-22 at 01:09 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -148,8 +148,28 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
+	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
 	late final _StringsConnectEn connect = _StringsConnectEn._(_root);
 	late final _StringsLinksEn links = _StringsLinksEn._(_root);
+	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
+}
+
+// Path: onboarding
+class _StringsOnboardingEn {
+	_StringsOnboardingEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Welcome to My Linkding';
+	String get subtitle => 'An application to manage your bookmarks.';
+	String get start => 'Start';
+	String get next => 'Next';
+	String get previous => 'Previous';
+	String get serverRequired => 'Servidor requerido';
+	String get serverRequiredDescription => 'My Linkding it\'s not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.';
+	String get installationInstructions => 'Check the installation instructions on the official GitHub repository.';
+	String get serverRunningConfirmation => 'I confirm that I have an instance of the Linkding server already running.';
 }
 
 // Path: connect
@@ -172,6 +192,17 @@ class _StringsLinksEn {
 
 	// Translations
 	String get links => 'Links';
+}
+
+// Path: settings
+class _StringsSettingsEn {
+	_StringsSettingsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get settings => 'Settings';
+	String get disconnectFromServer => 'Disconnect from server';
 }
 
 // Path: <root>
@@ -198,8 +229,28 @@ class _StringsEs implements Translations {
 	@override late final _StringsEs _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsOnboardingEs onboarding = _StringsOnboardingEs._(_root);
 	@override late final _StringsConnectEs connect = _StringsConnectEs._(_root);
 	@override late final _StringsLinksEs links = _StringsLinksEs._(_root);
+	@override late final _StringsSettingsEs settings = _StringsSettingsEs._(_root);
+}
+
+// Path: onboarding
+class _StringsOnboardingEs implements _StringsOnboardingEn {
+	_StringsOnboardingEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Bienvenido a My Linkding';
+	@override String get subtitle => 'Una aplicación para gestionar tus enlaces favoritos.';
+	@override String get start => 'Comenzar';
+	@override String get next => 'Siguiente';
+	@override String get previous => 'Anterior';
+	@override String get serverRequired => 'Servidor requerido';
+	@override String get serverRequiredDescription => 'My Linkding no es una aplicación independiente, requiere el servidor Linkding para funcionar.\nPara utilizar esta aplicación, debe instalar Linkding en su servidor doméstico, VPS o cualquier otro ordenador.';
+	@override String get installationInstructions => 'Mira las instrucciones de instalación en el repositorio oficial en GitHub.';
+	@override String get serverRunningConfirmation => 'Confirmo que tengo una instancia del servidor Linkding ya en funcionamiento.';
 }
 
 // Path: connect
@@ -224,16 +275,38 @@ class _StringsLinksEs implements _StringsLinksEn {
 	@override String get links => 'Enlaces';
 }
 
+// Path: settings
+class _StringsSettingsEs implements _StringsSettingsEn {
+	_StringsSettingsEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get settings => 'Ajustes';
+	@override String get disconnectFromServer => 'Desconectar del servidor';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'onboarding.title': return 'Welcome to My Linkding';
+			case 'onboarding.subtitle': return 'An application to manage your bookmarks.';
+			case 'onboarding.start': return 'Start';
+			case 'onboarding.next': return 'Next';
+			case 'onboarding.previous': return 'Previous';
+			case 'onboarding.serverRequired': return 'Servidor requerido';
+			case 'onboarding.serverRequiredDescription': return 'My Linkding it\'s not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.';
+			case 'onboarding.installationInstructions': return 'Check the installation instructions on the official GitHub repository.';
+			case 'onboarding.serverRunningConfirmation': return 'I confirm that I have an instance of the Linkding server already running.';
 			case 'connect.connect': return 'Connect';
 			case 'connect.connecting': return 'Connecting...';
 			case 'connect.cannotConnectToServer': return 'Cannot connect to the server.';
 			case 'links.links': return 'Links';
+			case 'settings.settings': return 'Settings';
+			case 'settings.disconnectFromServer': return 'Disconnect from server';
 			default: return null;
 		}
 	}
@@ -242,10 +315,21 @@ extension on Translations {
 extension on _StringsEs {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'onboarding.title': return 'Bienvenido a My Linkding';
+			case 'onboarding.subtitle': return 'Una aplicación para gestionar tus enlaces favoritos.';
+			case 'onboarding.start': return 'Comenzar';
+			case 'onboarding.next': return 'Siguiente';
+			case 'onboarding.previous': return 'Anterior';
+			case 'onboarding.serverRequired': return 'Servidor requerido';
+			case 'onboarding.serverRequiredDescription': return 'My Linkding no es una aplicación independiente, requiere el servidor Linkding para funcionar.\nPara utilizar esta aplicación, debe instalar Linkding en su servidor doméstico, VPS o cualquier otro ordenador.';
+			case 'onboarding.installationInstructions': return 'Mira las instrucciones de instalación en el repositorio oficial en GitHub.';
+			case 'onboarding.serverRunningConfirmation': return 'Confirmo que tengo una instancia del servidor Linkding ya en funcionamiento.';
 			case 'connect.connect': return 'Conectar';
 			case 'connect.connecting': return 'Conectando...';
 			case 'connect.cannotConnectToServer': return 'No se puede conectar con el servidor.';
 			case 'links.links': return 'Enlaces';
+			case 'settings.settings': return 'Ajustes';
+			case 'settings.disconnectFromServer': return 'Desconectar del servidor';
 			default: return null;
 		}
 	}

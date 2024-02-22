@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:my_linkding/screens/connect/ui/connect.dart';
 import 'package:my_linkding/screens/links/ui/links.dart';
+import 'package:my_linkding/screens/onboarding/ui/onboarding.dart';
 import 'package:my_linkding/screens/search/ui/search.dart';
 import 'package:my_linkding/screens/settings/ui/settings.dart';
 import 'package:my_linkding/widgets/layout.dart';
@@ -16,8 +16,8 @@ final settingsNavigatorKey = GlobalKey<NavigatorState>();
 
 final List<RouteBase> appRoutes = [
   GoRoute(
-    path: RoutesPaths.connect,
-    builder: (context, state) => const Connect(),
+    path: RoutesPaths.onboarding,
+    builder: (context, state) => const Onboarding(),
   ),
   StatefulShellRoute.indexedStack(
     builder: (context, state, navigationShell) => Layout(

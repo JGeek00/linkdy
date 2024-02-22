@@ -1,4 +1,15 @@
 {
+  "onboarding": {
+    "title": "Bienvenido a My Linkding",
+    "subtitle": "Una aplicación para gestionar tus enlaces favoritos.",
+    "start": "Comenzar",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "serverRequired": "Servidor requerido",
+    "serverRequiredDescription": "My Linkding no es una aplicación independiente, requiere el servidor Linkding para funcionar.\nPara utilizar esta aplicación, debe instalar Linkding en su servidor doméstico, VPS o cualquier otro ordenador.",
+    "installationInstructions": "Mira las instrucciones de instalación en el repositorio oficial en GitHub.",
+    "serverRunningConfirmation": "Confirmo que tengo una instancia del servidor Linkding ya en funcionamiento."
+  },
   "connect": {
     "connect": "Conectar",
     "connecting": "Conectando...",
@@ -6,5 +17,9 @@
   },
   "links": {
     "links": "Enlaces"
+  },
+  "settings": {
+    "settings": "Ajustes",
+    "disconnectFromServer": "Desconectar del servidor"
   }
 }

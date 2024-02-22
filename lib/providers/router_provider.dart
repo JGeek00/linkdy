@@ -12,7 +12,7 @@ GoRouter router(RouterRef ref) {
   return GoRouter(
     redirect: (context, state) {
       if (ref.watch(apiClientProviderProvider) == null) {
-        return RoutesPaths.connect;
+        return RoutesPaths.onboarding;
       }
       return null;
     },

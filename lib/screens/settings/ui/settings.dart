@@ -1,38 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Settings extends StatelessWidget {
+import 'package:my_linkding/i18n/strings.g.dart';
+import 'package:my_linkding/providers/api_client_provider.dart';
+
+class Settings extends ConsumerWidget {
   const Settings({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          SliverOverlapAbsorber(
-            handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-            sliver: SliverAppBar.large(
-              pinned: true,
-              floating: true,
-              centerTitle: false,
-              forceElevated: innerBoxIsScrolled,
-              title: Text("Settings"),
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(t.settings.settings),
+      ),
+      body: ListView(
+        children: [
+          FilledButton.icon(
+            onPressed: () => ref.read(apiClientProviderProvider.notifier).disconnectApiClient(),
+            icon: const Icon(Icons.clear_rounded),
+            label: Text(
+              t.settings.disconnectFromServer,
             ),
           ),
         ],
-        body: SafeArea(
-          top: false,
-          bottom: false,
-          child: Builder(
-            builder: (context) => CustomScrollView(
-              slivers: [
-                SliverOverlapInjector(
-                  handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                ),
-              ],
-            ),
-          ),
-        ),
       ),
     );
   }
