@@ -60,6 +60,13 @@ dev_dependencies:
   riverpod_lint: ^2.3.9
   slang_build_runner: ^3.29.0
   flutter_native_splash: ^2.3.8
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  ios: true
+  android: false
+  remove_alpha_ios: true
+  image_path_ios: "assets/icon/icon1024-background.png"
 
 flutter_native_splash:
   color: "#ffffff"
@@ -86,6 +93,7 @@ flutter:
     - assets/resources/google-play.svg
     - assets/icon/icon1024.png
     - assets/icon/icon-splash.png
+    - assets/icon/icon1024-background.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

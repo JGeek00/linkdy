@@ -118,8 +118,8 @@ class WebView extends ConsumerWidget {
                         child: Row(
                           children: [
                             const Icon(Icons.share_rounded),
-                            const SizedBox(width: 8),
-                            Text(t.webview.share),
+                            const SizedBox(width: 12),
+                            Flexible(child: Text(t.webview.share)),
                           ],
                         ),
                       ),
@@ -131,8 +131,8 @@ class WebView extends ConsumerWidget {
                         child: Row(
                           children: [
                             const Icon(Icons.copy_rounded),
-                            const SizedBox(width: 8),
-                            Text(t.webview.copyLinkClipboard),
+                            const SizedBox(width: 12),
+                            Flexible(child: Text(t.webview.copyLinkClipboard)),
                           ],
                         ),
                       ),
@@ -141,8 +141,8 @@ class WebView extends ConsumerWidget {
                         child: Row(
                           children: [
                             const Icon(Icons.open_in_browser_rounded),
-                            const SizedBox(width: 8),
-                            Text(t.webview.openInSystemBrowser),
+                            const SizedBox(width: 12),
+                            Flexible(child: Text(t.webview.openInSystemBrowser)),
                           ],
                         ),
                       ),

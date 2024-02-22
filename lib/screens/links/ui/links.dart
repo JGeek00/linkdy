@@ -57,7 +57,7 @@ class Links extends ConsumerWidget {
           bottom: false,
           child: Builder(
             builder: (context) => RefreshIndicator(
-              displacement: 95,
+              displacement: 120,
               onRefresh: () => ref.refresh(linksRequestProvider.future),
               child: CustomScrollView(
                 slivers: [
