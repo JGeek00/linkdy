@@ -23,7 +23,14 @@
     "cannotConnectToServer": "Cannot connect to the server."
   },
   "links": {
-    "links": "Links"
+    "links": "Links",
+    "dates": {
+      "todayAt": "Today, $time",
+      "yesterdayAt": "Yesterday, $time"
+    }
+  },
+  "search": {
+    "search": "Search"
   },
   "settings": {
     "settings": "Settings",

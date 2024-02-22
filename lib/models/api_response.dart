@@ -1,6 +1,6 @@
-class ApiResponse {
+class ApiResponse<T> {
   final bool successful;
-  final dynamic content;
+  final T? content;
   final int? statusCode;
 
   const ApiResponse({

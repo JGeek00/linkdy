@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_linkding/i18n/strings.g.dart';
 
 import 'package:my_linkding/widgets/system_overlay_style.dart';
 
@@ -35,18 +36,18 @@ class Layout extends StatelessWidget {
         bottomNavigationBar: NavigationBar(
           onDestinationSelected: (s) => goBranch(s),
           selectedIndex: navigationShell.currentIndex,
-          destinations: const [
+          destinations: [
             NavigationDestination(
-              icon: Icon(Icons.link_rounded),
-              label: "Links",
+              icon: const Icon(Icons.link_rounded),
+              label: t.links.links,
             ),
             NavigationDestination(
-              icon: Icon(Icons.search_rounded),
-              label: "Search",
+              icon: const Icon(Icons.search_rounded),
+              label: t.search.search,
             ),
             NavigationDestination(
-              icon: Icon(Icons.settings_rounded),
-              label: "Settings",
+              icon: const Icon(Icons.settings_rounded),
+              label: t.settings.settings,
             ),
           ],
         ),

@@ -23,7 +23,14 @@
     "cannotConnectToServer": "No se puede conectar con el servidor."
   },
   "links": {
-    "links": "Enlaces"
+    "links": "Enlaces",
+    "dates": {
+      "todayAt": "Hoy, $time",
+      "yesterdayAt": "Ayer, $time"
+    }
+  },
+  "search": {
+    "search": "Buscar"
   },
   "settings": {
     "settings": "Ajustes",

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 48 (24 per locale)
+/// Strings: 54 (27 per locale)
 ///
-/// Built on 2024-02-22 at 10:40 UTC
+/// Built on 2024-02-22 at 17:30 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -150,6 +150,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	// Translations
 	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
 	late final _StringsLinksEn links = _StringsLinksEn._(_root);
+	late final _StringsSearchEn search = _StringsSearchEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 }
 
@@ -191,6 +192,17 @@ class _StringsLinksEn {
 
 	// Translations
 	String get links => 'Links';
+	late final _StringsLinksDatesEn dates = _StringsLinksDatesEn._(_root);
+}
+
+// Path: search
+class _StringsSearchEn {
+	_StringsSearchEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get search => 'Search';
 }
 
 // Path: settings
@@ -202,6 +214,17 @@ class _StringsSettingsEn {
 	// Translations
 	String get settings => 'Settings';
 	String get disconnectFromServer => 'Disconnect from server';
+}
+
+// Path: links.dates
+class _StringsLinksDatesEn {
+	_StringsLinksDatesEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String todayAt({required Object time}) => 'Today, ${time}';
+	String yesterdayAt({required Object time}) => 'Yesterday, ${time}';
 }
 
 // Path: <root>
@@ -230,6 +253,7 @@ class _StringsEs implements Translations {
 	// Translations
 	@override late final _StringsOnboardingEs onboarding = _StringsOnboardingEs._(_root);
 	@override late final _StringsLinksEs links = _StringsLinksEs._(_root);
+	@override late final _StringsSearchEs search = _StringsSearchEs._(_root);
 	@override late final _StringsSettingsEs settings = _StringsSettingsEs._(_root);
 }
 
@@ -271,6 +295,17 @@ class _StringsLinksEs implements _StringsLinksEn {
 
 	// Translations
 	@override String get links => 'Enlaces';
+	@override late final _StringsLinksDatesEs dates = _StringsLinksDatesEs._(_root);
+}
+
+// Path: search
+class _StringsSearchEs implements _StringsSearchEn {
+	_StringsSearchEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get search => 'Buscar';
 }
 
 // Path: settings
@@ -282,6 +317,17 @@ class _StringsSettingsEs implements _StringsSettingsEn {
 	// Translations
 	@override String get settings => 'Ajustes';
 	@override String get disconnectFromServer => 'Desconectar del servidor';
+}
+
+// Path: links.dates
+class _StringsLinksDatesEs implements _StringsLinksDatesEn {
+	_StringsLinksDatesEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String todayAt({required Object time}) => 'Hoy, ${time}';
+	@override String yesterdayAt({required Object time}) => 'Ayer, ${time}';
 }
 
 /// Flat map(s) containing all translations.
@@ -312,6 +358,9 @@ extension on Translations {
 			case 'onboarding.connecting': return 'Connecting...';
 			case 'onboarding.cannotConnectToServer': return 'Cannot connect to the server.';
 			case 'links.links': return 'Links';
+			case 'links.dates.todayAt': return ({required Object time}) => 'Today, ${time}';
+			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
+			case 'search.search': return 'Search';
 			case 'settings.settings': return 'Settings';
 			case 'settings.disconnectFromServer': return 'Disconnect from server';
 			default: return null;
@@ -344,6 +393,9 @@ extension on _StringsEs {
 			case 'onboarding.connecting': return 'Conectando...';
 			case 'onboarding.cannotConnectToServer': return 'No se puede conectar con el servidor.';
 			case 'links.links': return 'Enlaces';
+			case 'links.dates.todayAt': return ({required Object time}) => 'Hoy, ${time}';
+			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';
+			case 'search.search': return 'Buscar';
 			case 'settings.settings': return 'Ajustes';
 			case 'settings.disconnectFromServer': return 'Desconectar del servidor';
 			default: return null;

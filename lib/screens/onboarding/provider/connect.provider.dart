@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -5,6 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:my_linkding/screens/onboarding/model/connect.model.dart';
 
 import 'package:my_linkding/providers/server_instances_provider.dart';
+import 'package:my_linkding/utils/api_base_url.dart';
 import 'package:my_linkding/i18n/strings.g.dart';
 import 'package:my_linkding/constants/enums.dart';
 import 'package:my_linkding/utils/process_modal.dart';
@@ -88,7 +90,17 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
     token: ref.watch(connectProvider).tokenController.text,
   );
 
-  final apiClient = ApiClient(serverInstance: serverInstance);
+  final apiClient = ApiClient(
+    serverInstance: serverInstance,
+    dioInstance: Dio(
+      BaseOptions(
+        baseUrl: apiBaseUrl(serverInstance),
+        headers: {
+          "Authorization": "Token ${serverInstance.token}",
+        },
+      ),
+    ),
+  );
 
   final processModal = ProcessModal();
   processModal.open(t.onboarding.connecting);

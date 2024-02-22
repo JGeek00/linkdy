@@ -1,19 +1,43 @@
 import 'package:dio/dio.dart';
 
+import 'package:my_linkding/models/api_response.dart';
+import 'package:my_linkding/models/data/bookmarks.dart';
 import 'package:my_linkding/models/server_instance.dart';
-import 'package:my_linkding/utils/http_request_client.dart';
-
-final dio = Dio();
 
 class ApiClient {
   final ServerInstance serverInstance;
+  final Dio dioInstance;
 
   const ApiClient({
     required this.serverInstance,
+    required this.dioInstance,
   });
 
   Future<bool> checkConnectionInstance() async {
-    final result = await HttpRequestClient.get(urlPath: "/bookmarks/?limit=1", server: serverInstance);
-    return result.successful;
+    try {
+      await dioInstance.get("/bookmarks/?limit=1");
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  Future<ApiResponse<Bookmarks>> fetchBookmarks({String? q, int? limit, int? offset}) async {
+    try {
+      final response = await dioInstance.get(
+        "/bookmarks",
+        queryParameters: {
+          "q": q,
+          "limit": limit,
+          "offset": offset,
+        },
+      );
+      return ApiResponse(
+        successful: true,
+        content: Bookmarks.fromJson(response.data),
+      );
+    } catch (e, stackTrace) {
+      return const ApiResponse(successful: false);
+    }
   }
 }

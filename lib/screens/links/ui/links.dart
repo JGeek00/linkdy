@@ -1,12 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:my_linkding/screens/links/provider/links.provider.dart';
 
 import 'package:my_linkding/i18n/strings.g.dart';
 
-class Links extends StatelessWidget {
+class Links extends ConsumerWidget {
   const Links({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final bookmarks = ref.watch(linksRequestProvider);
+
+    String validateStrings(String? string1, String? string2) {
+      if (string1 != null && string1.isNotEmpty) {
+        return string1;
+      } else if (string2 != null && string2.isNotEmpty) {
+        return string2;
+      } else {
+        return "";
+      }
+    }
+
+    String dateString(DateTime date) {
+      final today = DateTime.now();
+      final yesterday = DateTime.now().subtract(const Duration(days: 1));
+
+      if (date.day == today.day && date.month == today.month && date.year == today.year) {
+        return t.links.dates.todayAt(time: "${date.hour}:${date.minute}");
+      } else if (date.day == yesterday.day && date.month == yesterday.month && date.year == yesterday.year) {
+        return t.links.dates.yesterdayAt(time: "${date.hour}:${date.minute}");
+      } else {
+        return "${date.day}/${date.month}/${date.year} - ${date.hour}:${date.minute}";
+      }
+    }
+
     return Material(
       color: Colors.transparent,
       child: NestedScrollView(
@@ -26,65 +54,109 @@ class Links extends StatelessWidget {
           top: false,
           bottom: false,
           child: Builder(
-            builder: (context) => CustomScrollView(
-              slivers: [
-                SliverOverlapInjector(
-                  handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                ),
-                SliverList.builder(
-                  itemCount: 40,
-                  itemBuilder: (context, index) => ListTile(
-                    title: Text(
-                      "This is the title",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Theme.of(context).colorScheme.onSurface,
+            builder: (context) => RefreshIndicator(
+              displacement: 95,
+              onRefresh: () => ref.refresh(linksRequestProvider.future),
+              child: CustomScrollView(
+                slivers: [
+                  SliverOverlapInjector(
+                    handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                  ),
+                  if (bookmarks.isLoading && !bookmarks.isRefreshing)
+                    const SliverFillRemaining(
+                      child: Center(child: CircularProgressIndicator()),
+                    ),
+                  if (bookmarks.value != null && bookmarks.value!.successful == false)
+                    const SliverFillRemaining(
+                      child: Center(
+                        child: Icon(Icons.error),
                       ),
                     ),
-                    subtitle: Column(
-                      children: [
-                        Text(
-                          "All the speed he took, all the turns he’d taken and the dripping chassis of a skyscraper canyon. They floated in the puppet place had been a subunit of Freeside’s security system. The knives seemed to move of their own accord, gliding with a ritual lack of urgency through the center of his closed left eyelid. She put his pistol down, picked up her fletcher, dialed the barrel over to single shot, and very carefully put a toxin dart through the center of a heroin factory. Still it was a square of faint light. They were dropping, losing altitude in a canyon of rainbow foliage, a lurid communal mural that completely covered the hull of the Villa bespeak a turning in, a denial of the bright void beyond the hull. A narrow wedge of light from a half-open service hatch at the clinic, Molly took him to the simple Chinese hollow points Shin had sold him. Still it was a steady pulse of pain midway down his spine. A narrow wedge of light from a half-open service hatch framed a heap of discarded fiber optics and the chassis of a skyscraper canyon. The Tessier-Ashpool ice shattered, peeling away from the banks of every computer in the center of his closed left eyelid.",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Theme.of(context).colorScheme.onSurfaceVariant,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        Row(
+                  if (bookmarks.value != null &&
+                      bookmarks.value!.successful == true &&
+                      bookmarks.value!.content!.results!.isEmpty)
+                    const SliverFillRemaining(
+                      child: Center(
+                        child: Text("No bookmarks"),
+                      ),
+                    ),
+                  if (bookmarks.value != null &&
+                      bookmarks.value!.successful == true &&
+                      bookmarks.value!.content!.results!.isNotEmpty)
+                    SliverList.builder(
+                      itemCount: bookmarks.value?.content?.results?.length,
+                      itemBuilder: (context, index) {
+                        final link = bookmarks.value?.content?.results?[index];
+                        return Column(
                           children: [
-                            Expanded(
-                              child: Text(
-                                "#flutter #apps",
+                            ListTile(
+                              isThreeLine: true,
+                              title: Text(
+                                validateStrings(link?.title, link?.websiteTitle),
+                                maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18,
+                                  color: Theme.of(context).colorScheme.onSurface,
                                 ),
                               ),
-                            ),
-                            Container(
-                              width: 1,
-                              height: 12,
-                              margin: const EdgeInsets.symmetric(horizontal: 8),
-                              color: Theme.of(context).dividerColor,
-                            ),
-                            Text(
-                              "1 week ago",
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Theme.of(context).colorScheme.onSurfaceVariant,
+                              subtitle: Column(
+                                children: [
+                                  Text(
+                                    validateStrings(link?.description, link?.websiteDescription),
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          link?.tagNames?.map((tag) => "#$tag").join(" ") ?? '',
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                      if (link?.dateModified != null) ...[
+                                        Container(
+                                          width: 1,
+                                          height: 12,
+                                          margin: const EdgeInsets.symmetric(horizontal: 8),
+                                          color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
+                                        ),
+                                        Text(
+                                          dateString(link!.dateModified!),
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                          ),
+                                        ),
+                                      ],
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
+                            if (index < bookmarks.value!.content!.results!.length - 1)
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 16),
+                                child: Divider(
+                                  color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
+                                ),
+                              ),
                           ],
-                        ),
-                      ],
+                        );
+                      },
                     ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

@@ -1,9 +1,9 @@
-import 'package:my_linkding/constants/enums.dart';
-
 class LinksModel {
-  final LoadStatus loadStatus;
+  int currentPage;
+  int limit;
 
   LinksModel({
-    required this.loadStatus,
+    this.currentPage = 0,
+    this.limit = 100,
   });
 }
