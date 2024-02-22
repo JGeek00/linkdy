@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 
-import 'package:my_linkding/models/api_response.dart';
-import 'package:my_linkding/models/data/bookmarks.dart';
-import 'package:my_linkding/models/server_instance.dart';
+import 'package:linkdy/models/api_response.dart';
+import 'package:linkdy/models/data/bookmarks.dart';
+import 'package:linkdy/models/server_instance.dart';
 
 class ApiClient {
   final ServerInstance serverInstance;

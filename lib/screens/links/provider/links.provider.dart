@@ -1,10 +1,10 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:my_linkding/screens/links/model/links.model.dart';
+import 'package:linkdy/screens/links/model/links.model.dart';
 
-import 'package:my_linkding/models/api_response.dart';
-import 'package:my_linkding/models/data/bookmarks.dart';
-import 'package:my_linkding/providers/api_client_provider.dart';
+import 'package:linkdy/models/api_response.dart';
+import 'package:linkdy/models/data/bookmarks.dart';
+import 'package:linkdy/providers/api_client_provider.dart';
 
 part 'links.provider.g.dart';
 

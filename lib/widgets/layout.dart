@@ -1,9 +1,9 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_linkding/i18n/strings.g.dart';
+import 'package:linkdy/i18n/strings.g.dart';
 
-import 'package:my_linkding/widgets/system_overlay_style.dart';
+import 'package:linkdy/widgets/system_overlay_style.dart';
 
 class Layout extends StatelessWidget {
   final StatefulNavigationShell navigationShell;

@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:my_linkding/screens/onboarding/model/connect.model.dart';
+import 'package:linkdy/screens/onboarding/model/connect.model.dart';
 
-import 'package:my_linkding/providers/server_instances_provider.dart';
-import 'package:my_linkding/utils/api_base_url.dart';
-import 'package:my_linkding/i18n/strings.g.dart';
-import 'package:my_linkding/constants/enums.dart';
-import 'package:my_linkding/utils/process_modal.dart';
-import 'package:my_linkding/utils/snackbar.dart';
-import 'package:my_linkding/models/server_instance.dart';
-import 'package:my_linkding/providers/api_client_provider.dart';
-import 'package:my_linkding/services/api_client.dart';
-import 'package:my_linkding/constants/regexp.dart';
-import 'package:my_linkding/helpers/wrapped_class.dart';
+import 'package:linkdy/providers/server_instances_provider.dart';
+import 'package:linkdy/utils/api_base_url.dart';
+import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/constants/enums.dart';
+import 'package:linkdy/utils/process_modal.dart';
+import 'package:linkdy/utils/snackbar.dart';
+import 'package:linkdy/models/server_instance.dart';
+import 'package:linkdy/providers/api_client_provider.dart';
+import 'package:linkdy/services/api_client.dart';
+import 'package:linkdy/constants/regexp.dart';
+import 'package:linkdy/helpers/wrapped_class.dart';
 
 part 'connect.provider.g.dart';
 

@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jgeek00.my_linkding">
+    package="com.jgeek00.linkdy">
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:label="My Linkding"
+        android:label="Linkdy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

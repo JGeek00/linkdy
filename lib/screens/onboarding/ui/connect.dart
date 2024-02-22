@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:segmented_button_slide/segmented_button_slide.dart';
 
-import 'package:my_linkding/screens/onboarding/ui/sliver_top_bar.dart';
-import 'package:my_linkding/screens/onboarding/provider/connect.provider.dart';
-import 'package:my_linkding/screens/onboarding/provider/onboarding.provider.dart';
-import 'package:my_linkding/widgets/section_label.dart';
+import 'package:linkdy/screens/onboarding/ui/sliver_top_bar.dart';
+import 'package:linkdy/screens/onboarding/provider/connect.provider.dart';
+import 'package:linkdy/screens/onboarding/provider/onboarding.provider.dart';
+import 'package:linkdy/widgets/section_label.dart';
 
-import 'package:my_linkding/utils/open_url.dart';
-import 'package:my_linkding/constants/enums.dart';
-import 'package:my_linkding/i18n/strings.g.dart';
+import 'package:linkdy/utils/open_url.dart';
+import 'package:linkdy/constants/enums.dart';
+import 'package:linkdy/i18n/strings.g.dart';
 
 class OnboardingConnect extends ConsumerWidget {
   const OnboardingConnect({Key? key}) : super(key: key);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:my_linkding/i18n/strings.g.dart';
-import 'package:my_linkding/providers/api_client_provider.dart';
+import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/providers/api_client_provider.dart';
 
 class Settings extends ConsumerWidget {
   const Settings({Key? key}) : super(key: key);

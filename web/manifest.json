@@ -1,6 +1,6 @@
 {
-    "name": "my_linkding",
-    "short_name": "my_linkding",
+    "name": "linkdy",
+    "short_name": "linkdy",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

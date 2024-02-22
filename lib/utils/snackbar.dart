@@ -1,7 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:my_linkding/constants/global_keys.dart';
+import 'package:linkdy/constants/global_keys.dart';
 
 void showSnacbkar({
   required String label,

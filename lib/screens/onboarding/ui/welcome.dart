@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_linkding/i18n/strings.g.dart';
+import 'package:linkdy/i18n/strings.g.dart';
 
-import 'package:my_linkding/screens/onboarding/provider/onboarding.provider.dart';
+import 'package:linkdy/screens/onboarding/provider/onboarding.provider.dart';
 
 class OnboardingWelcome extends ConsumerWidget {
   const OnboardingWelcome({Key? key}) : super(key: key);

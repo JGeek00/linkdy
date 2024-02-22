@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:my_linkding/screens/onboarding/provider/onboarding.provider.dart';
-import 'package:my_linkding/screens/onboarding/ui/sliver_top_bar.dart';
+import 'package:linkdy/screens/onboarding/provider/onboarding.provider.dart';
+import 'package:linkdy/screens/onboarding/ui/sliver_top_bar.dart';
 
-import 'package:my_linkding/constants/urls.dart';
-import 'package:my_linkding/i18n/strings.g.dart';
-import 'package:my_linkding/utils/open_url.dart';
+import 'package:linkdy/constants/urls.dart';
+import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/utils/open_url.dart';
 
 class OnboardingServerRequired extends ConsumerWidget {
   const OnboardingServerRequired({Key? key}) : super(key: key);

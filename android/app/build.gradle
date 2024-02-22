@@ -30,7 +30,7 @@ if (keystorePropertiesFile.exists()) {
 
 
 android {
-    namespace "com.jgeek00.my_linkding"
+    namespace "com.jgeek00.linkdy"
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
@@ -48,7 +48,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.jgeek00.my_linkding"
+        applicationId "com.jgeek00.linkdy"
         minSdkVersion 26
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()

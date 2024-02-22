@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:my_linkding/widgets/process_dialog.dart';
+import 'package:linkdy/widgets/process_dialog.dart';
 
-import 'package:my_linkding/router/routes.dart';
+import 'package:linkdy/router/routes.dart';
 
 class ProcessModal {
   void open(String message) async {

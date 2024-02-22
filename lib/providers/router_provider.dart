@@ -1,9 +1,9 @@
 import 'package:go_router/go_router.dart';
-import 'package:my_linkding/providers/api_client_provider.dart';
-import 'package:my_linkding/router/paths.dart';
+import 'package:linkdy/providers/api_client_provider.dart';
+import 'package:linkdy/router/paths.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:my_linkding/router/routes.dart';
+import 'package:linkdy/router/routes.dart';
 
 part 'router_provider.g.dart';
 

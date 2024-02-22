@@ -1,12 +1,12 @@
 {
   "onboarding": {
-    "title": "Welcome to My Linkding",
+    "title": "Welcome to Linkdy",
     "subtitle": "An application to manage your bookmarks.",
     "start": "Start",
     "next": "Next",
     "previous": "Previous",
     "serverRequired": "Servidor requerido",
-    "serverRequiredDescription": "My Linkding it's not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.",
+    "serverRequiredDescription": "Linkdy it's not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.",
     "installationInstructions": "Check the installation instructions on the official GitHub repository.",
     "serverRunningConfirmation": "I confirm that I have an instance of the Linkding server already running.",
     "createConnection": "Create a connection",

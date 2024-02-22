@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_linkding/helpers/wrapped_class.dart';
+import 'package:linkdy/helpers/wrapped_class.dart';
 
 class ConnectModel {
   final bool isConnecting;

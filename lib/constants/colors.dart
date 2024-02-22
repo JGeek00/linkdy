@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:my_linkding/constants/linkding_color.dart';
+import 'package:linkdy/constants/linkding_color.dart';
 
 const List<MaterialColor> colors = [
   linkdingColor,

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:my_linkding/screens/links/provider/links.provider.dart';
+import 'package:linkdy/screens/links/provider/links.provider.dart';
 
-import 'package:my_linkding/providers/router_provider.dart';
-import 'package:my_linkding/router/paths.dart';
-import 'package:my_linkding/i18n/strings.g.dart';
+import 'package:linkdy/providers/router_provider.dart';
+import 'package:linkdy/router/paths.dart';
+import 'package:linkdy/i18n/strings.g.dart';
 
 class Links extends ConsumerWidget {
   const Links({Key? key}) : super(key: key);

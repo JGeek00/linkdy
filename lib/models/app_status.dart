@@ -1,4 +1,4 @@
-import 'package:my_linkding/models/server_instance.dart';
+import 'package:linkdy/models/server_instance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppStatus {

@@ -1,4 +1,4 @@
-package com.jgeek00.my_linkding
+package com.jgeek00.linkdy
 
 import io.flutter.embedding.android.FlutterActivity
 

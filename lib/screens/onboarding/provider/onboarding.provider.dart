@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:my_linkding/screens/onboarding/model/onboarding.model.dart';
+import 'package:linkdy/screens/onboarding/model/onboarding.model.dart';
 
 part 'onboarding.provider.g.dart';
 

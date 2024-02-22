@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'package:my_linkding/screens/webview/model/webview.model.dart';
+import 'package:linkdy/screens/webview/model/webview.model.dart';
 
 part 'webview.provider.g.dart';
 

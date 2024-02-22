@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:my_linkding/config/shared_preferences_keys.dart';
-import 'package:my_linkding/providers/shared_preferences_provider.dart';
+import 'package:linkdy/config/shared_preferences_keys.dart';
+import 'package:linkdy/providers/shared_preferences_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:my_linkding/models/server_instance.dart';
+import 'package:linkdy/models/server_instance.dart';
 
 part 'server_instances_provider.g.dart';
 

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:my_linkding/screens/links/ui/links.dart';
-import 'package:my_linkding/screens/onboarding/ui/onboarding.dart';
-import 'package:my_linkding/screens/search/ui/search.dart';
-import 'package:my_linkding/screens/settings/ui/settings.dart';
-import 'package:my_linkding/screens/webview/ui/webview.dart';
-import 'package:my_linkding/widgets/layout.dart';
+import 'package:linkdy/screens/links/ui/links.dart';
+import 'package:linkdy/screens/onboarding/ui/onboarding.dart';
+import 'package:linkdy/screens/search/ui/search.dart';
+import 'package:linkdy/screens/settings/ui/settings.dart';
+import 'package:linkdy/screens/webview/ui/webview.dart';
+import 'package:linkdy/widgets/layout.dart';
 
-import 'package:my_linkding/models/data/bookmarks.dart';
-import 'package:my_linkding/router/paths.dart';
+import 'package:linkdy/models/data/bookmarks.dart';
+import 'package:linkdy/router/paths.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
 final linksNavigatorKey = GlobalKey<NavigatorState>();

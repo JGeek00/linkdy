@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:my_linkding/models/data/bookmarks.dart';
-import 'package:my_linkding/screens/webview/provider/webview.provider.dart';
+import 'package:linkdy/models/data/bookmarks.dart';
+import 'package:linkdy/screens/webview/provider/webview.provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebView extends ConsumerWidget {
