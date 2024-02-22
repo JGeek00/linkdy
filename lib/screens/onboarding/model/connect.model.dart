@@ -12,6 +12,7 @@ class ConnectModel {
   final String? pathError;
   final TextEditingController tokenController;
   final String? tokenError;
+  final bool validValues;
 
   ConnectModel({
     required this.isConnecting,
@@ -24,6 +25,7 @@ class ConnectModel {
     required this.pathError,
     required this.tokenController,
     required this.tokenError,
+    required this.validValues,
   });
 
   ConnectModel copyWidth({
@@ -37,6 +39,7 @@ class ConnectModel {
     Wrapped<String?>? pathError,
     TextEditingController? tokenController,
     Wrapped<String?>? tokenError,
+    bool? validValues,
   }) =>
       ConnectModel(
         isConnecting: isConnecting ?? this.isConnecting,
@@ -49,5 +52,6 @@ class ConnectModel {
         pathError: pathError != null ? pathError.value : this.pathError,
         tokenController: tokenController ?? this.tokenController,
         tokenError: tokenError != null ? tokenError.value : this.tokenError,
+        validValues: validValues ?? this.validValues,
       );
 }

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:my_linkding/screens/onboarding/provider/onboarding.provider.dart';
+import 'package:my_linkding/screens/onboarding/ui/sliver_top_bar.dart';
 
 import 'package:my_linkding/constants/urls.dart';
 import 'package:my_linkding/i18n/strings.g.dart';
@@ -22,9 +23,12 @@ class OnboardingServerRequired extends ConsumerWidget {
           Expanded(
             child: CustomScrollView(
               slivers: [
-                const SliverPersistentHeader(
+                SliverPersistentHeader(
                   pinned: true,
-                  delegate: _Header(),
+                  delegate: OnboardingSliverTopBar(
+                    icon: Icons.dns_rounded,
+                    title: t.onboarding.serverRequired,
+                  ),
                 ),
                 SliverList.list(
                   children: [
@@ -118,71 +122,5 @@ class OnboardingServerRequired extends ConsumerWidget {
         ],
       ),
     );
-  }
-}
-
-const _minExent = 50.0;
-const _maxExent = 130.0;
-
-const _iconMaxSize = 50;
-const _iconMinSize = 30;
-
-const _textMaxSize = 28;
-const _textMinSize = 22;
-
-const _textMaxTopPosition = 70;
-const _textMinTopPosition = 0;
-
-const _textMaxLeftPosition = 0;
-const _textMinLeftPosition = 44;
-
-class _Header extends SliverPersistentHeaderDelegate {
-  const _Header();
-
-  @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    final iconPercentage = shrinkOffset.clamp(0, _maxExent - _minExent) / (_maxExent - _minExent);
-    final textPercentage = shrinkOffset.clamp(0, _maxExent - _minExent) / (_maxExent - _minExent);
-
-    final iconSize = _iconMinSize + (_iconMaxSize - _iconMinSize) * (1 - iconPercentage);
-    final textSize = _textMinSize + (_textMaxSize - _textMinSize) * (1 - textPercentage);
-    final textTopPosition = _textMinTopPosition + (_textMaxTopPosition - _textMinTopPosition) * (1 - textPercentage);
-    final textLeftPosition =
-        _textMinLeftPosition + (_textMaxLeftPosition - _textMinLeftPosition) * (1 - textPercentage);
-
-    return Container(
-      color: Theme.of(context).colorScheme.surface,
-      child: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            child: Icon(
-              Icons.dns_rounded,
-              size: iconSize,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ),
-          Positioned(
-            top: textTopPosition,
-            left: textLeftPosition,
-            child: Text(
-              t.onboarding.serverRequired,
-              style: TextStyle(fontSize: textSize),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  @override
-  double get maxExtent => _maxExent;
-
-  @override
-  double get minExtent => _minExent;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return false;
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:my_linkding/screens/connect/model/connect.model.dart';
+import 'package:my_linkding/screens/onboarding/model/connect.model.dart';
 
 import 'package:my_linkding/providers/server_instances_provider.dart';
 import 'package:my_linkding/i18n/strings.g.dart';
@@ -32,6 +32,7 @@ class Connect extends _$Connect {
       pathError: null,
       tokenController: TextEditingController(),
       tokenError: null,
+      validValues: false,
     );
   }
 
@@ -45,6 +46,7 @@ class Connect extends _$Connect {
     } else {
       state = state.copyWidth(ipDomainError: const Wrapped.value("Error"));
     }
+    state = state.copyWidth(validValues: validValues());
   }
 
   void validatePort(value) {
@@ -55,6 +57,7 @@ class Connect extends _$Connect {
         state = state.copyWidth(portError: const Wrapped.value("Invalid port"));
       }
     }
+    state = state.copyWidth(validValues: validValues());
   }
 
   void validateToken(String value) {
@@ -63,6 +66,7 @@ class Connect extends _$Connect {
     } else {
       state = state.copyWidth(tokenError: const Wrapped.value("Error"));
     }
+    state = state.copyWidth(validValues: validValues());
   }
 
   bool validValues() {
@@ -87,7 +91,7 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
   final apiClient = ApiClient(serverInstance: serverInstance);
 
   final processModal = ProcessModal();
-  processModal.open(t.connect.connecting);
+  processModal.open(t.onboarding.connecting);
 
   final result = await apiClient.checkConnectionInstance();
 
@@ -97,7 +101,7 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
     ref.read(serverInstancesProvider.notifier).saveNewInstance(serverInstance);
     // ref.watch(routerProvider).replace(RoutesPaths.links);
   } else {
-    showSnacbkar(label: t.connect.cannotConnectToServer, color: Colors.red);
+    showSnacbkar(label: t.onboarding.cannotConnectToServer, color: Colors.red);
   }
 
   return false;

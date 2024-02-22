@@ -8,9 +8,16 @@
     "serverRequired": "Servidor requerido",
     "serverRequiredDescription": "My Linkding it's not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.",
     "installationInstructions": "Check the installation instructions on the official GitHub repository.",
-    "serverRunningConfirmation": "I confirm that I have an instance of the Linkding server already running."
-  },
-  "connect": {
+    "serverRunningConfirmation": "I confirm that I have an instance of the Linkding server already running.",
+    "createConnection": "Create a connection",
+    "createConnectionSubtitle": "Enter all the required details to create a connection to your server.",
+    "ipAddressOrDomain": "IP address or domain",
+    "port": "Port",
+    "token": "Token",
+    "required": "Required",
+    "serverDetails": "Server details",
+    "authentication": "Authentication",
+    "testConnectionUrl": "Test connection url",
     "connect": "Connect",
     "connecting": "Connecting...",
     "cannotConnectToServer": "Cannot connect to the server."

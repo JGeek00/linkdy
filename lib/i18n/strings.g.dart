@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 30 (15 per locale)
+/// Strings: 48 (24 per locale)
 ///
-/// Built on 2024-02-22 at 01:09 UTC
+/// Built on 2024-02-22 at 10:40 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -149,7 +149,6 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 
 	// Translations
 	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
-	late final _StringsConnectEn connect = _StringsConnectEn._(_root);
 	late final _StringsLinksEn links = _StringsLinksEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 }
@@ -170,15 +169,15 @@ class _StringsOnboardingEn {
 	String get serverRequiredDescription => 'My Linkding it\'s not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.';
 	String get installationInstructions => 'Check the installation instructions on the official GitHub repository.';
 	String get serverRunningConfirmation => 'I confirm that I have an instance of the Linkding server already running.';
-}
-
-// Path: connect
-class _StringsConnectEn {
-	_StringsConnectEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
+	String get createConnection => 'Create a connection';
+	String get createConnectionSubtitle => 'Enter all the required details to create a connection to your server.';
+	String get ipAddressOrDomain => 'IP address or domain';
+	String get port => 'Port';
+	String get token => 'Token';
+	String get required => 'Required';
+	String get serverDetails => 'Server details';
+	String get authentication => 'Authentication';
+	String get testConnectionUrl => 'Test connection url';
 	String get connect => 'Connect';
 	String get connecting => 'Connecting...';
 	String get cannotConnectToServer => 'Cannot connect to the server.';
@@ -230,7 +229,6 @@ class _StringsEs implements Translations {
 
 	// Translations
 	@override late final _StringsOnboardingEs onboarding = _StringsOnboardingEs._(_root);
-	@override late final _StringsConnectEs connect = _StringsConnectEs._(_root);
 	@override late final _StringsLinksEs links = _StringsLinksEs._(_root);
 	@override late final _StringsSettingsEs settings = _StringsSettingsEs._(_root);
 }
@@ -251,15 +249,15 @@ class _StringsOnboardingEs implements _StringsOnboardingEn {
 	@override String get serverRequiredDescription => 'My Linkding no es una aplicación independiente, requiere el servidor Linkding para funcionar.\nPara utilizar esta aplicación, debe instalar Linkding en su servidor doméstico, VPS o cualquier otro ordenador.';
 	@override String get installationInstructions => 'Mira las instrucciones de instalación en el repositorio oficial en GitHub.';
 	@override String get serverRunningConfirmation => 'Confirmo que tengo una instancia del servidor Linkding ya en funcionamiento.';
-}
-
-// Path: connect
-class _StringsConnectEs implements _StringsConnectEn {
-	_StringsConnectEs._(this._root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
+	@override String get createConnection => 'Crear una conexión';
+	@override String get createConnectionSubtitle => 'Introduce todos los detalles requeridos para crear una conexión con el servidor';
+	@override String get ipAddressOrDomain => 'Dirección IP o dominio';
+	@override String get port => 'Puerto';
+	@override String get token => 'Token';
+	@override String get required => 'Requerido';
+	@override String get serverDetails => 'Detalles del servidor';
+	@override String get authentication => 'Autenticación';
+	@override String get testConnectionUrl => 'Probar URL de conexión';
 	@override String get connect => 'Conectar';
 	@override String get connecting => 'Conectando...';
 	@override String get cannotConnectToServer => 'No se puede conectar con el servidor.';
@@ -301,9 +299,18 @@ extension on Translations {
 			case 'onboarding.serverRequiredDescription': return 'My Linkding it\'s not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.';
 			case 'onboarding.installationInstructions': return 'Check the installation instructions on the official GitHub repository.';
 			case 'onboarding.serverRunningConfirmation': return 'I confirm that I have an instance of the Linkding server already running.';
-			case 'connect.connect': return 'Connect';
-			case 'connect.connecting': return 'Connecting...';
-			case 'connect.cannotConnectToServer': return 'Cannot connect to the server.';
+			case 'onboarding.createConnection': return 'Create a connection';
+			case 'onboarding.createConnectionSubtitle': return 'Enter all the required details to create a connection to your server.';
+			case 'onboarding.ipAddressOrDomain': return 'IP address or domain';
+			case 'onboarding.port': return 'Port';
+			case 'onboarding.token': return 'Token';
+			case 'onboarding.required': return 'Required';
+			case 'onboarding.serverDetails': return 'Server details';
+			case 'onboarding.authentication': return 'Authentication';
+			case 'onboarding.testConnectionUrl': return 'Test connection url';
+			case 'onboarding.connect': return 'Connect';
+			case 'onboarding.connecting': return 'Connecting...';
+			case 'onboarding.cannotConnectToServer': return 'Cannot connect to the server.';
 			case 'links.links': return 'Links';
 			case 'settings.settings': return 'Settings';
 			case 'settings.disconnectFromServer': return 'Disconnect from server';
@@ -324,9 +331,18 @@ extension on _StringsEs {
 			case 'onboarding.serverRequiredDescription': return 'My Linkding no es una aplicación independiente, requiere el servidor Linkding para funcionar.\nPara utilizar esta aplicación, debe instalar Linkding en su servidor doméstico, VPS o cualquier otro ordenador.';
 			case 'onboarding.installationInstructions': return 'Mira las instrucciones de instalación en el repositorio oficial en GitHub.';
 			case 'onboarding.serverRunningConfirmation': return 'Confirmo que tengo una instancia del servidor Linkding ya en funcionamiento.';
-			case 'connect.connect': return 'Conectar';
-			case 'connect.connecting': return 'Conectando...';
-			case 'connect.cannotConnectToServer': return 'No se puede conectar con el servidor.';
+			case 'onboarding.createConnection': return 'Crear una conexión';
+			case 'onboarding.createConnectionSubtitle': return 'Introduce todos los detalles requeridos para crear una conexión con el servidor';
+			case 'onboarding.ipAddressOrDomain': return 'Dirección IP o dominio';
+			case 'onboarding.port': return 'Puerto';
+			case 'onboarding.token': return 'Token';
+			case 'onboarding.required': return 'Requerido';
+			case 'onboarding.serverDetails': return 'Detalles del servidor';
+			case 'onboarding.authentication': return 'Autenticación';
+			case 'onboarding.testConnectionUrl': return 'Probar URL de conexión';
+			case 'onboarding.connect': return 'Conectar';
+			case 'onboarding.connecting': return 'Conectando...';
+			case 'onboarding.cannotConnectToServer': return 'No se puede conectar con el servidor.';
 			case 'links.links': return 'Enlaces';
 			case 'settings.settings': return 'Ajustes';
 			case 'settings.disconnectFromServer': return 'Desconectar del servidor';

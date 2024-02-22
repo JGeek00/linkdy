@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_linkding/i18n/strings.g.dart';
+
 import 'package:my_linkding/screens/onboarding/provider/onboarding.provider.dart';
 
 class OnboardingWelcome extends ConsumerWidget {

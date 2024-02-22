@@ -8,9 +8,16 @@
     "serverRequired": "Servidor requerido",
     "serverRequiredDescription": "My Linkding no es una aplicación independiente, requiere el servidor Linkding para funcionar.\nPara utilizar esta aplicación, debe instalar Linkding en su servidor doméstico, VPS o cualquier otro ordenador.",
     "installationInstructions": "Mira las instrucciones de instalación en el repositorio oficial en GitHub.",
-    "serverRunningConfirmation": "Confirmo que tengo una instancia del servidor Linkding ya en funcionamiento."
-  },
-  "connect": {
+    "serverRunningConfirmation": "Confirmo que tengo una instancia del servidor Linkding ya en funcionamiento.",
+    "createConnection": "Crear una conexión",
+    "createConnectionSubtitle": "Introduce todos los detalles requeridos para crear una conexión con el servidor",
+    "ipAddressOrDomain": "Dirección IP o dominio",
+    "port": "Puerto",
+    "token": "Token",
+    "required": "Requerido",
+    "serverDetails": "Detalles del servidor",
+    "authentication": "Autenticación",
+    "testConnectionUrl": "Probar URL de conexión",
     "connect": "Conectar",
     "connecting": "Conectando...",
     "cannotConnectToServer": "No se puede conectar con el servidor."
