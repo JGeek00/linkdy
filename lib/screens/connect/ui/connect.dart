@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_linkding/constants/enums.dart';
 
-import 'package:my_linkding/screens/connect/provider/connect_provider.dart';
+import 'package:my_linkding/screens/connect/provider/connect.provider.dart';
 import 'package:segmented_button_slide/segmented_button_slide.dart';
 
 class Connect extends ConsumerWidget {

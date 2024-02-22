@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:my_linkding/screens/connect/model/connect_model.dart';
+import 'package:my_linkding/screens/connect/model/connect.model.dart';
 
 import 'package:my_linkding/providers/server_instances_provider.dart';
 import 'package:my_linkding/i18n/strings.g.dart';
@@ -15,7 +15,7 @@ import 'package:my_linkding/services/api_client.dart';
 import 'package:my_linkding/constants/regexp.dart';
 import 'package:my_linkding/helpers/wrapped_class.dart';
 
-part 'connect_provider.g.dart';
+part 'connect.provider.g.dart';
 
 @riverpod
 class Connect extends _$Connect {
