@@ -38,6 +38,11 @@
   },
   "webview": {
     "goBack": "Ir atrás",
-    "goForward": "Ir adelante"
+    "goForward": "Ir adelante",
+    "reload": "Recargar",
+    "openInSystemBrowser": "Abrir en el navegador del sistema",
+    "copyLinkClipboard": "Copiar enlace al portapapeles",
+    "linkCopiedClipboard": "Enlace copiado al portapapeles.",
+    "share": "Compartir"
   }
 }

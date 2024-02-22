@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 58 (29 per locale)
+/// Strings: 68 (34 per locale)
 ///
-/// Built on 2024-02-22 at 21:08 UTC
+/// Built on 2024-02-22 at 21:21 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -226,6 +226,11 @@ class _StringsWebviewEn {
 	// Translations
 	String get goBack => 'Go back';
 	String get goForward => 'Go forward';
+	String get reload => 'Reload';
+	String get openInSystemBrowser => 'Open in system browser';
+	String get copyLinkClipboard => 'Copy link to clipboard';
+	String get linkCopiedClipboard => 'Link copied to the clipboard.';
+	String get share => 'Share';
 }
 
 // Path: links.dates
@@ -341,6 +346,11 @@ class _StringsWebviewEs implements _StringsWebviewEn {
 	// Translations
 	@override String get goBack => 'Ir atrás';
 	@override String get goForward => 'Ir adelante';
+	@override String get reload => 'Recargar';
+	@override String get openInSystemBrowser => 'Abrir en el navegador del sistema';
+	@override String get copyLinkClipboard => 'Copiar enlace al portapapeles';
+	@override String get linkCopiedClipboard => 'Enlace copiado al portapapeles.';
+	@override String get share => 'Compartir';
 }
 
 // Path: links.dates
@@ -389,6 +399,11 @@ extension on Translations {
 			case 'settings.disconnectFromServer': return 'Disconnect from server';
 			case 'webview.goBack': return 'Go back';
 			case 'webview.goForward': return 'Go forward';
+			case 'webview.reload': return 'Reload';
+			case 'webview.openInSystemBrowser': return 'Open in system browser';
+			case 'webview.copyLinkClipboard': return 'Copy link to clipboard';
+			case 'webview.linkCopiedClipboard': return 'Link copied to the clipboard.';
+			case 'webview.share': return 'Share';
 			default: return null;
 		}
 	}
@@ -426,6 +441,11 @@ extension on _StringsEs {
 			case 'settings.disconnectFromServer': return 'Desconectar del servidor';
 			case 'webview.goBack': return 'Ir atrás';
 			case 'webview.goForward': return 'Ir adelante';
+			case 'webview.reload': return 'Recargar';
+			case 'webview.openInSystemBrowser': return 'Abrir en el navegador del sistema';
+			case 'webview.copyLinkClipboard': return 'Copiar enlace al portapapeles';
+			case 'webview.linkCopiedClipboard': return 'Enlace copiado al portapapeles.';
+			case 'webview.share': return 'Compartir';
 			default: return null;
 		}
 	}

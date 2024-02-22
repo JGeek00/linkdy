@@ -38,6 +38,11 @@
   },
   "webview": {
     "goBack": "Go back",
-    "goForward": "Go forward"
+    "goForward": "Go forward",
+    "reload": "Reload",
+    "openInSystemBrowser": "Open in system browser",
+    "copyLinkClipboard": "Copy link to clipboard",
+    "linkCopiedClipboard": "Link copied to the clipboard.",
+    "share": "Share"
   }
 }

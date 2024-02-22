@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:share_plus/share_plus.dart';
 
 import 'package:linkdy/screens/webview/provider/webview.provider.dart';
 
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/utils/copy_clipboard.dart';
+import 'package:linkdy/utils/open_url.dart';
 
 class WebView extends ConsumerWidget {
   final Bookmark bookmark;
@@ -81,21 +84,69 @@ class WebView extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(
-                    onPressed: ref.watch(webViewProvider).canGoBack == true
-                        ? () => ref.watch(webViewProvider).inAppWebViewController?.goBack()
-                        : null,
-                    icon: const Icon(Icons.arrow_back_rounded),
-                    tooltip: t.webview.goForward,
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: ref.watch(webViewProvider).canGoBack == true
+                            ? () => ref.watch(webViewProvider).inAppWebViewController?.goBack()
+                            : null,
+                        icon: const Icon(Icons.arrow_back_rounded),
+                        tooltip: t.webview.goForward,
+                      ),
+                      const SizedBox(width: 8),
+                      IconButton(
+                        onPressed: ref.watch(webViewProvider).canGoForward == true
+                            ? () => ref.watch(webViewProvider).inAppWebViewController?.goForward()
+                            : null,
+                        icon: const Icon(Icons.arrow_forward_rounded),
+                        tooltip: t.webview.goForward,
+                      ),
+                      const SizedBox(width: 16),
+                      IconButton(
+                        onPressed: () => ref.watch(webViewProvider).inAppWebViewController?.reload(),
+                        icon: const Icon(Icons.refresh_rounded),
+                        tooltip: t.webview.reload,
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 8),
-                  IconButton(
-                    onPressed: ref.watch(webViewProvider).canGoForward == true
-                        ? () => ref.watch(webViewProvider).inAppWebViewController?.goForward()
-                        : null,
-                    icon: const Icon(Icons.arrow_forward_rounded),
-                    tooltip: t.webview.goForward,
+                  PopupMenuButton(
+                    itemBuilder: (context) => [
+                      PopupMenuItem(
+                        onTap: () => Share.shareUri(Uri.parse(bookmark.url!)),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.share_rounded),
+                            const SizedBox(width: 8),
+                            Text(t.webview.share),
+                          ],
+                        ),
+                      ),
+                      PopupMenuItem(
+                        onTap: () => copyToClipboard(
+                          value: bookmark.url!,
+                          successMessage: t.webview.linkCopiedClipboard,
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.copy_rounded),
+                            const SizedBox(width: 8),
+                            Text(t.webview.copyLinkClipboard),
+                          ],
+                        ),
+                      ),
+                      PopupMenuItem(
+                        onTap: () => openUrl(bookmark.url!),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.open_in_browser_rounded),
+                            const SizedBox(width: 8),
+                            Text(t.webview.openInSystemBrowser),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
