@@ -101,8 +101,13 @@ class Links extends ConsumerWidget {
                       bookmarks.value!.successful == true &&
                       bookmarks.value!.content!.results!.isNotEmpty)
                     SliverList.builder(
-                      itemCount: bookmarks.value?.content?.results?.length,
+                      itemCount: bookmarks.value!.content!.results!.length + 1,
                       itemBuilder: (context, index) {
+                        // index == bookmarks.value!.content!.results!.length -> itemCount + 1
+                        if (index == bookmarks.value!.content!.results!.length) {
+                          // Bottom gap for FAB
+                          return const SizedBox(height: 80);
+                        }
                         final link = bookmarks.value?.content?.results?[index];
                         return Column(
                           children: [
