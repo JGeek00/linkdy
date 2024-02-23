@@ -1,7 +1,9 @@
 {
   "generic": {
     "confirm": "Confirm",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "next": "Next",
+    "save": "Save"
   },
   "onboarding": {
     "title": "Welcome to Linkdy",
@@ -31,6 +33,16 @@
     "dates": {
       "todayAt": "Today, $time",
       "yesterdayAt": "Yesterday, $time"
+    },
+    "addLink": {
+      "addLink": "Add new link",
+      "url": "URL",
+      "checkingUrl": "Checking URL...",
+      "title": "Title",
+      "description": "Description",
+      "markAsUnread": "Mark as unread",
+      "notes": "Notes",
+      "addNotes": "Add notes"
     }
   },
   "search": {

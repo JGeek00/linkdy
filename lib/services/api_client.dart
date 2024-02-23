@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 
 import 'package:linkdy/models/api_response.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
+import 'package:linkdy/models/data/check_bookmark.dart';
 import 'package:linkdy/models/server_instance.dart';
 
 class ApiClient {
@@ -35,6 +36,23 @@ class ApiClient {
       return ApiResponse(
         successful: true,
         content: Bookmarks.fromJson(response.data),
+      );
+    } catch (e, stackTrace) {
+      return const ApiResponse(successful: false);
+    }
+  }
+
+  Future<ApiResponse<CheckBookmark>> fetchCheckAddBookmark({required String url}) async {
+    try {
+      final response = await dioInstance.get(
+        "/bookmarks/check",
+        queryParameters: {
+          "url": url,
+        },
+      );
+      return ApiResponse(
+        successful: true,
+        content: CheckBookmark.fromJson(response.data),
       );
     } catch (e, stackTrace) {
       return const ApiResponse(successful: false);

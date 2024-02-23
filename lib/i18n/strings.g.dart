@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 130 (65 per locale)
+/// Strings: 150 (75 per locale)
 ///
-/// Built on 2024-02-23 at 00:40 UTC
+/// Built on 2024-02-23 at 14:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -166,6 +166,8 @@ class _StringsGenericEn {
 	// Translations
 	String get confirm => 'Confirm';
 	String get cancel => 'Cancel';
+	String get next => 'Next';
+	String get save => 'Save';
 }
 
 // Path: onboarding
@@ -207,6 +209,7 @@ class _StringsLinksEn {
 	// Translations
 	String get links => 'Links';
 	late final _StringsLinksDatesEn dates = _StringsLinksDatesEn._(_root);
+	late final _StringsLinksAddLinkEn addLink = _StringsLinksAddLinkEn._(_root);
 }
 
 // Path: search
@@ -282,6 +285,23 @@ class _StringsLinksDatesEn {
 	// Translations
 	String todayAt({required Object time}) => 'Today, ${time}';
 	String yesterdayAt({required Object time}) => 'Yesterday, ${time}';
+}
+
+// Path: links.addLink
+class _StringsLinksAddLinkEn {
+	_StringsLinksAddLinkEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get addLink => 'Add new link';
+	String get url => 'URL';
+	String get checkingUrl => 'Checking URL...';
+	String get title => 'Title';
+	String get description => 'Description';
+	String get markAsUnread => 'Mark as unread';
+	String get notes => 'Notes';
+	String get addNotes => 'Add notes';
 }
 
 // Path: settings.customization
@@ -367,6 +387,8 @@ class _StringsGenericEs implements _StringsGenericEn {
 	// Translations
 	@override String get confirm => 'Confirmar';
 	@override String get cancel => 'Cancelar';
+	@override String get next => 'Siguiente';
+	@override String get save => 'Guardar';
 }
 
 // Path: onboarding
@@ -408,6 +430,7 @@ class _StringsLinksEs implements _StringsLinksEn {
 	// Translations
 	@override String get links => 'Enlaces';
 	@override late final _StringsLinksDatesEs dates = _StringsLinksDatesEs._(_root);
+	@override late final _StringsLinksAddLinkEs addLink = _StringsLinksAddLinkEs._(_root);
 }
 
 // Path: search
@@ -485,6 +508,23 @@ class _StringsLinksDatesEs implements _StringsLinksDatesEn {
 	@override String yesterdayAt({required Object time}) => 'Ayer, ${time}';
 }
 
+// Path: links.addLink
+class _StringsLinksAddLinkEs implements _StringsLinksAddLinkEn {
+	_StringsLinksAddLinkEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get addLink => 'Añadir nuevo enlace';
+	@override String get url => 'URL';
+	@override String get checkingUrl => 'Comprobando URL...';
+	@override String get title => 'Title';
+	@override String get description => 'Description';
+	@override String get markAsUnread => 'Marcar como no leído';
+	@override String get notes => 'Notas';
+	@override String get addNotes => 'Añadir notas';
+}
+
 // Path: settings.customization
 class _StringsSettingsCustomizationEs implements _StringsSettingsCustomizationEn {
 	_StringsSettingsCustomizationEs._(this._root);
@@ -534,6 +574,8 @@ extension on Translations {
 		switch (path) {
 			case 'generic.confirm': return 'Confirm';
 			case 'generic.cancel': return 'Cancel';
+			case 'generic.next': return 'Next';
+			case 'generic.save': return 'Save';
 			case 'onboarding.title': return 'Welcome to Linkdy';
 			case 'onboarding.subtitle': return 'An application to manage your bookmarks.';
 			case 'onboarding.start': return 'Start';
@@ -558,6 +600,14 @@ extension on Translations {
 			case 'links.links': return 'Links';
 			case 'links.dates.todayAt': return ({required Object time}) => 'Today, ${time}';
 			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
+			case 'links.addLink.addLink': return 'Add new link';
+			case 'links.addLink.url': return 'URL';
+			case 'links.addLink.checkingUrl': return 'Checking URL...';
+			case 'links.addLink.title': return 'Title';
+			case 'links.addLink.description': return 'Description';
+			case 'links.addLink.markAsUnread': return 'Mark as unread';
+			case 'links.addLink.notes': return 'Notes';
+			case 'links.addLink.addNotes': return 'Add notes';
 			case 'search.search': return 'Search';
 			case 'settings.settings': return 'Settings';
 			case 'settings.appSettings': return 'App settings';
@@ -607,6 +657,8 @@ extension on _StringsEs {
 		switch (path) {
 			case 'generic.confirm': return 'Confirmar';
 			case 'generic.cancel': return 'Cancelar';
+			case 'generic.next': return 'Siguiente';
+			case 'generic.save': return 'Guardar';
 			case 'onboarding.title': return 'Bienvenido a Linkdy';
 			case 'onboarding.subtitle': return 'Una aplicación para gestionar tus enlaces favoritos.';
 			case 'onboarding.start': return 'Comenzar';
@@ -631,6 +683,14 @@ extension on _StringsEs {
 			case 'links.links': return 'Enlaces';
 			case 'links.dates.todayAt': return ({required Object time}) => 'Hoy, ${time}';
 			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';
+			case 'links.addLink.addLink': return 'Añadir nuevo enlace';
+			case 'links.addLink.url': return 'URL';
+			case 'links.addLink.checkingUrl': return 'Comprobando URL...';
+			case 'links.addLink.title': return 'Title';
+			case 'links.addLink.description': return 'Description';
+			case 'links.addLink.markAsUnread': return 'Marcar como no leído';
+			case 'links.addLink.notes': return 'Notas';
+			case 'links.addLink.addNotes': return 'Añadir notas';
 			case 'search.search': return 'Buscar';
 			case 'settings.settings': return 'Ajustes';
 			case 'settings.appSettings': return 'Ajustes de la aplicación';

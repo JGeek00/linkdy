@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:linkdy/screens/links/provider/links.provider.dart';
 
+import 'package:linkdy/screens/links/ui/add_link_modal.dart';
+
 import 'package:linkdy/providers/router_provider.dart';
 import 'package:linkdy/router/paths.dart';
 import 'package:linkdy/i18n/strings.g.dart';
@@ -37,9 +39,18 @@ class Links extends ConsumerWidget {
       }
     }
 
-    return Material(
-      color: Colors.transparent,
-      child: NestedScrollView(
+    void openAddModal() {
+      showModalBottomSheet(
+        useRootNavigator: true,
+        context: context,
+        isScrollControlled: true,
+        useSafeArea: true,
+        builder: (context) => const AddLinkModal(),
+      );
+    }
+
+    return Scaffold(
+      body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverOverlapAbsorber(
             handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
@@ -167,6 +178,10 @@ class Links extends ConsumerWidget {
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: openAddModal,
+        child: const Icon(Icons.add_rounded),
       ),
     );
   }
