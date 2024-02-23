@@ -3,4 +3,5 @@ class SharedPreferencesKeys {
   static const selectedTheme = "selectedTheme";
   static const useDynamicTheme = "useDynamicTheme";
   static const selectedColor = "selectedColor";
+  static const useInAppBrowser = "useInAppBrowser";
 }

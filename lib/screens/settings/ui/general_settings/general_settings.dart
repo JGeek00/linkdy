@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/screens/settings/ui/general_settings/disconnect_modal.dart';
 
+import 'package:linkdy/providers/app_status_provider.dart';
+
 class GeneralSettings extends ConsumerWidget {
   const GeneralSettings({Key? key}) : super(key: key);
 
@@ -15,6 +17,13 @@ class GeneralSettings extends ConsumerWidget {
       ),
       body: ListView(
         children: [
+          SwitchListTile(
+            title: Text(t.settings.generalSettings.useInAppBrowser),
+            subtitle: Text(t.settings.generalSettings.useInAppBrowserDescription),
+            value: ref.watch(appStatusProvider).useInAppBrowser,
+            onChanged: ref.read(appStatusProvider.notifier).setUseInAppBrowser,
+          ),
+          const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

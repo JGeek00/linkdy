@@ -18,6 +18,7 @@ class AppStatus extends _$AppStatus {
       selectedColor: sharedPreferences.getInt(SharedPreferencesKeys.selectedColor) ?? 0,
       selectedTheme: SelectedTheme.values[sharedPreferences.getInt(SharedPreferencesKeys.selectedTheme) ?? 0],
       useDynamicTheme: sharedPreferences.getBool(SharedPreferencesKeys.useDynamicTheme) ?? true,
+      useInAppBrowser: sharedPreferences.getBool(SharedPreferencesKeys.useInAppBrowser) ?? true,
     );
   }
 
@@ -40,6 +41,12 @@ class AppStatus extends _$AppStatus {
   void setSelectedColor(int value) {
     state.selectedColor = value;
     ref.read(sharedPreferencesProvider).setInt(SharedPreferencesKeys.selectedColor, value);
+    ref.notifyListeners();
+  }
+
+  void setUseInAppBrowser(bool value) {
+    state.useInAppBrowser = value;
+    ref.read(sharedPreferencesProvider).setBool(SharedPreferencesKeys.useInAppBrowser, value);
     ref.notifyListeners();
   }
 }

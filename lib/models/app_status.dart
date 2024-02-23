@@ -5,11 +5,13 @@ class AppStatusModel {
   bool supportsDynamicTheme;
   bool useDynamicTheme;
   int selectedColor;
+  bool useInAppBrowser;
 
   AppStatusModel({
     this.selectedTheme = SelectedTheme.system,
     this.supportsDynamicTheme = false,
     this.useDynamicTheme = true,
     this.selectedColor = 0,
+    this.useInAppBrowser = true,
   });
 }

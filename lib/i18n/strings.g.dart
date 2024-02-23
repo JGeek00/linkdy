@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 188 (94 per locale)
+/// Strings: 192 (96 per locale)
 ///
-/// Built on 2024-02-23 at 21:28 UTC
+/// Built on 2024-02-23 at 22:17 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -351,6 +351,8 @@ class _StringsSettingsGeneralSettingsEn {
 	String get generalSettingsDescription => 'General tweaks for the application.';
 	String get disconnectFromServer => 'Disconnect from server';
 	late final _StringsSettingsGeneralSettingsDisconnectModalEn disconnectModal = _StringsSettingsGeneralSettingsDisconnectModalEn._(_root);
+	String get useInAppBrowser => 'Use in app browser';
+	String get useInAppBrowserDescription => 'Opens the bookmarks with the integrated browser instead of with the system browser.';
 }
 
 // Path: settings.generalSettings.disconnectModal
@@ -591,6 +593,8 @@ class _StringsSettingsGeneralSettingsEs implements _StringsSettingsGeneralSettin
 	@override String get generalSettingsDescription => 'Ajustes generales para la aplicación.';
 	@override String get disconnectFromServer => 'Desconectar del servidor';
 	@override late final _StringsSettingsGeneralSettingsDisconnectModalEs disconnectModal = _StringsSettingsGeneralSettingsDisconnectModalEs._(_root);
+	@override String get useInAppBrowser => 'Usar navegador de la aplicación';
+	@override String get useInAppBrowserDescription => 'Abre los marcadores con el navegador integrado en vez de con el navegador del sietema.';
 }
 
 // Path: settings.generalSettings.disconnectModal
@@ -686,6 +690,8 @@ extension on Translations {
 			case 'settings.generalSettings.disconnectFromServer': return 'Disconnect from server';
 			case 'settings.generalSettings.disconnectModal.title': return 'Disconnect';
 			case 'settings.generalSettings.disconnectModal.description': return 'Are you sure you want to disconnect from the server?\nYou will be redirected to the initial setup.';
+			case 'settings.generalSettings.useInAppBrowser': return 'Use in app browser';
+			case 'settings.generalSettings.useInAppBrowserDescription': return 'Opens the bookmarks with the integrated browser instead of with the system browser.';
 			case 'webview.goBack': return 'Go back';
 			case 'webview.goForward': return 'Go forward';
 			case 'webview.reload': return 'Reload';
@@ -788,6 +794,8 @@ extension on _StringsEs {
 			case 'settings.generalSettings.disconnectFromServer': return 'Desconectar del servidor';
 			case 'settings.generalSettings.disconnectModal.title': return 'Desconectar';
 			case 'settings.generalSettings.disconnectModal.description': return '¿Estás seguro que deseas desconectarte del servidor?\nSerás redirigido a la configuración inicial.';
+			case 'settings.generalSettings.useInAppBrowser': return 'Usar navegador de la aplicación';
+			case 'settings.generalSettings.useInAppBrowserDescription': return 'Abre los marcadores con el navegador integrado en vez de con el navegador del sietema.';
 			case 'webview.goBack': return 'Ir atrás';
 			case 'webview.goForward': return 'Ir adelante';
 			case 'webview.reload': return 'Recargar';

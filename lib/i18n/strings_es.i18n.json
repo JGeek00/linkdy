@@ -92,7 +92,9 @@
       "disconnectModal": {
         "title": "Desconectar",
         "description": "¿Estás seguro que deseas desconectarte del servidor?\nSerás redirigido a la configuración inicial."
-      }
+      },
+      "useInAppBrowser": "Usar navegador de la aplicación",
+      "useInAppBrowserDescription": "Abre los marcadores con el navegador integrado en vez de con el navegador del sietema."
     }
   },
   "webview": {

@@ -7,9 +7,11 @@ import 'package:linkdy/screens/links/provider/links.provider.dart';
 
 import 'package:linkdy/screens/links/ui/add_link_modal.dart';
 
+import 'package:linkdy/providers/app_status_provider.dart';
 import 'package:linkdy/providers/router_provider.dart';
 import 'package:linkdy/router/paths.dart';
 import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/utils/open_url.dart';
 
 class Links extends ConsumerWidget {
   const Links({Key? key}) : super(key: key);
@@ -122,7 +124,9 @@ class Links extends ConsumerWidget {
                         return Column(
                           children: [
                             ListTile(
-                              onTap: () => ref.watch(routerProvider).push(RoutesPaths.webview, extra: link),
+                              onTap: ref.watch(appStatusProvider).useInAppBrowser == true
+                                  ? () => ref.watch(routerProvider).push(RoutesPaths.webview, extra: link)
+                                  : () => openUrl(link!.url!),
                               isThreeLine: true,
                               title: Padding(
                                 padding: const EdgeInsets.only(bottom: 4),
