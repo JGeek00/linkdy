@@ -246,7 +246,7 @@ class AddLinkModalState extends ConsumerState<AddLinkModal> with SingleTickerPro
                       ),
                     if (provider.checkBookmark != null)
                       TextButton(
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: ref.read(addLinkProvider.notifier).addBookmark,
                         child: Text(t.generic.confirm),
                       ),
                   ],

@@ -160,7 +160,137 @@ class _CheckBookmarkProviderElement
   String get url => (origin as CheckBookmarkProvider).url;
 }
 
-String _$addLinkHash() => r'd971275978e113b16d1bc34a2370d9d3feba60b5';
+String _$addBookmarkHash() => r'94d54330832874c142e417df21522f5faac27f9e';
+
+/// See also [addBookmark].
+@ProviderFor(addBookmark)
+const addBookmarkProvider = AddBookmarkFamily();
+
+/// See also [addBookmark].
+class AddBookmarkFamily extends Family<AsyncValue<ApiResponse<Bookmark>>> {
+  /// See also [addBookmark].
+  const AddBookmarkFamily();
+
+  /// See also [addBookmark].
+  AddBookmarkProvider call(
+    PostBookmark newBookmark,
+  ) {
+    return AddBookmarkProvider(
+      newBookmark,
+    );
+  }
+
+  @override
+  AddBookmarkProvider getProviderOverride(
+    covariant AddBookmarkProvider provider,
+  ) {
+    return call(
+      provider.newBookmark,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'addBookmarkProvider';
+}
+
+/// See also [addBookmark].
+class AddBookmarkProvider
+    extends AutoDisposeFutureProvider<ApiResponse<Bookmark>> {
+  /// See also [addBookmark].
+  AddBookmarkProvider(
+    PostBookmark newBookmark,
+  ) : this._internal(
+          (ref) => addBookmark(
+            ref as AddBookmarkRef,
+            newBookmark,
+          ),
+          from: addBookmarkProvider,
+          name: r'addBookmarkProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$addBookmarkHash,
+          dependencies: AddBookmarkFamily._dependencies,
+          allTransitiveDependencies:
+              AddBookmarkFamily._allTransitiveDependencies,
+          newBookmark: newBookmark,
+        );
+
+  AddBookmarkProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.newBookmark,
+  }) : super.internal();
+
+  final PostBookmark newBookmark;
+
+  @override
+  Override overrideWith(
+    FutureOr<ApiResponse<Bookmark>> Function(AddBookmarkRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: AddBookmarkProvider._internal(
+        (ref) => create(ref as AddBookmarkRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        newBookmark: newBookmark,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<ApiResponse<Bookmark>> createElement() {
+    return _AddBookmarkProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is AddBookmarkProvider && other.newBookmark == newBookmark;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, newBookmark.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin AddBookmarkRef on AutoDisposeFutureProviderRef<ApiResponse<Bookmark>> {
+  /// The parameter `newBookmark` of this provider.
+  PostBookmark get newBookmark;
+}
+
+class _AddBookmarkProviderElement
+    extends AutoDisposeFutureProviderElement<ApiResponse<Bookmark>>
+    with AddBookmarkRef {
+  _AddBookmarkProviderElement(super.provider);
+
+  @override
+  PostBookmark get newBookmark => (origin as AddBookmarkProvider).newBookmark;
+}
+
+String _$addLinkHash() => r'0e9fcd2cca9fa5e195072163a11ae09b7bbe903a';
 
 /// See also [AddLink].
 @ProviderFor(AddLink)
