@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:linkdy/utils/snackbar.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/links/provider/links.provider.dart';
 import 'package:linkdy/screens/links/model/add_link.model.dart';
 
+import 'package:linkdy/models/data/tags.dart';
+import 'package:linkdy/utils/snackbar.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/utils/process_modal.dart';
 import 'package:linkdy/models/data/post_bookmark.dart';
@@ -31,6 +32,12 @@ FutureOr<ApiResponse<Bookmark>> addBookmark(AddBookmarkRef ref, PostBookmark new
 }
 
 @riverpod
+FutureOr<ApiResponse<Tags>> getTags(GetTagsRef ref) async {
+  final result = await ref.watch(apiClientProviderProvider)!.fetchTags();
+  return result;
+}
+
+@riverpod
 class AddLink extends _$AddLink {
   @override
   AddLinkModel build() {
@@ -38,6 +45,7 @@ class AddLink extends _$AddLink {
       urlController: TextEditingController(),
       titleController: TextEditingController(),
       descriptionController: TextEditingController(),
+      tagsController: TextEditingController(),
       tags: [],
       notesController: TextEditingController(),
     );
@@ -86,7 +94,7 @@ class AddLink extends _$AddLink {
       isArchived: false,
       unread: state.markAsUnread,
       shared: false,
-      tagNames: [],
+      tagNames: state.tags.join(","),
     );
 
     final processModal = ProcessModal();
@@ -105,5 +113,24 @@ class AddLink extends _$AddLink {
         color: Colors.red,
       );
     }
+  }
+
+  void validateTagInput(String value) {
+    if (value.contains(" ")) {
+      state.tagsError = t.links.addLink.tagNoWhitespaces;
+    } else {
+      state.tagsError = null;
+    }
+    ref.notifyListeners();
+  }
+
+  void setTags(List<String> tags) {
+    state.tags = tags;
+    ref.notifyListeners();
+  }
+
+  void clearTagsController() {
+    state.tagsController.clear();
+    ref.notifyListeners();
   }
 }

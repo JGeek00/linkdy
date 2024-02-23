@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 182 (91 per locale)
+/// Strings: 188 (94 per locale)
 ///
-/// Built on 2024-02-23 at 18:23 UTC
+/// Built on 2024-02-23 at 21:28 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -313,6 +313,9 @@ class _StringsLinksAddLinkEn {
 	String get notes => 'Notes';
 	String get addNotes => 'Add notes';
 	String get tags => 'Tags';
+	String get noTagsAdded => 'No tags added';
+	String get tagNoWhitespaces => 'Tag cannot contain whitespaces';
+	String get addTag => 'Add tag';
 	String get others => 'Others';
 	String get savingLink => 'Saving link...';
 	String get errorSavingLink => 'An error occured when saving the new link.';
@@ -550,6 +553,9 @@ class _StringsLinksAddLinkEs implements _StringsLinksAddLinkEn {
 	@override String get notes => 'Notas';
 	@override String get addNotes => 'Añadir notas';
 	@override String get tags => 'Etiquetas';
+	@override String get noTagsAdded => 'No hay etiquetas añadidas';
+	@override String get tagNoWhitespaces => 'La etiqueta no puede contener espacios';
+	@override String get addTag => 'Añadir etiqueta';
 	@override String get others => 'Otros';
 	@override String get savingLink => 'Guardando enlace...';
 	@override String get errorSavingLink => 'Ocurrió un error al guardar el nuevo enlace.';
@@ -651,6 +657,9 @@ extension on Translations {
 			case 'links.addLink.notes': return 'Notes';
 			case 'links.addLink.addNotes': return 'Add notes';
 			case 'links.addLink.tags': return 'Tags';
+			case 'links.addLink.noTagsAdded': return 'No tags added';
+			case 'links.addLink.tagNoWhitespaces': return 'Tag cannot contain whitespaces';
+			case 'links.addLink.addTag': return 'Add tag';
 			case 'links.addLink.others': return 'Others';
 			case 'links.addLink.savingLink': return 'Saving link...';
 			case 'links.addLink.errorSavingLink': return 'An error occured when saving the new link.';
@@ -750,6 +759,9 @@ extension on _StringsEs {
 			case 'links.addLink.notes': return 'Notas';
 			case 'links.addLink.addNotes': return 'Añadir notas';
 			case 'links.addLink.tags': return 'Etiquetas';
+			case 'links.addLink.noTagsAdded': return 'No hay etiquetas añadidas';
+			case 'links.addLink.tagNoWhitespaces': return 'La etiqueta no puede contener espacios';
+			case 'links.addLink.addTag': return 'Añadir etiqueta';
 			case 'links.addLink.others': return 'Otros';
 			case 'links.addLink.savingLink': return 'Guardando enlace...';
 			case 'links.addLink.errorSavingLink': return 'Ocurrió un error al guardar el nuevo enlace.';

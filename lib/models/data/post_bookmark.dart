@@ -5,7 +5,7 @@ class PostBookmark {
   final bool isArchived;
   final bool unread;
   final bool shared;
-  final List<String> tagNames;
+  final String tagNames;
 
   const PostBookmark({
     required this.url,
@@ -21,9 +21,9 @@ class PostBookmark {
         "url": url,
         "title": title,
         "description": description,
-        "isArchived": isArchived,
+        "is_archived": isArchived,
         "unread": unread,
         "shared": shared,
-        "tagNames": tagNames,
+        "tag_names": tagNames,
       };
 }

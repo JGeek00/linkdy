@@ -4,6 +4,7 @@ import 'package:linkdy/models/api_response.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/models/data/check_bookmark.dart';
 import 'package:linkdy/models/data/post_bookmark.dart';
+import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/models/server_instance.dart';
 
 class ApiClient {
@@ -69,6 +70,18 @@ class ApiClient {
       return ApiResponse(
         successful: true,
         content: Bookmark.fromJson(response.data),
+      );
+    } catch (e, stackTrace) {
+      return const ApiResponse(successful: false);
+    }
+  }
+
+  Future<ApiResponse<Tags>> fetchTags() async {
+    try {
+      final response = await dioInstance.get("/tags/");
+      return ApiResponse(
+        successful: true,
+        content: Tags.fromJson(response.data),
       );
     } catch (e, stackTrace) {
       return const ApiResponse(successful: false);

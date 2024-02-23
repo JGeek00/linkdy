@@ -290,7 +290,21 @@ class _AddBookmarkProviderElement
   PostBookmark get newBookmark => (origin as AddBookmarkProvider).newBookmark;
 }
 
-String _$addLinkHash() => r'0e9fcd2cca9fa5e195072163a11ae09b7bbe903a';
+String _$getTagsHash() => r'feecc7515f9492838c4a9bccc7031f49713e6ebb';
+
+/// See also [getTags].
+@ProviderFor(getTags)
+final getTagsProvider = AutoDisposeFutureProvider<ApiResponse<Tags>>.internal(
+  getTags,
+  name: r'getTagsProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$getTagsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetTagsRef = AutoDisposeFutureProviderRef<ApiResponse<Tags>>;
+String _$addLinkHash() => r'fd6e2629386254ace7ac7abeff0e566dda69575a';
 
 /// See also [AddLink].
 @ProviderFor(AddLink)
