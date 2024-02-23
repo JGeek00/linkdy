@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 68 (34 per locale)
+/// Strings: 122 (61 per locale)
 ///
-/// Built on 2024-02-22 at 21:21 UTC
+/// Built on 2024-02-23 at 00:06 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -153,6 +153,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final _StringsSearchEn search = _StringsSearchEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsWebviewEn webview = _StringsWebviewEn._(_root);
+	late final _StringsColorsEn colors = _StringsColorsEn._(_root);
 }
 
 // Path: onboarding
@@ -214,7 +215,17 @@ class _StringsSettingsEn {
 
 	// Translations
 	String get settings => 'Settings';
+	String get appSettings => 'App settings';
 	String get disconnectFromServer => 'Disconnect from server';
+	String get aboutApp => 'About the app';
+	String get appVersion => 'App version';
+	String get createdBy => 'Created by';
+	String get visitGooglePlay => 'Visit the application page at Google Play';
+	String get visitGitHubRepo => 'Visit the application repository at GitHub';
+	String get customizationDescription => 'Set the app theme and color palette.';
+	String get generalSettings => 'General settings';
+	String get generalSettingsDescription => 'General tweaks for the application.';
+	late final _StringsSettingsCustomizationEn customization = _StringsSettingsCustomizationEn._(_root);
 }
 
 // Path: webview
@@ -233,6 +244,26 @@ class _StringsWebviewEn {
 	String get share => 'Share';
 }
 
+// Path: colors
+class _StringsColorsEn {
+	_StringsColorsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get red => 'Red';
+	String get green => 'Green';
+	String get blue => 'Blue';
+	String get yellow => 'Yellow';
+	String get orange => 'Orange';
+	String get brown => 'Brown';
+	String get cyan => 'Cyan';
+	String get purple => 'Purple';
+	String get pink => 'Pink';
+	String get deepOrange => 'Deep orange';
+	String get indigo => 'Indigo';
+}
+
 // Path: links.dates
 class _StringsLinksDatesEn {
 	_StringsLinksDatesEn._(this._root);
@@ -242,6 +273,22 @@ class _StringsLinksDatesEn {
 	// Translations
 	String todayAt({required Object time}) => 'Today, ${time}';
 	String yesterdayAt({required Object time}) => 'Yesterday, ${time}';
+}
+
+// Path: settings.customization
+class _StringsSettingsCustomizationEn {
+	_StringsSettingsCustomizationEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get customization => 'Customization';
+	String get theme => 'Theme';
+	String get light => 'Light';
+	String get dark => 'Dark';
+	String get systemDefined => 'System defined';
+	String get color => 'Color';
+	String get useDynamicTheme => 'Use dynamic theme';
 }
 
 // Path: <root>
@@ -273,6 +320,7 @@ class _StringsEs implements Translations {
 	@override late final _StringsSearchEs search = _StringsSearchEs._(_root);
 	@override late final _StringsSettingsEs settings = _StringsSettingsEs._(_root);
 	@override late final _StringsWebviewEs webview = _StringsWebviewEs._(_root);
+	@override late final _StringsColorsEs colors = _StringsColorsEs._(_root);
 }
 
 // Path: onboarding
@@ -334,7 +382,17 @@ class _StringsSettingsEs implements _StringsSettingsEn {
 
 	// Translations
 	@override String get settings => 'Ajustes';
+	@override String get appSettings => 'Ajustes de la aplicación';
 	@override String get disconnectFromServer => 'Desconectar del servidor';
+	@override String get aboutApp => 'Sobre la aplicación';
+	@override String get appVersion => 'Versión de la aplicación';
+	@override String get createdBy => 'Creado por';
+	@override String get visitGooglePlay => 'Visita la página de la aplicación en Google Play';
+	@override String get visitGitHubRepo => 'Visita el repositorio de la aplicación en GitHub';
+	@override String get customizationDescription => 'Configura el tema y la paleta de colores.';
+	@override String get generalSettings => 'Ajustes generales';
+	@override String get generalSettingsDescription => 'Ajustes generales para la aplicación.';
+	@override late final _StringsSettingsCustomizationEs customization = _StringsSettingsCustomizationEs._(_root);
 }
 
 // Path: webview
@@ -353,6 +411,26 @@ class _StringsWebviewEs implements _StringsWebviewEn {
 	@override String get share => 'Compartir';
 }
 
+// Path: colors
+class _StringsColorsEs implements _StringsColorsEn {
+	_StringsColorsEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get red => 'Rojo';
+	@override String get green => 'Verde';
+	@override String get blue => 'Azul';
+	@override String get yellow => 'Amarillo';
+	@override String get orange => 'Naranja';
+	@override String get brown => 'Marron';
+	@override String get cyan => 'Cian';
+	@override String get purple => 'Morado';
+	@override String get pink => 'Rosa';
+	@override String get deepOrange => 'Naranja oscuro';
+	@override String get indigo => 'Índigo';
+}
+
 // Path: links.dates
 class _StringsLinksDatesEs implements _StringsLinksDatesEn {
 	_StringsLinksDatesEs._(this._root);
@@ -362,6 +440,22 @@ class _StringsLinksDatesEs implements _StringsLinksDatesEn {
 	// Translations
 	@override String todayAt({required Object time}) => 'Hoy, ${time}';
 	@override String yesterdayAt({required Object time}) => 'Ayer, ${time}';
+}
+
+// Path: settings.customization
+class _StringsSettingsCustomizationEs implements _StringsSettingsCustomizationEn {
+	_StringsSettingsCustomizationEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get customization => 'Personalización';
+	@override String get theme => 'Tema';
+	@override String get light => 'Claro';
+	@override String get dark => 'Oscuro';
+	@override String get systemDefined => 'Definido por el sistema';
+	@override String get color => 'Color';
+	@override String get useDynamicTheme => 'Usar tema dinámico';
 }
 
 /// Flat map(s) containing all translations.
@@ -396,7 +490,23 @@ extension on Translations {
 			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
 			case 'search.search': return 'Search';
 			case 'settings.settings': return 'Settings';
+			case 'settings.appSettings': return 'App settings';
 			case 'settings.disconnectFromServer': return 'Disconnect from server';
+			case 'settings.aboutApp': return 'About the app';
+			case 'settings.appVersion': return 'App version';
+			case 'settings.createdBy': return 'Created by';
+			case 'settings.visitGooglePlay': return 'Visit the application page at Google Play';
+			case 'settings.visitGitHubRepo': return 'Visit the application repository at GitHub';
+			case 'settings.customizationDescription': return 'Set the app theme and color palette.';
+			case 'settings.generalSettings': return 'General settings';
+			case 'settings.generalSettingsDescription': return 'General tweaks for the application.';
+			case 'settings.customization.customization': return 'Customization';
+			case 'settings.customization.theme': return 'Theme';
+			case 'settings.customization.light': return 'Light';
+			case 'settings.customization.dark': return 'Dark';
+			case 'settings.customization.systemDefined': return 'System defined';
+			case 'settings.customization.color': return 'Color';
+			case 'settings.customization.useDynamicTheme': return 'Use dynamic theme';
 			case 'webview.goBack': return 'Go back';
 			case 'webview.goForward': return 'Go forward';
 			case 'webview.reload': return 'Reload';
@@ -404,6 +514,17 @@ extension on Translations {
 			case 'webview.copyLinkClipboard': return 'Copy link to clipboard';
 			case 'webview.linkCopiedClipboard': return 'Link copied to the clipboard.';
 			case 'webview.share': return 'Share';
+			case 'colors.red': return 'Red';
+			case 'colors.green': return 'Green';
+			case 'colors.blue': return 'Blue';
+			case 'colors.yellow': return 'Yellow';
+			case 'colors.orange': return 'Orange';
+			case 'colors.brown': return 'Brown';
+			case 'colors.cyan': return 'Cyan';
+			case 'colors.purple': return 'Purple';
+			case 'colors.pink': return 'Pink';
+			case 'colors.deepOrange': return 'Deep orange';
+			case 'colors.indigo': return 'Indigo';
 			default: return null;
 		}
 	}
@@ -438,7 +559,23 @@ extension on _StringsEs {
 			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';
 			case 'search.search': return 'Buscar';
 			case 'settings.settings': return 'Ajustes';
+			case 'settings.appSettings': return 'Ajustes de la aplicación';
 			case 'settings.disconnectFromServer': return 'Desconectar del servidor';
+			case 'settings.aboutApp': return 'Sobre la aplicación';
+			case 'settings.appVersion': return 'Versión de la aplicación';
+			case 'settings.createdBy': return 'Creado por';
+			case 'settings.visitGooglePlay': return 'Visita la página de la aplicación en Google Play';
+			case 'settings.visitGitHubRepo': return 'Visita el repositorio de la aplicación en GitHub';
+			case 'settings.customizationDescription': return 'Configura el tema y la paleta de colores.';
+			case 'settings.generalSettings': return 'Ajustes generales';
+			case 'settings.generalSettingsDescription': return 'Ajustes generales para la aplicación.';
+			case 'settings.customization.customization': return 'Personalización';
+			case 'settings.customization.theme': return 'Tema';
+			case 'settings.customization.light': return 'Claro';
+			case 'settings.customization.dark': return 'Oscuro';
+			case 'settings.customization.systemDefined': return 'Definido por el sistema';
+			case 'settings.customization.color': return 'Color';
+			case 'settings.customization.useDynamicTheme': return 'Usar tema dinámico';
 			case 'webview.goBack': return 'Ir atrás';
 			case 'webview.goForward': return 'Ir adelante';
 			case 'webview.reload': return 'Recargar';
@@ -446,6 +583,17 @@ extension on _StringsEs {
 			case 'webview.copyLinkClipboard': return 'Copiar enlace al portapapeles';
 			case 'webview.linkCopiedClipboard': return 'Enlace copiado al portapapeles.';
 			case 'webview.share': return 'Compartir';
+			case 'colors.red': return 'Rojo';
+			case 'colors.green': return 'Verde';
+			case 'colors.blue': return 'Azul';
+			case 'colors.yellow': return 'Amarillo';
+			case 'colors.orange': return 'Naranja';
+			case 'colors.brown': return 'Marron';
+			case 'colors.cyan': return 'Cian';
+			case 'colors.purple': return 'Morado';
+			case 'colors.pink': return 'Rosa';
+			case 'colors.deepOrange': return 'Naranja oscuro';
+			case 'colors.indigo': return 'Índigo';
 			default: return null;
 		}
 	}

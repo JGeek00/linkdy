@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:linkdy/screens/links/ui/links.dart';
 import 'package:linkdy/screens/onboarding/ui/onboarding.dart';
 import 'package:linkdy/screens/search/ui/search.dart';
+import 'package:linkdy/screens/settings/ui/customization/customization.dart';
 import 'package:linkdy/screens/settings/ui/settings.dart';
 import 'package:linkdy/screens/webview/ui/webview.dart';
 import 'package:linkdy/widgets/layout.dart';
@@ -57,6 +58,10 @@ final List<RouteBase> appRoutes = [
           GoRoute(
             path: RoutesPaths.settings,
             builder: (context, state) => const Settings(),
+          ),
+          GoRoute(
+            path: RoutesPaths.customization,
+            builder: (context, state) => const Customization(),
           ),
         ],
       ),

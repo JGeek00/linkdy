@@ -34,7 +34,25 @@
   },
   "settings": {
     "settings": "Settings",
-    "disconnectFromServer": "Disconnect from server"
+    "appSettings": "App settings",
+    "disconnectFromServer": "Disconnect from server",
+    "aboutApp": "About the app",
+    "appVersion": "App version",
+    "createdBy": "Created by",
+    "visitGooglePlay": "Visit the application page at Google Play",
+    "visitGitHubRepo": "Visit the application repository at GitHub",
+    "customizationDescription": "Set the app theme and color palette.",
+    "generalSettings": "General settings",
+    "generalSettingsDescription": "General tweaks for the application.",
+    "customization": {
+      "customization": "Customization",
+      "theme": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "systemDefined": "System defined",
+      "color": "Color",
+      "useDynamicTheme": "Use dynamic theme"
+    }
   },
   "webview": {
     "goBack": "Go back",
@@ -44,5 +62,18 @@
     "copyLinkClipboard": "Copy link to clipboard",
     "linkCopiedClipboard": "Link copied to the clipboard.",
     "share": "Share"
+  },
+  "colors": {
+    "red": "Red",
+    "green": "Green",
+    "blue": "Blue",
+    "yellow": "Yellow",
+    "orange": "Orange",
+    "brown": "Brown",
+    "cyan": "Cyan",
+    "purple": "Purple",
+    "pink": "Pink",
+    "deepOrange": "Deep orange",
+    "indigo": "Indigo"
   }
 }

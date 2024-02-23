@@ -6,8 +6,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:linkdy/constants/global_keys.dart';
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:linkdy/providers/app_status_provider.dart';
+import 'package:linkdy/providers/app_info_provider.dart';
 import 'package:linkdy/config/theme.dart';
 import 'package:linkdy/constants/colors.dart';
 import 'package:linkdy/i18n/strings.g.dart';
@@ -25,11 +28,14 @@ void main() async {
 
   final sharedPreferences = await SharedPreferences.getInstance();
 
+  final appInfo = await PackageInfo.fromPlatform();
+
   runApp(
     TranslationProvider(
       child: ProviderScope(
         overrides: [
           sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+          appInfoProvider.overrideWithValue(appInfo),
         ],
         child: const MyApp(),
       ),
@@ -42,18 +48,33 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final selectedColor = ref.watch(appStatusProvider).selectedColor;
+    final useDynamicColor = ref.watch(appStatusProvider).useDynamicTheme;
+
     return DynamicColorBuilder(
-      builder: (lightDynamic, darkDynamic) => MaterialApp.router(
-        title: 'Linkdy',
-        theme: lightDynamic != null ? lightTheme(lightDynamic) : lightThemeOldVersions(colors[0]),
-        darkTheme: darkDynamic != null ? darkTheme(darkDynamic) : darkThemeOldVersions(colors[0]),
-        locale: TranslationProvider.of(context).flutterLocale,
-        supportedLocales: AppLocaleUtils.supportedLocales,
-        localizationsDelegates: GlobalMaterialLocalizations.delegates,
-        debugShowCheckedModeBanner: false,
-        scaffoldMessengerKey: scaffoldMessengerGlobalKey,
-        routerConfig: ref.watch(routerProvider),
-      ),
+      builder: (lightDynamic, darkDynamic) {
+        ref.read(appStatusProvider.notifier).setSupportsDynamicTheme(lightDynamic != null && darkDynamic != null);
+        return MaterialApp.router(
+          title: 'Linkdy',
+          theme: lightDynamic != null
+              ? useDynamicColor == true
+                  ? lightTheme(lightDynamic)
+                  : lightThemeOldVersions(colors[selectedColor])
+              : lightThemeOldVersions(colors[selectedColor]),
+          darkTheme: darkDynamic != null
+              ? useDynamicColor == true
+                  ? darkTheme(darkDynamic)
+                  : darkThemeOldVersions(colors[selectedColor])
+              : darkThemeOldVersions(colors[selectedColor]),
+          themeMode: ref.watch(selectedThemeProvider),
+          locale: TranslationProvider.of(context).flutterLocale,
+          supportedLocales: AppLocaleUtils.supportedLocales,
+          localizationsDelegates: GlobalMaterialLocalizations.delegates,
+          debugShowCheckedModeBanner: false,
+          scaffoldMessengerKey: scaffoldMessengerGlobalKey,
+          routerConfig: ref.watch(routerProvider),
+        );
+      },
     );
   }
 }

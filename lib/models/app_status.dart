@@ -1,12 +1,15 @@
-import 'package:linkdy/models/server_instance.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:linkdy/constants/enums.dart';
 
-class AppStatus {
-  AppStatus();
+class AppStatusModel {
+  SelectedTheme selectedTheme;
+  bool supportsDynamicTheme;
+  bool useDynamicTheme;
+  int selectedColor;
 
-  AppStatus copyWith({
-    SharedPreferences? sharedPreferences,
-    ServerInstance? serverInstance,
-  }) =>
-      AppStatus();
+  AppStatusModel({
+    this.selectedTheme = SelectedTheme.system,
+    this.supportsDynamicTheme = false,
+    this.useDynamicTheme = true,
+    this.selectedColor = 0,
+  });
 }

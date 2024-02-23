@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:linkdy/config/shared_preferences_keys.dart';
+import 'package:linkdy/constants/shared_preferences_keys.dart';
 import 'package:linkdy/providers/shared_preferences_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
