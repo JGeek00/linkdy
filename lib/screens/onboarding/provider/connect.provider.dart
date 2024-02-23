@@ -15,7 +15,6 @@ import 'package:linkdy/models/server_instance.dart';
 import 'package:linkdy/providers/api_client_provider.dart';
 import 'package:linkdy/services/api_client.dart';
 import 'package:linkdy/constants/regexp.dart';
-import 'package:linkdy/helpers/wrapped_class.dart';
 
 part 'connect.provider.g.dart';
 
@@ -39,36 +38,40 @@ class Connect extends _$Connect {
   }
 
   void setConnectionMethod(int method) {
-    state = state.copyWidth(method: method);
+    state.method = method;
+    ref.notifyListeners();
   }
 
   void validateIpDomain(String value) {
     if (Regexps.ipAddress.hasMatch(value) || Regexps.domain.hasMatch(value)) {
-      state = state.copyWidth(ipDomainError: const Wrapped.value(null));
+      state.ipDomainError = null;
     } else {
-      state = state.copyWidth(ipDomainError: const Wrapped.value("Error"));
+      state.ipDomainError = "Error";
     }
-    state = state.copyWidth(validValues: validValues());
+    state.validValues = validValues();
+    ref.notifyListeners();
   }
 
   void validatePort(value) {
     if (value != null && value != '') {
       if (int.tryParse(value) != null && int.parse(value) <= 65535) {
-        state = state.copyWidth(portError: const Wrapped.value(null));
+        state.portError = null;
       } else {
-        state = state.copyWidth(portError: const Wrapped.value("Invalid port"));
+        state.portError = "Invalid port";
       }
     }
-    state = state.copyWidth(validValues: validValues());
+    state.validValues = validValues();
+    ref.notifyListeners();
   }
 
   void validateToken(String value) {
     if (value != "") {
-      state = state.copyWidth(tokenError: const Wrapped.value(null));
+      state.tokenError = null;
     } else {
-      state = state.copyWidth(tokenError: const Wrapped.value("Error"));
+      state.tokenError = "Error";
     }
-    state = state.copyWidth(validValues: validValues());
+    state.validValues = validValues();
+    ref.notifyListeners();
   }
 
   bool validValues() {

@@ -1,57 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:linkdy/helpers/wrapped_class.dart';
 
 class ConnectModel {
-  final bool isConnecting;
-  final int method;
+  bool isConnecting;
+  int method;
   final TextEditingController ipDomainController;
-  final String? ipDomainError;
+  String? ipDomainError;
   final TextEditingController portController;
-  final String? portError;
+  String? portError;
   final TextEditingController pathController;
-  final String? pathError;
+  String? pathError;
   final TextEditingController tokenController;
-  final String? tokenError;
-  final bool validValues;
+  String? tokenError;
+  bool validValues;
 
   ConnectModel({
-    required this.isConnecting,
-    required this.method,
+    this.isConnecting = false,
+    this.method = 0,
     required this.ipDomainController,
-    required this.ipDomainError,
+    this.ipDomainError,
     required this.portController,
-    required this.portError,
+    this.portError,
     required this.pathController,
-    required this.pathError,
+    this.pathError,
     required this.tokenController,
-    required this.tokenError,
-    required this.validValues,
+    this.tokenError,
+    this.validValues = true,
   });
-
-  ConnectModel copyWidth({
-    bool? isConnecting,
-    int? method,
-    TextEditingController? ipDomainController,
-    Wrapped<String?>? ipDomainError,
-    TextEditingController? portController,
-    Wrapped<String?>? portError,
-    TextEditingController? pathController,
-    Wrapped<String?>? pathError,
-    TextEditingController? tokenController,
-    Wrapped<String?>? tokenError,
-    bool? validValues,
-  }) =>
-      ConnectModel(
-        isConnecting: isConnecting ?? this.isConnecting,
-        method: method ?? this.method,
-        ipDomainController: ipDomainController ?? this.ipDomainController,
-        ipDomainError: ipDomainError != null ? ipDomainError.value : this.ipDomainError,
-        portController: portController ?? this.portController,
-        portError: portError != null ? portError.value : this.portError,
-        pathController: pathController ?? this.pathController,
-        pathError: pathError != null ? pathError.value : this.pathError,
-        tokenController: tokenController ?? this.tokenController,
-        tokenError: tokenError != null ? tokenError.value : this.tokenError,
-        validValues: validValues ?? this.validValues,
-      );
 }

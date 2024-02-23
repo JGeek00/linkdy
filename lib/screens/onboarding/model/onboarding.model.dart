@@ -8,9 +8,4 @@ class OnboardingModel {
     required this.pageController,
     this.confirmServerRunning = false,
   });
-
-  OnboardingModel toggleConfirmServerRunning(bool newValue) => OnboardingModel(
-        pageController: pageController,
-        confirmServerRunning: newValue,
-      );
 }

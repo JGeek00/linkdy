@@ -21,7 +21,7 @@ final connectToServerProvider = AutoDisposeFutureProvider<bool>.internal(
 );
 
 typedef ConnectToServerRef = AutoDisposeFutureProviderRef<bool>;
-String _$connectHash() => r'2c2e4fff717252259381056b4767b9a4511b5009';
+String _$connectHash() => r'348a51c7ab10af474e09ec3ffdcedffa46156695';
 
 /// See also [Connect].
 @ProviderFor(Connect)
