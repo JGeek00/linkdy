@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,6 +17,8 @@ class Links extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bookmarks = ref.watch(linksRequestProvider);
+
+    final width = MediaQuery.of(context).size.width;
 
     String validateStrings(String? string1, String? string2) {
       if (string1 != null && string1.isNotEmpty) {
@@ -44,12 +48,18 @@ class Links extends ConsumerWidget {
     }
 
     void openAddModal() {
-      showModalBottomSheet(
-        useRootNavigator: true,
+      showGeneralDialog(
         context: context,
-        isScrollControlled: true,
-        useSafeArea: true,
-        builder: (context) => const AddLinkModal(),
+        barrierColor: !(width > 700 || !(Platform.isAndroid || Platform.isIOS)) ? Colors.transparent : Colors.black54,
+        transitionBuilder: (context, anim1, anim2, child) {
+          return SlideTransition(
+            position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0)).animate(
+              CurvedAnimation(parent: anim1, curve: Curves.easeInOutCubicEmphasized),
+            ),
+            child: child,
+          );
+        },
+        pageBuilder: (context, animation, secondaryAnimation) => AddLinkModal(fullscreen: width <= 700),
       );
     }
 

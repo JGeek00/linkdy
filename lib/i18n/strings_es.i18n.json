@@ -5,7 +5,8 @@
     "next": "Siguiente",
     "save": "Guardar",
     "close": "Cerrar",
-    "error": "Error"
+    "error": "Error",
+    "optional": "Opcional"
   },
   "onboarding": {
     "title": "Bienvenido a Linkdy",
@@ -39,12 +40,21 @@
     "addLink": {
       "addLink": "Añadir nuevo enlace",
       "url": "URL",
+      "bookmarkUrl": "URL del marcador",
+      "bookmarkDetails": "Detalles del marcador",
+      "validateUrl": "Validar URL",
+      "urlValid": "La URL es válida",
+      "urlNotValid": "La URL no es válida",
+      "cannotCheckUrl": "No se pudo comprobar la URL",
+      "invalidUrl": "URL no válida",
       "checkingUrl": "Comprobando URL...",
       "title": "Title",
       "description": "Description",
       "markAsUnread": "Marcar como no leído",
       "notes": "Notas",
       "addNotes": "Añadir notas",
+      "tags": "Etiquetas",
+      "others": "Otros",
       "savingLink": "Guardando enlace...",
       "errorSavingLink": "Ocurrió un error al guardar el nuevo enlace.",
       "leaveEmptyUseWebsiteTitle": "Dejar vacío para usar el título del sitio web.",

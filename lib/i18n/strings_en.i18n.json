@@ -5,7 +5,8 @@
     "next": "Next",
     "save": "Save",
     "close": "Close",
-    "error": "Error"
+    "error": "Error",
+    "optional": "Optional"
   },
   "onboarding": {
     "title": "Welcome to Linkdy",
@@ -38,6 +39,13 @@
     },
     "addLink": {
       "addLink": "Add new link",
+      "bookmarkUrl": "Bookmark URL",
+      "bookmarkDetails": "Bookmark details",
+      "validateUrl": "Validate URL",
+      "urlValid": "The URL is valid",
+      "urlNotValid": "The URL is not valid",
+      "cannotCheckUrl": "The URL couldn't be checked",
+      "invalidUrl": "Invalid URL",
       "url": "URL",
       "checkingUrl": "Checking URL...",
       "title": "Title",
@@ -45,6 +53,8 @@
       "markAsUnread": "Mark as unread",
       "notes": "Notes",
       "addNotes": "Add notes",
+      "tags": "Tags",
+      "others": "Others",
       "savingLink": "Saving link...",
       "errorSavingLink": "An error occured when saving the new link.",
       "leaveEmptyUseWebsiteTitle": "Leave empty to use the website's title.",

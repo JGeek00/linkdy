@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 162 (81 per locale)
+/// Strings: 182 (91 per locale)
 ///
-/// Built on 2024-02-23 at 17:01 UTC
+/// Built on 2024-02-23 at 18:23 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -170,6 +170,7 @@ class _StringsGenericEn {
 	String get save => 'Save';
 	String get close => 'Close';
 	String get error => 'Error';
+	String get optional => 'Optional';
 }
 
 // Path: onboarding
@@ -297,6 +298,13 @@ class _StringsLinksAddLinkEn {
 
 	// Translations
 	String get addLink => 'Add new link';
+	String get bookmarkUrl => 'Bookmark URL';
+	String get bookmarkDetails => 'Bookmark details';
+	String get validateUrl => 'Validate URL';
+	String get urlValid => 'The URL is valid';
+	String get urlNotValid => 'The URL is not valid';
+	String get cannotCheckUrl => 'The URL couldn\'t be checked';
+	String get invalidUrl => 'Invalid URL';
 	String get url => 'URL';
 	String get checkingUrl => 'Checking URL...';
 	String get title => 'Title';
@@ -304,6 +312,8 @@ class _StringsLinksAddLinkEn {
 	String get markAsUnread => 'Mark as unread';
 	String get notes => 'Notes';
 	String get addNotes => 'Add notes';
+	String get tags => 'Tags';
+	String get others => 'Others';
 	String get savingLink => 'Saving link...';
 	String get errorSavingLink => 'An error occured when saving the new link.';
 	String get leaveEmptyUseWebsiteTitle => 'Leave empty to use the website\'s title.';
@@ -397,6 +407,7 @@ class _StringsGenericEs implements _StringsGenericEn {
 	@override String get save => 'Guardar';
 	@override String get close => 'Cerrar';
 	@override String get error => 'Error';
+	@override String get optional => 'Opcional';
 }
 
 // Path: onboarding
@@ -525,12 +536,21 @@ class _StringsLinksAddLinkEs implements _StringsLinksAddLinkEn {
 	// Translations
 	@override String get addLink => 'Añadir nuevo enlace';
 	@override String get url => 'URL';
+	@override String get bookmarkUrl => 'URL del marcador';
+	@override String get bookmarkDetails => 'Detalles del marcador';
+	@override String get validateUrl => 'Validar URL';
+	@override String get urlValid => 'La URL es válida';
+	@override String get urlNotValid => 'La URL no es válida';
+	@override String get cannotCheckUrl => 'No se pudo comprobar la URL';
+	@override String get invalidUrl => 'URL no válida';
 	@override String get checkingUrl => 'Comprobando URL...';
 	@override String get title => 'Title';
 	@override String get description => 'Description';
 	@override String get markAsUnread => 'Marcar como no leído';
 	@override String get notes => 'Notas';
 	@override String get addNotes => 'Añadir notas';
+	@override String get tags => 'Etiquetas';
+	@override String get others => 'Otros';
 	@override String get savingLink => 'Guardando enlace...';
 	@override String get errorSavingLink => 'Ocurrió un error al guardar el nuevo enlace.';
 	@override String get leaveEmptyUseWebsiteTitle => 'Dejar vacío para usar el título del sitio web.';
@@ -590,6 +610,7 @@ extension on Translations {
 			case 'generic.save': return 'Save';
 			case 'generic.close': return 'Close';
 			case 'generic.error': return 'Error';
+			case 'generic.optional': return 'Optional';
 			case 'onboarding.title': return 'Welcome to Linkdy';
 			case 'onboarding.subtitle': return 'An application to manage your bookmarks.';
 			case 'onboarding.start': return 'Start';
@@ -615,6 +636,13 @@ extension on Translations {
 			case 'links.dates.todayAt': return ({required Object time}) => 'Today, ${time}';
 			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
 			case 'links.addLink.addLink': return 'Add new link';
+			case 'links.addLink.bookmarkUrl': return 'Bookmark URL';
+			case 'links.addLink.bookmarkDetails': return 'Bookmark details';
+			case 'links.addLink.validateUrl': return 'Validate URL';
+			case 'links.addLink.urlValid': return 'The URL is valid';
+			case 'links.addLink.urlNotValid': return 'The URL is not valid';
+			case 'links.addLink.cannotCheckUrl': return 'The URL couldn\'t be checked';
+			case 'links.addLink.invalidUrl': return 'Invalid URL';
 			case 'links.addLink.url': return 'URL';
 			case 'links.addLink.checkingUrl': return 'Checking URL...';
 			case 'links.addLink.title': return 'Title';
@@ -622,6 +650,8 @@ extension on Translations {
 			case 'links.addLink.markAsUnread': return 'Mark as unread';
 			case 'links.addLink.notes': return 'Notes';
 			case 'links.addLink.addNotes': return 'Add notes';
+			case 'links.addLink.tags': return 'Tags';
+			case 'links.addLink.others': return 'Others';
 			case 'links.addLink.savingLink': return 'Saving link...';
 			case 'links.addLink.errorSavingLink': return 'An error occured when saving the new link.';
 			case 'links.addLink.leaveEmptyUseWebsiteTitle': return 'Leave empty to use the website\'s title.';
@@ -679,6 +709,7 @@ extension on _StringsEs {
 			case 'generic.save': return 'Guardar';
 			case 'generic.close': return 'Cerrar';
 			case 'generic.error': return 'Error';
+			case 'generic.optional': return 'Opcional';
 			case 'onboarding.title': return 'Bienvenido a Linkdy';
 			case 'onboarding.subtitle': return 'Una aplicación para gestionar tus enlaces favoritos.';
 			case 'onboarding.start': return 'Comenzar';
@@ -705,12 +736,21 @@ extension on _StringsEs {
 			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';
 			case 'links.addLink.addLink': return 'Añadir nuevo enlace';
 			case 'links.addLink.url': return 'URL';
+			case 'links.addLink.bookmarkUrl': return 'URL del marcador';
+			case 'links.addLink.bookmarkDetails': return 'Detalles del marcador';
+			case 'links.addLink.validateUrl': return 'Validar URL';
+			case 'links.addLink.urlValid': return 'La URL es válida';
+			case 'links.addLink.urlNotValid': return 'La URL no es válida';
+			case 'links.addLink.cannotCheckUrl': return 'No se pudo comprobar la URL';
+			case 'links.addLink.invalidUrl': return 'URL no válida';
 			case 'links.addLink.checkingUrl': return 'Comprobando URL...';
 			case 'links.addLink.title': return 'Title';
 			case 'links.addLink.description': return 'Description';
 			case 'links.addLink.markAsUnread': return 'Marcar como no leído';
 			case 'links.addLink.notes': return 'Notas';
 			case 'links.addLink.addNotes': return 'Añadir notas';
+			case 'links.addLink.tags': return 'Etiquetas';
+			case 'links.addLink.others': return 'Otros';
 			case 'links.addLink.savingLink': return 'Guardando enlace...';
 			case 'links.addLink.errorSavingLink': return 'Ocurrió un error al guardar el nuevo enlace.';
 			case 'links.addLink.leaveEmptyUseWebsiteTitle': return 'Dejar vacío para usar el título del sitio web.';

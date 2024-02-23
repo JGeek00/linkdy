@@ -1,13 +1,11 @@
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:linkdy/utils/snackbar.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:linkdy/screens/links/ui/error_save_link.dart';
 import 'package:linkdy/screens/links/provider/links.provider.dart';
 import 'package:linkdy/screens/links/model/add_link.model.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
-import 'package:linkdy/router/routes.dart';
 import 'package:linkdy/utils/process_modal.dart';
 import 'package:linkdy/models/data/post_bookmark.dart';
 import 'package:linkdy/providers/router_provider.dart';
@@ -40,8 +38,8 @@ class AddLink extends _$AddLink {
       urlController: TextEditingController(),
       titleController: TextEditingController(),
       descriptionController: TextEditingController(),
+      tags: [],
       notesController: TextEditingController(),
-      expandableController: ExpandableController(),
     );
   }
 
@@ -52,7 +50,7 @@ class AddLink extends _$AddLink {
       state.urlError = null;
       ref.notifyListeners();
     } else {
-      state.urlError = "Invalid URL";
+      state.urlError = t.links.addLink.invalidUrl;
       ref.notifyListeners();
     }
   }
@@ -102,9 +100,9 @@ class AddLink extends _$AddLink {
       ref.invalidate(linksRequestProvider);
       ref.watch(routerProvider).pop();
     } else {
-      showDialog(
-        context: rootNavigatorKey.currentContext!,
-        builder: (context) => const ErrorSaveLink(),
+      showSnacbkar(
+        label: t.links.addLink.errorSavingLink,
+        color: Colors.red,
       );
     }
   }

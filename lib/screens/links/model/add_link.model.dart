@@ -1,4 +1,3 @@
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 
 import 'package:linkdy/constants/enums.dart';
@@ -12,8 +11,8 @@ class AddLinkModel {
   final TextEditingController titleController;
   final TextEditingController descriptionController;
   bool markAsUnread;
+  final List<String> tags;
   final TextEditingController notesController;
-  final ExpandableController expandableController;
 
   AddLinkModel({
     required this.urlController,
@@ -23,7 +22,7 @@ class AddLinkModel {
     required this.titleController,
     required this.descriptionController,
     this.markAsUnread = false,
+    required this.tags,
     required this.notesController,
-    required this.expandableController,
   });
 }
