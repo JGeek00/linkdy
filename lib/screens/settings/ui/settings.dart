@@ -29,20 +29,14 @@ class Settings extends ConsumerWidget {
           CustomListTile(
             icon: Icons.palette_rounded,
             title: t.settings.customization.customization,
-            subtitle: t.settings.customizationDescription,
+            subtitle: t.settings.customization.customizationDescription,
             onTap: () => ref.read(routerProvider).push(RoutesPaths.customization),
           ),
           CustomListTile(
             icon: Icons.settings_rounded,
-            title: t.settings.generalSettings,
-            subtitle: t.settings.generalSettingsDescription,
-          ),
-          FilledButton.icon(
-            onPressed: () => ref.read(apiClientProviderProvider.notifier).disconnectApiClient(),
-            icon: const Icon(Icons.clear_rounded),
-            label: Text(
-              t.settings.disconnectFromServer,
-            ),
+            title: t.settings.generalSettings.generalSettings,
+            subtitle: t.settings.generalSettings.generalSettingsDescription,
+            onTap: () => ref.read(routerProvider).push(RoutesPaths.generalSettings),
           ),
           SectionLabel(label: t.settings.aboutApp),
           CustomListTile(

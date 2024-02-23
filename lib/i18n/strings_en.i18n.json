@@ -1,4 +1,8 @@
 {
+  "generic": {
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
   "onboarding": {
     "title": "Welcome to Linkdy",
     "subtitle": "An application to manage your bookmarks.",
@@ -35,23 +39,29 @@
   "settings": {
     "settings": "Settings",
     "appSettings": "App settings",
-    "disconnectFromServer": "Disconnect from server",
     "aboutApp": "About the app",
     "appVersion": "App version",
     "createdBy": "Created by",
     "visitGooglePlay": "Visit the application page at Google Play",
     "visitGitHubRepo": "Visit the application repository at GitHub",
-    "customizationDescription": "Set the app theme and color palette.",
-    "generalSettings": "General settings",
-    "generalSettingsDescription": "General tweaks for the application.",
     "customization": {
       "customization": "Customization",
+      "customizationDescription": "Set the app theme and color palette.",
       "theme": "Theme",
       "light": "Light",
       "dark": "Dark",
       "systemDefined": "System defined",
       "color": "Color",
       "useDynamicTheme": "Use dynamic theme"
+    },
+    "generalSettings": {
+      "generalSettings": "General settings",
+      "generalSettingsDescription": "General tweaks for the application.",
+      "disconnectFromServer": "Disconnect from server",
+      "disconnectModal": {
+        "title": "Disconnect",
+        "description": "Are you sure you want to disconnect from the server?\nYou will be redirected to the initial setup."
+      }
     }
   },
   "webview": {

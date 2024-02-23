@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 122 (61 per locale)
+/// Strings: 130 (65 per locale)
 ///
-/// Built on 2024-02-23 at 00:06 UTC
+/// Built on 2024-02-23 at 00:40 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -148,12 +148,24 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
+	late final _StringsGenericEn generic = _StringsGenericEn._(_root);
 	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
 	late final _StringsLinksEn links = _StringsLinksEn._(_root);
 	late final _StringsSearchEn search = _StringsSearchEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsWebviewEn webview = _StringsWebviewEn._(_root);
 	late final _StringsColorsEn colors = _StringsColorsEn._(_root);
+}
+
+// Path: generic
+class _StringsGenericEn {
+	_StringsGenericEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get confirm => 'Confirm';
+	String get cancel => 'Cancel';
 }
 
 // Path: onboarding
@@ -216,16 +228,13 @@ class _StringsSettingsEn {
 	// Translations
 	String get settings => 'Settings';
 	String get appSettings => 'App settings';
-	String get disconnectFromServer => 'Disconnect from server';
 	String get aboutApp => 'About the app';
 	String get appVersion => 'App version';
 	String get createdBy => 'Created by';
 	String get visitGooglePlay => 'Visit the application page at Google Play';
 	String get visitGitHubRepo => 'Visit the application repository at GitHub';
-	String get customizationDescription => 'Set the app theme and color palette.';
-	String get generalSettings => 'General settings';
-	String get generalSettingsDescription => 'General tweaks for the application.';
 	late final _StringsSettingsCustomizationEn customization = _StringsSettingsCustomizationEn._(_root);
+	late final _StringsSettingsGeneralSettingsEn generalSettings = _StringsSettingsGeneralSettingsEn._(_root);
 }
 
 // Path: webview
@@ -283,12 +292,37 @@ class _StringsSettingsCustomizationEn {
 
 	// Translations
 	String get customization => 'Customization';
+	String get customizationDescription => 'Set the app theme and color palette.';
 	String get theme => 'Theme';
 	String get light => 'Light';
 	String get dark => 'Dark';
 	String get systemDefined => 'System defined';
 	String get color => 'Color';
 	String get useDynamicTheme => 'Use dynamic theme';
+}
+
+// Path: settings.generalSettings
+class _StringsSettingsGeneralSettingsEn {
+	_StringsSettingsGeneralSettingsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get generalSettings => 'General settings';
+	String get generalSettingsDescription => 'General tweaks for the application.';
+	String get disconnectFromServer => 'Disconnect from server';
+	late final _StringsSettingsGeneralSettingsDisconnectModalEn disconnectModal = _StringsSettingsGeneralSettingsDisconnectModalEn._(_root);
+}
+
+// Path: settings.generalSettings.disconnectModal
+class _StringsSettingsGeneralSettingsDisconnectModalEn {
+	_StringsSettingsGeneralSettingsDisconnectModalEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Disconnect';
+	String get description => 'Are you sure you want to disconnect from the server?\nYou will be redirected to the initial setup.';
 }
 
 // Path: <root>
@@ -315,12 +349,24 @@ class _StringsEs implements Translations {
 	@override late final _StringsEs _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsGenericEs generic = _StringsGenericEs._(_root);
 	@override late final _StringsOnboardingEs onboarding = _StringsOnboardingEs._(_root);
 	@override late final _StringsLinksEs links = _StringsLinksEs._(_root);
 	@override late final _StringsSearchEs search = _StringsSearchEs._(_root);
 	@override late final _StringsSettingsEs settings = _StringsSettingsEs._(_root);
 	@override late final _StringsWebviewEs webview = _StringsWebviewEs._(_root);
 	@override late final _StringsColorsEs colors = _StringsColorsEs._(_root);
+}
+
+// Path: generic
+class _StringsGenericEs implements _StringsGenericEn {
+	_StringsGenericEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get confirm => 'Confirmar';
+	@override String get cancel => 'Cancelar';
 }
 
 // Path: onboarding
@@ -383,16 +429,13 @@ class _StringsSettingsEs implements _StringsSettingsEn {
 	// Translations
 	@override String get settings => 'Ajustes';
 	@override String get appSettings => 'Ajustes de la aplicación';
-	@override String get disconnectFromServer => 'Desconectar del servidor';
 	@override String get aboutApp => 'Sobre la aplicación';
 	@override String get appVersion => 'Versión de la aplicación';
 	@override String get createdBy => 'Creado por';
 	@override String get visitGooglePlay => 'Visita la página de la aplicación en Google Play';
 	@override String get visitGitHubRepo => 'Visita el repositorio de la aplicación en GitHub';
-	@override String get customizationDescription => 'Configura el tema y la paleta de colores.';
-	@override String get generalSettings => 'Ajustes generales';
-	@override String get generalSettingsDescription => 'Ajustes generales para la aplicación.';
 	@override late final _StringsSettingsCustomizationEs customization = _StringsSettingsCustomizationEs._(_root);
+	@override late final _StringsSettingsGeneralSettingsEs generalSettings = _StringsSettingsGeneralSettingsEs._(_root);
 }
 
 // Path: webview
@@ -450,6 +493,7 @@ class _StringsSettingsCustomizationEs implements _StringsSettingsCustomizationEn
 
 	// Translations
 	@override String get customization => 'Personalización';
+	@override String get customizationDescription => 'Configura el tema y la paleta de colores.';
 	@override String get theme => 'Tema';
 	@override String get light => 'Claro';
 	@override String get dark => 'Oscuro';
@@ -458,12 +502,38 @@ class _StringsSettingsCustomizationEs implements _StringsSettingsCustomizationEn
 	@override String get useDynamicTheme => 'Usar tema dinámico';
 }
 
+// Path: settings.generalSettings
+class _StringsSettingsGeneralSettingsEs implements _StringsSettingsGeneralSettingsEn {
+	_StringsSettingsGeneralSettingsEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get generalSettings => 'Ajustes generales';
+	@override String get generalSettingsDescription => 'Ajustes generales para la aplicación.';
+	@override String get disconnectFromServer => 'Desconectar del servidor';
+	@override late final _StringsSettingsGeneralSettingsDisconnectModalEs disconnectModal = _StringsSettingsGeneralSettingsDisconnectModalEs._(_root);
+}
+
+// Path: settings.generalSettings.disconnectModal
+class _StringsSettingsGeneralSettingsDisconnectModalEs implements _StringsSettingsGeneralSettingsDisconnectModalEn {
+	_StringsSettingsGeneralSettingsDisconnectModalEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Desconectar';
+	@override String get description => '¿Estás seguro que deseas desconectarte del servidor?\nSerás redirigido a la configuración inicial.';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'generic.confirm': return 'Confirm';
+			case 'generic.cancel': return 'Cancel';
 			case 'onboarding.title': return 'Welcome to Linkdy';
 			case 'onboarding.subtitle': return 'An application to manage your bookmarks.';
 			case 'onboarding.start': return 'Start';
@@ -491,22 +561,24 @@ extension on Translations {
 			case 'search.search': return 'Search';
 			case 'settings.settings': return 'Settings';
 			case 'settings.appSettings': return 'App settings';
-			case 'settings.disconnectFromServer': return 'Disconnect from server';
 			case 'settings.aboutApp': return 'About the app';
 			case 'settings.appVersion': return 'App version';
 			case 'settings.createdBy': return 'Created by';
 			case 'settings.visitGooglePlay': return 'Visit the application page at Google Play';
 			case 'settings.visitGitHubRepo': return 'Visit the application repository at GitHub';
-			case 'settings.customizationDescription': return 'Set the app theme and color palette.';
-			case 'settings.generalSettings': return 'General settings';
-			case 'settings.generalSettingsDescription': return 'General tweaks for the application.';
 			case 'settings.customization.customization': return 'Customization';
+			case 'settings.customization.customizationDescription': return 'Set the app theme and color palette.';
 			case 'settings.customization.theme': return 'Theme';
 			case 'settings.customization.light': return 'Light';
 			case 'settings.customization.dark': return 'Dark';
 			case 'settings.customization.systemDefined': return 'System defined';
 			case 'settings.customization.color': return 'Color';
 			case 'settings.customization.useDynamicTheme': return 'Use dynamic theme';
+			case 'settings.generalSettings.generalSettings': return 'General settings';
+			case 'settings.generalSettings.generalSettingsDescription': return 'General tweaks for the application.';
+			case 'settings.generalSettings.disconnectFromServer': return 'Disconnect from server';
+			case 'settings.generalSettings.disconnectModal.title': return 'Disconnect';
+			case 'settings.generalSettings.disconnectModal.description': return 'Are you sure you want to disconnect from the server?\nYou will be redirected to the initial setup.';
 			case 'webview.goBack': return 'Go back';
 			case 'webview.goForward': return 'Go forward';
 			case 'webview.reload': return 'Reload';
@@ -533,6 +605,8 @@ extension on Translations {
 extension on _StringsEs {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'generic.confirm': return 'Confirmar';
+			case 'generic.cancel': return 'Cancelar';
 			case 'onboarding.title': return 'Bienvenido a Linkdy';
 			case 'onboarding.subtitle': return 'Una aplicación para gestionar tus enlaces favoritos.';
 			case 'onboarding.start': return 'Comenzar';
@@ -560,22 +634,24 @@ extension on _StringsEs {
 			case 'search.search': return 'Buscar';
 			case 'settings.settings': return 'Ajustes';
 			case 'settings.appSettings': return 'Ajustes de la aplicación';
-			case 'settings.disconnectFromServer': return 'Desconectar del servidor';
 			case 'settings.aboutApp': return 'Sobre la aplicación';
 			case 'settings.appVersion': return 'Versión de la aplicación';
 			case 'settings.createdBy': return 'Creado por';
 			case 'settings.visitGooglePlay': return 'Visita la página de la aplicación en Google Play';
 			case 'settings.visitGitHubRepo': return 'Visita el repositorio de la aplicación en GitHub';
-			case 'settings.customizationDescription': return 'Configura el tema y la paleta de colores.';
-			case 'settings.generalSettings': return 'Ajustes generales';
-			case 'settings.generalSettingsDescription': return 'Ajustes generales para la aplicación.';
 			case 'settings.customization.customization': return 'Personalización';
+			case 'settings.customization.customizationDescription': return 'Configura el tema y la paleta de colores.';
 			case 'settings.customization.theme': return 'Tema';
 			case 'settings.customization.light': return 'Claro';
 			case 'settings.customization.dark': return 'Oscuro';
 			case 'settings.customization.systemDefined': return 'Definido por el sistema';
 			case 'settings.customization.color': return 'Color';
 			case 'settings.customization.useDynamicTheme': return 'Usar tema dinámico';
+			case 'settings.generalSettings.generalSettings': return 'Ajustes generales';
+			case 'settings.generalSettings.generalSettingsDescription': return 'Ajustes generales para la aplicación.';
+			case 'settings.generalSettings.disconnectFromServer': return 'Desconectar del servidor';
+			case 'settings.generalSettings.disconnectModal.title': return 'Desconectar';
+			case 'settings.generalSettings.disconnectModal.description': return '¿Estás seguro que deseas desconectarte del servidor?\nSerás redirigido a la configuración inicial.';
 			case 'webview.goBack': return 'Ir atrás';
 			case 'webview.goForward': return 'Ir adelante';
 			case 'webview.reload': return 'Recargar';

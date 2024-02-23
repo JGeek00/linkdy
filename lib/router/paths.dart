@@ -5,4 +5,5 @@ class RoutesPaths {
   static const search = "/search";
   static const settings = "/settings";
   static const customization = "/settings/customization";
+  static const generalSettings = "/settings/general";
 }

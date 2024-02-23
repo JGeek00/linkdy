@@ -1,4 +1,8 @@
 {
+  "generic": {
+    "confirm": "Confirmar",
+    "cancel": "Cancelar"
+  },
   "onboarding": {
     "title": "Bienvenido a Linkdy",
     "subtitle": "Una aplicación para gestionar tus enlaces favoritos.",
@@ -35,23 +39,29 @@
   "settings": {
     "settings": "Ajustes",
     "appSettings": "Ajustes de la aplicación",
-    "disconnectFromServer": "Desconectar del servidor",
     "aboutApp": "Sobre la aplicación",
     "appVersion": "Versión de la aplicación",
     "createdBy": "Creado por",
     "visitGooglePlay": "Visita la página de la aplicación en Google Play",
     "visitGitHubRepo": "Visita el repositorio de la aplicación en GitHub",
-    "customizationDescription": "Configura el tema y la paleta de colores.",
-    "generalSettings": "Ajustes generales",
-    "generalSettingsDescription": "Ajustes generales para la aplicación.",
     "customization": {
       "customization": "Personalización",
+      "customizationDescription": "Configura el tema y la paleta de colores.",
       "theme": "Tema",
       "light": "Claro",
       "dark": "Oscuro",
       "systemDefined": "Definido por el sistema",
       "color": "Color",
       "useDynamicTheme": "Usar tema dinámico"
+    },
+    "generalSettings": {
+      "generalSettings": "Ajustes generales",
+      "generalSettingsDescription": "Ajustes generales para la aplicación.",
+      "disconnectFromServer": "Desconectar del servidor",
+      "disconnectModal": {
+        "title": "Desconectar",
+        "description": "¿Estás seguro que deseas desconectarte del servidor?\nSerás redirigido a la configuración inicial."
+      }
     }
   },
   "webview": {
