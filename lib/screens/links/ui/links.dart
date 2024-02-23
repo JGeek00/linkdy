@@ -94,13 +94,17 @@ class Links extends ConsumerWidget {
                             ListTile(
                               onTap: () => ref.watch(routerProvider).push(RoutesPaths.webview, extra: link),
                               isThreeLine: true,
-                              title: Text(
-                                validateStrings(link?.title, link?.websiteTitle),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Theme.of(context).colorScheme.onSurface,
+                              title: Padding(
+                                padding: const EdgeInsets.only(bottom: 4),
+                                child: Text(
+                                  validateStrings(link?.title, link?.websiteTitle),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Theme.of(context).colorScheme.onSurface,
+                                  ),
                                 ),
                               ),
                               subtitle: Column(

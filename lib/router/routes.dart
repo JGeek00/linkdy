@@ -27,49 +27,32 @@ final List<RouteBase> appRoutes = [
     path: RoutesPaths.webview,
     builder: (context, state) => WebView(bookmark: state.extra as Bookmark),
   ),
-  StatefulShellRoute.indexedStack(
-    builder: (context, state, navigationShell) => Layout(
-      navigationShell: navigationShell,
+  ShellRoute(
+    builder: (context, state, child) => Layout(
+      state: state,
+      child: child,
     ),
-    branches: [
-      StatefulShellBranch(
-        navigatorKey: linksNavigatorKey,
-        initialLocation: RoutesPaths.links,
-        routes: [
-          GoRoute(
-            path: RoutesPaths.links,
-            builder: (context, state) => const Links(),
-          ),
-        ],
+    routes: [
+      GoRoute(
+        path: RoutesPaths.links,
+        builder: (context, state) => const Links(),
       ),
-      StatefulShellBranch(
-        navigatorKey: searchNavigatorKey,
-        initialLocation: RoutesPaths.search,
-        routes: [
-          GoRoute(
-            path: RoutesPaths.search,
-            builder: (context, state) => const Search(),
-          ),
-        ],
+      GoRoute(
+        path: RoutesPaths.search,
+        builder: (context, state) => const Search(),
       ),
-      StatefulShellBranch(
-        navigatorKey: settingsNavigatorKey,
-        initialLocation: RoutesPaths.settings,
-        routes: [
-          GoRoute(
-            path: RoutesPaths.settings,
-            builder: (context, state) => const Settings(),
-          ),
-          GoRoute(
-            path: RoutesPaths.customization,
-            builder: (context, state) => const Customization(),
-          ),
-          GoRoute(
-            path: RoutesPaths.generalSettings,
-            builder: (context, state) => const GeneralSettings(),
-          ),
-        ],
+      GoRoute(
+        path: RoutesPaths.settings,
+        builder: (context, state) => const Settings(),
       ),
     ],
+  ),
+  GoRoute(
+    path: RoutesPaths.customization,
+    builder: (context, state) => const Customization(),
+  ),
+  GoRoute(
+    path: RoutesPaths.generalSettings,
+    builder: (context, state) => const GeneralSettings(),
   ),
 ];

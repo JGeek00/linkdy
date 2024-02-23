@@ -1,26 +1,26 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:linkdy/i18n/strings.g.dart';
 
 import 'package:linkdy/widgets/system_overlay_style.dart';
 
-class Layout extends StatelessWidget {
-  final StatefulNavigationShell navigationShell;
+import 'package:linkdy/config/app_screens.dart';
+import 'package:linkdy/providers/router_provider.dart';
+
+class Layout extends ConsumerWidget {
+  final GoRouterState state;
+  final Widget child;
 
   const Layout({
     Key? key,
-    required this.navigationShell,
+    required this.state,
+    required this.child,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    void goBranch(int index) {
-      navigationShell.goBranch(
-        index,
-        initialLocation: index == navigationShell.currentIndex,
-      );
-    }
+  Widget build(BuildContext context, WidgetRef ref) {
+    final screenIndex = appScreens.map((s) => s.route).toList().indexOf("/${state.matchedLocation.split("/")[1]}");
 
     return OverlayStyle(
       child: Scaffold(
@@ -31,25 +31,19 @@ class Layout extends StatelessWidget {
             secondaryAnimation: secondaryAnimation,
             child: child,
           ),
-          child: navigationShell,
+          child: child,
         ),
         bottomNavigationBar: NavigationBar(
-          onDestinationSelected: (s) => goBranch(s),
-          selectedIndex: navigationShell.currentIndex,
-          destinations: [
-            NavigationDestination(
-              icon: const Icon(Icons.link_rounded),
-              label: t.links.links,
-            ),
-            NavigationDestination(
-              icon: const Icon(Icons.search_rounded),
-              label: t.search.search,
-            ),
-            NavigationDestination(
-              icon: const Icon(Icons.settings_rounded),
-              label: t.settings.settings,
-            ),
-          ],
+          onDestinationSelected: (s) => ref.watch(routerProvider).replace(appScreens[s].route),
+          selectedIndex: screenIndex,
+          destinations: appScreens
+              .map(
+                (screen) => NavigationDestination(
+                  icon: Icon(screen.icon),
+                  label: screen.name,
+                ),
+              )
+              .toList(),
         ),
       ),
     );

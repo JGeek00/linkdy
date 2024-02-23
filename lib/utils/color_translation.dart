@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import 'package:linkdy/i18n/strings.g.dart';
 
 String colorTranslation(int index) {
