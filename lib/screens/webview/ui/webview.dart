@@ -24,6 +24,7 @@ class WebView extends ConsumerWidget {
       appBar: AppBar(
         elevation: 3,
         title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               bookmark.title != "" ? bookmark.title! : bookmark.websiteTitle!,
@@ -69,9 +70,6 @@ class WebView extends ConsumerWidget {
                   ref.read(webViewProvider.notifier).setLoadProgress(progress);
                 },
                 initialSettings: InAppWebViewSettings(
-                  allowContentAccess: false,
-                  allowFileAccess: false,
-                  applePayAPIEnabled: false,
                   cacheEnabled: false,
                   isInspectable: false,
                 ),

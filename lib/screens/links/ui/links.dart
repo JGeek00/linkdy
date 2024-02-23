@@ -27,15 +27,19 @@ class Links extends ConsumerWidget {
     }
 
     String dateString(DateTime date) {
+      String addZeros(int value) {
+        return value.toString().padLeft(2, '0');
+      }
+
       final today = DateTime.now();
       final yesterday = DateTime.now().subtract(const Duration(days: 1));
 
       if (date.day == today.day && date.month == today.month && date.year == today.year) {
-        return t.links.dates.todayAt(time: "${date.hour}:${date.minute}");
+        return t.links.dates.todayAt(time: "${addZeros(date.hour)}:${addZeros(date.minute)}");
       } else if (date.day == yesterday.day && date.month == yesterday.month && date.year == yesterday.year) {
-        return t.links.dates.yesterdayAt(time: "${date.hour}:${date.minute}");
+        return t.links.dates.yesterdayAt(time: "${addZeros(date.hour)}:${addZeros(date.minute)}");
       } else {
-        return "${date.day}/${date.month}/${date.year} - ${date.hour}:${date.minute}";
+        return "${date.day}/${date.month}/${date.year} - ${addZeros(date.hour)}:${addZeros(date.minute)}";
       }
     }
 
@@ -111,6 +115,7 @@ class Links extends ConsumerWidget {
                                   validateStrings(link?.title, link?.websiteTitle),
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
@@ -119,11 +124,13 @@ class Links extends ConsumerWidget {
                                 ),
                               ),
                               subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     validateStrings(link?.description, link?.websiteDescription),
                                     maxLines: 3,
                                     overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.left,
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -143,12 +150,13 @@ class Links extends ConsumerWidget {
                                         ),
                                       ),
                                       if (link?.dateModified != null) ...[
-                                        Container(
-                                          width: 1,
-                                          height: 12,
-                                          margin: const EdgeInsets.symmetric(horizontal: 8),
-                                          color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
-                                        ),
+                                        if (link?.tagNames?.isNotEmpty == true)
+                                          Container(
+                                            width: 1,
+                                            height: 12,
+                                            margin: const EdgeInsets.symmetric(horizontal: 8),
+                                            color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
+                                          ),
                                         Text(
                                           dateString(link!.dateModified!),
                                           style: TextStyle(
