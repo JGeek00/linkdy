@@ -1,11 +1,14 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:linkdy/utils/snackbar.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:linkdy/screens/links/ui/error_save_link.dart';
 import 'package:linkdy/screens/links/provider/links.provider.dart';
 import 'package:linkdy/screens/links/model/add_link.model.dart';
 
+import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/router/routes.dart';
+import 'package:linkdy/utils/process_modal.dart';
 import 'package:linkdy/models/data/post_bookmark.dart';
 import 'package:linkdy/providers/router_provider.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
@@ -87,16 +90,21 @@ class AddLink extends _$AddLink {
       shared: false,
       tagNames: [],
     );
-    print(newBookmark.toJson());
+
+    final processModal = ProcessModal();
+    processModal.open(t.links.addLink.savingLink);
+
     final result = await ref.watch(addBookmarkProvider(newBookmark).future);
-    print(result.content);
+
+    processModal.close();
+
     if (result.successful == true) {
       ref.invalidate(linksRequestProvider);
       ref.watch(routerProvider).pop();
     } else {
-      showSnacbkar(
-        label: "Add bookmark failed",
-        color: Colors.red,
+      showDialog(
+        context: rootNavigatorKey.currentContext!,
+        builder: (context) => const ErrorSaveLink(),
       );
     }
   }

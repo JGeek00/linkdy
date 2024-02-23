@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 150 (75 per locale)
+/// Strings: 162 (81 per locale)
 ///
-/// Built on 2024-02-23 at 14:24 UTC
+/// Built on 2024-02-23 at 17:01 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -168,6 +168,8 @@ class _StringsGenericEn {
 	String get cancel => 'Cancel';
 	String get next => 'Next';
 	String get save => 'Save';
+	String get close => 'Close';
+	String get error => 'Error';
 }
 
 // Path: onboarding
@@ -302,6 +304,10 @@ class _StringsLinksAddLinkEn {
 	String get markAsUnread => 'Mark as unread';
 	String get notes => 'Notes';
 	String get addNotes => 'Add notes';
+	String get savingLink => 'Saving link...';
+	String get errorSavingLink => 'An error occured when saving the new link.';
+	String get leaveEmptyUseWebsiteTitle => 'Leave empty to use the website\'s title.';
+	String get leaveEmptyUseWebsiteDescription => 'Leave empty to use the website\'s description.';
 }
 
 // Path: settings.customization
@@ -389,6 +395,8 @@ class _StringsGenericEs implements _StringsGenericEn {
 	@override String get cancel => 'Cancelar';
 	@override String get next => 'Siguiente';
 	@override String get save => 'Guardar';
+	@override String get close => 'Cerrar';
+	@override String get error => 'Error';
 }
 
 // Path: onboarding
@@ -523,6 +531,10 @@ class _StringsLinksAddLinkEs implements _StringsLinksAddLinkEn {
 	@override String get markAsUnread => 'Marcar como no leído';
 	@override String get notes => 'Notas';
 	@override String get addNotes => 'Añadir notas';
+	@override String get savingLink => 'Guardando enlace...';
+	@override String get errorSavingLink => 'Ocurrió un error al guardar el nuevo enlace.';
+	@override String get leaveEmptyUseWebsiteTitle => 'Dejar vacío para usar el título del sitio web.';
+	@override String get leaveEmptyUseWebsiteDescription => 'Dejar vacío para usar la descripción del sitio web.';
 }
 
 // Path: settings.customization
@@ -576,6 +588,8 @@ extension on Translations {
 			case 'generic.cancel': return 'Cancel';
 			case 'generic.next': return 'Next';
 			case 'generic.save': return 'Save';
+			case 'generic.close': return 'Close';
+			case 'generic.error': return 'Error';
 			case 'onboarding.title': return 'Welcome to Linkdy';
 			case 'onboarding.subtitle': return 'An application to manage your bookmarks.';
 			case 'onboarding.start': return 'Start';
@@ -608,6 +622,10 @@ extension on Translations {
 			case 'links.addLink.markAsUnread': return 'Mark as unread';
 			case 'links.addLink.notes': return 'Notes';
 			case 'links.addLink.addNotes': return 'Add notes';
+			case 'links.addLink.savingLink': return 'Saving link...';
+			case 'links.addLink.errorSavingLink': return 'An error occured when saving the new link.';
+			case 'links.addLink.leaveEmptyUseWebsiteTitle': return 'Leave empty to use the website\'s title.';
+			case 'links.addLink.leaveEmptyUseWebsiteDescription': return 'Leave empty to use the website\'s description.';
 			case 'search.search': return 'Search';
 			case 'settings.settings': return 'Settings';
 			case 'settings.appSettings': return 'App settings';
@@ -659,6 +677,8 @@ extension on _StringsEs {
 			case 'generic.cancel': return 'Cancelar';
 			case 'generic.next': return 'Siguiente';
 			case 'generic.save': return 'Guardar';
+			case 'generic.close': return 'Cerrar';
+			case 'generic.error': return 'Error';
 			case 'onboarding.title': return 'Bienvenido a Linkdy';
 			case 'onboarding.subtitle': return 'Una aplicación para gestionar tus enlaces favoritos.';
 			case 'onboarding.start': return 'Comenzar';
@@ -691,6 +711,10 @@ extension on _StringsEs {
 			case 'links.addLink.markAsUnread': return 'Marcar como no leído';
 			case 'links.addLink.notes': return 'Notas';
 			case 'links.addLink.addNotes': return 'Añadir notas';
+			case 'links.addLink.savingLink': return 'Guardando enlace...';
+			case 'links.addLink.errorSavingLink': return 'Ocurrió un error al guardar el nuevo enlace.';
+			case 'links.addLink.leaveEmptyUseWebsiteTitle': return 'Dejar vacío para usar el título del sitio web.';
+			case 'links.addLink.leaveEmptyUseWebsiteDescription': return 'Dejar vacío para usar la descripción del sitio web.';
 			case 'search.search': return 'Buscar';
 			case 'settings.settings': return 'Ajustes';
 			case 'settings.appSettings': return 'Ajustes de la aplicación';

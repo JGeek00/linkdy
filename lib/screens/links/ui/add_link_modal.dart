@@ -107,7 +107,10 @@ class AddLinkModalState extends ConsumerState<AddLinkModal> with SingleTickerPro
                           ),
                         ),
                       if (provider.checkBookmark != null) ...[
-                        const SizedBox(height: 24),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                          child: Divider(),
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 24),
                           child: TextFormField(
@@ -125,6 +128,7 @@ class AddLinkModalState extends ConsumerState<AddLinkModal> with SingleTickerPro
                               labelText: t.links.addLink.title,
                               hintText: provider.checkBookmark?.metadata?.title,
                               floatingLabelBehavior: FloatingLabelBehavior.always,
+                              helperText: t.links.addLink.leaveEmptyUseWebsiteTitle,
                             ),
                           ),
                         ),
@@ -146,6 +150,7 @@ class AddLinkModalState extends ConsumerState<AddLinkModal> with SingleTickerPro
                               labelText: t.links.addLink.description,
                               hintText: provider.checkBookmark?.metadata?.description,
                               floatingLabelBehavior: FloatingLabelBehavior.always,
+                              helperText: t.links.addLink.leaveEmptyUseWebsiteDescription,
                             ),
                           ),
                         ),

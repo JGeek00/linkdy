@@ -3,7 +3,9 @@
     "confirm": "Confirmar",
     "cancel": "Cancelar",
     "next": "Siguiente",
-    "save": "Guardar"
+    "save": "Guardar",
+    "close": "Cerrar",
+    "error": "Error"
   },
   "onboarding": {
     "title": "Bienvenido a Linkdy",
@@ -42,7 +44,11 @@
       "description": "Description",
       "markAsUnread": "Marcar como no leído",
       "notes": "Notas",
-      "addNotes": "Añadir notas"
+      "addNotes": "Añadir notas",
+      "savingLink": "Guardando enlace...",
+      "errorSavingLink": "Ocurrió un error al guardar el nuevo enlace.",
+      "leaveEmptyUseWebsiteTitle": "Dejar vacío para usar el título del sitio web.",
+      "leaveEmptyUseWebsiteDescription": "Dejar vacío para usar la descripción del sitio web."
     }
   },
   "search": {

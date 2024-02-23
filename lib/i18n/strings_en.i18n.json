@@ -3,7 +3,9 @@
     "confirm": "Confirm",
     "cancel": "Cancel",
     "next": "Next",
-    "save": "Save"
+    "save": "Save",
+    "close": "Close",
+    "error": "Error"
   },
   "onboarding": {
     "title": "Welcome to Linkdy",
@@ -42,7 +44,11 @@
       "description": "Description",
       "markAsUnread": "Mark as unread",
       "notes": "Notes",
-      "addNotes": "Add notes"
+      "addNotes": "Add notes",
+      "savingLink": "Saving link...",
+      "errorSavingLink": "An error occured when saving the new link.",
+      "leaveEmptyUseWebsiteTitle": "Leave empty to use the website's title.",
+      "leaveEmptyUseWebsiteDescription": "Leave empty to use the website's description."
     }
   },
   "search": {
