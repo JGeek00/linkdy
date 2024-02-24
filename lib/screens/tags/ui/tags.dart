@@ -77,35 +77,46 @@ class TagsScreen extends ConsumerWidget {
                           return const SizedBox(height: 80);
                         }
                         final tag = tags.value?.content?.results?[index];
-                        return Column(
-                          children: [
-                            ListTile(
-                              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-                              dense: true,
-                              title: Text(
-                                tag!.name!,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Theme.of(context).colorScheme.onSurface,
+                        return InkWell(
+                          onTap: () => {},
+                          child: Container(
+                            width: double.maxFinite,
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.label_rounded,
+                                      size: 16,
+                                      color: Theme.of(context).colorScheme.onSurfaceVariant.withOpacity(0.7),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Flexible(
+                                      child: Text(
+                                        tag!.name!,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                          color: Theme.of(context).colorScheme.onSurface,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              subtitle: Text(
-                                t.tags.created(created: dateToString(tag.dateAdded!)),
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                const SizedBox(height: 4),
+                                Text(
+                                  t.tags.created(created: dateToString(tag.dateAdded!)),
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
-                            if (index < tags.value!.content!.results!.length - 1)
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 16),
-                                child: Divider(
-                                  color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
-                                ),
-                              ),
-                          ],
+                          ),
                         );
                       },
                     ),
