@@ -52,6 +52,8 @@ dependencies:
   package_info_plus: ^5.0.1
   expandable: ^5.0.1
   easy_autocomplete: ^1.6.0
+  sentry_flutter: ^7.16.1
+  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   build_runner: ^2.4.8
@@ -97,6 +99,7 @@ flutter:
     - assets/icon/icon1024.png
     - assets/icon/icon-splash.png
     - assets/icon/icon1024-background.png
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

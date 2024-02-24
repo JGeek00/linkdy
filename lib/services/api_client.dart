@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/api_response.dart';
@@ -46,6 +47,7 @@ class ApiClientService {
         content: BookmarksResponse.fromJson(response.data),
       );
     } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
     }
   }
@@ -63,6 +65,7 @@ class ApiClientService {
         content: CheckBookmark.fromJson(response.data),
       );
     } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
     }
   }
@@ -78,6 +81,7 @@ class ApiClientService {
         content: Bookmark.fromJson(response.data),
       );
     } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
     }
   }
@@ -97,6 +101,7 @@ class ApiClientService {
         content: TagsResponse.fromJson(response.data),
       );
     } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
     }
   }

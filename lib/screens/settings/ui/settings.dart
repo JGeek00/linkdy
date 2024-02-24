@@ -12,7 +12,6 @@ import 'package:linkdy/utils/open_url.dart';
 import 'package:linkdy/constants/strings.dart';
 import 'package:linkdy/constants/urls.dart';
 import 'package:linkdy/i18n/strings.g.dart';
-import 'package:linkdy/providers/api_client_provider.dart';
 
 class Settings extends ConsumerWidget {
   const Settings({Key? key}) : super(key: key);
