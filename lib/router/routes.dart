@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:linkdy/screens/links/ui/links.dart';
+import 'package:linkdy/screens/bookmarks/ui/bookmarks.dart';
 import 'package:linkdy/screens/onboarding/ui/onboarding.dart';
 import 'package:linkdy/screens/search/ui/search.dart';
 import 'package:linkdy/screens/settings/ui/customization/customization.dart';
@@ -35,7 +35,7 @@ final List<RouteBase> appRoutes = [
     routes: [
       GoRoute(
         path: RoutesPaths.links,
-        builder: (context, state) => const Links(),
+        builder: (context, state) => const BookmarksScreen(),
       ),
       GoRoute(
         path: RoutesPaths.search,

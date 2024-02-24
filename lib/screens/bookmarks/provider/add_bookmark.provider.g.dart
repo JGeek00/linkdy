@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'add_link.provider.dart';
+part of 'add_bookmark.provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -160,141 +160,12 @@ class _CheckBookmarkProviderElement
   String get url => (origin as CheckBookmarkProvider).url;
 }
 
-String _$addBookmarkHash() => r'f0994cdf9fe086431549dac44daadd367a8b801b';
-
-/// See also [addBookmark].
-@ProviderFor(addBookmark)
-const addBookmarkProvider = AddBookmarkFamily();
-
-/// See also [addBookmark].
-class AddBookmarkFamily extends Family<AsyncValue<ApiResponse<Bookmark>>> {
-  /// See also [addBookmark].
-  const AddBookmarkFamily();
-
-  /// See also [addBookmark].
-  AddBookmarkProvider call(
-    PostBookmark newBookmark,
-  ) {
-    return AddBookmarkProvider(
-      newBookmark,
-    );
-  }
-
-  @override
-  AddBookmarkProvider getProviderOverride(
-    covariant AddBookmarkProvider provider,
-  ) {
-    return call(
-      provider.newBookmark,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'addBookmarkProvider';
-}
-
-/// See also [addBookmark].
-class AddBookmarkProvider
-    extends AutoDisposeFutureProvider<ApiResponse<Bookmark>> {
-  /// See also [addBookmark].
-  AddBookmarkProvider(
-    PostBookmark newBookmark,
-  ) : this._internal(
-          (ref) => addBookmark(
-            ref as AddBookmarkRef,
-            newBookmark,
-          ),
-          from: addBookmarkProvider,
-          name: r'addBookmarkProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$addBookmarkHash,
-          dependencies: AddBookmarkFamily._dependencies,
-          allTransitiveDependencies:
-              AddBookmarkFamily._allTransitiveDependencies,
-          newBookmark: newBookmark,
-        );
-
-  AddBookmarkProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.newBookmark,
-  }) : super.internal();
-
-  final PostBookmark newBookmark;
-
-  @override
-  Override overrideWith(
-    FutureOr<ApiResponse<Bookmark>> Function(AddBookmarkRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: AddBookmarkProvider._internal(
-        (ref) => create(ref as AddBookmarkRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        newBookmark: newBookmark,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<ApiResponse<Bookmark>> createElement() {
-    return _AddBookmarkProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is AddBookmarkProvider && other.newBookmark == newBookmark;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, newBookmark.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin AddBookmarkRef on AutoDisposeFutureProviderRef<ApiResponse<Bookmark>> {
-  /// The parameter `newBookmark` of this provider.
-  PostBookmark get newBookmark;
-}
-
-class _AddBookmarkProviderElement
-    extends AutoDisposeFutureProviderElement<ApiResponse<Bookmark>>
-    with AddBookmarkRef {
-  _AddBookmarkProviderElement(super.provider);
-
-  @override
-  PostBookmark get newBookmark => (origin as AddBookmarkProvider).newBookmark;
-}
-
-String _$getTagsHash() => r'22cfedf0f73a32c41992b922cbdfbb0145cccc9a';
+String _$getTagsHash() => r'16138d28ed9ee5b99f5c84935f7a1eb98fad2a3b';
 
 /// See also [getTags].
 @ProviderFor(getTags)
-final getTagsProvider = AutoDisposeFutureProvider<ApiResponse<Tags>>.internal(
+final getTagsProvider =
+    AutoDisposeFutureProvider<ApiResponse<TagsResponse>>.internal(
   getTags,
   name: r'getTagsProvider',
   debugGetCreateSourceHash:
@@ -303,21 +174,21 @@ final getTagsProvider = AutoDisposeFutureProvider<ApiResponse<Tags>>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef GetTagsRef = AutoDisposeFutureProviderRef<ApiResponse<Tags>>;
-String _$addLinkHash() => r'6a5c26a8e562236c7d3806bca869d932097fa6a6';
+typedef GetTagsRef = AutoDisposeFutureProviderRef<ApiResponse<TagsResponse>>;
+String _$addBookmarkHash() => r'2953a4223fe70809fbcf37af23b4f61a62f0de9f';
 
-/// See also [AddLink].
-@ProviderFor(AddLink)
-final addLinkProvider =
-    AutoDisposeNotifierProvider<AddLink, AddLinkModel>.internal(
-  AddLink.new,
-  name: r'addLinkProvider',
+/// See also [AddBookmark].
+@ProviderFor(AddBookmark)
+final addBookmarkProvider =
+    AutoDisposeNotifierProvider<AddBookmark, AddBookmarkModel>.internal(
+  AddBookmark.new,
+  name: r'addBookmarkProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$addLinkHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$addBookmarkHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$AddLink = AutoDisposeNotifier<AddLinkModel>;
+typedef _$AddBookmark = AutoDisposeNotifier<AddBookmarkModel>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -6,7 +6,7 @@
 /// Locales: 2
 /// Strings: 208 (104 per locale)
 ///
-/// Built on 2024-02-24 at 00:26 UTC
+/// Built on 2024-02-24 at 00:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -150,7 +150,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	// Translations
 	late final _StringsGenericEn generic = _StringsGenericEn._(_root);
 	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
-	late final _StringsLinksEn links = _StringsLinksEn._(_root);
+	late final _StringsBookmarksEn bookmarks = _StringsBookmarksEn._(_root);
 	late final _StringsSearchEn search = _StringsSearchEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsWebviewEn webview = _StringsWebviewEn._(_root);
@@ -204,16 +204,16 @@ class _StringsOnboardingEn {
 	String get invalidToken => 'Invalid token.';
 }
 
-// Path: links
-class _StringsLinksEn {
-	_StringsLinksEn._(this._root);
+// Path: bookmarks
+class _StringsBookmarksEn {
+	_StringsBookmarksEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get links => 'Links';
-	late final _StringsLinksDatesEn dates = _StringsLinksDatesEn._(_root);
-	late final _StringsLinksAddLinkEn addLink = _StringsLinksAddLinkEn._(_root);
+	String get bookmarks => 'Bookmarks';
+	late final _StringsBookmarksDatesEn dates = _StringsBookmarksDatesEn._(_root);
+	late final _StringsBookmarksAddBookmarkEn addBookmark = _StringsBookmarksAddBookmarkEn._(_root);
 }
 
 // Path: search
@@ -287,9 +287,9 @@ class _StringsColorsEn {
 	String get indigo => 'Indigo';
 }
 
-// Path: links.dates
-class _StringsLinksDatesEn {
-	_StringsLinksDatesEn._(this._root);
+// Path: bookmarks.dates
+class _StringsBookmarksDatesEn {
+	_StringsBookmarksDatesEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -298,14 +298,14 @@ class _StringsLinksDatesEn {
 	String yesterdayAt({required Object time}) => 'Yesterday, ${time}';
 }
 
-// Path: links.addLink
-class _StringsLinksAddLinkEn {
-	_StringsLinksAddLinkEn._(this._root);
+// Path: bookmarks.addBookmark
+class _StringsBookmarksAddBookmarkEn {
+	_StringsBookmarksAddBookmarkEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get addLink => 'Add new link';
+	String get addBookmark => 'Add new bookmark';
 	String get bookmarkUrl => 'Bookmark URL';
 	String get bookmarkDetails => 'Bookmark details';
 	String get validateUrl => 'Validate URL';
@@ -325,8 +325,8 @@ class _StringsLinksAddLinkEn {
 	String get tagNoWhitespaces => 'Tag cannot contain whitespaces';
 	String get addTag => 'Add tag';
 	String get others => 'Others';
-	String get savingLink => 'Saving link...';
-	String get errorSavingLink => 'An error occured when saving the new link.';
+	String get savingBookmark => 'Saving bookmark...';
+	String get errorSavingBookmark => 'An error occured when saving the new bookmark.';
 	String get leaveEmptyUseWebsiteTitle => 'Leave empty to use the website\'s title.';
 	String get leaveEmptyUseWebsiteDescription => 'Leave empty to use the website\'s description.';
 }
@@ -400,7 +400,7 @@ class _StringsEs implements Translations {
 	// Translations
 	@override late final _StringsGenericEs generic = _StringsGenericEs._(_root);
 	@override late final _StringsOnboardingEs onboarding = _StringsOnboardingEs._(_root);
-	@override late final _StringsLinksEs links = _StringsLinksEs._(_root);
+	@override late final _StringsBookmarksEs bookmarks = _StringsBookmarksEs._(_root);
 	@override late final _StringsSearchEs search = _StringsSearchEs._(_root);
 	@override late final _StringsSettingsEs settings = _StringsSettingsEs._(_root);
 	@override late final _StringsWebviewEs webview = _StringsWebviewEs._(_root);
@@ -454,16 +454,16 @@ class _StringsOnboardingEs implements _StringsOnboardingEn {
 	@override String get invalidToken => 'Token no válido.';
 }
 
-// Path: links
-class _StringsLinksEs implements _StringsLinksEn {
-	_StringsLinksEs._(this._root);
+// Path: bookmarks
+class _StringsBookmarksEs implements _StringsBookmarksEn {
+	_StringsBookmarksEs._(this._root);
 
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get links => 'Enlaces';
-	@override late final _StringsLinksDatesEs dates = _StringsLinksDatesEs._(_root);
-	@override late final _StringsLinksAddLinkEs addLink = _StringsLinksAddLinkEs._(_root);
+	@override String get bookmarks => 'Marcadores';
+	@override late final _StringsBookmarksDatesEs dates = _StringsBookmarksDatesEs._(_root);
+	@override late final _StringsBookmarksAddBookmarkEs addBookmark = _StringsBookmarksAddBookmarkEs._(_root);
 }
 
 // Path: search
@@ -537,9 +537,9 @@ class _StringsColorsEs implements _StringsColorsEn {
 	@override String get indigo => 'Índigo';
 }
 
-// Path: links.dates
-class _StringsLinksDatesEs implements _StringsLinksDatesEn {
-	_StringsLinksDatesEs._(this._root);
+// Path: bookmarks.dates
+class _StringsBookmarksDatesEs implements _StringsBookmarksDatesEn {
+	_StringsBookmarksDatesEs._(this._root);
 
 	@override final _StringsEs _root; // ignore: unused_field
 
@@ -548,14 +548,14 @@ class _StringsLinksDatesEs implements _StringsLinksDatesEn {
 	@override String yesterdayAt({required Object time}) => 'Ayer, ${time}';
 }
 
-// Path: links.addLink
-class _StringsLinksAddLinkEs implements _StringsLinksAddLinkEn {
-	_StringsLinksAddLinkEs._(this._root);
+// Path: bookmarks.addBookmark
+class _StringsBookmarksAddBookmarkEs implements _StringsBookmarksAddBookmarkEn {
+	_StringsBookmarksAddBookmarkEs._(this._root);
 
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get addLink => 'Añadir nuevo enlace';
+	@override String get addBookmark => 'Añadir nuevo marcador';
 	@override String get url => 'URL';
 	@override String get bookmarkUrl => 'URL del marcador';
 	@override String get bookmarkDetails => 'Detalles del marcador';
@@ -575,8 +575,8 @@ class _StringsLinksAddLinkEs implements _StringsLinksAddLinkEn {
 	@override String get tagNoWhitespaces => 'La etiqueta no puede contener espacios';
 	@override String get addTag => 'Añadir etiqueta';
 	@override String get others => 'Otros';
-	@override String get savingLink => 'Guardando enlace...';
-	@override String get errorSavingLink => 'Ocurrió un error al guardar el nuevo enlace.';
+	@override String get savingBookmark => 'Guardando marcador...';
+	@override String get errorSavingBookmark => 'Ocurrió un error al guardar el nuevo marcador.';
 	@override String get leaveEmptyUseWebsiteTitle => 'Dejar vacío para usar el título del sitio web.';
 	@override String get leaveEmptyUseWebsiteDescription => 'Dejar vacío para usar la descripción del sitio web.';
 }
@@ -659,33 +659,33 @@ extension on Translations {
 			case 'onboarding.connecting': return 'Connecting...';
 			case 'onboarding.cannotConnectToServer': return 'Cannot connect to the server.';
 			case 'onboarding.invalidToken': return 'Invalid token.';
-			case 'links.links': return 'Links';
-			case 'links.dates.todayAt': return ({required Object time}) => 'Today, ${time}';
-			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
-			case 'links.addLink.addLink': return 'Add new link';
-			case 'links.addLink.bookmarkUrl': return 'Bookmark URL';
-			case 'links.addLink.bookmarkDetails': return 'Bookmark details';
-			case 'links.addLink.validateUrl': return 'Validate URL';
-			case 'links.addLink.urlValid': return 'The URL is valid';
-			case 'links.addLink.urlNotValid': return 'The URL is not valid';
-			case 'links.addLink.cannotCheckUrl': return 'The URL couldn\'t be checked';
-			case 'links.addLink.invalidUrl': return 'Invalid URL';
-			case 'links.addLink.url': return 'URL';
-			case 'links.addLink.checkingUrl': return 'Checking URL...';
-			case 'links.addLink.title': return 'Title';
-			case 'links.addLink.description': return 'Description';
-			case 'links.addLink.markAsUnread': return 'Mark as unread';
-			case 'links.addLink.notes': return 'Notes';
-			case 'links.addLink.addNotes': return 'Add notes';
-			case 'links.addLink.tags': return 'Tags';
-			case 'links.addLink.noTagsAdded': return 'No tags added';
-			case 'links.addLink.tagNoWhitespaces': return 'Tag cannot contain whitespaces';
-			case 'links.addLink.addTag': return 'Add tag';
-			case 'links.addLink.others': return 'Others';
-			case 'links.addLink.savingLink': return 'Saving link...';
-			case 'links.addLink.errorSavingLink': return 'An error occured when saving the new link.';
-			case 'links.addLink.leaveEmptyUseWebsiteTitle': return 'Leave empty to use the website\'s title.';
-			case 'links.addLink.leaveEmptyUseWebsiteDescription': return 'Leave empty to use the website\'s description.';
+			case 'bookmarks.bookmarks': return 'Bookmarks';
+			case 'bookmarks.dates.todayAt': return ({required Object time}) => 'Today, ${time}';
+			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
+			case 'bookmarks.addBookmark.addBookmark': return 'Add new bookmark';
+			case 'bookmarks.addBookmark.bookmarkUrl': return 'Bookmark URL';
+			case 'bookmarks.addBookmark.bookmarkDetails': return 'Bookmark details';
+			case 'bookmarks.addBookmark.validateUrl': return 'Validate URL';
+			case 'bookmarks.addBookmark.urlValid': return 'The URL is valid';
+			case 'bookmarks.addBookmark.urlNotValid': return 'The URL is not valid';
+			case 'bookmarks.addBookmark.cannotCheckUrl': return 'The URL couldn\'t be checked';
+			case 'bookmarks.addBookmark.invalidUrl': return 'Invalid URL';
+			case 'bookmarks.addBookmark.url': return 'URL';
+			case 'bookmarks.addBookmark.checkingUrl': return 'Checking URL...';
+			case 'bookmarks.addBookmark.title': return 'Title';
+			case 'bookmarks.addBookmark.description': return 'Description';
+			case 'bookmarks.addBookmark.markAsUnread': return 'Mark as unread';
+			case 'bookmarks.addBookmark.notes': return 'Notes';
+			case 'bookmarks.addBookmark.addNotes': return 'Add notes';
+			case 'bookmarks.addBookmark.tags': return 'Tags';
+			case 'bookmarks.addBookmark.noTagsAdded': return 'No tags added';
+			case 'bookmarks.addBookmark.tagNoWhitespaces': return 'Tag cannot contain whitespaces';
+			case 'bookmarks.addBookmark.addTag': return 'Add tag';
+			case 'bookmarks.addBookmark.others': return 'Others';
+			case 'bookmarks.addBookmark.savingBookmark': return 'Saving bookmark...';
+			case 'bookmarks.addBookmark.errorSavingBookmark': return 'An error occured when saving the new bookmark.';
+			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Leave empty to use the website\'s title.';
+			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Leave empty to use the website\'s description.';
 			case 'search.search': return 'Search';
 			case 'search.bookmarks': return 'Bookmarks';
 			case 'search.tags': return 'Tags';
@@ -771,33 +771,33 @@ extension on _StringsEs {
 			case 'onboarding.connecting': return 'Conectando...';
 			case 'onboarding.cannotConnectToServer': return 'No se puede conectar con el servidor.';
 			case 'onboarding.invalidToken': return 'Token no válido.';
-			case 'links.links': return 'Enlaces';
-			case 'links.dates.todayAt': return ({required Object time}) => 'Hoy, ${time}';
-			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';
-			case 'links.addLink.addLink': return 'Añadir nuevo enlace';
-			case 'links.addLink.url': return 'URL';
-			case 'links.addLink.bookmarkUrl': return 'URL del marcador';
-			case 'links.addLink.bookmarkDetails': return 'Detalles del marcador';
-			case 'links.addLink.validateUrl': return 'Validar URL';
-			case 'links.addLink.urlValid': return 'La URL es válida';
-			case 'links.addLink.urlNotValid': return 'La URL no es válida';
-			case 'links.addLink.cannotCheckUrl': return 'No se pudo comprobar la URL';
-			case 'links.addLink.invalidUrl': return 'URL no válida';
-			case 'links.addLink.checkingUrl': return 'Comprobando URL...';
-			case 'links.addLink.title': return 'Title';
-			case 'links.addLink.description': return 'Description';
-			case 'links.addLink.markAsUnread': return 'Marcar como no leído';
-			case 'links.addLink.notes': return 'Notas';
-			case 'links.addLink.addNotes': return 'Añadir notas';
-			case 'links.addLink.tags': return 'Etiquetas';
-			case 'links.addLink.noTagsAdded': return 'No hay etiquetas añadidas';
-			case 'links.addLink.tagNoWhitespaces': return 'La etiqueta no puede contener espacios';
-			case 'links.addLink.addTag': return 'Añadir etiqueta';
-			case 'links.addLink.others': return 'Otros';
-			case 'links.addLink.savingLink': return 'Guardando enlace...';
-			case 'links.addLink.errorSavingLink': return 'Ocurrió un error al guardar el nuevo enlace.';
-			case 'links.addLink.leaveEmptyUseWebsiteTitle': return 'Dejar vacío para usar el título del sitio web.';
-			case 'links.addLink.leaveEmptyUseWebsiteDescription': return 'Dejar vacío para usar la descripción del sitio web.';
+			case 'bookmarks.bookmarks': return 'Marcadores';
+			case 'bookmarks.dates.todayAt': return ({required Object time}) => 'Hoy, ${time}';
+			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';
+			case 'bookmarks.addBookmark.addBookmark': return 'Añadir nuevo marcador';
+			case 'bookmarks.addBookmark.url': return 'URL';
+			case 'bookmarks.addBookmark.bookmarkUrl': return 'URL del marcador';
+			case 'bookmarks.addBookmark.bookmarkDetails': return 'Detalles del marcador';
+			case 'bookmarks.addBookmark.validateUrl': return 'Validar URL';
+			case 'bookmarks.addBookmark.urlValid': return 'La URL es válida';
+			case 'bookmarks.addBookmark.urlNotValid': return 'La URL no es válida';
+			case 'bookmarks.addBookmark.cannotCheckUrl': return 'No se pudo comprobar la URL';
+			case 'bookmarks.addBookmark.invalidUrl': return 'URL no válida';
+			case 'bookmarks.addBookmark.checkingUrl': return 'Comprobando URL...';
+			case 'bookmarks.addBookmark.title': return 'Title';
+			case 'bookmarks.addBookmark.description': return 'Description';
+			case 'bookmarks.addBookmark.markAsUnread': return 'Marcar como no leído';
+			case 'bookmarks.addBookmark.notes': return 'Notas';
+			case 'bookmarks.addBookmark.addNotes': return 'Añadir notas';
+			case 'bookmarks.addBookmark.tags': return 'Etiquetas';
+			case 'bookmarks.addBookmark.noTagsAdded': return 'No hay etiquetas añadidas';
+			case 'bookmarks.addBookmark.tagNoWhitespaces': return 'La etiqueta no puede contener espacios';
+			case 'bookmarks.addBookmark.addTag': return 'Añadir etiqueta';
+			case 'bookmarks.addBookmark.others': return 'Otros';
+			case 'bookmarks.addBookmark.savingBookmark': return 'Guardando marcador...';
+			case 'bookmarks.addBookmark.errorSavingBookmark': return 'Ocurrió un error al guardar el nuevo marcador.';
+			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Dejar vacío para usar el título del sitio web.';
+			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Dejar vacío para usar la descripción del sitio web.';
 			case 'search.search': return 'Buscar';
 			case 'search.bookmarks': return 'Marcadores';
 			case 'search.tags': return 'Etiquetas';

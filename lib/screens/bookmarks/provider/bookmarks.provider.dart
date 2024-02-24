@@ -1,24 +1,24 @@
+import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:linkdy/screens/links/model/links.model.dart';
+import 'package:linkdy/screens/bookmarks/model/links.model.dart';
 
 import 'package:linkdy/models/api_response.dart';
-import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/providers/api_client_provider.dart';
 
-part 'links.provider.g.dart';
+part 'bookmarks.provider.g.dart';
 
 @riverpod
-FutureOr<ApiResponse<Bookmarks>> linksRequest(LinksRequestRef ref) async {
+FutureOr<ApiResponse<BookmarksResponse>> bookmarksRequest(BookmarksRequestRef ref) async {
   final result = await ref.watch(apiClientProvider)!.fetchBookmarks();
   return result;
 }
 
 @riverpod
-class Links extends _$Links {
+class Bookmarks extends _$Bookmarks {
   @override
-  LinksModel build() {
-    return LinksModel();
+  BookmarksModel build() {
+    return BookmarksModel();
   }
 
   void setCurrentPage(int page) {

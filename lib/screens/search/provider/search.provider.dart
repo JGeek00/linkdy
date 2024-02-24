@@ -11,14 +11,14 @@ import 'package:linkdy/providers/api_client_provider.dart';
 part 'search.provider.g.dart';
 
 @riverpod
-FutureOr<ApiResponse<Bookmarks>?> searchBookmarks(SearchBookmarksRef ref) async {
+FutureOr<ApiResponse<BookmarksResponse>?> searchBookmarks(SearchBookmarksRef ref) async {
   if (ref.watch(searchProvider).searchTerm == "") return null;
   final result = await ref.read(apiClientProvider)!.fetchBookmarks(q: ref.watch(searchProvider).searchTerm);
   return result;
 }
 
 @riverpod
-FutureOr<ApiResponse<Tags>?> searchTags(SearchTagsRef ref) async {
+FutureOr<ApiResponse<TagsResponse>?> searchTags(SearchTagsRef ref) async {
   if (ref.watch(searchProvider).searchTerm == "") return null;
   final result = await ref.read(apiClientProvider)!.fetchTags(q: ref.watch(searchProvider).searchTerm);
   return result;

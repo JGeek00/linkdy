@@ -32,14 +32,14 @@
     "cannotConnectToServer": "No se puede conectar con el servidor.",
     "invalidToken": "Token no válido."
   },
-  "links": {
-    "links": "Enlaces",
+  "bookmarks": {
+    "bookmarks": "Marcadores",
     "dates": {
       "todayAt": "Hoy, $time",
       "yesterdayAt": "Ayer, $time"
     },
-    "addLink": {
-      "addLink": "Añadir nuevo enlace",
+    "addBookmark": {
+      "addBookmark": "Añadir nuevo marcador",
       "url": "URL",
       "bookmarkUrl": "URL del marcador",
       "bookmarkDetails": "Detalles del marcador",
@@ -59,8 +59,8 @@
       "tagNoWhitespaces": "La etiqueta no puede contener espacios",
       "addTag": "Añadir etiqueta",
       "others": "Otros",
-      "savingLink": "Guardando enlace...",
-      "errorSavingLink": "Ocurrió un error al guardar el nuevo enlace.",
+      "savingBookmark": "Guardando marcador...",
+      "errorSavingBookmark": "Ocurrió un error al guardar el nuevo marcador.",
       "leaveEmptyUseWebsiteTitle": "Dejar vacío para usar el título del sitio web.",
       "leaveEmptyUseWebsiteDescription": "Dejar vacío para usar la descripción del sitio web."
     }

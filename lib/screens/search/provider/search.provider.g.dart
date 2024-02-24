@@ -6,12 +6,12 @@ part of 'search.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$searchBookmarksHash() => r'c8d0bfb69cc6c295649a8e2d90f57352689cdab7';
+String _$searchBookmarksHash() => r'301f5c0355044978b6ddcfa13478b8729773f290';
 
 /// See also [searchBookmarks].
 @ProviderFor(searchBookmarks)
 final searchBookmarksProvider =
-    AutoDisposeFutureProvider<ApiResponse<Bookmarks>?>.internal(
+    AutoDisposeFutureProvider<ApiResponse<BookmarksResponse>?>.internal(
   searchBookmarks,
   name: r'searchBookmarksProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,13 +22,13 @@ final searchBookmarksProvider =
 );
 
 typedef SearchBookmarksRef
-    = AutoDisposeFutureProviderRef<ApiResponse<Bookmarks>?>;
-String _$searchTagsHash() => r'6af31fef1a5020612f098550d54939852d88e187';
+    = AutoDisposeFutureProviderRef<ApiResponse<BookmarksResponse>?>;
+String _$searchTagsHash() => r'1fc8cf44f512490fcf369b843bf3ca137e867bb6';
 
 /// See also [searchTags].
 @ProviderFor(searchTags)
 final searchTagsProvider =
-    AutoDisposeFutureProvider<ApiResponse<Tags>?>.internal(
+    AutoDisposeFutureProvider<ApiResponse<TagsResponse>?>.internal(
   searchTags,
   name: r'searchTagsProvider',
   debugGetCreateSourceHash:
@@ -37,7 +37,8 @@ final searchTagsProvider =
   allTransitiveDependencies: null,
 );
 
-typedef SearchTagsRef = AutoDisposeFutureProviderRef<ApiResponse<Tags>?>;
+typedef SearchTagsRef
+    = AutoDisposeFutureProviderRef<ApiResponse<TagsResponse>?>;
 String _$searchHash() => r'bdb992f3343d912d9422fa5da14ad0d5704f18e7';
 
 /// See also [Search].

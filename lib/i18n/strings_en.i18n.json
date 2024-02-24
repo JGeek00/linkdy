@@ -32,14 +32,14 @@
     "cannotConnectToServer": "Cannot connect to the server.",
     "invalidToken": "Invalid token."
   },
-  "links": {
-    "links": "Links",
+  "bookmarks": {
+    "bookmarks": "Bookmarks",
     "dates": {
       "todayAt": "Today, $time",
       "yesterdayAt": "Yesterday, $time"
     },
-    "addLink": {
-      "addLink": "Add new link",
+    "addBookmark": {
+      "addBookmark": "Add new bookmark",
       "bookmarkUrl": "Bookmark URL",
       "bookmarkDetails": "Bookmark details",
       "validateUrl": "Validate URL",
@@ -59,8 +59,8 @@
       "tagNoWhitespaces": "Tag cannot contain whitespaces",
       "addTag": "Add tag",
       "others": "Others",
-      "savingLink": "Saving link...",
-      "errorSavingLink": "An error occured when saving the new link.",
+      "savingBookmark": "Saving bookmark...",
+      "errorSavingBookmark": "An error occured when saving the new bookmark.",
       "leaveEmptyUseWebsiteTitle": "Leave empty to use the website's title.",
       "leaveEmptyUseWebsiteDescription": "Leave empty to use the website's description."
     }

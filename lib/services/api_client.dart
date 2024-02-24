@@ -31,7 +31,7 @@ class ApiClientService {
     }
   }
 
-  Future<ApiResponse<Bookmarks>> fetchBookmarks({String? q, int? limit, int? offset}) async {
+  Future<ApiResponse<BookmarksResponse>> fetchBookmarks({String? q, int? limit, int? offset}) async {
     try {
       final response = await dioInstance.get(
         "/bookmarks",
@@ -43,7 +43,7 @@ class ApiClientService {
       );
       return ApiResponse(
         successful: true,
-        content: Bookmarks.fromJson(response.data),
+        content: BookmarksResponse.fromJson(response.data),
       );
     } catch (e, stackTrace) {
       return const ApiResponse(successful: false);
@@ -82,7 +82,7 @@ class ApiClientService {
     }
   }
 
-  Future<ApiResponse<Tags>> fetchTags({String? q, int? limit, int? offset}) async {
+  Future<ApiResponse<TagsResponse>> fetchTags({String? q, int? limit, int? offset}) async {
     try {
       final response = await dioInstance.get(
         "/tags/",
@@ -94,7 +94,7 @@ class ApiClientService {
       );
       return ApiResponse(
         successful: true,
-        content: Tags.fromJson(response.data),
+        content: TagsResponse.fromJson(response.data),
       );
     } catch (e, stackTrace) {
       return const ApiResponse(successful: false);

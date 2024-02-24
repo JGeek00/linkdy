@@ -1,8 +1,8 @@
-class LinksModel {
+class BookmarksModel {
   int currentPage;
   int limit;
 
-  LinksModel({
+  BookmarksModel({
     this.currentPage = 0,
     this.limit = 100,
   });

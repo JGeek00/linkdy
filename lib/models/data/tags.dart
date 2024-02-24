@@ -1,17 +1,17 @@
-class Tags {
+class TagsResponse {
   final int? count;
   final int? next;
   final int? previous;
   final List<Result>? results;
 
-  Tags({
+  TagsResponse({
     this.count,
     this.next,
     this.previous,
     this.results,
   });
 
-  factory Tags.fromJson(Map<String, dynamic> json) => Tags(
+  factory TagsResponse.fromJson(Map<String, dynamic> json) => TagsResponse(
         count: json["count"],
         next: json["next"],
         previous: json["previous"],

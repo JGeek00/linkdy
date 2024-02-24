@@ -1,17 +1,17 @@
-class Bookmarks {
+class BookmarksResponse {
   final int? count;
   final int? next;
   final int? previous;
   final List<Bookmark>? results;
 
-  Bookmarks({
+  BookmarksResponse({
     this.count,
     this.next,
     this.previous,
     this.results,
   });
 
-  factory Bookmarks.fromJson(Map<String, dynamic> json) => Bookmarks(
+  factory BookmarksResponse.fromJson(Map<String, dynamic> json) => BookmarksResponse(
         count: json["count"],
         next: json["next"],
         previous: json["previous"],

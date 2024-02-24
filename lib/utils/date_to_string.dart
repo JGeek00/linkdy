@@ -9,9 +9,9 @@ String dateToString(DateTime date) {
   final yesterday = DateTime.now().subtract(const Duration(days: 1));
 
   if (date.day == today.day && date.month == today.month && date.year == today.year) {
-    return t.links.dates.todayAt(time: "${addZeros(date.hour)}:${addZeros(date.minute)}");
+    return t.bookmarks.dates.todayAt(time: "${addZeros(date.hour)}:${addZeros(date.minute)}");
   } else if (date.day == yesterday.day && date.month == yesterday.month && date.year == yesterday.year) {
-    return t.links.dates.yesterdayAt(time: "${addZeros(date.hour)}:${addZeros(date.minute)}");
+    return t.bookmarks.dates.yesterdayAt(time: "${addZeros(date.hour)}:${addZeros(date.minute)}");
   } else {
     return "${date.day}/${date.month}/${date.year} - ${addZeros(date.hour)}:${addZeros(date.minute)}";
   }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/data/check_bookmark.dart';
 
-class AddLinkModel {
+class AddBookmarkModel {
   final TextEditingController urlController;
   String? urlError;
   CheckBookmark? checkBookmark;
@@ -16,7 +16,7 @@ class AddLinkModel {
   List<String> tags;
   final TextEditingController notesController;
 
-  AddLinkModel({
+  AddBookmarkModel({
     required this.urlController,
     this.urlError,
     this.checkBookmark,

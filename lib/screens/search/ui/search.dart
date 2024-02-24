@@ -71,7 +71,7 @@ class SearchState extends ConsumerState<Search> with TickerProviderStateMixin {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.link_rounded),
+                          const Icon(Icons.bookmarks_rounded),
                           const SizedBox(width: 8),
                           Text(t.search.bookmarks),
                         ],
@@ -81,7 +81,7 @@ class SearchState extends ConsumerState<Search> with TickerProviderStateMixin {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.tag_rounded),
+                          const Icon(Icons.label_rounded),
                           const SizedBox(width: 8),
                           Text(t.search.tags),
                         ],

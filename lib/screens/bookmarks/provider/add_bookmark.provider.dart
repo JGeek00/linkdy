@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:linkdy/screens/links/provider/links.provider.dart';
-import 'package:linkdy/screens/links/model/add_link.model.dart';
+import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
+import 'package:linkdy/screens/bookmarks/model/add_link.model.dart';
 
 import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/utils/snackbar.dart';
@@ -10,14 +10,13 @@ import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/utils/process_modal.dart';
 import 'package:linkdy/models/data/post_bookmark.dart';
 import 'package:linkdy/providers/router_provider.dart';
-import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/constants/regexp.dart';
 import 'package:linkdy/models/api_response.dart';
 import 'package:linkdy/models/data/check_bookmark.dart';
 import 'package:linkdy/providers/api_client_provider.dart';
 
-part 'add_link.provider.g.dart';
+part 'add_bookmark.provider.g.dart';
 
 @riverpod
 Future<ApiResponse<CheckBookmark>> checkBookmark(CheckBookmarkRef ref, String url) async {
@@ -26,22 +25,16 @@ Future<ApiResponse<CheckBookmark>> checkBookmark(CheckBookmarkRef ref, String ur
 }
 
 @riverpod
-FutureOr<ApiResponse<Bookmark>> addBookmark(AddBookmarkRef ref, PostBookmark newBookmark) async {
-  final result = await ref.watch(apiClientProvider)!.fetchPostBookmark(newBookmark);
-  return result;
-}
-
-@riverpod
-FutureOr<ApiResponse<Tags>> getTags(GetTagsRef ref) async {
+FutureOr<ApiResponse<TagsResponse>> getTags(GetTagsRef ref) async {
   final result = await ref.watch(apiClientProvider)!.fetchTags();
   return result;
 }
 
 @riverpod
-class AddLink extends _$AddLink {
+class AddBookmark extends _$AddBookmark {
   @override
-  AddLinkModel build() {
-    return AddLinkModel(
+  AddBookmarkModel build() {
+    return AddBookmarkModel(
       urlController: TextEditingController(),
       titleController: TextEditingController(),
       descriptionController: TextEditingController(),
@@ -58,7 +51,7 @@ class AddLink extends _$AddLink {
       state.urlError = null;
       ref.notifyListeners();
     } else {
-      state.urlError = t.links.addLink.invalidUrl;
+      state.urlError = t.bookmarks.addBookmark.invalidUrl;
       ref.notifyListeners();
     }
   }
@@ -98,18 +91,18 @@ class AddLink extends _$AddLink {
     );
 
     final processModal = ProcessModal();
-    processModal.open(t.links.addLink.savingLink);
+    processModal.open(t.bookmarks.addBookmark.savingBookmark);
 
-    final result = await ref.watch(addBookmarkProvider(newBookmark).future);
+    final result = await ref.watch(apiClientProvider)!.fetchPostBookmark(newBookmark);
 
     processModal.close();
 
     if (result.successful == true) {
-      ref.invalidate(linksRequestProvider);
+      ref.invalidate(bookmarksRequestProvider);
       ref.watch(routerProvider).pop();
     } else {
       showSnacbkar(
-        label: t.links.addLink.errorSavingLink,
+        label: t.bookmarks.addBookmark.errorSavingBookmark,
         color: Colors.red,
       );
     }
@@ -117,7 +110,7 @@ class AddLink extends _$AddLink {
 
   void validateTagInput(String value) {
     if (value.contains(" ")) {
-      state.tagsError = t.links.addLink.tagNoWhitespaces;
+      state.tagsError = t.bookmarks.addBookmark.tagNoWhitespaces;
     } else {
       state.tagsError = null;
     }

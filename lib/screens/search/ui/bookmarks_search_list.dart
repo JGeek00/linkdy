@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:linkdy/screens/search/ui/error_search_list.dart';
 import 'package:linkdy/screens/search/ui/input_search_term.dart';
-import 'package:linkdy/screens/links/ui/link_item.dart';
+import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/screens/search/provider/search.provider.dart';
 import 'package:linkdy/screens/search/ui/search_no_data.dart';
 import 'package:linkdy/widgets/sliver_tab_body.dart';

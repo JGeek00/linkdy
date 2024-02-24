@@ -3,23 +3,18 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:linkdy/screens/links/provider/links.provider.dart';
+import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
+import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
+import 'package:linkdy/screens/bookmarks/ui/add_bookmark_modal.dart';
 
-import 'package:linkdy/screens/links/ui/add_link_modal.dart';
-
-import 'package:linkdy/providers/app_status_provider.dart';
-import 'package:linkdy/providers/router_provider.dart';
-import 'package:linkdy/router/paths.dart';
 import 'package:linkdy/i18n/strings.g.dart';
-import 'package:linkdy/screens/links/ui/link_item.dart';
-import 'package:linkdy/utils/open_url.dart';
 
-class Links extends ConsumerWidget {
-  const Links({Key? key}) : super(key: key);
+class BookmarksScreen extends ConsumerWidget {
+  const BookmarksScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bookmarks = ref.watch(linksRequestProvider);
+    final bookmarks = ref.watch(bookmarksRequestProvider);
 
     final width = MediaQuery.of(context).size.width;
 
@@ -35,7 +30,7 @@ class Links extends ConsumerWidget {
             child: child,
           );
         },
-        pageBuilder: (context, animation, secondaryAnimation) => AddLinkModal(fullscreen: width <= 700),
+        pageBuilder: (context, animation, secondaryAnimation) => AddBookmarkModal(fullscreen: width <= 700),
       );
     }
 
@@ -49,7 +44,7 @@ class Links extends ConsumerWidget {
               floating: true,
               centerTitle: false,
               forceElevated: innerBoxIsScrolled,
-              title: Text(t.links.links),
+              title: Text(t.bookmarks.bookmarks),
             ),
           ),
         ],
@@ -59,7 +54,7 @@ class Links extends ConsumerWidget {
           child: Builder(
             builder: (context) => RefreshIndicator(
               displacement: 120,
-              onRefresh: () => ref.refresh(linksRequestProvider.future),
+              onRefresh: () => ref.refresh(bookmarksRequestProvider.future),
               child: CustomScrollView(
                 slivers: [
                   SliverOverlapInjector(
