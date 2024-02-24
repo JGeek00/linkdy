@@ -1,6 +1,30 @@
-# Linkdy
+<h1 align="center">
+  <img src="https://github.com/JGeek00/linkdy/raw/master/assets/other/banner.png" />
+</h1>
 
-Linkdy is a [Linkding](https://github.com/sissbruecker/linkding) client created with Flutter. [Linkding](https://github.com/sissbruecker/linkding) is a self hosted bookmark manager. The objective of this project is to give all it's users an application to manage the bookmarks from a mobile device or a desktop computer.
+<p align="center">
+  <b>Linkdy</b> is a <a href="https://github.com/sissbruecker/linkding" target="_blank" rel="noopener noreferrer"><b>Linkding</b></a> client created with Flutter. <a href="https://github.com/sissbruecker/linkding" target="_blank" rel="noopener noreferrer">Linkding</a> is a self hosted bookmark manager. The objective of this project is to give all it's users an application to manage the bookmarks from a mobile device or a desktop computer.
+</p>
+
+<p align="center">
+  <a href="https://play.google.com/store/apps/details?id=com.jgeek00.linkdy" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/other/get_google_play.png" width="300px">
+  </a>
+  <a href="https://github.com/JGeek00/linkdy/releases" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/other/get-github.png" width="300px">
+  </a>
+</p>
+
+### Main features
+<ul>
+  <li>List your bookmarks.</li>
+  <li>Open the links on an internal browser.</li>
+  <li>Search bookmarks.</li>
+  <li>Create new bookmarks.</li>
+  <li>Create new tags.</li>
+  <li>List the bookmarks associated with each tag.</li>
+  <li>Material You interface with dynamic theming (only Android 12+).</li>
+</ul>
 
 ### Development
 1. Clone this repository.
