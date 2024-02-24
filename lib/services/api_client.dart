@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 
+import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/api_response.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/models/data/check_bookmark.dart';
@@ -16,12 +17,17 @@ class ApiClientService {
     required this.dioInstance,
   });
 
-  Future<bool> checkConnectionInstance() async {
+  Future<AuthResult> checkConnectionInstance() async {
     try {
       await dioInstance.get("/bookmarks/?limit=1");
-      return true;
+      return AuthResult.success;
+    } on DioException catch (e) {
+      if (e.response != null && e.response!.statusCode == 401 || e.response!.statusCode == 403) {
+        return AuthResult.invalidToken;
+      }
+      return AuthResult.other;
     } catch (e) {
-      return false;
+      return AuthResult.other;
     }
   }
 

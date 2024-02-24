@@ -29,7 +29,8 @@
     "testConnectionUrl": "Probar URL de conexión",
     "connect": "Conectar",
     "connecting": "Conectando...",
-    "cannotConnectToServer": "No se puede conectar con el servidor."
+    "cannotConnectToServer": "No se puede conectar con el servidor.",
+    "invalidToken": "Token no válido."
   },
   "links": {
     "links": "Enlaces",

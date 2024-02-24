@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 206 (103 per locale)
+/// Strings: 208 (104 per locale)
 ///
-/// Built on 2024-02-24 at 00:06 UTC
+/// Built on 2024-02-24 at 00:26 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -201,6 +201,7 @@ class _StringsOnboardingEn {
 	String get connect => 'Connect';
 	String get connecting => 'Connecting...';
 	String get cannotConnectToServer => 'Cannot connect to the server.';
+	String get invalidToken => 'Invalid token.';
 }
 
 // Path: links
@@ -450,6 +451,7 @@ class _StringsOnboardingEs implements _StringsOnboardingEn {
 	@override String get connect => 'Conectar';
 	@override String get connecting => 'Conectando...';
 	@override String get cannotConnectToServer => 'No se puede conectar con el servidor.';
+	@override String get invalidToken => 'Token no válido.';
 }
 
 // Path: links
@@ -656,6 +658,7 @@ extension on Translations {
 			case 'onboarding.connect': return 'Connect';
 			case 'onboarding.connecting': return 'Connecting...';
 			case 'onboarding.cannotConnectToServer': return 'Cannot connect to the server.';
+			case 'onboarding.invalidToken': return 'Invalid token.';
 			case 'links.links': return 'Links';
 			case 'links.dates.todayAt': return ({required Object time}) => 'Today, ${time}';
 			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
@@ -767,6 +770,7 @@ extension on _StringsEs {
 			case 'onboarding.connect': return 'Conectar';
 			case 'onboarding.connecting': return 'Conectando...';
 			case 'onboarding.cannotConnectToServer': return 'No se puede conectar con el servidor.';
+			case 'onboarding.invalidToken': return 'Token no válido.';
 			case 'links.links': return 'Enlaces';
 			case 'links.dates.todayAt': return ({required Object time}) => 'Hoy, ${time}';
 			case 'links.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';

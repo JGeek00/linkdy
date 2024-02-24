@@ -29,7 +29,8 @@
     "testConnectionUrl": "Test connection url",
     "connect": "Connect",
     "connecting": "Connecting...",
-    "cannotConnectToServer": "Cannot connect to the server."
+    "cannotConnectToServer": "Cannot connect to the server.",
+    "invalidToken": "Invalid token."
   },
   "links": {
     "links": "Links",

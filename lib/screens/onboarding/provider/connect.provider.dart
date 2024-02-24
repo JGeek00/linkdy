@@ -111,9 +111,11 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
   final result = await apiClient.checkConnectionInstance();
 
   processModal.close();
-  if (result == true) {
+  if (result == AuthResult.success) {
     ref.read(apiClientProvider.notifier).setApiClient(apiClient);
     ref.read(serverInstancesProvider.notifier).saveNewInstance(serverInstance);
+  } else if (result == AuthResult.invalidToken) {
+    showSnacbkar(label: t.onboarding.invalidToken, color: Colors.red);
   } else {
     showSnacbkar(label: t.onboarding.cannotConnectToServer, color: Colors.red);
   }
