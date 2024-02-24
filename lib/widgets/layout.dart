@@ -24,15 +24,7 @@ class Layout extends ConsumerWidget {
 
     return OverlayStyle(
       child: Scaffold(
-        body: PageTransitionSwitcher(
-          duration: const Duration(milliseconds: 200),
-          transitionBuilder: (child, primaryAnimation, secondaryAnimation) => FadeThroughTransition(
-            animation: primaryAnimation,
-            secondaryAnimation: secondaryAnimation,
-            child: child,
-          ),
-          child: child,
-        ),
+        body: child,
         bottomNavigationBar: NavigationBar(
           onDestinationSelected: (s) => ref.watch(routerProvider).replace(appScreens[s].route),
           selectedIndex: screenIndex,

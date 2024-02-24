@@ -10,6 +10,7 @@ import 'package:linkdy/screens/settings/ui/settings.dart';
 import 'package:linkdy/screens/tags/ui/tags.dart';
 import 'package:linkdy/screens/webview/ui/webview.dart';
 import 'package:linkdy/widgets/layout.dart';
+import 'package:linkdy/widgets/page_transition.dart';
 
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/router/paths.dart';
@@ -36,15 +37,15 @@ final List<RouteBase> appRoutes = [
     routes: [
       GoRoute(
         path: RoutesPaths.bookmarks,
-        builder: (context, state) => const BookmarksScreen(),
+        builder: (context, state) => const PageTransition(child: BookmarksScreen()),
       ),
       GoRoute(
         path: RoutesPaths.tags,
-        builder: (context, state) => const TagsScreen(),
+        builder: (context, state) => const PageTransition(child: TagsScreen()),
       ),
       GoRoute(
         path: RoutesPaths.settings,
-        builder: (context, state) => const SettingsScreen(),
+        builder: (context, state) => const PageTransition(child: SettingsScreen()),
       ),
     ],
   ),
