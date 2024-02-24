@@ -74,15 +74,8 @@
       "inputtedSearchTermNoResults": "El término de búsqueda introducido no tiene resultados"
     }
   },
-  "search": {
-    "search": "Buscar",
-    "bookmarks": "Marcadores",
-    "tags": "Etiquetas",
-    "clearSearch": "Limpiar búsqueda",
-    "inputSearchTerm": "Introduce un término de búsqueda",
-    "cannotSearchError": "No se puede buscar el contenido por un error",
-    "inputtedSearchTermNoResults": "El término de búsqueda introducido no tiene resultados",
-    "created": "Creado: $created"
+  "tags": {
+    "tags": "Etiquetas"
   },
   "settings": {
     "settings": "Ajustes",

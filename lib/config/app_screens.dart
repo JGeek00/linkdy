@@ -11,6 +11,11 @@ final appScreens = [
     name: t.bookmarks.bookmarks,
   ),
   AppRoute(
+    icon: Icons.label_rounded,
+    route: RoutesPaths.tags,
+    name: t.tags.tags,
+  ),
+  AppRoute(
     icon: Icons.settings_rounded,
     route: RoutesPaths.settings,
     name: t.settings.settings,

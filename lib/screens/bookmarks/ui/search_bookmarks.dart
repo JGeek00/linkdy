@@ -32,7 +32,7 @@ class SearchBookmarksScreen extends ConsumerWidget {
               controller: ref.watch(searchBookmarksProvider).searchController,
               onChanged: ref.read(searchBookmarksProvider.notifier).setSearchTerm,
               decoration: InputDecoration(
-                hintText: t.search.search,
+                hintText: t.bookmarks.search.searchBookmarks,
                 prefixIcon: const Icon(Icons.search_rounded),
                 border: InputBorder.none,
                 filled: true,
@@ -44,7 +44,7 @@ class SearchBookmarksScreen extends ConsumerWidget {
                           Icons.close_rounded,
                           size: 20,
                         ),
-                        tooltip: t.search.clearSearch,
+                        tooltip: t.bookmarks.search.clearSearch,
                       )
                     : null,
               ),

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 222 (111 per locale)
+/// Strings: 208 (104 per locale)
 ///
-/// Built on 2024-02-24 at 11:55 UTC
+/// Built on 2024-02-24 at 12:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -151,7 +151,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final _StringsGenericEn generic = _StringsGenericEn._(_root);
 	late final _StringsOnboardingEn onboarding = _StringsOnboardingEn._(_root);
 	late final _StringsBookmarksEn bookmarks = _StringsBookmarksEn._(_root);
-	late final _StringsSearchEn search = _StringsSearchEn._(_root);
+	late final _StringsTagsEn tags = _StringsTagsEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsWebviewEn webview = _StringsWebviewEn._(_root);
 	late final _StringsColorsEn colors = _StringsColorsEn._(_root);
@@ -219,21 +219,14 @@ class _StringsBookmarksEn {
 	late final _StringsBookmarksSearchEn search = _StringsBookmarksSearchEn._(_root);
 }
 
-// Path: search
-class _StringsSearchEn {
-	_StringsSearchEn._(this._root);
+// Path: tags
+class _StringsTagsEn {
+	_StringsTagsEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get search => 'Search';
-	String get bookmarks => 'Bookmarks';
 	String get tags => 'Tags';
-	String get clearSearch => 'Clear search';
-	String get inputSearchTerm => 'Input a search term';
-	String get cannotSearchError => 'Cannot search content due to an error';
-	String get inputtedSearchTermNoResults => 'The inputted search term doesn\'t have any results';
-	String created({required Object created}) => 'Created: ${created}';
 }
 
 // Path: settings
@@ -418,7 +411,7 @@ class _StringsEs implements Translations {
 	@override late final _StringsGenericEs generic = _StringsGenericEs._(_root);
 	@override late final _StringsOnboardingEs onboarding = _StringsOnboardingEs._(_root);
 	@override late final _StringsBookmarksEs bookmarks = _StringsBookmarksEs._(_root);
-	@override late final _StringsSearchEs search = _StringsSearchEs._(_root);
+	@override late final _StringsTagsEs tags = _StringsTagsEs._(_root);
 	@override late final _StringsSettingsEs settings = _StringsSettingsEs._(_root);
 	@override late final _StringsWebviewEs webview = _StringsWebviewEs._(_root);
 	@override late final _StringsColorsEs colors = _StringsColorsEs._(_root);
@@ -486,21 +479,14 @@ class _StringsBookmarksEs implements _StringsBookmarksEn {
 	@override late final _StringsBookmarksSearchEs search = _StringsBookmarksSearchEs._(_root);
 }
 
-// Path: search
-class _StringsSearchEs implements _StringsSearchEn {
-	_StringsSearchEs._(this._root);
+// Path: tags
+class _StringsTagsEs implements _StringsTagsEn {
+	_StringsTagsEs._(this._root);
 
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get search => 'Buscar';
-	@override String get bookmarks => 'Marcadores';
 	@override String get tags => 'Etiquetas';
-	@override String get clearSearch => 'Limpiar búsqueda';
-	@override String get inputSearchTerm => 'Introduce un término de búsqueda';
-	@override String get cannotSearchError => 'No se puede buscar el contenido por un error';
-	@override String get inputtedSearchTermNoResults => 'El término de búsqueda introducido no tiene resultados';
-	@override String created({required Object created}) => 'Creado: ${created}';
 }
 
 // Path: settings
@@ -727,14 +713,7 @@ extension on Translations {
 			case 'bookmarks.search.inputSearchTerm': return 'Input a search term';
 			case 'bookmarks.search.cannotSearchError': return 'Cannot search content due to an error';
 			case 'bookmarks.search.inputtedSearchTermNoResults': return 'The inputted search term doesn\'t have any results';
-			case 'search.search': return 'Search';
-			case 'search.bookmarks': return 'Bookmarks';
-			case 'search.tags': return 'Tags';
-			case 'search.clearSearch': return 'Clear search';
-			case 'search.inputSearchTerm': return 'Input a search term';
-			case 'search.cannotSearchError': return 'Cannot search content due to an error';
-			case 'search.inputtedSearchTermNoResults': return 'The inputted search term doesn\'t have any results';
-			case 'search.created': return ({required Object created}) => 'Created: ${created}';
+			case 'tags.tags': return 'Tags';
 			case 'settings.settings': return 'Settings';
 			case 'settings.appSettings': return 'App settings';
 			case 'settings.aboutApp': return 'About the app';
@@ -846,14 +825,7 @@ extension on _StringsEs {
 			case 'bookmarks.search.inputSearchTerm': return 'Introduce un término de búsqueda';
 			case 'bookmarks.search.cannotSearchError': return 'No se puede buscar el contenido por un error';
 			case 'bookmarks.search.inputtedSearchTermNoResults': return 'El término de búsqueda introducido no tiene resultados';
-			case 'search.search': return 'Buscar';
-			case 'search.bookmarks': return 'Marcadores';
-			case 'search.tags': return 'Etiquetas';
-			case 'search.clearSearch': return 'Limpiar búsqueda';
-			case 'search.inputSearchTerm': return 'Introduce un término de búsqueda';
-			case 'search.cannotSearchError': return 'No se puede buscar el contenido por un error';
-			case 'search.inputtedSearchTermNoResults': return 'El término de búsqueda introducido no tiene resultados';
-			case 'search.created': return ({required Object created}) => 'Creado: ${created}';
+			case 'tags.tags': return 'Etiquetas';
 			case 'settings.settings': return 'Ajustes';
 			case 'settings.appSettings': return 'Ajustes de la aplicación';
 			case 'settings.aboutApp': return 'Sobre la aplicación';
