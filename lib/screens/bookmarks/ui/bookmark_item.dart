@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:favicon/favicon.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/providers/app_status_provider.dart';
@@ -35,16 +37,45 @@ class BookmarkItem extends ConsumerWidget {
       isThreeLine: true,
       title: Padding(
         padding: const EdgeInsets.only(bottom: 4),
-        child: Text(
-          validateStrings(bookmark.title, bookmark.websiteTitle),
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
+        child: Row(
+          children: [
+            FutureBuilder(
+              future: FaviconFinder.getBest(bookmark.url!),
+              builder: (context, snapshot) {
+                if (snapshot.data == null) return const SizedBox();
+                return Row(
+                  children: [
+                    if (snapshot.data!.url.contains("svg"))
+                      SvgPicture.network(
+                        snapshot.data!.url,
+                        width: 16,
+                        height: 16,
+                      ),
+                    if (!snapshot.data!.url.contains("svg"))
+                      Image.network(
+                        snapshot.data!.url,
+                        width: 16,
+                        height: 16,
+                      ),
+                    const SizedBox(width: 8),
+                  ],
+                );
+              },
+            ),
+            Expanded(
+              child: Text(
+                validateStrings(bookmark.title, bookmark.websiteTitle),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
       subtitle: Column(
