@@ -121,4 +121,17 @@ class ApiClientService {
       return const ApiResponse(successful: false);
     }
   }
+
+  Future<ApiResponse<Tag>> fetchTagById(String tagId) async {
+    try {
+      final response = await dioInstance.get("/tags/$tagId/");
+      return ApiResponse(
+        successful: true,
+        content: Tag.fromJson(response.data),
+      );
+    } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    }
+  }
 }

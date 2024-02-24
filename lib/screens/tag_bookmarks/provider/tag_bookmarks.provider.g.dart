@@ -6,8 +6,8 @@ part of 'tag_bookmarks.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$tagBookmarksRequestHash() =>
-    r'0625c18022480eb1356396d9e46f677f21106797';
+String _$tagIdBookmarksRequestHash() =>
+    r'2deadbe50293503ac94cd5d8656d6055c6bdc190';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -30,6 +30,142 @@ class _SystemHash {
   }
 }
 
+/// See also [tagIdBookmarksRequest].
+@ProviderFor(tagIdBookmarksRequest)
+const tagIdBookmarksRequestProvider = TagIdBookmarksRequestFamily();
+
+/// See also [tagIdBookmarksRequest].
+class TagIdBookmarksRequestFamily
+    extends Family<AsyncValue<ApiResponse<TagBookmarksResponse?>>> {
+  /// See also [tagIdBookmarksRequest].
+  const TagIdBookmarksRequestFamily();
+
+  /// See also [tagIdBookmarksRequest].
+  TagIdBookmarksRequestProvider call(
+    String tagId,
+  ) {
+    return TagIdBookmarksRequestProvider(
+      tagId,
+    );
+  }
+
+  @override
+  TagIdBookmarksRequestProvider getProviderOverride(
+    covariant TagIdBookmarksRequestProvider provider,
+  ) {
+    return call(
+      provider.tagId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'tagIdBookmarksRequestProvider';
+}
+
+/// See also [tagIdBookmarksRequest].
+class TagIdBookmarksRequestProvider
+    extends AutoDisposeFutureProvider<ApiResponse<TagBookmarksResponse?>> {
+  /// See also [tagIdBookmarksRequest].
+  TagIdBookmarksRequestProvider(
+    String tagId,
+  ) : this._internal(
+          (ref) => tagIdBookmarksRequest(
+            ref as TagIdBookmarksRequestRef,
+            tagId,
+          ),
+          from: tagIdBookmarksRequestProvider,
+          name: r'tagIdBookmarksRequestProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$tagIdBookmarksRequestHash,
+          dependencies: TagIdBookmarksRequestFamily._dependencies,
+          allTransitiveDependencies:
+              TagIdBookmarksRequestFamily._allTransitiveDependencies,
+          tagId: tagId,
+        );
+
+  TagIdBookmarksRequestProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tagId,
+  }) : super.internal();
+
+  final String tagId;
+
+  @override
+  Override overrideWith(
+    FutureOr<ApiResponse<TagBookmarksResponse?>> Function(
+            TagIdBookmarksRequestRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: TagIdBookmarksRequestProvider._internal(
+        (ref) => create(ref as TagIdBookmarksRequestRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tagId: tagId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<ApiResponse<TagBookmarksResponse?>>
+      createElement() {
+    return _TagIdBookmarksRequestProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is TagIdBookmarksRequestProvider && other.tagId == tagId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tagId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin TagIdBookmarksRequestRef
+    on AutoDisposeFutureProviderRef<ApiResponse<TagBookmarksResponse?>> {
+  /// The parameter `tagId` of this provider.
+  String get tagId;
+}
+
+class _TagIdBookmarksRequestProviderElement
+    extends AutoDisposeFutureProviderElement<ApiResponse<TagBookmarksResponse?>>
+    with TagIdBookmarksRequestRef {
+  _TagIdBookmarksRequestProviderElement(super.provider);
+
+  @override
+  String get tagId => (origin as TagIdBookmarksRequestProvider).tagId;
+}
+
+String _$tagBookmarksRequestHash() =>
+    r'd198a94eafd0a78ef19de4064da4ddfba26ec1d3';
+
 /// See also [tagBookmarksRequest].
 @ProviderFor(tagBookmarksRequest)
 const tagBookmarksRequestProvider = TagBookmarksRequestFamily();
@@ -42,10 +178,10 @@ class TagBookmarksRequestFamily
 
   /// See also [tagBookmarksRequest].
   TagBookmarksRequestProvider call(
-    String tagName,
+    Tag tag,
   ) {
     return TagBookmarksRequestProvider(
-      tagName,
+      tag,
     );
   }
 
@@ -54,7 +190,7 @@ class TagBookmarksRequestFamily
     covariant TagBookmarksRequestProvider provider,
   ) {
     return call(
-      provider.tagName,
+      provider.tag,
     );
   }
 
@@ -78,11 +214,11 @@ class TagBookmarksRequestProvider
     extends AutoDisposeFutureProvider<ApiResponse<BookmarksResponse>> {
   /// See also [tagBookmarksRequest].
   TagBookmarksRequestProvider(
-    String tagName,
+    Tag tag,
   ) : this._internal(
           (ref) => tagBookmarksRequest(
             ref as TagBookmarksRequestRef,
-            tagName,
+            tag,
           ),
           from: tagBookmarksRequestProvider,
           name: r'tagBookmarksRequestProvider',
@@ -93,7 +229,7 @@ class TagBookmarksRequestProvider
           dependencies: TagBookmarksRequestFamily._dependencies,
           allTransitiveDependencies:
               TagBookmarksRequestFamily._allTransitiveDependencies,
-          tagName: tagName,
+          tag: tag,
         );
 
   TagBookmarksRequestProvider._internal(
@@ -103,10 +239,10 @@ class TagBookmarksRequestProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.tagName,
+    required this.tag,
   }) : super.internal();
 
-  final String tagName;
+  final Tag tag;
 
   @override
   Override overrideWith(
@@ -123,7 +259,7 @@ class TagBookmarksRequestProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        tagName: tagName,
+        tag: tag,
       ),
     );
   }
@@ -136,13 +272,13 @@ class TagBookmarksRequestProvider
 
   @override
   bool operator ==(Object other) {
-    return other is TagBookmarksRequestProvider && other.tagName == tagName;
+    return other is TagBookmarksRequestProvider && other.tag == tag;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, tagName.hashCode);
+    hash = _SystemHash.combine(hash, tag.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -150,8 +286,8 @@ class TagBookmarksRequestProvider
 
 mixin TagBookmarksRequestRef
     on AutoDisposeFutureProviderRef<ApiResponse<BookmarksResponse>> {
-  /// The parameter `tagName` of this provider.
-  String get tagName;
+  /// The parameter `tag` of this provider.
+  Tag get tag;
 }
 
 class _TagBookmarksRequestProviderElement
@@ -160,7 +296,7 @@ class _TagBookmarksRequestProviderElement
   _TagBookmarksRequestProviderElement(super.provider);
 
   @override
-  String get tagName => (origin as TagBookmarksRequestProvider).tagName;
+  Tag get tag => (origin as TagBookmarksRequestProvider).tag;
 }
 
 String _$tagBookmarksHash() => r'bcfcc986b8d58ccff54ed6dec3ab2a1a8c33a4f7';

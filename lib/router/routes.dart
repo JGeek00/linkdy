@@ -55,7 +55,7 @@ final List<RouteBase> appRoutes = [
   GoRoute(
     path: RoutesPaths.tagBookmarks,
     name: RoutesNames.tagBookmarks,
-    builder: (context, state) => TagBookmarksScreen(tag: state.extra as Tag),
+    builder: (context, state) => TagBookmarksScreen(tagId: state.pathParameters['id'], tag: state.extra as Tag?),
   ),
   GoRoute(
     path: RoutesPaths.customization,
