@@ -93,7 +93,7 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
     token: ref.watch(connectProvider).tokenController.text,
   );
 
-  final apiClient = ApiClient(
+  final apiClient = ApiClientService(
     serverInstance: serverInstance,
     dioInstance: Dio(
       BaseOptions(
@@ -112,9 +112,8 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
 
   processModal.close();
   if (result == true) {
-    ref.read(apiClientProviderProvider.notifier).setApiClient(apiClient);
+    ref.read(apiClientProvider.notifier).setApiClient(apiClient);
     ref.read(serverInstancesProvider.notifier).saveNewInstance(serverInstance);
-    // ref.watch(routerProvider).replace(RoutesPaths.links);
   } else {
     showSnacbkar(label: t.onboarding.cannotConnectToServer, color: Colors.red);
   }

@@ -6,7 +6,7 @@ part of 'add_link.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$checkBookmarkHash() => r'a4397a4497e3b7c8dec6027bb927371cc85e526c';
+String _$checkBookmarkHash() => r'8eeb8cb7ee801ca7ed1b604b56a4301a86568c54';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -160,7 +160,7 @@ class _CheckBookmarkProviderElement
   String get url => (origin as CheckBookmarkProvider).url;
 }
 
-String _$addBookmarkHash() => r'94d54330832874c142e417df21522f5faac27f9e';
+String _$addBookmarkHash() => r'f0994cdf9fe086431549dac44daadd367a8b801b';
 
 /// See also [addBookmark].
 @ProviderFor(addBookmark)
@@ -290,7 +290,7 @@ class _AddBookmarkProviderElement
   PostBookmark get newBookmark => (origin as AddBookmarkProvider).newBookmark;
 }
 
-String _$getTagsHash() => r'feecc7515f9492838c4a9bccc7031f49713e6ebb';
+String _$getTagsHash() => r'22cfedf0f73a32c41992b922cbdfbb0145cccc9a';
 
 /// See also [getTags].
 @ProviderFor(getTags)

@@ -6,7 +6,7 @@ part of 'search.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$searchBookmarksHash() => r'5e5ace5cf7231e9c6b919578700fa1f34cf3aca3';
+String _$searchBookmarksHash() => r'c8d0bfb69cc6c295649a8e2d90f57352689cdab7';
 
 /// See also [searchBookmarks].
 @ProviderFor(searchBookmarks)
@@ -23,7 +23,7 @@ final searchBookmarksProvider =
 
 typedef SearchBookmarksRef
     = AutoDisposeFutureProviderRef<ApiResponse<Bookmarks>?>;
-String _$searchTagsHash() => r'8470a8d018af64a04b1716b43d1d98dcb54f491d';
+String _$searchTagsHash() => r'6af31fef1a5020612f098550d54939852d88e187';
 
 /// See also [searchTags].
 @ProviderFor(searchTags)

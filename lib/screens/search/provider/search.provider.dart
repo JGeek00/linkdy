@@ -13,14 +13,14 @@ part 'search.provider.g.dart';
 @riverpod
 FutureOr<ApiResponse<Bookmarks>?> searchBookmarks(SearchBookmarksRef ref) async {
   if (ref.watch(searchProvider).searchTerm == "") return null;
-  final result = await ref.read(apiClientProviderProvider)!.fetchBookmarks(q: ref.watch(searchProvider).searchTerm);
+  final result = await ref.read(apiClientProvider)!.fetchBookmarks(q: ref.watch(searchProvider).searchTerm);
   return result;
 }
 
 @riverpod
 FutureOr<ApiResponse<Tags>?> searchTags(SearchTagsRef ref) async {
   if (ref.watch(searchProvider).searchTerm == "") return null;
-  final result = await ref.read(apiClientProviderProvider)!.fetchTags(q: ref.watch(searchProvider).searchTerm);
+  final result = await ref.read(apiClientProvider)!.fetchTags(q: ref.watch(searchProvider).searchTerm);
   return result;
 }
 

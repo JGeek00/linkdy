@@ -21,19 +21,19 @@ part 'add_link.provider.g.dart';
 
 @riverpod
 Future<ApiResponse<CheckBookmark>> checkBookmark(CheckBookmarkRef ref, String url) async {
-  final result = await ref.watch(apiClientProviderProvider)!.fetchCheckAddBookmark(url: url);
+  final result = await ref.watch(apiClientProvider)!.fetchCheckAddBookmark(url: url);
   return result;
 }
 
 @riverpod
 FutureOr<ApiResponse<Bookmark>> addBookmark(AddBookmarkRef ref, PostBookmark newBookmark) async {
-  final result = await ref.watch(apiClientProviderProvider)!.fetchPostBookmark(newBookmark);
+  final result = await ref.watch(apiClientProvider)!.fetchPostBookmark(newBookmark);
   return result;
 }
 
 @riverpod
 FutureOr<ApiResponse<Tags>> getTags(GetTagsRef ref) async {
-  final result = await ref.watch(apiClientProviderProvider)!.fetchTags();
+  final result = await ref.watch(apiClientProvider)!.fetchTags();
   return result;
 }
 

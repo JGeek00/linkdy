@@ -6,7 +6,7 @@ part of 'links.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$linksRequestHash() => r'be41da02d669705dc7723ba9fbab0c5b59fd233b';
+String _$linksRequestHash() => r'2bc6cb36d7c7090f5328c48e1f71acd46df5303b';
 
 /// See also [linksRequest].
 @ProviderFor(linksRequest)

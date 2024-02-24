@@ -24,7 +24,7 @@ class DisconnectModal extends ConsumerWidget {
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
-                ref.read(apiClientProviderProvider.notifier).disconnectApiClient();
+                ref.read(apiClientProvider.notifier).disconnectApiClient();
               },
               child: Text(t.generic.confirm),
             ),

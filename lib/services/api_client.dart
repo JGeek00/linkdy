@@ -7,11 +7,11 @@ import 'package:linkdy/models/data/post_bookmark.dart';
 import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/models/server_instance.dart';
 
-class ApiClient {
+class ApiClientService {
   final ServerInstance serverInstance;
   final Dio dioInstance;
 
-  const ApiClient({
+  const ApiClientService({
     required this.serverInstance,
     required this.dioInstance,
   });

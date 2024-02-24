@@ -7,13 +7,13 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'api_client_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-class ApiClientProvider extends _$ApiClientProvider {
+class ApiClient extends _$ApiClient {
   @override
-  ApiClient? build() {
+  ApiClientService? build() {
     final savedInstances = ref.watch(serverInstancesProvider);
     if (savedInstances.isNotEmpty) {
       final instance = savedInstances[0];
-      return ApiClient(
+      return ApiClientService(
         serverInstance: instance,
         dioInstance: Dio(
           BaseOptions(
@@ -28,7 +28,7 @@ class ApiClientProvider extends _$ApiClientProvider {
     return null;
   }
 
-  void setApiClient(ApiClient client) {
+  void setApiClient(ApiClientService client) {
     state = client;
   }
 

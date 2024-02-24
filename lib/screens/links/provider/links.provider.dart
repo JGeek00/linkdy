@@ -10,7 +10,7 @@ part 'links.provider.g.dart';
 
 @riverpod
 FutureOr<ApiResponse<Bookmarks>> linksRequest(LinksRequestRef ref) async {
-  final result = await ref.watch(apiClientProviderProvider)!.fetchBookmarks();
+  final result = await ref.watch(apiClientProvider)!.fetchBookmarks();
   return result;
 }
 
