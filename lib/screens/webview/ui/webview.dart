@@ -74,8 +74,12 @@ class WebView extends ConsumerWidget {
                   isInspectable: false,
                 ),
                 onUpdateVisitedHistory: (controller, url, androidIsReload) {
-                  controller.canGoBack().then((value) => ref.read(webViewProvider.notifier).setCanGoBack(value));
-                  controller.canGoForward().then((value) => ref.read(webViewProvider.notifier).setCanGoForward(value));
+                  controller.canGoBack().then(
+                        (value) => context.mounted ? ref.read(webViewProvider.notifier).setCanGoBack(value) : null,
+                      );
+                  controller.canGoForward().then(
+                        (value) => context.mounted ? ref.read(webViewProvider.notifier).setCanGoForward(value) : null,
+                      );
                 },
               ),
             ),
