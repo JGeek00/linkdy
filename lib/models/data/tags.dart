@@ -2,7 +2,7 @@ class TagsResponse {
   final int? count;
   final int? next;
   final int? previous;
-  final List<Result>? results;
+  final List<Tag>? results;
 
   TagsResponse({
     this.count,
@@ -15,7 +15,7 @@ class TagsResponse {
         count: json["count"],
         next: json["next"],
         previous: json["previous"],
-        results: json["results"] == null ? [] : List<Result>.from(json["results"]!.map((x) => Result.fromJson(x))),
+        results: json["results"] == null ? [] : List<Tag>.from(json["results"]!.map((x) => Tag.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -26,18 +26,18 @@ class TagsResponse {
       };
 }
 
-class Result {
+class Tag {
   final int? id;
   final String? name;
   final DateTime? dateAdded;
 
-  Result({
+  Tag({
     this.id,
     this.name,
     this.dateAdded,
   });
 
-  factory Result.fromJson(Map<String, dynamic> json) => Result(
+  factory Tag.fromJson(Map<String, dynamic> json) => Tag(
         id: json["id"],
         name: json["name"],
         dateAdded: json["date_added"] == null ? null : DateTime.parse(json["date_added"]),

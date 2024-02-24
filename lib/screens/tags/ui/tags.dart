@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:linkdy/screens/tags/provider/tags.provider.dart';
+import 'package:linkdy/screens/tags/ui/add_tag_modal.dart';
 import 'package:linkdy/utils/date_to_string.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
@@ -17,22 +18,13 @@ class TagsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final tags = ref.watch(tagsRequestProvider);
 
-    final width = MediaQuery.of(context).size.width;
-
     void openAddModal() {
-      // showGeneralDialog(
-      //   context: context,
-      //   barrierColor: !(width > 700 || !(Platform.isAndroid || Platform.isIOS)) ? Colors.transparent : Colors.black54,
-      //   transitionBuilder: (context, anim1, anim2, child) {
-      //     return SlideTransition(
-      //       position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0)).animate(
-      //         CurvedAnimation(parent: anim1, curve: Curves.easeInOutCubicEmphasized),
-      //       ),
-      //       child: child,
-      //     );
-      //   },
-      //   pageBuilder: (context, animation, secondaryAnimation) => AddBookmarkModal(fullscreen: width <= 700),
-      // );
+      showModalBottomSheet(
+        context: context,
+        useRootNavigator: true,
+        isScrollControlled: true,
+        builder: (context) => const AddTagModal(),
+      );
     }
 
     return Scaffold(
@@ -101,7 +93,7 @@ class TagsScreen extends ConsumerWidget {
                                 ),
                               ),
                               subtitle: Text(
-                                dateToString(tag.dateAdded!),
+                                t.tags.created(created: dateToString(tag.dateAdded!)),
                                 style: TextStyle(
                                   fontSize: 14,
                                   color: Theme.of(context).colorScheme.onSurfaceVariant,

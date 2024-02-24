@@ -70,7 +70,7 @@ class ApiClientService {
     }
   }
 
-  Future<ApiResponse<Bookmark>> fetchPostBookmark(PostBookmark bookmark) async {
+  Future<ApiResponse<Bookmark>> postBookmark(PostBookmark bookmark) async {
     try {
       final response = await dioInstance.post(
         "/bookmarks/",
@@ -99,6 +99,22 @@ class ApiClientService {
       return ApiResponse(
         successful: true,
         content: TagsResponse.fromJson(response.data),
+      );
+    } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    }
+  }
+
+  Future<ApiResponse<Tag>> postTag(String name) async {
+    try {
+      final response = await dioInstance.post(
+        "/tags/",
+        data: FormData.fromMap({"name": name}),
+      );
+      return ApiResponse(
+        successful: true,
+        content: Tag.fromJson(response.data),
       );
     } catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);

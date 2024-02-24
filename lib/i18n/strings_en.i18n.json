@@ -75,7 +75,14 @@
     }
   },
   "tags": {
-    "tags": "Tags"
+    "tags": "Tags",
+    "created": "Created: $created",
+    "createTag": {
+      "createTag": "Create tag",
+      "name": "Name",
+      "creatingTag": "Creating tag...",
+      "errorCreatingTag": "An error occured when creating the tag."
+    }
   },
   "settings": {
     "settings": "Settings",

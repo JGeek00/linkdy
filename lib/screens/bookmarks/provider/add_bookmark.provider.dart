@@ -93,7 +93,7 @@ class AddBookmark extends _$AddBookmark {
     final processModal = ProcessModal();
     processModal.open(t.bookmarks.addBookmark.savingBookmark);
 
-    final result = await ref.watch(apiClientProvider)!.fetchPostBookmark(newBookmark);
+    final result = await ref.watch(apiClientProvider)!.postBookmark(newBookmark);
 
     processModal.close();
 

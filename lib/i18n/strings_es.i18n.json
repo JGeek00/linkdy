@@ -75,7 +75,14 @@
     }
   },
   "tags": {
-    "tags": "Etiquetas"
+    "tags": "Etiquetas",
+    "created": "Creado: $created",
+    "createTag": {
+      "createTag": "Crear etiqueta",
+      "name": "Nombre",
+      "creatingTag": "Creando etiqueta...",
+      "errorCreatingTag": "Ocurrió un error al crear la etiqueta."
+    }
   },
   "settings": {
     "settings": "Ajustes",

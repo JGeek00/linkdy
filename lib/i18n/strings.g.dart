@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 208 (104 per locale)
+/// Strings: 218 (109 per locale)
 ///
-/// Built on 2024-02-24 at 12:07 UTC
+/// Built on 2024-02-24 at 12:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -227,6 +227,8 @@ class _StringsTagsEn {
 
 	// Translations
 	String get tags => 'Tags';
+	String created({required Object created}) => 'Created: ${created}';
+	late final _StringsTagsCreateTagEn createTag = _StringsTagsCreateTagEn._(_root);
 }
 
 // Path: settings
@@ -339,6 +341,19 @@ class _StringsBookmarksSearchEn {
 	String get inputSearchTerm => 'Input a search term';
 	String get cannotSearchError => 'Cannot search content due to an error';
 	String get inputtedSearchTermNoResults => 'The inputted search term doesn\'t have any results';
+}
+
+// Path: tags.createTag
+class _StringsTagsCreateTagEn {
+	_StringsTagsCreateTagEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get createTag => 'Create tag';
+	String get name => 'Name';
+	String get creatingTag => 'Creating tag...';
+	String get errorCreatingTag => 'An error occured when creating the tag.';
 }
 
 // Path: settings.customization
@@ -487,6 +502,8 @@ class _StringsTagsEs implements _StringsTagsEn {
 
 	// Translations
 	@override String get tags => 'Etiquetas';
+	@override String created({required Object created}) => 'Creado: ${created}';
+	@override late final _StringsTagsCreateTagEs createTag = _StringsTagsCreateTagEs._(_root);
 }
 
 // Path: settings
@@ -599,6 +616,19 @@ class _StringsBookmarksSearchEs implements _StringsBookmarksSearchEn {
 	@override String get inputSearchTerm => 'Introduce un término de búsqueda';
 	@override String get cannotSearchError => 'No se puede buscar el contenido por un error';
 	@override String get inputtedSearchTermNoResults => 'El término de búsqueda introducido no tiene resultados';
+}
+
+// Path: tags.createTag
+class _StringsTagsCreateTagEs implements _StringsTagsCreateTagEn {
+	_StringsTagsCreateTagEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get createTag => 'Crear etiqueta';
+	@override String get name => 'Nombre';
+	@override String get creatingTag => 'Creando etiqueta...';
+	@override String get errorCreatingTag => 'Ocurrió un error al crear la etiqueta.';
 }
 
 // Path: settings.customization
@@ -714,6 +744,11 @@ extension on Translations {
 			case 'bookmarks.search.cannotSearchError': return 'Cannot search content due to an error';
 			case 'bookmarks.search.inputtedSearchTermNoResults': return 'The inputted search term doesn\'t have any results';
 			case 'tags.tags': return 'Tags';
+			case 'tags.created': return ({required Object created}) => 'Created: ${created}';
+			case 'tags.createTag.createTag': return 'Create tag';
+			case 'tags.createTag.name': return 'Name';
+			case 'tags.createTag.creatingTag': return 'Creating tag...';
+			case 'tags.createTag.errorCreatingTag': return 'An error occured when creating the tag.';
 			case 'settings.settings': return 'Settings';
 			case 'settings.appSettings': return 'App settings';
 			case 'settings.aboutApp': return 'About the app';
@@ -826,6 +861,11 @@ extension on _StringsEs {
 			case 'bookmarks.search.cannotSearchError': return 'No se puede buscar el contenido por un error';
 			case 'bookmarks.search.inputtedSearchTermNoResults': return 'El término de búsqueda introducido no tiene resultados';
 			case 'tags.tags': return 'Etiquetas';
+			case 'tags.created': return ({required Object created}) => 'Creado: ${created}';
+			case 'tags.createTag.createTag': return 'Crear etiqueta';
+			case 'tags.createTag.name': return 'Nombre';
+			case 'tags.createTag.creatingTag': return 'Creando etiqueta...';
+			case 'tags.createTag.errorCreatingTag': return 'Ocurrió un error al crear la etiqueta.';
 			case 'settings.settings': return 'Ajustes';
 			case 'settings.appSettings': return 'Ajustes de la aplicación';
 			case 'settings.aboutApp': return 'Sobre la aplicación';
