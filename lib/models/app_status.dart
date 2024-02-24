@@ -6,6 +6,7 @@ class AppStatusModel {
   bool useDynamicTheme;
   int selectedColor;
   bool useInAppBrowser;
+  bool showFavicon;
 
   AppStatusModel({
     this.selectedTheme = SelectedTheme.system,
@@ -13,5 +14,6 @@ class AppStatusModel {
     this.useDynamicTheme = true,
     this.selectedColor = 0,
     this.useInAppBrowser = true,
+    this.showFavicon = true,
   });
 }

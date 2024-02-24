@@ -55,6 +55,7 @@ dependencies:
   sentry_flutter: ^7.16.1
   flutter_dotenv: ^5.1.0
   favicon: ^1.1.2
+  skeletonizer: ^1.0.1
 
 dev_dependencies:
   build_runner: ^2.4.8

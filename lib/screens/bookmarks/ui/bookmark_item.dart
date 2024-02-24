@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:favicon/favicon.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:linkdy/models/data/bookmarks.dart';
@@ -39,29 +40,46 @@ class BookmarkItem extends ConsumerWidget {
         padding: const EdgeInsets.only(bottom: 4),
         child: Row(
           children: [
-            FutureBuilder(
-              future: FaviconFinder.getBest(bookmark.url!),
-              builder: (context, snapshot) {
-                if (snapshot.data == null) return const SizedBox();
-                return Row(
-                  children: [
-                    if (snapshot.data!.url.contains("svg"))
-                      SvgPicture.network(
-                        snapshot.data!.url,
-                        width: 16,
-                        height: 16,
+            if (ref.watch(appStatusProvider).showFavicon == true)
+              FutureBuilder(
+                future: FaviconFinder.getBest(bookmark.url!),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData == false) {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: Skeletonizer(
+                          enabled: true,
+                          ignoreContainers: true,
+                          child: Container(
+                            width: 16,
+                            height: 16,
+                            color: Colors.black,
+                          ),
+                        ),
                       ),
-                    if (!snapshot.data!.url.contains("svg"))
-                      Image.network(
-                        snapshot.data!.url,
-                        width: 16,
-                        height: 16,
-                      ),
-                    const SizedBox(width: 8),
-                  ],
-                );
-              },
-            ),
+                    );
+                  }
+                  return Row(
+                    children: [
+                      if (snapshot.data!.url.contains("svg"))
+                        SvgPicture.network(
+                          snapshot.data!.url,
+                          width: 16,
+                          height: 16,
+                        ),
+                      if (!snapshot.data!.url.contains("svg"))
+                        Image.network(
+                          snapshot.data!.url,
+                          width: 16,
+                          height: 16,
+                        ),
+                      const SizedBox(width: 8),
+                    ],
+                  );
+                },
+              ),
             Expanded(
               child: Text(
                 validateStrings(bookmark.title, bookmark.websiteTitle),

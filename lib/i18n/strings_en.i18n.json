@@ -105,6 +105,9 @@
     "generalSettings": {
       "generalSettings": "General settings",
       "generalSettingsDescription": "General tweaks for the application.",
+      "bookmarks": "Bookmarks",
+      "showFavicon": "Show favicon",
+      "showFaviconDescription": "Show the website's favicon on each bookmark.",
       "disconnectFromServer": "Disconnect from server",
       "disconnectModal": {
         "title": "Disconnect",

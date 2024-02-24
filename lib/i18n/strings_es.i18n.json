@@ -105,6 +105,9 @@
     "generalSettings": {
       "generalSettings": "Ajustes generales",
       "generalSettingsDescription": "Ajustes generales para la aplicación.",
+      "bookmarks": "Marcadores",
+      "showFavicon": "Mostrar favicon",
+      "showFaviconDescription": "Mostrar el favicon del sitio web en cada marcador.",
       "disconnectFromServer": "Desconectar del servidor",
       "disconnectModal": {
         "title": "Desconectar",

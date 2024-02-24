@@ -19,6 +19,7 @@ class AppStatus extends _$AppStatus {
       selectedTheme: SelectedTheme.values[sharedPreferences.getInt(SharedPreferencesKeys.selectedTheme) ?? 0],
       useDynamicTheme: sharedPreferences.getBool(SharedPreferencesKeys.useDynamicTheme) ?? true,
       useInAppBrowser: sharedPreferences.getBool(SharedPreferencesKeys.useInAppBrowser) ?? true,
+      showFavicon: sharedPreferences.getBool(SharedPreferencesKeys.showFavicon) ?? true,
     );
   }
 
@@ -47,6 +48,12 @@ class AppStatus extends _$AppStatus {
   void setUseInAppBrowser(bool value) {
     state.useInAppBrowser = value;
     ref.read(sharedPreferencesProvider).setBool(SharedPreferencesKeys.useInAppBrowser, value);
+    ref.notifyListeners();
+  }
+
+  void setShowFavicon(bool value) {
+    state.showFavicon = value;
+    ref.read(sharedPreferencesProvider).setBool(SharedPreferencesKeys.showFavicon, value);
     ref.notifyListeners();
   }
 }

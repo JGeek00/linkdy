@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 218 (109 per locale)
+/// Strings: 224 (112 per locale)
 ///
-/// Built on 2024-02-24 at 12:45 UTC
+/// Built on 2024-02-24 at 15:14 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -382,6 +382,9 @@ class _StringsSettingsGeneralSettingsEn {
 	// Translations
 	String get generalSettings => 'General settings';
 	String get generalSettingsDescription => 'General tweaks for the application.';
+	String get bookmarks => 'Bookmarks';
+	String get showFavicon => 'Show favicon';
+	String get showFaviconDescription => 'Show the website\'s favicon on each bookmark.';
 	String get disconnectFromServer => 'Disconnect from server';
 	late final _StringsSettingsGeneralSettingsDisconnectModalEn disconnectModal = _StringsSettingsGeneralSettingsDisconnectModalEn._(_root);
 	String get useInAppBrowser => 'Use in app browser';
@@ -657,6 +660,9 @@ class _StringsSettingsGeneralSettingsEs implements _StringsSettingsGeneralSettin
 	// Translations
 	@override String get generalSettings => 'Ajustes generales';
 	@override String get generalSettingsDescription => 'Ajustes generales para la aplicación.';
+	@override String get bookmarks => 'Marcadores';
+	@override String get showFavicon => 'Mostrar favicon';
+	@override String get showFaviconDescription => 'Mostrar el favicon del sitio web en cada marcador.';
 	@override String get disconnectFromServer => 'Desconectar del servidor';
 	@override late final _StringsSettingsGeneralSettingsDisconnectModalEs disconnectModal = _StringsSettingsGeneralSettingsDisconnectModalEs._(_root);
 	@override String get useInAppBrowser => 'Usar navegador de la aplicación';
@@ -766,6 +772,9 @@ extension on Translations {
 			case 'settings.customization.useDynamicTheme': return 'Use dynamic theme';
 			case 'settings.generalSettings.generalSettings': return 'General settings';
 			case 'settings.generalSettings.generalSettingsDescription': return 'General tweaks for the application.';
+			case 'settings.generalSettings.bookmarks': return 'Bookmarks';
+			case 'settings.generalSettings.showFavicon': return 'Show favicon';
+			case 'settings.generalSettings.showFaviconDescription': return 'Show the website\'s favicon on each bookmark.';
 			case 'settings.generalSettings.disconnectFromServer': return 'Disconnect from server';
 			case 'settings.generalSettings.disconnectModal.title': return 'Disconnect';
 			case 'settings.generalSettings.disconnectModal.description': return 'Are you sure you want to disconnect from the server?\nYou will be redirected to the initial setup.';
@@ -883,6 +892,9 @@ extension on _StringsEs {
 			case 'settings.customization.useDynamicTheme': return 'Usar tema dinámico';
 			case 'settings.generalSettings.generalSettings': return 'Ajustes generales';
 			case 'settings.generalSettings.generalSettingsDescription': return 'Ajustes generales para la aplicación.';
+			case 'settings.generalSettings.bookmarks': return 'Marcadores';
+			case 'settings.generalSettings.showFavicon': return 'Mostrar favicon';
+			case 'settings.generalSettings.showFaviconDescription': return 'Mostrar el favicon del sitio web en cada marcador.';
 			case 'settings.generalSettings.disconnectFromServer': return 'Desconectar del servidor';
 			case 'settings.generalSettings.disconnectModal.title': return 'Desconectar';
 			case 'settings.generalSettings.disconnectModal.description': return '¿Estás seguro que deseas desconectarte del servidor?\nSerás redirigido a la configuración inicial.';
