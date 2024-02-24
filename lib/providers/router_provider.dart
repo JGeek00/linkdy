@@ -16,7 +16,7 @@ GoRouter router(RouterRef ref) {
       }
       return null;
     },
-    initialLocation: RoutesPaths.links,
+    initialLocation: RoutesPaths.bookmarks,
     routes: appRoutes,
     navigatorKey: rootNavigatorKey,
   );

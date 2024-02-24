@@ -65,6 +65,13 @@
       "errorSavingBookmark": "An error occured when saving the new bookmark.",
       "leaveEmptyUseWebsiteTitle": "Leave empty to use the website's title.",
       "leaveEmptyUseWebsiteDescription": "Leave empty to use the website's description."
+    },
+    "search": {
+      "searchBookmarks": "Search bookmarks",
+      "clearSearch": "Clear search",
+      "inputSearchTerm": "Input a search term",
+      "cannotSearchError": "Cannot search content due to an error",
+      "inputtedSearchTermNoResults": "The inputted search term doesn't have any results"
     }
   },
   "search": {

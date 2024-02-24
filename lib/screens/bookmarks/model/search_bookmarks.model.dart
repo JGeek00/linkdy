@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class SearchModel {
+class SearchBookmarksModel {
   final TextEditingController searchController;
   String? searchTerm;
 
-  SearchModel({
+  SearchBookmarksModel({
     required this.searchController,
     this.searchTerm = "",
   });

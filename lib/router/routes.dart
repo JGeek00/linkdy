@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:linkdy/screens/bookmarks/ui/bookmarks.dart';
+import 'package:linkdy/screens/bookmarks/ui/search_bookmarks.dart';
 import 'package:linkdy/screens/onboarding/ui/onboarding.dart';
-import 'package:linkdy/screens/search/ui/search.dart';
 import 'package:linkdy/screens/settings/ui/customization/customization.dart';
 import 'package:linkdy/screens/settings/ui/general_settings/general_settings.dart';
 import 'package:linkdy/screens/settings/ui/settings.dart';
@@ -34,18 +34,18 @@ final List<RouteBase> appRoutes = [
     ),
     routes: [
       GoRoute(
-        path: RoutesPaths.links,
+        path: RoutesPaths.bookmarks,
         builder: (context, state) => const BookmarksScreen(),
       ),
       GoRoute(
-        path: RoutesPaths.search,
-        builder: (context, state) => const Search(),
-      ),
-      GoRoute(
         path: RoutesPaths.settings,
-        builder: (context, state) => const Settings(),
+        builder: (context, state) => const SettingsScreen(),
       ),
     ],
+  ),
+  GoRoute(
+    path: RoutesPaths.bookmarksSearch,
+    builder: (context, state) => const SearchBookmarksScreen(),
   ),
   GoRoute(
     path: RoutesPaths.customization,

@@ -65,6 +65,13 @@
       "errorSavingBookmark": "Ocurrió un error al guardar el nuevo marcador.",
       "leaveEmptyUseWebsiteTitle": "Dejar vacío para usar el título del sitio web.",
       "leaveEmptyUseWebsiteDescription": "Dejar vacío para usar la descripción del sitio web."
+    },
+    "search": {
+      "searchBookmarks": "Buscar marcadores",
+      "clearSearch": "Limpiar búsqueda",
+      "inputSearchTerm": "Introduce un término de búsqueda",
+      "cannotSearchError": "No se puede buscar el contenido por un error",
+      "inputtedSearchTermNoResults": "El término de búsqueda introducido no tiene resultados"
     }
   },
   "search": {

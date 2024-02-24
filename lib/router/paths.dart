@@ -1,6 +1,7 @@
 class RoutesPaths {
   static const onboarding = "/onboarding";
-  static const links = "/links";
+  static const bookmarks = "/bookmarks";
+  static const bookmarksSearch = "/bookmarks/search";
   static const webview = "/webview";
   static const search = "/search";
   static const settings = "/settings";

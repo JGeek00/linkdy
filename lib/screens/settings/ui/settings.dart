@@ -13,8 +13,8 @@ import 'package:linkdy/constants/strings.dart';
 import 'package:linkdy/constants/urls.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 
-class Settings extends ConsumerWidget {
-  const Settings({Key? key}) : super(key: key);
+class SettingsScreen extends ConsumerWidget {
+  const SettingsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

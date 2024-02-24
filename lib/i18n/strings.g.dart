@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 212 (106 per locale)
+/// Strings: 222 (111 per locale)
 ///
-/// Built on 2024-02-24 at 00:56 UTC
+/// Built on 2024-02-24 at 11:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -216,6 +216,7 @@ class _StringsBookmarksEn {
 	String get cannotLoadBookmarks => 'Cannot load the bookmarks';
 	late final _StringsBookmarksDatesEn dates = _StringsBookmarksDatesEn._(_root);
 	late final _StringsBookmarksAddBookmarkEn addBookmark = _StringsBookmarksAddBookmarkEn._(_root);
+	late final _StringsBookmarksSearchEn search = _StringsBookmarksSearchEn._(_root);
 }
 
 // Path: search
@@ -331,6 +332,20 @@ class _StringsBookmarksAddBookmarkEn {
 	String get errorSavingBookmark => 'An error occured when saving the new bookmark.';
 	String get leaveEmptyUseWebsiteTitle => 'Leave empty to use the website\'s title.';
 	String get leaveEmptyUseWebsiteDescription => 'Leave empty to use the website\'s description.';
+}
+
+// Path: bookmarks.search
+class _StringsBookmarksSearchEn {
+	_StringsBookmarksSearchEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get searchBookmarks => 'Search bookmarks';
+	String get clearSearch => 'Clear search';
+	String get inputSearchTerm => 'Input a search term';
+	String get cannotSearchError => 'Cannot search content due to an error';
+	String get inputtedSearchTermNoResults => 'The inputted search term doesn\'t have any results';
 }
 
 // Path: settings.customization
@@ -468,6 +483,7 @@ class _StringsBookmarksEs implements _StringsBookmarksEn {
 	@override String get cannotLoadBookmarks => 'No se pueden cargar los marcadores';
 	@override late final _StringsBookmarksDatesEs dates = _StringsBookmarksDatesEs._(_root);
 	@override late final _StringsBookmarksAddBookmarkEs addBookmark = _StringsBookmarksAddBookmarkEs._(_root);
+	@override late final _StringsBookmarksSearchEs search = _StringsBookmarksSearchEs._(_root);
 }
 
 // Path: search
@@ -585,6 +601,20 @@ class _StringsBookmarksAddBookmarkEs implements _StringsBookmarksAddBookmarkEn {
 	@override String get leaveEmptyUseWebsiteDescription => 'Dejar vacío para usar la descripción del sitio web.';
 }
 
+// Path: bookmarks.search
+class _StringsBookmarksSearchEs implements _StringsBookmarksSearchEn {
+	_StringsBookmarksSearchEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get searchBookmarks => 'Buscar marcadores';
+	@override String get clearSearch => 'Limpiar búsqueda';
+	@override String get inputSearchTerm => 'Introduce un término de búsqueda';
+	@override String get cannotSearchError => 'No se puede buscar el contenido por un error';
+	@override String get inputtedSearchTermNoResults => 'El término de búsqueda introducido no tiene resultados';
+}
+
 // Path: settings.customization
 class _StringsSettingsCustomizationEs implements _StringsSettingsCustomizationEn {
 	_StringsSettingsCustomizationEs._(this._root);
@@ -692,6 +722,11 @@ extension on Translations {
 			case 'bookmarks.addBookmark.errorSavingBookmark': return 'An error occured when saving the new bookmark.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Leave empty to use the website\'s title.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Leave empty to use the website\'s description.';
+			case 'bookmarks.search.searchBookmarks': return 'Search bookmarks';
+			case 'bookmarks.search.clearSearch': return 'Clear search';
+			case 'bookmarks.search.inputSearchTerm': return 'Input a search term';
+			case 'bookmarks.search.cannotSearchError': return 'Cannot search content due to an error';
+			case 'bookmarks.search.inputtedSearchTermNoResults': return 'The inputted search term doesn\'t have any results';
 			case 'search.search': return 'Search';
 			case 'search.bookmarks': return 'Bookmarks';
 			case 'search.tags': return 'Tags';
@@ -806,6 +841,11 @@ extension on _StringsEs {
 			case 'bookmarks.addBookmark.errorSavingBookmark': return 'Ocurrió un error al guardar el nuevo marcador.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Dejar vacío para usar el título del sitio web.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Dejar vacío para usar la descripción del sitio web.';
+			case 'bookmarks.search.searchBookmarks': return 'Buscar marcadores';
+			case 'bookmarks.search.clearSearch': return 'Limpiar búsqueda';
+			case 'bookmarks.search.inputSearchTerm': return 'Introduce un término de búsqueda';
+			case 'bookmarks.search.cannotSearchError': return 'No se puede buscar el contenido por un error';
+			case 'bookmarks.search.inputtedSearchTermNoResults': return 'El término de búsqueda introducido no tiene resultados';
 			case 'search.search': return 'Buscar';
 			case 'search.bookmarks': return 'Marcadores';
 			case 'search.tags': return 'Etiquetas';

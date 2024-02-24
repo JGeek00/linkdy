@@ -7,13 +7,8 @@ import 'package:linkdy/router/paths.dart';
 final appScreens = [
   AppRoute(
     icon: Icons.bookmarks_rounded,
-    route: RoutesPaths.links,
+    route: RoutesPaths.bookmarks,
     name: t.bookmarks.bookmarks,
-  ),
-  AppRoute(
-    icon: Icons.search_rounded,
-    route: RoutesPaths.search,
-    name: t.search.search,
   ),
   AppRoute(
     icon: Icons.settings_rounded,

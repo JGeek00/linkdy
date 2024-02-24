@@ -8,10 +8,10 @@ import 'package:linkdy/router/paths.dart';
 import 'package:linkdy/utils/date_to_string.dart';
 import 'package:linkdy/utils/open_url.dart';
 
-class LinkItem extends ConsumerWidget {
+class BookmarkItem extends ConsumerWidget {
   final Bookmark bookmark;
 
-  const LinkItem({
+  const BookmarkItem({
     Key? key,
     required this.bookmark,
   }) : super(key: key);

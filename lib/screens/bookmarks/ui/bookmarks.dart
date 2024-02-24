@@ -10,6 +10,8 @@ import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/providers/router_provider.dart';
+import 'package:linkdy/router/paths.dart';
 
 class BookmarksScreen extends ConsumerWidget {
   const BookmarksScreen({Key? key}) : super(key: key);
@@ -47,6 +49,14 @@ class BookmarksScreen extends ConsumerWidget {
               centerTitle: false,
               forceElevated: innerBoxIsScrolled,
               title: Text(t.bookmarks.bookmarks),
+              actions: [
+                IconButton(
+                  onPressed: () => ref.watch(routerProvider).push(RoutesPaths.bookmarksSearch),
+                  icon: const Icon(Icons.search_rounded),
+                  tooltip: t.bookmarks.search.searchBookmarks,
+                ),
+                const SizedBox(width: 8),
+              ],
             ),
           ),
         ],
@@ -94,7 +104,7 @@ class BookmarksScreen extends ConsumerWidget {
                         final link = bookmarks.value?.content?.results?[index];
                         return Column(
                           children: [
-                            LinkItem(bookmark: link!),
+                            BookmarkItem(bookmark: link!),
                             if (index < bookmarks.value!.content!.results!.length - 1)
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 16),
