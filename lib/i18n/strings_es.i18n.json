@@ -34,6 +34,8 @@
   },
   "bookmarks": {
     "bookmarks": "Marcadores",
+    "noBookmarksAdded": "No hay marcadores añadidos",
+    "cannotLoadBookmarks": "No se pueden cargar los marcadores",
     "dates": {
       "todayAt": "Hoy, $time",
       "yesterdayAt": "Ayer, $time"

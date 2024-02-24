@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:linkdy/screens/search/provider/search.provider.dart';
-import 'package:linkdy/screens/search/ui/error_search_list.dart';
 import 'package:linkdy/screens/search/ui/input_search_term.dart';
-import 'package:linkdy/screens/search/ui/search_no_data.dart';
+import 'package:linkdy/widgets/error_screen.dart';
+import 'package:linkdy/widgets/no_data_screen.dart';
 import 'package:linkdy/widgets/sliver_tab_body.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
@@ -28,17 +28,23 @@ class TagsSearchList extends ConsumerWidget {
     return bookmarksSearch.when(
       data: (data) {
         if (data!.successful == false) {
-          return const SliverTabBody(
+          return SliverTabBody(
             child: SliverFillRemaining(
-              child: Center(
-                child: Icon(Icons.error_rounded),
+              child: SliverTabBody(
+                child: SliverFillRemaining(
+                  child: ErrorScreen(
+                    error: t.search.cannotSearchError,
+                  ),
+                ),
               ),
             ),
           );
         } else if (data.content!.results!.isEmpty) {
-          return const SliverTabBody(
+          return SliverTabBody(
             child: SliverFillRemaining(
-              child: SearchNoData(),
+              child: NoDataScreen(
+                message: t.search.inputtedSearchTermNoResults,
+              ),
             ),
           );
         } else {
@@ -65,10 +71,14 @@ class TagsSearchList extends ConsumerWidget {
           );
         }
       },
-      error: (error, stackTrace) => const SliverTabBody(
+      error: (error, stackTrace) => SliverTabBody(
         child: SliverFillRemaining(
-          child: Center(
-            child: ErrorSearchList(),
+          child: SliverTabBody(
+            child: SliverFillRemaining(
+              child: ErrorScreen(
+                error: t.search.cannotSearchError,
+              ),
+            ),
           ),
         ),
       ),

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:linkdy/i18n/strings.g.dart';
+class ErrorScreen extends StatelessWidget {
+  final String error;
 
-class ErrorSearchList extends StatelessWidget {
-  const ErrorSearchList({Key? key}) : super(key: key);
+  const ErrorScreen({
+    Key? key,
+    required this.error,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class ErrorSearchList extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           Text(
-            t.search.cannotSearchError,
+            error,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 24,

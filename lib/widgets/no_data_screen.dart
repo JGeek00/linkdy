@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:linkdy/i18n/strings.g.dart';
+class NoDataScreen extends StatelessWidget {
+  final String message;
 
-class SearchNoData extends StatelessWidget {
-  const SearchNoData({Key? key}) : super(key: key);
+  const NoDataScreen({
+    Key? key,
+    required this.message,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class SearchNoData extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           Text(
-            t.search.inputtedSearchTermNoResults,
+            message,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 24,

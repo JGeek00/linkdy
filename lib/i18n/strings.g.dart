@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 208 (104 per locale)
+/// Strings: 212 (106 per locale)
 ///
-/// Built on 2024-02-24 at 00:45 UTC
+/// Built on 2024-02-24 at 00:56 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -212,6 +212,8 @@ class _StringsBookmarksEn {
 
 	// Translations
 	String get bookmarks => 'Bookmarks';
+	String get noBookmarksAdded => 'No bookmarks added';
+	String get cannotLoadBookmarks => 'Cannot load the bookmarks';
 	late final _StringsBookmarksDatesEn dates = _StringsBookmarksDatesEn._(_root);
 	late final _StringsBookmarksAddBookmarkEn addBookmark = _StringsBookmarksAddBookmarkEn._(_root);
 }
@@ -462,6 +464,8 @@ class _StringsBookmarksEs implements _StringsBookmarksEn {
 
 	// Translations
 	@override String get bookmarks => 'Marcadores';
+	@override String get noBookmarksAdded => 'No hay marcadores añadidos';
+	@override String get cannotLoadBookmarks => 'No se pueden cargar los marcadores';
 	@override late final _StringsBookmarksDatesEs dates = _StringsBookmarksDatesEs._(_root);
 	@override late final _StringsBookmarksAddBookmarkEs addBookmark = _StringsBookmarksAddBookmarkEs._(_root);
 }
@@ -660,6 +664,8 @@ extension on Translations {
 			case 'onboarding.cannotConnectToServer': return 'Cannot connect to the server.';
 			case 'onboarding.invalidToken': return 'Invalid token.';
 			case 'bookmarks.bookmarks': return 'Bookmarks';
+			case 'bookmarks.noBookmarksAdded': return 'No bookmarks added';
+			case 'bookmarks.cannotLoadBookmarks': return 'Cannot load the bookmarks';
 			case 'bookmarks.dates.todayAt': return ({required Object time}) => 'Today, ${time}';
 			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
 			case 'bookmarks.addBookmark.addBookmark': return 'Add new bookmark';
@@ -772,6 +778,8 @@ extension on _StringsEs {
 			case 'onboarding.cannotConnectToServer': return 'No se puede conectar con el servidor.';
 			case 'onboarding.invalidToken': return 'Token no válido.';
 			case 'bookmarks.bookmarks': return 'Marcadores';
+			case 'bookmarks.noBookmarksAdded': return 'No hay marcadores añadidos';
+			case 'bookmarks.cannotLoadBookmarks': return 'No se pueden cargar los marcadores';
 			case 'bookmarks.dates.todayAt': return ({required Object time}) => 'Hoy, ${time}';
 			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';
 			case 'bookmarks.addBookmark.addBookmark': return 'Añadir nuevo marcador';

@@ -6,6 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/screens/bookmarks/ui/add_bookmark_modal.dart';
+import 'package:linkdy/widgets/error_screen.dart';
+import 'package:linkdy/widgets/no_data_screen.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
 
@@ -65,17 +67,17 @@ class BookmarksScreen extends ConsumerWidget {
                       child: Center(child: CircularProgressIndicator()),
                     ),
                   if (bookmarks.value != null && bookmarks.value!.successful == false)
-                    const SliverFillRemaining(
-                      child: Center(
-                        child: Icon(Icons.error),
+                    SliverFillRemaining(
+                      child: ErrorScreen(
+                        error: t.bookmarks.cannotLoadBookmarks,
                       ),
                     ),
                   if (bookmarks.value != null &&
                       bookmarks.value!.successful == true &&
                       bookmarks.value!.content!.results!.isEmpty)
-                    const SliverFillRemaining(
-                      child: Center(
-                        child: Text("No bookmarks"),
+                    SliverFillRemaining(
+                      child: NoDataScreen(
+                        message: t.bookmarks.noBookmarksAdded,
                       ),
                     ),
                   if (bookmarks.value != null &&
