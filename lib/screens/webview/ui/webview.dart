@@ -10,10 +10,10 @@ import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/utils/copy_clipboard.dart';
 import 'package:linkdy/utils/open_url.dart';
 
-class WebView extends ConsumerWidget {
+class WebViewScreen extends ConsumerWidget {
   final Bookmark bookmark;
 
-  const WebView({
+  const WebViewScreen({
     Key? key,
     required this.bookmark,
   }) : super(key: key);
@@ -43,9 +43,7 @@ class WebView extends ConsumerWidget {
         bottom: PreferredSize(
           preferredSize: const Size(double.maxFinite, 0),
           child: ref.watch(webViewProvider).loadProgress < 100
-              ? LinearProgressIndicator(
-                  value: ref.watch(webViewProvider).loadProgress.toDouble(),
-                )
+              ? const LinearProgressIndicator()
               : const SizedBox(
                   height: 4,
                 ),

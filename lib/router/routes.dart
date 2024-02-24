@@ -25,10 +25,6 @@ final List<RouteBase> appRoutes = [
     path: RoutesPaths.onboarding,
     builder: (context, state) => const Onboarding(),
   ),
-  GoRoute(
-    path: RoutesPaths.webview,
-    builder: (context, state) => WebView(bookmark: state.extra as Bookmark),
-  ),
   ShellRoute(
     builder: (context, state, child) => Layout(
       state: state,
@@ -60,5 +56,9 @@ final List<RouteBase> appRoutes = [
   GoRoute(
     path: RoutesPaths.generalSettings,
     builder: (context, state) => const GeneralSettings(),
+  ),
+  GoRoute(
+    path: RoutesPaths.webview,
+    builder: (context, state) => WebViewScreen(bookmark: state.extra as Bookmark),
   ),
 ];
