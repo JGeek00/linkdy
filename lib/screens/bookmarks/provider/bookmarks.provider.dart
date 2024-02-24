@@ -1,7 +1,7 @@
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:linkdy/screens/bookmarks/model/links.model.dart';
+import 'package:linkdy/screens/bookmarks/model/bookmarks.model.dart';
 
 import 'package:linkdy/models/api_response.dart';
 import 'package:linkdy/providers/api_client_provider.dart';

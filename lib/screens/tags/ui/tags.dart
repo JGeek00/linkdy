@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:linkdy/providers/router_provider.dart';
+import 'package:linkdy/router/names.dart';
 
 import 'package:linkdy/screens/tags/provider/tags.provider.dart';
 import 'package:linkdy/screens/tags/ui/add_tag_modal.dart';
@@ -78,7 +80,11 @@ class TagsScreen extends ConsumerWidget {
                         }
                         final tag = tags.value?.content?.results?[index];
                         return InkWell(
-                          onTap: () => {},
+                          onTap: () => ref.watch(routerProvider).pushNamed(
+                            RoutesNames.tagBookmarks,
+                            extra: tag,
+                            pathParameters: {'id': tag.id!.toString()},
+                          ),
                           child: Container(
                             width: double.maxFinite,
                             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

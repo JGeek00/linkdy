@@ -35,7 +35,7 @@ class ApiClientService {
   Future<ApiResponse<BookmarksResponse>> fetchBookmarks({String? q, int? limit, int? offset}) async {
     try {
       final response = await dioInstance.get(
-        "/bookmarks",
+        "/bookmarks/",
         queryParameters: {
           "q": q,
           "limit": limit,

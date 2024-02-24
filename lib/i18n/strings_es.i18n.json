@@ -82,6 +82,9 @@
       "name": "Nombre",
       "creatingTag": "Creando etiqueta...",
       "errorCreatingTag": "Ocurrió un error al crear la etiqueta."
+    },
+    "tagBookmarks": {
+      "noBookmarksWithThisTag": "No hay marcadores con esta etiqueta"
     }
   },
   "settings": {

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 224 (112 per locale)
+/// Strings: 226 (113 per locale)
 ///
-/// Built on 2024-02-24 at 15:14 UTC
+/// Built on 2024-02-24 at 17:36 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -229,6 +229,7 @@ class _StringsTagsEn {
 	String get tags => 'Tags';
 	String created({required Object created}) => 'Created: ${created}';
 	late final _StringsTagsCreateTagEn createTag = _StringsTagsCreateTagEn._(_root);
+	late final _StringsTagsTagBookmarksEn tagBookmarks = _StringsTagsTagBookmarksEn._(_root);
 }
 
 // Path: settings
@@ -354,6 +355,16 @@ class _StringsTagsCreateTagEn {
 	String get name => 'Name';
 	String get creatingTag => 'Creating tag...';
 	String get errorCreatingTag => 'An error occured when creating the tag.';
+}
+
+// Path: tags.tagBookmarks
+class _StringsTagsTagBookmarksEn {
+	_StringsTagsTagBookmarksEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get noBookmarksWithThisTag => 'There are no bookmarks with this tag';
 }
 
 // Path: settings.customization
@@ -507,6 +518,7 @@ class _StringsTagsEs implements _StringsTagsEn {
 	@override String get tags => 'Etiquetas';
 	@override String created({required Object created}) => 'Creado: ${created}';
 	@override late final _StringsTagsCreateTagEs createTag = _StringsTagsCreateTagEs._(_root);
+	@override late final _StringsTagsTagBookmarksEs tagBookmarks = _StringsTagsTagBookmarksEs._(_root);
 }
 
 // Path: settings
@@ -634,6 +646,16 @@ class _StringsTagsCreateTagEs implements _StringsTagsCreateTagEn {
 	@override String get errorCreatingTag => 'Ocurrió un error al crear la etiqueta.';
 }
 
+// Path: tags.tagBookmarks
+class _StringsTagsTagBookmarksEs implements _StringsTagsTagBookmarksEn {
+	_StringsTagsTagBookmarksEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get noBookmarksWithThisTag => 'No hay marcadores con esta etiqueta';
+}
+
 // Path: settings.customization
 class _StringsSettingsCustomizationEs implements _StringsSettingsCustomizationEn {
 	_StringsSettingsCustomizationEs._(this._root);
@@ -755,6 +777,7 @@ extension on Translations {
 			case 'tags.createTag.name': return 'Name';
 			case 'tags.createTag.creatingTag': return 'Creating tag...';
 			case 'tags.createTag.errorCreatingTag': return 'An error occured when creating the tag.';
+			case 'tags.tagBookmarks.noBookmarksWithThisTag': return 'There are no bookmarks with this tag';
 			case 'settings.settings': return 'Settings';
 			case 'settings.appSettings': return 'App settings';
 			case 'settings.aboutApp': return 'About the app';
@@ -875,6 +898,7 @@ extension on _StringsEs {
 			case 'tags.createTag.name': return 'Nombre';
 			case 'tags.createTag.creatingTag': return 'Creando etiqueta...';
 			case 'tags.createTag.errorCreatingTag': return 'Ocurrió un error al crear la etiqueta.';
+			case 'tags.tagBookmarks.noBookmarksWithThisTag': return 'No hay marcadores con esta etiqueta';
 			case 'settings.settings': return 'Ajustes';
 			case 'settings.appSettings': return 'Ajustes de la aplicación';
 			case 'settings.aboutApp': return 'Sobre la aplicación';

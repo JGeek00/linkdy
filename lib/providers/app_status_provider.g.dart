@@ -21,7 +21,7 @@ final selectedThemeProvider = AutoDisposeProvider<ThemeMode>.internal(
 );
 
 typedef SelectedThemeRef = AutoDisposeProviderRef<ThemeMode>;
-String _$appStatusHash() => r'7f263e1933715c0ec6305e453af99b9a264156b6';
+String _$appStatusHash() => r'3b87acee218adcc5707acfb30fd6e5c650b410ce';
 
 /// See also [AppStatus].
 @ProviderFor(AppStatus)
