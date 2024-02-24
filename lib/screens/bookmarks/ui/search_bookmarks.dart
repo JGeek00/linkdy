@@ -5,11 +5,11 @@ import 'package:linkdy/screens/bookmarks/provider/search_bookmarks.provider.dart
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/widgets/enter_search_term_screen.dart';
 import 'package:linkdy/widgets/error_screen.dart';
-import 'package:linkdy/widgets/no_data_screen.dart';
 
 import 'package:linkdy/providers/router_provider.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/widgets/no_data_screen.dart';
 
 class SearchBookmarksScreen extends ConsumerWidget {
   const SearchBookmarksScreen({Key? key}) : super(key: key);
@@ -65,6 +65,10 @@ class SearchBookmarksScreen extends ConsumerWidget {
                   if (data == null || data.successful == false) {
                     return ErrorScreen(
                       error: t.bookmarks.search.cannotSearchError,
+                    );
+                  } else if (data.content!.results!.isEmpty) {
+                    return NoDataScreen(
+                      message: t.bookmarks.search.inputtedSearchTermNoResults,
                     );
                   } else {
                     return ListView.builder(
