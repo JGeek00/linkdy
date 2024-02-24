@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/search_bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
+import 'package:linkdy/widgets/enter_search_term_screen.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
@@ -56,7 +57,7 @@ class SearchBookmarksScreen extends ConsumerWidget {
       body: Builder(
         builder: (context) {
           if (ref.watch(searchBookmarksProvider).searchTerm == "") {
-            return NoDataScreen(message: t.bookmarks.search.inputSearchTerm);
+            return EnterSearchTermScreen(message: t.bookmarks.search.inputSearchTerm);
           }
 
           return ref.watch(fetchSearchBookmarksProvider).when(
