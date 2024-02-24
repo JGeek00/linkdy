@@ -1,8 +1,6 @@
 import 'package:linkdy/screens/tags/models/tags.model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:linkdy/screens/bookmarks/model/links.model.dart';
-
 import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/models/api_response.dart';
 import 'package:linkdy/providers/api_client_provider.dart';
