@@ -76,9 +76,16 @@ class ApiClient {
     }
   }
 
-  Future<ApiResponse<Tags>> fetchTags() async {
+  Future<ApiResponse<Tags>> fetchTags({String? q, int? limit, int? offset}) async {
     try {
-      final response = await dioInstance.get("/tags/");
+      final response = await dioInstance.get(
+        "/tags/",
+        queryParameters: {
+          "q": q,
+          "limit": limit,
+          "offset": offset,
+        },
+      );
       return ApiResponse(
         successful: true,
         content: Tags.fromJson(response.data),

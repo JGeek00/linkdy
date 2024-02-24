@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 192 (96 per locale)
+/// Strings: 206 (103 per locale)
 ///
-/// Built on 2024-02-23 at 22:17 UTC
+/// Built on 2024-02-24 at 00:06 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -223,6 +223,13 @@ class _StringsSearchEn {
 
 	// Translations
 	String get search => 'Search';
+	String get bookmarks => 'Bookmarks';
+	String get tags => 'Tags';
+	String get clearSearch => 'Clear search';
+	String get inputSearchTerm => 'Input a search term';
+	String get cannotSearchError => 'Cannot search content due to an error';
+	String get inputtedSearchTermNoResults => 'The inputted search term doesn\'t have any results';
+	String created({required Object created}) => 'Created: ${created}';
 }
 
 // Path: settings
@@ -465,6 +472,13 @@ class _StringsSearchEs implements _StringsSearchEn {
 
 	// Translations
 	@override String get search => 'Buscar';
+	@override String get bookmarks => 'Marcadores';
+	@override String get tags => 'Etiquetas';
+	@override String get clearSearch => 'Limpiar búsqueda';
+	@override String get inputSearchTerm => 'Introduce un término de búsqueda';
+	@override String get cannotSearchError => 'No se puede buscar el contenido por un error';
+	@override String get inputtedSearchTermNoResults => 'El término de búsqueda introducido no tiene resultados';
+	@override String created({required Object created}) => 'Creado: ${created}';
 }
 
 // Path: settings
@@ -670,6 +684,13 @@ extension on Translations {
 			case 'links.addLink.leaveEmptyUseWebsiteTitle': return 'Leave empty to use the website\'s title.';
 			case 'links.addLink.leaveEmptyUseWebsiteDescription': return 'Leave empty to use the website\'s description.';
 			case 'search.search': return 'Search';
+			case 'search.bookmarks': return 'Bookmarks';
+			case 'search.tags': return 'Tags';
+			case 'search.clearSearch': return 'Clear search';
+			case 'search.inputSearchTerm': return 'Input a search term';
+			case 'search.cannotSearchError': return 'Cannot search content due to an error';
+			case 'search.inputtedSearchTermNoResults': return 'The inputted search term doesn\'t have any results';
+			case 'search.created': return ({required Object created}) => 'Created: ${created}';
 			case 'settings.settings': return 'Settings';
 			case 'settings.appSettings': return 'App settings';
 			case 'settings.aboutApp': return 'About the app';
@@ -774,6 +795,13 @@ extension on _StringsEs {
 			case 'links.addLink.leaveEmptyUseWebsiteTitle': return 'Dejar vacío para usar el título del sitio web.';
 			case 'links.addLink.leaveEmptyUseWebsiteDescription': return 'Dejar vacío para usar la descripción del sitio web.';
 			case 'search.search': return 'Buscar';
+			case 'search.bookmarks': return 'Marcadores';
+			case 'search.tags': return 'Etiquetas';
+			case 'search.clearSearch': return 'Limpiar búsqueda';
+			case 'search.inputSearchTerm': return 'Introduce un término de búsqueda';
+			case 'search.cannotSearchError': return 'No se puede buscar el contenido por un error';
+			case 'search.inputtedSearchTermNoResults': return 'El término de búsqueda introducido no tiene resultados';
+			case 'search.created': return ({required Object created}) => 'Creado: ${created}';
 			case 'settings.settings': return 'Ajustes';
 			case 'settings.appSettings': return 'Ajustes de la aplicación';
 			case 'settings.aboutApp': return 'Sobre la aplicación';

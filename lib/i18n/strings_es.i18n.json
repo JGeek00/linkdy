@@ -65,7 +65,14 @@
     }
   },
   "search": {
-    "search": "Buscar"
+    "search": "Buscar",
+    "bookmarks": "Marcadores",
+    "tags": "Etiquetas",
+    "clearSearch": "Limpiar búsqueda",
+    "inputSearchTerm": "Introduce un término de búsqueda",
+    "cannotSearchError": "No se puede buscar el contenido por un error",
+    "inputtedSearchTermNoResults": "El término de búsqueda introducido no tiene resultados",
+    "created": "Creado: $created"
   },
   "settings": {
     "settings": "Ajustes",

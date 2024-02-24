@@ -65,7 +65,14 @@
     }
   },
   "search": {
-    "search": "Search"
+    "search": "Search",
+    "bookmarks": "Bookmarks",
+    "tags": "Tags",
+    "clearSearch": "Clear search",
+    "inputSearchTerm": "Input a search term",
+    "cannotSearchError": "Cannot search content due to an error",
+    "inputtedSearchTermNoResults": "The inputted search term doesn't have any results",
+    "created": "Created: $created"
   },
   "settings": {
     "settings": "Settings",

@@ -304,7 +304,7 @@ final getTagsProvider = AutoDisposeFutureProvider<ApiResponse<Tags>>.internal(
 );
 
 typedef GetTagsRef = AutoDisposeFutureProviderRef<ApiResponse<Tags>>;
-String _$addLinkHash() => r'fd6e2629386254ace7ac7abeff0e566dda69575a';
+String _$addLinkHash() => r'6a5c26a8e562236c7d3806bca869d932097fa6a6';
 
 /// See also [AddLink].
 @ProviderFor(AddLink)
