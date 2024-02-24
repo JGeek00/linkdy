@@ -20,23 +20,51 @@ class AddBookmarkModal extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Dialog.fullscreen(
       child: Scaffold(
-        appBar: AppBar(
-          leading: CloseButton(
-            onPressed: () => Navigator.pop(context),
-          ),
-          title: Text(t.bookmarks.addBookmark.addBookmark),
-          actions: [
-            IconButton(
-              onPressed: ref.watch(addBookmarkProvider).checkBookmark != null
-                  ? () => ref.read(addBookmarkProvider.notifier).addBookmark()
-                  : null,
-              icon: const Icon(Icons.save_rounded),
-              tooltip: t.generic.save,
+        body: NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) => [
+            SliverOverlapAbsorber(
+              handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+              sliver: SliverAppBar.large(
+                pinned: true,
+                floating: true,
+                centerTitle: false,
+                forceElevated: innerBoxIsScrolled,
+                leading: CloseButton(
+                  onPressed: () => Navigator.pop(context),
+                ),
+                title: Text(t.bookmarks.addBookmark.addBookmark),
+                actions: [
+                  IconButton(
+                    onPressed: ref.watch(addBookmarkProvider).checkBookmark != null
+                        ? () => ref.read(addBookmarkProvider.notifier).addBookmark()
+                        : null,
+                    icon: const Icon(Icons.save_rounded),
+                    tooltip: t.generic.save,
+                  ),
+                  const SizedBox(width: 8),
+                ],
+              ),
             ),
-            const SizedBox(width: 8),
           ],
+          body: SafeArea(
+            top: false,
+            bottom: true,
+            child: Builder(
+              builder: (context) => CustomScrollView(
+                slivers: [
+                  SliverOverlapInjector(
+                    handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                  ),
+                  SliverList.list(
+                    children: const [
+                      _ModalContent(),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
-        body: const _ModalContent(),
       ),
     );
   }
@@ -51,7 +79,8 @@ class _ModalContent extends ConsumerWidget {
 
     final tags = ref.watch(getTagsProvider);
 
-    return ListView(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 16),
         SectionLabel(
@@ -308,6 +337,7 @@ class _ModalContent extends ConsumerWidget {
               ? (v) => ref.read(addBookmarkProvider.notifier).updateMarkAsUnread(v)
               : null,
         ),
+        const SizedBox(height: 16),
       ],
     );
   }
