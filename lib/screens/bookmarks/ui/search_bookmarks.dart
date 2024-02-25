@@ -6,6 +6,7 @@ import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/widgets/enter_search_term_screen.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 
+import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/providers/router_provider.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
@@ -16,6 +17,18 @@ class SearchBookmarksScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final provider = ref.watch(searchBookmarksProvider);
+
+    bool scrollListener(ScrollUpdateNotification scrollNotification) {
+      if (scrollNotification.metrics.extentAfter < 100 &&
+          provider.loadingMore == false &&
+          provider.bookmarks.length < provider.maxNumber) {
+        ref.read(searchBookmarksProvider.notifier).setLoadingMore(true);
+        ref.watch(fetchSearchBookmarksLoadMoreProvider);
+      }
+      return false;
+    }
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 68,
@@ -25,13 +38,19 @@ class SearchBookmarksScreen extends ConsumerWidget {
             onPressed: () => ref.watch(routerProvider).pop(),
           ),
         ),
+        titleSpacing: 0,
         title: Padding(
-          padding: const EdgeInsets.only(bottom: 8),
+          padding: const EdgeInsets.only(bottom: 8, right: 16),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(50),
             child: TextFormField(
               controller: ref.watch(searchBookmarksProvider).searchController,
-              onChanged: ref.read(searchBookmarksProvider.notifier).setSearchTerm,
+              onChanged: (_) => ref.read(searchBookmarksProvider.notifier).notifyListeners(),
+              onEditingComplete: () {
+                ref.read(searchBookmarksProvider.notifier).setSearchTerm();
+                ref.read(searchBookmarksProvider.notifier).setInitialLoadStatus(LoadStatus.loading);
+                ref.read(fetchSearchBookmarksProvider(provider.limit));
+              },
               decoration: InputDecoration(
                 hintText: t.bookmarks.search.searchBookmarks,
                 prefixIcon: const Icon(Icons.search_rounded),
@@ -56,36 +75,47 @@ class SearchBookmarksScreen extends ConsumerWidget {
       ),
       body: Builder(
         builder: (context) {
-          if (ref.watch(searchBookmarksProvider).searchTerm == "") {
+          if (provider.searchTerm == "") {
             return EnterSearchTermScreen(message: t.bookmarks.search.inputSearchTerm);
           }
 
-          return ref.watch(fetchSearchBookmarksProvider).when(
-                data: (data) {
-                  if (data == null || data.successful == false) {
-                    return ErrorScreen(
-                      error: t.bookmarks.search.cannotSearchError,
-                    );
-                  } else if (data.content!.results!.isEmpty) {
-                    return NoDataScreen(
-                      message: t.bookmarks.search.inputtedSearchTermNoResults,
-                    );
-                  } else {
-                    return ListView.builder(
-                      itemCount: data.content!.results!.length,
-                      itemBuilder: (context, index) => BookmarkItem(
-                        bookmark: data.content!.results![index],
-                      ),
-                    );
-                  }
-                },
-                error: (error, stackTrace) => ErrorScreen(
-                  error: t.bookmarks.search.cannotSearchError,
-                ),
-                loading: () => const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              );
+          if (provider.inialLoadStatus == LoadStatus.loading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          if (provider.inialLoadStatus == LoadStatus.error) {
+            return ErrorScreen(
+              error: t.bookmarks.search.cannotSearchError,
+            );
+          }
+
+          if (provider.bookmarks.isEmpty) {
+            return NoDataScreen(
+              message: t.bookmarks.search.inputtedSearchTermNoResults,
+            );
+          }
+
+          return NotificationListener(
+            onNotification: scrollListener,
+            child: ListView.builder(
+              itemCount: provider.loadingMore ? provider.bookmarks.length + 1 : provider.bookmarks.length,
+              itemBuilder: (context, index) {
+                if (provider.loadingMore == true && index == provider.bookmarks.length) {
+                  return const Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+                return BookmarkItem(
+                  bookmark: provider.bookmarks[index],
+                );
+              },
+            ),
+          );
         },
       ),
     );

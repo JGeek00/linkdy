@@ -98,7 +98,7 @@ class AddBookmark extends _$AddBookmark {
     processModal.close();
 
     if (result.successful == true) {
-      ref.invalidate(bookmarksRequestProvider);
+      ref.read(bookmarksProvider.notifier).refresh();
       ref.watch(routerProvider).pop();
     } else {
       showSnacbkar(

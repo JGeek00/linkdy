@@ -7,24 +7,174 @@ part of 'search_bookmarks.provider.dart';
 // **************************************************************************
 
 String _$fetchSearchBookmarksHash() =>
-    r'2b871e9d1f75fb7f7b969f819cfdd9442593c4cb';
+    r'dea1740df4ad970bc1ffd90d85aa0d1d2cf94bf2';
+
+/// Copied from Dart SDK
+class _SystemHash {
+  _SystemHash._();
+
+  static int combine(int hash, int value) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + value);
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
+    return hash ^ (hash >> 6);
+  }
+
+  static int finish(int hash) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
+    // ignore: parameter_assignments
+    hash = hash ^ (hash >> 11);
+    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
+  }
+}
 
 /// See also [fetchSearchBookmarks].
 @ProviderFor(fetchSearchBookmarks)
-final fetchSearchBookmarksProvider =
-    AutoDisposeFutureProvider<ApiResponse<BookmarksResponse>?>.internal(
-  fetchSearchBookmarks,
-  name: r'fetchSearchBookmarksProvider',
+const fetchSearchBookmarksProvider = FetchSearchBookmarksFamily();
+
+/// See also [fetchSearchBookmarks].
+class FetchSearchBookmarksFamily extends Family<AsyncValue<void>> {
+  /// See also [fetchSearchBookmarks].
+  const FetchSearchBookmarksFamily();
+
+  /// See also [fetchSearchBookmarks].
+  FetchSearchBookmarksProvider call(
+    int limit,
+  ) {
+    return FetchSearchBookmarksProvider(
+      limit,
+    );
+  }
+
+  @override
+  FetchSearchBookmarksProvider getProviderOverride(
+    covariant FetchSearchBookmarksProvider provider,
+  ) {
+    return call(
+      provider.limit,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fetchSearchBookmarksProvider';
+}
+
+/// See also [fetchSearchBookmarks].
+class FetchSearchBookmarksProvider extends AutoDisposeFutureProvider<void> {
+  /// See also [fetchSearchBookmarks].
+  FetchSearchBookmarksProvider(
+    int limit,
+  ) : this._internal(
+          (ref) => fetchSearchBookmarks(
+            ref as FetchSearchBookmarksRef,
+            limit,
+          ),
+          from: fetchSearchBookmarksProvider,
+          name: r'fetchSearchBookmarksProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fetchSearchBookmarksHash,
+          dependencies: FetchSearchBookmarksFamily._dependencies,
+          allTransitiveDependencies:
+              FetchSearchBookmarksFamily._allTransitiveDependencies,
+          limit: limit,
+        );
+
+  FetchSearchBookmarksProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.limit,
+  }) : super.internal();
+
+  final int limit;
+
+  @override
+  Override overrideWith(
+    FutureOr<void> Function(FetchSearchBookmarksRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FetchSearchBookmarksProvider._internal(
+        (ref) => create(ref as FetchSearchBookmarksRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        limit: limit,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<void> createElement() {
+    return _FetchSearchBookmarksProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FetchSearchBookmarksProvider && other.limit == limit;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, limit.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FetchSearchBookmarksRef on AutoDisposeFutureProviderRef<void> {
+  /// The parameter `limit` of this provider.
+  int get limit;
+}
+
+class _FetchSearchBookmarksProviderElement
+    extends AutoDisposeFutureProviderElement<void>
+    with FetchSearchBookmarksRef {
+  _FetchSearchBookmarksProviderElement(super.provider);
+
+  @override
+  int get limit => (origin as FetchSearchBookmarksProvider).limit;
+}
+
+String _$fetchSearchBookmarksLoadMoreHash() =>
+    r'4c085e4dc487554a209fa73170294b5b8e279c24';
+
+/// See also [fetchSearchBookmarksLoadMore].
+@ProviderFor(fetchSearchBookmarksLoadMore)
+final fetchSearchBookmarksLoadMoreProvider =
+    AutoDisposeFutureProvider<void>.internal(
+  fetchSearchBookmarksLoadMore,
+  name: r'fetchSearchBookmarksLoadMoreProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$fetchSearchBookmarksHash,
+      : _$fetchSearchBookmarksLoadMoreHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef FetchSearchBookmarksRef
-    = AutoDisposeFutureProviderRef<ApiResponse<BookmarksResponse>?>;
-String _$searchBookmarksHash() => r'56efd123e03f6a080f4a61cc91794aab2e563199';
+typedef FetchSearchBookmarksLoadMoreRef = AutoDisposeFutureProviderRef<void>;
+String _$searchBookmarksHash() => r'db9f8d8cc488e820791e22c594ad9046da73ec25';
 
 /// See also [SearchBookmarks].
 @ProviderFor(SearchBookmarks)
