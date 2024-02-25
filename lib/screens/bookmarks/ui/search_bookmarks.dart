@@ -51,6 +51,7 @@ class SearchBookmarksScreen extends ConsumerWidget {
                 ref.read(searchBookmarksProvider.notifier).setInitialLoadStatus(LoadStatus.loading);
                 ref.read(fetchSearchBookmarksProvider(provider.limit));
               },
+              autofocus: true,
               decoration: InputDecoration(
                 hintText: t.bookmarks.search.searchBookmarks,
                 prefixIcon: const Icon(Icons.search_rounded),
