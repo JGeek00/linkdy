@@ -47,18 +47,15 @@ class BookmarkItem extends ConsumerWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 8),
                     child: ref.watch(faviconStoreProvider).loadingFavicons == true
-                        ? Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(4),
-                              child: Skeletonizer(
-                                enabled: true,
-                                ignoreContainers: true,
-                                child: Container(
-                                  width: 16,
-                                  height: 16,
-                                  color: Colors.black,
-                                ),
+                        ? ClipRRect(
+                            borderRadius: BorderRadius.circular(4),
+                            child: Skeletonizer(
+                              enabled: true,
+                              ignoreContainers: true,
+                              child: Container(
+                                width: 16,
+                                height: 16,
+                                color: Colors.black,
                               ),
                             ),
                           )
