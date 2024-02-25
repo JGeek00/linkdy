@@ -91,10 +91,16 @@
       "followingBookmarkDeleted": "El siguiente marcador será eliminado:",
       "markingAsRead": "Marcando como leído...",
       "markingAsUnead": "Marcando como no leído...",
-      "markedAsReadSuccessfully": "Marcador marcado como leído correctamente..",
+      "markedAsReadSuccessfully": "Marcador marcado como leído correctamente.",
       "markedAsUnreadSuccessfully": "Marcador marcado como no leído correctamente.",
       "bookmarkNotMarkedAsRead": "El marcador no se ha podido marcar como leído.",
-      "bookmarkNotMarkedAsUnread": "El marcador no se ha podido marcar como no leído."
+      "bookmarkNotMarkedAsUnread": "El marcador no se ha podido marcar como no leído.",
+      "archivingBookmark": "Archivando marcador...",
+      "unarchivingBookmark": "Desarchivando marcador...",
+      "bookmarkArchivedSuccessfully": "Marcador archivado correctamente.",
+      "bookmarkUnrchivedSuccessfully": "Marcador desarchivado correctamente.",
+      "bookmarkNotArchived": "El marcador no pudo ser archivado.",
+      "bookmarkNotUnrchived": "El marcador no pudo ser desarchivado."
     }
   },
   "tags": {

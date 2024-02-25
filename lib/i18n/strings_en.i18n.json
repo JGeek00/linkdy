@@ -94,7 +94,13 @@
       "markedAsReadSuccessfully": "Bookmark marked as read successfully.",
       "markedAsUnreadSuccessfully": "Bookmark marked as unread successfully.",
       "bookmarkNotMarkedAsRead": "The bookmark couldn't be marked as read.",
-      "bookmarkNotMarkedAsUnread": "The bookmark couldn't be marked as unread."
+      "bookmarkNotMarkedAsUnread": "The bookmark couldn't be marked as unread.",
+      "archivingBookmark": "Archiving bookmark...",
+      "unarchivingBookmark": "Unarchiving bookmark...",
+      "bookmarkArchivedSuccessfully": "Bookmark archived successfully.",
+      "bookmarkUnrchivedSuccessfully": "Bookmark unarchived successfully.",
+      "bookmarkNotArchived": "The bookmark couldn't be archived.",
+      "bookmarkNotUnrchived": "The bookmark couldn't be unarchived."
     }
   },
   "tags": {

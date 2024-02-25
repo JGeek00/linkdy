@@ -49,6 +49,8 @@ class FaviconStore extends _$FaviconStore {
   }
 
   void loadFavicons(List<Bookmark> bookmarks) async {
+    if (state.loadingFavicons == true) return;
+
     state.loadingFavicons = true;
     ref.notifyListeners();
 

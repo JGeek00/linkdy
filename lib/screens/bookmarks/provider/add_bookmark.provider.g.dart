@@ -175,7 +175,7 @@ final getTagsProvider =
 );
 
 typedef GetTagsRef = AutoDisposeFutureProviderRef<ApiResponse<TagsResponse>>;
-String _$addBookmarkHash() => r'ace81358d08fd833b2aa06edddcb10f00728c30c';
+String _$addBookmarkHash() => r'510fe4dbdc6628a13be9d8c5c2581fd5ac94ca68';
 
 /// See also [AddBookmark].
 @ProviderFor(AddBookmark)

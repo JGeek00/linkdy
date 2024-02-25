@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
-import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
@@ -18,10 +17,14 @@ import 'package:linkdy/utils/open_url.dart';
 
 class BookmarkItem extends ConsumerWidget {
   final Bookmark bookmark;
+  final void Function(Bookmark bookmark) onDelete;
+  final void Function(Bookmark bookmark) onReadUnread;
 
   const BookmarkItem({
     Key? key,
     required this.bookmark,
+    required this.onDelete,
+    required this.onReadUnread,
   }) : super(key: key);
 
   @override
@@ -36,34 +39,27 @@ class BookmarkItem extends ConsumerWidget {
       }
     }
 
-    void openDeleteBookmarkModal(BuildContext ctx) {
-      showDialog(
-        context: context,
-        builder: (context) => DeleteBookmarkModal(bookmark: bookmark),
-      );
-    }
-
     return Slidable(
       startActionPane: ActionPane(
         motion: const DrawerMotion(),
-        extentRatio: 0.75,
+        extentRatio: 0.5,
         children: [
           SlidableAction(
-            onPressed: (ctx) => ref.read(bookmarksProvider.notifier).markAsReadUnread(bookmark),
+            onPressed: (_) => onReadUnread(bookmark),
             backgroundColor: Colors.blue,
             label: bookmark.unread == true ? t.bookmarks.bookmarkOptions.read : t.bookmarks.bookmarkOptions.unread,
             icon: bookmark.unread == true ? Icons.mark_email_read_rounded : Icons.mark_as_unread_rounded,
             padding: const EdgeInsets.all(4),
           ),
+          // SlidableAction(
+          //   onPressed: (ctx) => {},
+          //   backgroundColor: Colors.grey,
+          //   label: t.bookmarks.bookmarkOptions.archive,
+          //   icon: Icons.archive_rounded,
+          //   padding: const EdgeInsets.all(4),
+          // ),
           SlidableAction(
-            onPressed: (ctx) => {},
-            backgroundColor: Colors.grey,
-            label: t.bookmarks.bookmarkOptions.archive,
-            icon: Icons.archive_rounded,
-            padding: const EdgeInsets.all(4),
-          ),
-          SlidableAction(
-            onPressed: (ctx) => {},
+            onPressed: (ctx) => Share.shareUri(Uri.parse(bookmark.url!)),
             backgroundColor: Colors.orange,
             label: t.bookmarks.bookmarkOptions.share,
             icon: Icons.share_rounded,
@@ -83,7 +79,7 @@ class BookmarkItem extends ConsumerWidget {
             padding: const EdgeInsets.all(4),
           ),
           SlidableAction(
-            onPressed: openDeleteBookmarkModal,
+            onPressed: (_) => onDelete(bookmark),
             backgroundColor: Colors.red,
             label: t.bookmarks.bookmarkOptions.delete,
             icon: Icons.delete_rounded,
@@ -228,13 +224,23 @@ class BookmarkItem extends ConsumerWidget {
                         borderRadius: BorderRadius.circular(10),
                         color: Theme.of(context).colorScheme.primaryContainer,
                       ),
-                      child: Text(
-                        t.bookmarks.bookmarkOptions.unread,
-                        style: TextStyle(
-                          fontSize: 10,
-                          color: Theme.of(context).colorScheme.onPrimaryContainer,
-                          fontWeight: FontWeight.w700,
-                        ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.mark_as_unread_rounded,
+                            size: 12,
+                            color: Theme.of(context).colorScheme.onPrimaryContainer,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            t.bookmarks.bookmarkOptions.unread,
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Theme.of(context).colorScheme.onPrimaryContainer,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

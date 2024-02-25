@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 
-class DeleteBookmarkModal extends ConsumerWidget {
+class DeleteBookmarkModal extends StatelessWidget {
   final Bookmark bookmark;
+  final void Function(Bookmark) onDelete;
 
   const DeleteBookmarkModal({
     Key? key,
     required this.bookmark,
+    required this.onDelete,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return AlertDialog(
       title: Column(
         children: [
@@ -57,7 +56,7 @@ class DeleteBookmarkModal extends ConsumerWidget {
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
-                ref.read(bookmarksProvider.notifier).deleteBookmark(bookmark);
+                onDelete(bookmark);
               },
               child: Text(t.generic.confirm),
             ),

@@ -7,11 +7,13 @@ import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/screens/bookmarks/ui/add_bookmark_modal.dart';
+import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/providers/router.provider.dart';
+import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/router/paths.dart';
 
 class BookmarksScreen extends ConsumerWidget {
@@ -38,6 +40,8 @@ class BookmarksScreen extends ConsumerWidget {
         pageBuilder: (context, animation, secondaryAnimation) => AddBookmarkModal(fullscreen: width <= 700),
       );
     }
+
+    void openDeleteBookmarkModal(Bookmark bookmark) {}
 
     bool scrollListener(ScrollUpdateNotification scrollNotification) {
       if (scrollNotification.metrics.extentAfter < 100 &&
@@ -118,7 +122,17 @@ class BookmarksScreen extends ConsumerWidget {
                             // Bottom gap for FAB
                             return const SizedBox(height: 80);
                           }
-                          return BookmarkItem(bookmark: bookmarks.bookmarks[index]);
+                          return BookmarkItem(
+                            bookmark: bookmarks.bookmarks[index],
+                            onReadUnread: ref.read(bookmarksProvider.notifier).markAsReadUnread,
+                            onDelete: (bookmark) => showDialog(
+                              context: context,
+                              builder: (context) => DeleteBookmarkModal(
+                                bookmark: bookmark,
+                                onDelete: ref.read(bookmarksProvider.notifier).deleteBookmark,
+                              ),
+                            ),
+                          );
                         },
                       ),
                   ],

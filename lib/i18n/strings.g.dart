@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 268 (134 per locale)
+/// Strings: 280 (140 per locale)
 ///
-/// Built on 2024-02-25 at 20:04 UTC
+/// Built on 2024-02-25 at 20:58 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -373,6 +373,12 @@ class _StringsBookmarksBookmarkOptionsEn {
 	String get markedAsUnreadSuccessfully => 'Bookmark marked as unread successfully.';
 	String get bookmarkNotMarkedAsRead => 'The bookmark couldn\'t be marked as read.';
 	String get bookmarkNotMarkedAsUnread => 'The bookmark couldn\'t be marked as unread.';
+	String get archivingBookmark => 'Archiving bookmark...';
+	String get unarchivingBookmark => 'Unarchiving bookmark...';
+	String get bookmarkArchivedSuccessfully => 'Bookmark archived successfully.';
+	String get bookmarkUnrchivedSuccessfully => 'Bookmark unarchived successfully.';
+	String get bookmarkNotArchived => 'The bookmark couldn\'t be archived.';
+	String get bookmarkNotUnrchived => 'The bookmark couldn\'t be unarchived.';
 }
 
 // Path: tags.createTag
@@ -689,10 +695,16 @@ class _StringsBookmarksBookmarkOptionsEs implements _StringsBookmarksBookmarkOpt
 	@override String get followingBookmarkDeleted => 'El siguiente marcador será eliminado:';
 	@override String get markingAsRead => 'Marcando como leído...';
 	@override String get markingAsUnead => 'Marcando como no leído...';
-	@override String get markedAsReadSuccessfully => 'Marcador marcado como leído correctamente..';
+	@override String get markedAsReadSuccessfully => 'Marcador marcado como leído correctamente.';
 	@override String get markedAsUnreadSuccessfully => 'Marcador marcado como no leído correctamente.';
 	@override String get bookmarkNotMarkedAsRead => 'El marcador no se ha podido marcar como leído.';
 	@override String get bookmarkNotMarkedAsUnread => 'El marcador no se ha podido marcar como no leído.';
+	@override String get archivingBookmark => 'Archivando marcador...';
+	@override String get unarchivingBookmark => 'Desarchivando marcador...';
+	@override String get bookmarkArchivedSuccessfully => 'Marcador archivado correctamente.';
+	@override String get bookmarkUnrchivedSuccessfully => 'Marcador desarchivado correctamente.';
+	@override String get bookmarkNotArchived => 'El marcador no pudo ser archivado.';
+	@override String get bookmarkNotUnrchived => 'El marcador no pudo ser desarchivado.';
 }
 
 // Path: tags.createTag
@@ -854,6 +866,12 @@ extension on Translations {
 			case 'bookmarks.bookmarkOptions.markedAsUnreadSuccessfully': return 'Bookmark marked as unread successfully.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead': return 'The bookmark couldn\'t be marked as read.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread': return 'The bookmark couldn\'t be marked as unread.';
+			case 'bookmarks.bookmarkOptions.archivingBookmark': return 'Archiving bookmark...';
+			case 'bookmarks.bookmarkOptions.unarchivingBookmark': return 'Unarchiving bookmark...';
+			case 'bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully': return 'Bookmark archived successfully.';
+			case 'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully': return 'Bookmark unarchived successfully.';
+			case 'bookmarks.bookmarkOptions.bookmarkNotArchived': return 'The bookmark couldn\'t be archived.';
+			case 'bookmarks.bookmarkOptions.bookmarkNotUnrchived': return 'The bookmark couldn\'t be unarchived.';
 			case 'tags.tags': return 'Tags';
 			case 'tags.created': return ({required Object created}) => 'Created: ${created}';
 			case 'tags.createTag.createTag': return 'Create tag';
@@ -992,10 +1010,16 @@ extension on _StringsEs {
 			case 'bookmarks.bookmarkOptions.followingBookmarkDeleted': return 'El siguiente marcador será eliminado:';
 			case 'bookmarks.bookmarkOptions.markingAsRead': return 'Marcando como leído...';
 			case 'bookmarks.bookmarkOptions.markingAsUnead': return 'Marcando como no leído...';
-			case 'bookmarks.bookmarkOptions.markedAsReadSuccessfully': return 'Marcador marcado como leído correctamente..';
+			case 'bookmarks.bookmarkOptions.markedAsReadSuccessfully': return 'Marcador marcado como leído correctamente.';
 			case 'bookmarks.bookmarkOptions.markedAsUnreadSuccessfully': return 'Marcador marcado como no leído correctamente.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead': return 'El marcador no se ha podido marcar como leído.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread': return 'El marcador no se ha podido marcar como no leído.';
+			case 'bookmarks.bookmarkOptions.archivingBookmark': return 'Archivando marcador...';
+			case 'bookmarks.bookmarkOptions.unarchivingBookmark': return 'Desarchivando marcador...';
+			case 'bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully': return 'Marcador archivado correctamente.';
+			case 'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully': return 'Marcador desarchivado correctamente.';
+			case 'bookmarks.bookmarkOptions.bookmarkNotArchived': return 'El marcador no pudo ser archivado.';
+			case 'bookmarks.bookmarkOptions.bookmarkNotUnrchived': return 'El marcador no pudo ser desarchivado.';
 			case 'tags.tags': return 'Etiquetas';
 			case 'tags.created': return ({required Object created}) => 'Creado: ${created}';
 			case 'tags.createTag.createTag': return 'Crear etiqueta';

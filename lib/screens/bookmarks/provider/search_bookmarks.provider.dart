@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
+import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
+import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
 import 'package:linkdy/screens/bookmarks/model/search_bookmarks.model.dart';
 
 import 'package:linkdy/constants/enums.dart';
+import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/providers/api_client.provider.dart';
 
 part 'search_bookmarks.provider.g.dart';
@@ -19,6 +23,7 @@ FutureOr<void> fetchSearchBookmarks(FetchSearchBookmarksRef ref, int limit) asyn
       );
 
   if (result.successful == true) {
+    ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
     ref.read(searchBookmarksProvider).bookmarks = result.content!.results!;
     ref.read(searchBookmarksProvider).maxNumber = result.content!.count!;
     ref.read(searchBookmarksProvider).currentPage = 0;
@@ -41,9 +46,9 @@ FutureOr<void> fetchSearchBookmarksLoadMore(FetchSearchBookmarksLoadMoreRef ref)
         limit: provider.limit,
         offset: newOffset,
       );
-  await Future.delayed(Duration(seconds: 3));
 
   if (result.successful == true) {
+    ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
     provider.bookmarks = [...provider.bookmarks, ...result.content!.results!];
     provider.maxNumber = result.content!.count!;
     provider.currentPage = provider.currentPage + 1;
@@ -91,5 +96,47 @@ class SearchBookmarks extends _$SearchBookmarks {
 
   void notifyListeners() {
     ref.notifyListeners();
+  }
+
+  void deleteBookmark(Bookmark bookmark) async {
+    final result = await BookmarkCommonFunctions.deleteBookmark(
+      bookmark: bookmark,
+      apiClient: ref.read(apiClientProvider)!,
+    );
+    if (result == true) {
+      state.bookmarks = state.bookmarks.where((b) => b.id != bookmark.id).toList();
+      ref.notifyListeners();
+      ref
+          .read(bookmarksProvider.notifier)
+          .setBookmarks(ref.read(bookmarksProvider).bookmarks.where((b) => b.id != bookmark.id).toList());
+    }
+  }
+
+  void markAsReadUnread(Bookmark bookmark) async {
+    final result = await BookmarkCommonFunctions.markAsReadUnread(
+      bookmark: bookmark,
+      apiClient: ref.read(apiClientProvider)!,
+    );
+    if (result != null) {
+      state.bookmarks = state.bookmarks.map((b) => b.id == result.id ? result : b).toList();
+      ref.notifyListeners();
+      ref
+          .read(bookmarksProvider.notifier)
+          .setBookmarks(ref.read(bookmarksProvider).bookmarks.map((b) => b.id == result.id ? result : b).toList());
+    }
+  }
+
+  void archiveUnarchive(Bookmark bookmark) async {
+    final result = await BookmarkCommonFunctions.markAsReadUnread(
+      bookmark: bookmark,
+      apiClient: ref.read(apiClientProvider)!,
+    );
+    if (result != null) {
+      state.bookmarks = state.bookmarks.map((b) => b.id == result.id ? result : b).toList();
+      ref.notifyListeners();
+      ref
+          .read(bookmarksProvider.notifier)
+          .setBookmarks(ref.read(bookmarksProvider).bookmarks.map((b) => b.id == result.id ? result : b).toList());
+    }
   }
 }

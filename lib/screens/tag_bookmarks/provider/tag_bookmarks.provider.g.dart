@@ -7,7 +7,7 @@ part of 'tag_bookmarks.provider.dart';
 // **************************************************************************
 
 String _$tagBookmarksRequestHash() =>
-    r'92613aa119dadb65b7b399b9c779197673689908';
+    r'9a4d4582b680da41069054429315f85976378524';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -190,7 +190,7 @@ class _TagBookmarksRequestProviderElement
 }
 
 String _$tagBookmarksRequestLoadMoreHash() =>
-    r'3235c66b13a41c52611b86c2b26ecf9376ca1524';
+    r'ce7c52c446c2d4b8593fd06e818b3499bdc36a39';
 
 /// See also [tagBookmarksRequestLoadMore].
 @ProviderFor(tagBookmarksRequestLoadMore)
@@ -206,7 +206,7 @@ final tagBookmarksRequestLoadMoreProvider =
 );
 
 typedef TagBookmarksRequestLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$tagBookmarksHash() => r'74e6463830052de2f05c628455d5ccca9faef765';
+String _$tagBookmarksHash() => r'452c0ac002a2c1a5b841d4233fc177a8281f9ea1';
 
 /// See also [TagBookmarks].
 @ProviderFor(TagBookmarks)

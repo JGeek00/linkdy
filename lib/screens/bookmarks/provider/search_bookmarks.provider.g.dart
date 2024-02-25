@@ -7,7 +7,7 @@ part of 'search_bookmarks.provider.dart';
 // **************************************************************************
 
 String _$fetchSearchBookmarksHash() =>
-    r'dea1740df4ad970bc1ffd90d85aa0d1d2cf94bf2';
+    r'a854d28b2c2b6761cfd716bcbe081b54fbbf29ef';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -158,7 +158,7 @@ class _FetchSearchBookmarksProviderElement
 }
 
 String _$fetchSearchBookmarksLoadMoreHash() =>
-    r'4c085e4dc487554a209fa73170294b5b8e279c24';
+    r'f07a6a89f5a87a0f26d3a8d2d49f1d98ce36a287';
 
 /// See also [fetchSearchBookmarksLoadMore].
 @ProviderFor(fetchSearchBookmarksLoadMore)
@@ -174,7 +174,7 @@ final fetchSearchBookmarksLoadMoreProvider =
 );
 
 typedef FetchSearchBookmarksLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$searchBookmarksHash() => r'db9f8d8cc488e820791e22c594ad9046da73ec25';
+String _$searchBookmarksHash() => r'843fe597bceab3e3f512b5b4a40ddd1dbeb09f9d';
 
 /// See also [SearchBookmarks].
 @ProviderFor(SearchBookmarks)

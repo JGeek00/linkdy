@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
+import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
 import 'package:linkdy/screens/tag_bookmarks/provider/tag_bookmarks.provider.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
@@ -30,7 +31,7 @@ class TagBookmarksScreenState extends ConsumerState<TagBookmarksScreen> {
   @override
   void initState() {
     if (widget.tag == null && widget.tagId == null) {
-      final router = ref.watch(routerProvider);
+      final router = ref.read(routerProvider);
       while (router.canPop() == true) {
         router.pop();
       }
@@ -59,7 +60,7 @@ class TagBookmarksScreenState extends ConsumerState<TagBookmarksScreen> {
           provider.loadingMore == false &&
           provider.bookmarks.length < provider.maxNumber) {
         ref.read(tagBookmarksProvider.notifier).setLoadingMore(true);
-        ref.watch(tagBookmarksRequestLoadMoreProvider);
+        ref.read(tagBookmarksRequestLoadMoreProvider);
       }
       return false;
     }
@@ -128,6 +129,14 @@ class TagBookmarksScreenState extends ConsumerState<TagBookmarksScreen> {
                           }
                           return BookmarkItem(
                             bookmark: provider.bookmarks[index],
+                            onReadUnread: ref.read(tagBookmarksProvider.notifier).markAsReadUnread,
+                            onDelete: (bookmark) => showDialog(
+                              context: context,
+                              builder: (context) => DeleteBookmarkModal(
+                                bookmark: bookmark,
+                                onDelete: ref.read(tagBookmarksProvider.notifier).deleteBookmark,
+                              ),
+                            ),
                           );
                         },
                       ),

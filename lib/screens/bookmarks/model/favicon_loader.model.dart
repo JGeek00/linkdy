@@ -6,6 +6,6 @@ class FaviconLoaderModel {
 
   FaviconLoaderModel({
     required this.favicons,
-    this.loadingFavicons = true,
+    this.loadingFavicons = false,
   });
 }
