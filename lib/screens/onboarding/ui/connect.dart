@@ -77,7 +77,7 @@ class _ConnectForm extends ConsumerWidget {
     final connectionMethod = ConnectionMethod.values[provider.method];
 
     final connectionString =
-        "${connectionMethod.name}://${provider.ipDomainController.text}${provider.pathController.text != '' ? ':${provider.portController.text}' : ""}${provider.pathController.text}";
+        "${connectionMethod.name}://${provider.ipDomainController.text}${provider.portController.text != '' ? ':${provider.portController.text}' : ""}";
 
     return Column(
       children: [
