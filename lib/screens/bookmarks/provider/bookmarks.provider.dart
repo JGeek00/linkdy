@@ -1,5 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 import 'package:linkdy/screens/bookmarks/model/bookmarks.model.dart';
 
 import 'package:linkdy/providers/api_client.provider.dart';
@@ -15,6 +16,7 @@ FutureOr<void> bookmarksRequest(BookmarksRequestRef ref, int limit) async {
       );
 
   if (result.successful == true) {
+    ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
     ref.read(bookmarksProvider).bookmarks = result.content!.results!;
     ref.read(bookmarksProvider).maxNumber = result.content!.count!;
     ref.read(bookmarksProvider).currentPage = 0;
@@ -38,6 +40,7 @@ FutureOr<void> bookmarksRequestLoadMore(BookmarksRequestLoadMoreRef ref) async {
       );
 
   if (result.successful == true) {
+    ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
     provider.bookmarks = [...provider.bookmarks, ...result.content!.results!];
     provider.maxNumber = result.content!.count!;
     provider.currentPage = provider.currentPage + 1;

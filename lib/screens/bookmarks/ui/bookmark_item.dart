@@ -46,44 +46,76 @@ class BookmarkItem extends ConsumerWidget {
             Row(
               children: [
                 if (ref.watch(appStatusProvider).showFavicon == true)
-                  FutureBuilder(
-                    future: ref.read(fetchFaviconProvider(bookmark.url!).future),
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData == false) {
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(4),
-                            child: Skeletonizer(
-                              enabled: true,
-                              ignoreContainers: true,
-                              child: Container(
-                                width: 16,
-                                height: 16,
-                                color: Colors.black,
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: ref.watch(faviconStoreProvider).loadingFavicons == true
+                        ? Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(4),
+                              child: Skeletonizer(
+                                enabled: true,
+                                ignoreContainers: true,
+                                child: Container(
+                                  width: 16,
+                                  height: 16,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
+                          )
+                        : Builder(
+                            builder: (context) {
+                              final faviconItem = ref
+                                  .watch(faviconStoreProvider)
+                                  .favicons
+                                  .where((f) => f.url == bookmark.url!)
+                                  .toList();
+                              if (faviconItem.isEmpty) return const SizedBox();
+                              if (faviconItem[0].isSvg == true) {
+                                return SvgPicture.network(
+                                  faviconItem[0].favicon,
+                                  width: 16,
+                                  height: 16,
+                                  placeholderBuilder: (context) => ClipRRect(
+                                    borderRadius: BorderRadius.circular(4),
+                                    child: Skeletonizer(
+                                      enabled: true,
+                                      ignoreContainers: true,
+                                      child: Container(
+                                        width: 16,
+                                        height: 16,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                return Image.network(
+                                  faviconItem[0].favicon,
+                                  width: 16,
+                                  height: 16,
+                                  loadingBuilder: (context, child, loadingProgress) {
+                                    if (loadingProgress != null) {
+                                      return ClipRRect(
+                                        borderRadius: BorderRadius.circular(4),
+                                        child: Skeletonizer(
+                                          enabled: true,
+                                          ignoreContainers: true,
+                                          child: Container(
+                                            width: 16,
+                                            height: 16,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    return child;
+                                  },
+                                );
+                              }
+                            },
                           ),
-                        );
-                      }
-                      return Row(
-                        children: [
-                          if (snapshot.data!.isSvg == true)
-                            SvgPicture.string(
-                              snapshot.data!.favicon,
-                              width: 16,
-                              height: 16,
-                            ),
-                          if (snapshot.data!.isSvg == false)
-                            Image.memory(
-                              base64Decode(snapshot.data!.favicon),
-                              width: 16,
-                              height: 16,
-                            ),
-                          const SizedBox(width: 8),
-                        ],
-                      );
-                    },
                   ),
                 Expanded(
                   child: Text(

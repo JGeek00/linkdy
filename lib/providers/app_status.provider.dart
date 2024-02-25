@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:linkdy/constants/shared_preferences_keys.dart';
+import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/providers/shared_preferences.provider.dart';
@@ -54,6 +55,7 @@ class AppStatus extends _$AppStatus {
   void setShowFavicon(bool value) {
     state.showFavicon = value;
     ref.read(sharedPreferencesProvider).setBool(SharedPreferencesKeys.showFavicon, value);
+    ref.read(faviconStoreProvider.notifier).clearFavicons();
     ref.notifyListeners();
   }
 }
