@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:favicon/favicon.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/providers/app_status_provider.dart';
@@ -44,7 +47,7 @@ class BookmarkItem extends ConsumerWidget {
               children: [
                 if (ref.watch(appStatusProvider).showFavicon == true)
                   FutureBuilder(
-                    future: FaviconFinder.getBest(bookmark.url!),
+                    future: ref.read(fetchFaviconProvider(bookmark.url!).future),
                     builder: (context, snapshot) {
                       if (snapshot.hasData == false) {
                         return Padding(
@@ -65,15 +68,15 @@ class BookmarkItem extends ConsumerWidget {
                       }
                       return Row(
                         children: [
-                          if (snapshot.data!.url.contains("svg"))
-                            SvgPicture.network(
-                              snapshot.data!.url,
+                          if (snapshot.data!.isSvg == true)
+                            SvgPicture.string(
+                              snapshot.data!.favicon,
                               width: 16,
                               height: 16,
                             ),
-                          if (!snapshot.data!.url.contains("svg"))
-                            Image.network(
-                              snapshot.data!.url,
+                          if (snapshot.data!.isSvg == false)
+                            Image.memory(
+                              base64Decode(snapshot.data!.favicon),
                               width: 16,
                               height: 16,
                             ),
