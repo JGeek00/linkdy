@@ -17,13 +17,21 @@ class PostBookmark {
     required this.tagNames,
   });
 
-  Map<String, dynamic> toJson() => {
-        "url": url,
-        "title": title,
-        "description": description,
-        "is_archived": isArchived,
-        "unread": unread,
-        "shared": shared,
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> ret = {
+      "url": url,
+      "title": title,
+      "description": description,
+      "is_archived": isArchived,
+      "unread": unread,
+      "shared": shared,
+    };
+    if (tagNames != "") {
+      ret = {
+        ...ret,
         "tag_names": tagNames,
       };
+    }
+    return ret;
+  }
 }
