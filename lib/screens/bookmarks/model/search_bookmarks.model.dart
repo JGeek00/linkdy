@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:linkdy/config/options.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 
@@ -17,7 +18,7 @@ class SearchBookmarksModel {
     required this.searchController,
     this.searchTerm = "",
     this.currentPage = 0,
-    this.limit = 30,
+    this.limit = ConfigOptions.listLimit,
     required this.bookmarks,
     this.inialLoadStatus = LoadStatus.loaded,
     this.loadingMore = false,

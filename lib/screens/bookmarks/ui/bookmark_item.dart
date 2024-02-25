@@ -4,6 +4,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 
@@ -48,10 +49,10 @@ class BookmarkItem extends ConsumerWidget {
         extentRatio: 0.75,
         children: [
           SlidableAction(
-            onPressed: (ctx) => {},
+            onPressed: (ctx) => ref.read(bookmarksProvider.notifier).markAsReadUnread(bookmark),
             backgroundColor: Colors.blue,
-            label: t.bookmarks.bookmarkOptions.unread,
-            icon: Icons.mark_as_unread_rounded,
+            label: bookmark.unread == true ? t.bookmarks.bookmarkOptions.read : t.bookmarks.bookmarkOptions.unread,
+            icon: bookmark.unread == true ? Icons.mark_email_read_rounded : Icons.mark_as_unread_rounded,
             padding: const EdgeInsets.all(4),
           ),
           SlidableAction(
@@ -203,14 +204,42 @@ class BookmarkItem extends ConsumerWidget {
                     child: Text(
                       bookmark.tagNames?.map((tag) => "#$tag").join(" ") ?? '',
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                   ),
-                  if (bookmark.dateModified != null) ...[
+                  if (bookmark.unread == true) ...[
                     if (bookmark.tagNames?.isNotEmpty == true)
+                      Container(
+                        width: 1,
+                        height: 12,
+                        margin: const EdgeInsets.symmetric(horizontal: 8),
+                        color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
+                      ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6,
+                        vertical: 2,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).colorScheme.primaryContainer,
+                      ),
+                      child: Text(
+                        t.bookmarks.bookmarkOptions.unread,
+                        style: TextStyle(
+                          fontSize: 10,
+                          color: Theme.of(context).colorScheme.onPrimaryContainer,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ],
+                  if (bookmark.dateModified != null) ...[
+                    if (bookmark.unread == true)
                       Container(
                         width: 1,
                         height: 12,

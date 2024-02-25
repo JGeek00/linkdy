@@ -88,7 +88,13 @@
       "bookmarkDeleted": "Marcador eliminado correctamente",
       "bookmarkNotDeleted": "El marcador no se ha podido eliminar debido a un error.",
       "deleteBookmark": "Eliminar marcador",
-      "followingBookmarkDeleted": "El siguiente marcador será eliminado:"
+      "followingBookmarkDeleted": "El siguiente marcador será eliminado:",
+      "markingAsRead": "Marcando como leído...",
+      "markingAsUnead": "Marcando como no leído...",
+      "markedAsReadSuccessfully": "Marcador marcado como leído correctamente..",
+      "markedAsUnreadSuccessfully": "Marcador marcado como no leído correctamente.",
+      "bookmarkNotMarkedAsRead": "El marcador no se ha podido marcar como leído.",
+      "bookmarkNotMarkedAsUnread": "El marcador no se ha podido marcar como no leído."
     }
   },
   "tags": {

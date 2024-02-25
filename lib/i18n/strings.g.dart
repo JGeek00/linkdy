@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 256 (128 per locale)
+/// Strings: 268 (134 per locale)
 ///
-/// Built on 2024-02-25 at 19:19 UTC
+/// Built on 2024-02-25 at 20:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -367,6 +367,12 @@ class _StringsBookmarksBookmarkOptionsEn {
 	String get bookmarkNotDeleted => 'The bookmark couldn\'t be deleted due to an error.';
 	String get deleteBookmark => 'Delete bookmark';
 	String get followingBookmarkDeleted => 'The following bookmark will be deleted:';
+	String get markingAsRead => 'Marking as read...';
+	String get markingAsUnead => 'Marking as unread...';
+	String get markedAsReadSuccessfully => 'Bookmark marked as read successfully.';
+	String get markedAsUnreadSuccessfully => 'Bookmark marked as unread successfully.';
+	String get bookmarkNotMarkedAsRead => 'The bookmark couldn\'t be marked as read.';
+	String get bookmarkNotMarkedAsUnread => 'The bookmark couldn\'t be marked as unread.';
 }
 
 // Path: tags.createTag
@@ -681,6 +687,12 @@ class _StringsBookmarksBookmarkOptionsEs implements _StringsBookmarksBookmarkOpt
 	@override String get bookmarkNotDeleted => 'El marcador no se ha podido eliminar debido a un error.';
 	@override String get deleteBookmark => 'Eliminar marcador';
 	@override String get followingBookmarkDeleted => 'El siguiente marcador será eliminado:';
+	@override String get markingAsRead => 'Marcando como leído...';
+	@override String get markingAsUnead => 'Marcando como no leído...';
+	@override String get markedAsReadSuccessfully => 'Marcador marcado como leído correctamente..';
+	@override String get markedAsUnreadSuccessfully => 'Marcador marcado como no leído correctamente.';
+	@override String get bookmarkNotMarkedAsRead => 'El marcador no se ha podido marcar como leído.';
+	@override String get bookmarkNotMarkedAsUnread => 'El marcador no se ha podido marcar como no leído.';
 }
 
 // Path: tags.createTag
@@ -836,6 +848,12 @@ extension on Translations {
 			case 'bookmarks.bookmarkOptions.bookmarkNotDeleted': return 'The bookmark couldn\'t be deleted due to an error.';
 			case 'bookmarks.bookmarkOptions.deleteBookmark': return 'Delete bookmark';
 			case 'bookmarks.bookmarkOptions.followingBookmarkDeleted': return 'The following bookmark will be deleted:';
+			case 'bookmarks.bookmarkOptions.markingAsRead': return 'Marking as read...';
+			case 'bookmarks.bookmarkOptions.markingAsUnead': return 'Marking as unread...';
+			case 'bookmarks.bookmarkOptions.markedAsReadSuccessfully': return 'Bookmark marked as read successfully.';
+			case 'bookmarks.bookmarkOptions.markedAsUnreadSuccessfully': return 'Bookmark marked as unread successfully.';
+			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead': return 'The bookmark couldn\'t be marked as read.';
+			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread': return 'The bookmark couldn\'t be marked as unread.';
 			case 'tags.tags': return 'Tags';
 			case 'tags.created': return ({required Object created}) => 'Created: ${created}';
 			case 'tags.createTag.createTag': return 'Create tag';
@@ -972,6 +990,12 @@ extension on _StringsEs {
 			case 'bookmarks.bookmarkOptions.bookmarkNotDeleted': return 'El marcador no se ha podido eliminar debido a un error.';
 			case 'bookmarks.bookmarkOptions.deleteBookmark': return 'Eliminar marcador';
 			case 'bookmarks.bookmarkOptions.followingBookmarkDeleted': return 'El siguiente marcador será eliminado:';
+			case 'bookmarks.bookmarkOptions.markingAsRead': return 'Marcando como leído...';
+			case 'bookmarks.bookmarkOptions.markingAsUnead': return 'Marcando como no leído...';
+			case 'bookmarks.bookmarkOptions.markedAsReadSuccessfully': return 'Marcador marcado como leído correctamente..';
+			case 'bookmarks.bookmarkOptions.markedAsUnreadSuccessfully': return 'Marcador marcado como no leído correctamente.';
+			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead': return 'El marcador no se ha podido marcar como leído.';
+			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread': return 'El marcador no se ha podido marcar como no leído.';
 			case 'tags.tags': return 'Etiquetas';
 			case 'tags.created': return ({required Object created}) => 'Creado: ${created}';
 			case 'tags.createTag.createTag': return 'Crear etiqueta';

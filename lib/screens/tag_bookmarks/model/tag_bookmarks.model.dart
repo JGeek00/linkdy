@@ -1,3 +1,4 @@
+import 'package:linkdy/config/options.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/models/data/tags.dart';
@@ -16,7 +17,7 @@ class TagBookmarksModel {
     this.tagId,
     this.tag,
     this.currentPage = 0,
-    this.limit = 30,
+    this.limit = ConfigOptions.listLimit,
     this.initialLoadStatus = LoadStatus.loading,
     required this.bookmarks,
     this.maxNumber = 0,

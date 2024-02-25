@@ -8,7 +8,7 @@ import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/utils/snackbar.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/utils/process_modal.dart';
-import 'package:linkdy/models/data/post_bookmark.dart';
+import 'package:linkdy/models/data/set_bookmark_data.dart';
 import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/constants/regexp.dart';
@@ -78,7 +78,7 @@ class AddBookmark extends _$AddBookmark {
   }
 
   void addBookmark() async {
-    final newBookmark = PostBookmark(
+    final newBookmark = SetBookmarkData(
       url: state.urlController.text,
       title: state.titleController.text != "" ? state.titleController.text : state.checkBookmark?.metadata?.title ?? '',
       description: state.descriptionController.text != ""

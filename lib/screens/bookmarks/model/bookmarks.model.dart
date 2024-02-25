@@ -1,3 +1,4 @@
+import 'package:linkdy/config/options.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 
@@ -11,7 +12,7 @@ class BookmarksModel {
 
   BookmarksModel({
     this.currentPage = 0,
-    this.limit = 30,
+    this.limit = ConfigOptions.listLimit,
     required this.bookmarks,
     this.inialLoadStatus = LoadStatus.loading,
     this.loadingMore = false,

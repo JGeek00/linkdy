@@ -5,7 +5,7 @@ import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/api_response.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/models/data/check_bookmark.dart';
-import 'package:linkdy/models/data/post_bookmark.dart';
+import 'package:linkdy/models/data/set_bookmark_data.dart';
 import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/models/server_instance.dart';
 
@@ -70,7 +70,7 @@ class ApiClientService {
     }
   }
 
-  Future<ApiResponse<Bookmark>> postBookmark(PostBookmark bookmark) async {
+  Future<ApiResponse<Bookmark>> postBookmark(SetBookmarkData bookmark) async {
     try {
       final response = await dioInstance.post(
         "/bookmarks/",
@@ -139,6 +139,22 @@ class ApiClientService {
     try {
       await dioInstance.delete("/bookmarks/$bookmarkId/");
       return const ApiResponse(successful: true);
+    } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    }
+  }
+
+  Future<ApiResponse<Bookmark>> putUpdateBookmark(int bookmarkId, SetBookmarkData bookmark) async {
+    try {
+      final result = await dioInstance.put(
+        "/bookmarks/$bookmarkId/",
+        data: FormData.fromMap(bookmark.toJson()),
+      );
+      return ApiResponse(
+        successful: true,
+        content: Bookmark.fromJson(result.data),
+      );
     } catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);

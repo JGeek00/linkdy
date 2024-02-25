@@ -1,4 +1,4 @@
-class PostBookmark {
+class SetBookmarkData {
   final String url;
   final String title;
   final String description;
@@ -7,7 +7,7 @@ class PostBookmark {
   final bool shared;
   final String tagNames;
 
-  const PostBookmark({
+  const SetBookmarkData({
     required this.url,
     required this.title,
     required this.description,

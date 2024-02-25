@@ -88,7 +88,13 @@
       "bookmarkDeleted": "Bookmark deleted successfully",
       "bookmarkNotDeleted": "The bookmark couldn't be deleted due to an error.",
       "deleteBookmark": "Delete bookmark",
-      "followingBookmarkDeleted": "The following bookmark will be deleted:"
+      "followingBookmarkDeleted": "The following bookmark will be deleted:",
+      "markingAsRead": "Marking as read...",
+      "markingAsUnead": "Marking as unread...",
+      "markedAsReadSuccessfully": "Bookmark marked as read successfully.",
+      "markedAsUnreadSuccessfully": "Bookmark marked as unread successfully.",
+      "bookmarkNotMarkedAsRead": "The bookmark couldn't be marked as read.",
+      "bookmarkNotMarkedAsUnread": "The bookmark couldn't be marked as unread."
     }
   },
   "tags": {
