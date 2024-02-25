@@ -134,4 +134,14 @@ class ApiClientService {
       return const ApiResponse(successful: false);
     }
   }
+
+  Future<ApiResponse<bool>> postDeleteBookmark(int bookmarkId) async {
+    try {
+      await dioInstance.delete("/bookmarks/$bookmarkId/");
+      return const ApiResponse(successful: true);
+    } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    }
+  }
 }

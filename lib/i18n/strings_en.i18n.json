@@ -76,6 +76,19 @@
       "inputSearchTerm": "Input a search term",
       "cannotSearchError": "Cannot search content due to an error",
       "inputtedSearchTermNoResults": "The inputted search term doesn't have any results"
+    },
+    "bookmarkOptions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "unread": "Unread",
+      "read": "Read",
+      "share": "Share",
+      "archive": "Archive",
+      "deletingBookmark": "Deleting bookmark...",
+      "bookmarkDeleted": "Bookmark deleted successfully",
+      "bookmarkNotDeleted": "The bookmark couldn't be deleted due to an error.",
+      "deleteBookmark": "Delete bookmark",
+      "followingBookmarkDeleted": "The following bookmark will be deleted:"
     }
   },
   "tags": {

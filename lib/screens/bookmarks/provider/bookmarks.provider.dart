@@ -1,8 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 import 'package:linkdy/screens/bookmarks/model/bookmarks.model.dart';
 
+import 'package:linkdy/utils/process_modal.dart';
+import 'package:linkdy/utils/snackbar.dart';
+import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/providers/api_client.provider.dart';
 import 'package:linkdy/constants/enums.dart';
 
@@ -79,5 +84,21 @@ class Bookmarks extends _$Bookmarks {
 
   Future<void> refresh() async {
     await ref.read(bookmarksRequestProvider(state.limit).future);
+  }
+
+  void deleteBookmark(Bookmark bookmark) async {
+    final processModal = ProcessModal();
+    processModal.open(t.bookmarks.bookmarkOptions.deletingBookmark);
+
+    final result = await ref.read(apiClientProvider)!.postDeleteBookmark(bookmark.id!);
+
+    processModal.close();
+    if (result.successful == true) {
+      state.bookmarks = state.bookmarks.where((b) => b.id != bookmark.id).toList();
+      ref.notifyListeners();
+      showSnacbkar(label: t.bookmarks.bookmarkOptions.bookmarkDeleted, color: Colors.green);
+    } else {
+      showSnacbkar(label: t.bookmarks.bookmarkOptions.bookmarkNotDeleted, color: Colors.red);
+    }
   }
 }

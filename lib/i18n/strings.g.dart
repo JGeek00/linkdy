@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 234 (117 per locale)
+/// Strings: 256 (128 per locale)
 ///
-/// Built on 2024-02-25 at 16:44 UTC
+/// Built on 2024-02-25 at 19:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -221,6 +221,7 @@ class _StringsBookmarksEn {
 	late final _StringsBookmarksDatesEn dates = _StringsBookmarksDatesEn._(_root);
 	late final _StringsBookmarksAddBookmarkEn addBookmark = _StringsBookmarksAddBookmarkEn._(_root);
 	late final _StringsBookmarksSearchEn search = _StringsBookmarksSearchEn._(_root);
+	late final _StringsBookmarksBookmarkOptionsEn bookmarkOptions = _StringsBookmarksBookmarkOptionsEn._(_root);
 }
 
 // Path: tags
@@ -346,6 +347,26 @@ class _StringsBookmarksSearchEn {
 	String get inputSearchTerm => 'Input a search term';
 	String get cannotSearchError => 'Cannot search content due to an error';
 	String get inputtedSearchTermNoResults => 'The inputted search term doesn\'t have any results';
+}
+
+// Path: bookmarks.bookmarkOptions
+class _StringsBookmarksBookmarkOptionsEn {
+	_StringsBookmarksBookmarkOptionsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get edit => 'Edit';
+	String get delete => 'Delete';
+	String get unread => 'Unread';
+	String get read => 'Read';
+	String get share => 'Share';
+	String get archive => 'Archive';
+	String get deletingBookmark => 'Deleting bookmark...';
+	String get bookmarkDeleted => 'Bookmark deleted successfully';
+	String get bookmarkNotDeleted => 'The bookmark couldn\'t be deleted due to an error.';
+	String get deleteBookmark => 'Delete bookmark';
+	String get followingBookmarkDeleted => 'The following bookmark will be deleted:';
 }
 
 // Path: tags.createTag
@@ -514,6 +535,7 @@ class _StringsBookmarksEs implements _StringsBookmarksEn {
 	@override late final _StringsBookmarksDatesEs dates = _StringsBookmarksDatesEs._(_root);
 	@override late final _StringsBookmarksAddBookmarkEs addBookmark = _StringsBookmarksAddBookmarkEs._(_root);
 	@override late final _StringsBookmarksSearchEs search = _StringsBookmarksSearchEs._(_root);
+	@override late final _StringsBookmarksBookmarkOptionsEs bookmarkOptions = _StringsBookmarksBookmarkOptionsEs._(_root);
 }
 
 // Path: tags
@@ -639,6 +661,26 @@ class _StringsBookmarksSearchEs implements _StringsBookmarksSearchEn {
 	@override String get inputSearchTerm => 'Introduce un término de búsqueda';
 	@override String get cannotSearchError => 'No se puede buscar el contenido por un error';
 	@override String get inputtedSearchTermNoResults => 'El término de búsqueda introducido no tiene resultados';
+}
+
+// Path: bookmarks.bookmarkOptions
+class _StringsBookmarksBookmarkOptionsEs implements _StringsBookmarksBookmarkOptionsEn {
+	_StringsBookmarksBookmarkOptionsEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get edit => 'Editar';
+	@override String get delete => 'Eliminar';
+	@override String get unread => 'No leído';
+	@override String get read => 'Leído';
+	@override String get share => 'Compartir';
+	@override String get archive => 'Archivar';
+	@override String get deletingBookmark => 'Eliminando marcador...';
+	@override String get bookmarkDeleted => 'Marcador eliminado correctamente';
+	@override String get bookmarkNotDeleted => 'El marcador no se ha podido eliminar debido a un error.';
+	@override String get deleteBookmark => 'Eliminar marcador';
+	@override String get followingBookmarkDeleted => 'El siguiente marcador será eliminado:';
 }
 
 // Path: tags.createTag
@@ -783,6 +825,17 @@ extension on Translations {
 			case 'bookmarks.search.inputSearchTerm': return 'Input a search term';
 			case 'bookmarks.search.cannotSearchError': return 'Cannot search content due to an error';
 			case 'bookmarks.search.inputtedSearchTermNoResults': return 'The inputted search term doesn\'t have any results';
+			case 'bookmarks.bookmarkOptions.edit': return 'Edit';
+			case 'bookmarks.bookmarkOptions.delete': return 'Delete';
+			case 'bookmarks.bookmarkOptions.unread': return 'Unread';
+			case 'bookmarks.bookmarkOptions.read': return 'Read';
+			case 'bookmarks.bookmarkOptions.share': return 'Share';
+			case 'bookmarks.bookmarkOptions.archive': return 'Archive';
+			case 'bookmarks.bookmarkOptions.deletingBookmark': return 'Deleting bookmark...';
+			case 'bookmarks.bookmarkOptions.bookmarkDeleted': return 'Bookmark deleted successfully';
+			case 'bookmarks.bookmarkOptions.bookmarkNotDeleted': return 'The bookmark couldn\'t be deleted due to an error.';
+			case 'bookmarks.bookmarkOptions.deleteBookmark': return 'Delete bookmark';
+			case 'bookmarks.bookmarkOptions.followingBookmarkDeleted': return 'The following bookmark will be deleted:';
 			case 'tags.tags': return 'Tags';
 			case 'tags.created': return ({required Object created}) => 'Created: ${created}';
 			case 'tags.createTag.createTag': return 'Create tag';
@@ -908,6 +961,17 @@ extension on _StringsEs {
 			case 'bookmarks.search.inputSearchTerm': return 'Introduce un término de búsqueda';
 			case 'bookmarks.search.cannotSearchError': return 'No se puede buscar el contenido por un error';
 			case 'bookmarks.search.inputtedSearchTermNoResults': return 'El término de búsqueda introducido no tiene resultados';
+			case 'bookmarks.bookmarkOptions.edit': return 'Editar';
+			case 'bookmarks.bookmarkOptions.delete': return 'Eliminar';
+			case 'bookmarks.bookmarkOptions.unread': return 'No leído';
+			case 'bookmarks.bookmarkOptions.read': return 'Leído';
+			case 'bookmarks.bookmarkOptions.share': return 'Compartir';
+			case 'bookmarks.bookmarkOptions.archive': return 'Archivar';
+			case 'bookmarks.bookmarkOptions.deletingBookmark': return 'Eliminando marcador...';
+			case 'bookmarks.bookmarkOptions.bookmarkDeleted': return 'Marcador eliminado correctamente';
+			case 'bookmarks.bookmarkOptions.bookmarkNotDeleted': return 'El marcador no se ha podido eliminar debido a un error.';
+			case 'bookmarks.bookmarkOptions.deleteBookmark': return 'Eliminar marcador';
+			case 'bookmarks.bookmarkOptions.followingBookmarkDeleted': return 'El siguiente marcador será eliminado:';
 			case 'tags.tags': return 'Etiquetas';
 			case 'tags.created': return ({required Object created}) => 'Creado: ${created}';
 			case 'tags.createTag.createTag': return 'Crear etiqueta';

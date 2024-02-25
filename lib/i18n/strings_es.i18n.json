@@ -76,6 +76,19 @@
       "inputSearchTerm": "Introduce un término de búsqueda",
       "cannotSearchError": "No se puede buscar el contenido por un error",
       "inputtedSearchTermNoResults": "El término de búsqueda introducido no tiene resultados"
+    },
+    "bookmarkOptions": {
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "unread": "No leído",
+      "read": "Leído",
+      "share": "Compartir",
+      "archive": "Archivar",
+      "deletingBookmark": "Eliminando marcador...",
+      "bookmarkDeleted": "Marcador eliminado correctamente",
+      "bookmarkNotDeleted": "El marcador no se ha podido eliminar debido a un error.",
+      "deleteBookmark": "Eliminar marcador",
+      "followingBookmarkDeleted": "El siguiente marcador será eliminado:"
     }
   },
   "tags": {
