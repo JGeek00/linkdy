@@ -44,7 +44,7 @@ FutureOr<void> bookmarksRequestLoadMore(BookmarksRequestLoadMoreRef ref) async {
   ref.read(bookmarksProvider.notifier).setLoadingMore(false);
 }
 
-@Riverpod(keepAlive: true)
+@riverpod
 class Bookmarks extends _$Bookmarks {
   @override
   BookmarksModel build() {

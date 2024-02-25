@@ -11,7 +11,7 @@ class BookmarksModel {
 
   BookmarksModel({
     this.currentPage = 0,
-    this.limit = 20,
+    this.limit = 30,
     required this.bookmarks,
     this.inialLoadStatus = LoadStatus.loading,
     this.loadingMore = false,

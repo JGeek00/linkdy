@@ -172,11 +172,12 @@ final bookmarksRequestLoadMoreProvider =
 );
 
 typedef BookmarksRequestLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$bookmarksHash() => r'454f0fcfa9ee776828ba50edf4906ed0a267cb97';
+String _$bookmarksHash() => r'fa25d1f42aaf2a5d5b09cb082e2a2b70f277309c';
 
 /// See also [Bookmarks].
 @ProviderFor(Bookmarks)
-final bookmarksProvider = NotifierProvider<Bookmarks, BookmarksModel>.internal(
+final bookmarksProvider =
+    AutoDisposeNotifierProvider<Bookmarks, BookmarksModel>.internal(
   Bookmarks.new,
   name: r'bookmarksProvider',
   debugGetCreateSourceHash:
@@ -185,6 +186,6 @@ final bookmarksProvider = NotifierProvider<Bookmarks, BookmarksModel>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef _$Bookmarks = Notifier<BookmarksModel>;
+typedef _$Bookmarks = AutoDisposeNotifier<BookmarksModel>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
