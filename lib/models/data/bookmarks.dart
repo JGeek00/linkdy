@@ -1,7 +1,7 @@
 class BookmarksResponse {
   final int? count;
-  final int? next;
-  final int? previous;
+  final String? next;
+  final String? previous;
   final List<Bookmark>? results;
 
   BookmarksResponse({

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:linkdy/constants/enums.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
@@ -18,7 +19,7 @@ class BookmarksScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bookmarks = ref.watch(bookmarksRequestProvider);
+    final bookmarks = ref.watch(bookmarksProvider);
 
     final width = MediaQuery.of(context).size.width;
 
@@ -36,6 +37,16 @@ class BookmarksScreen extends ConsumerWidget {
         },
         pageBuilder: (context, animation, secondaryAnimation) => AddBookmarkModal(fullscreen: width <= 700),
       );
+    }
+
+    bool scrollListener(ScrollUpdateNotification scrollNotification) {
+      if (scrollNotification.metrics.extentAfter < 100 &&
+          bookmarks.loadingMore == false &&
+          bookmarks.bookmarks.length < bookmarks.maxNumber) {
+        ref.read(bookmarksProvider.notifier).setLoadingMore(true);
+        ref.watch(bookmarksRequestLoadMoreProvider);
+      }
+      return false;
     }
 
     return Scaffold(
@@ -66,57 +77,65 @@ class BookmarksScreen extends ConsumerWidget {
           child: Builder(
             builder: (context) => RefreshIndicator(
               displacement: 120,
-              onRefresh: () => ref.refresh(bookmarksRequestProvider.future),
-              child: CustomScrollView(
-                slivers: [
-                  SliverOverlapInjector(
-                    handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                  ),
-                  if (bookmarks.isLoading && !bookmarks.isRefreshing)
-                    const SliverFillRemaining(
-                      child: Center(child: CircularProgressIndicator()),
+              onRefresh: () => ref.read(bookmarksProvider.notifier).refresh(),
+              child: NotificationListener(
+                onNotification: scrollListener,
+                child: CustomScrollView(
+                  slivers: [
+                    SliverOverlapInjector(
+                      handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                     ),
-                  if (bookmarks.value != null && bookmarks.value!.successful == false)
-                    SliverFillRemaining(
-                      child: ErrorScreen(
-                        error: t.bookmarks.cannotLoadBookmarks,
+                    if (bookmarks.inialLoadStatus == LoadStatus.loading)
+                      const SliverFillRemaining(
+                        child: Center(child: CircularProgressIndicator()),
                       ),
-                    ),
-                  if (bookmarks.value != null &&
-                      bookmarks.value!.successful == true &&
-                      bookmarks.value!.content!.results!.isEmpty)
-                    SliverFillRemaining(
-                      child: NoDataScreen(
-                        message: t.bookmarks.noBookmarksAdded,
+                    if (bookmarks.inialLoadStatus == LoadStatus.error)
+                      SliverFillRemaining(
+                        child: ErrorScreen(
+                          error: t.bookmarks.cannotLoadBookmarks,
+                        ),
                       ),
-                    ),
-                  if (bookmarks.value != null &&
-                      bookmarks.value!.successful == true &&
-                      bookmarks.value!.content!.results!.isNotEmpty)
-                    SliverList.builder(
-                      itemCount: bookmarks.value!.content!.results!.length + 1,
-                      itemBuilder: (context, index) {
-                        // index == bookmarks.value!.content!.results!.length -> itemCount + 1
-                        if (index == bookmarks.value!.content!.results!.length) {
-                          // Bottom gap for FAB
-                          return const SizedBox(height: 80);
-                        }
-                        final link = bookmarks.value?.content?.results?[index];
-                        return Column(
-                          children: [
-                            BookmarkItem(bookmark: link!),
-                            if (index < bookmarks.value!.content!.results!.length - 1)
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 16),
-                                child: Divider(
-                                  color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
+                    if (bookmarks.bookmarks.isEmpty)
+                      SliverFillRemaining(
+                        child: NoDataScreen(
+                          message: t.bookmarks.noBookmarksAdded,
+                        ),
+                      ),
+                    if (bookmarks.bookmarks.isNotEmpty)
+                      SliverList.builder(
+                        itemCount: bookmarks.bookmarks.length + 1,
+                        itemBuilder: (context, index) {
+                          // index == bookmarks.value!.content!.results!.length -> itemCount + 1
+                          if (index == bookmarks.bookmarks.length) {
+                            if (bookmarks.loadingMore) {
+                              return const SizedBox(
+                                height: 80,
+                                child: Center(
+                                  child: CircularProgressIndicator(),
                                 ),
-                              ),
-                          ],
-                        );
-                      },
-                    ),
-                ],
+                              );
+                            }
+                            // Bottom gap for FAB
+                            return const SizedBox(height: 80);
+                          }
+
+                          final link = bookmarks.bookmarks[index];
+                          return Column(
+                            children: [
+                              BookmarkItem(bookmark: link),
+                              if (index < bookmarks.bookmarks.length - 1)
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                                  child: Divider(
+                                    color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
+                                  ),
+                                ),
+                            ],
+                          );
+                        },
+                      ),
+                  ],
+                ),
               ),
             ),
           ),
