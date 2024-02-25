@@ -26,6 +26,9 @@
   <li>Material You interface with dynamic theming (only Android 12+).</li>
 </ul>
 
+## Privacy policy
+Check the privacy policy [here](https://github.com/JGeek00/linkdy/wiki/Privacy-policy).
+
 ### Development
 1. Clone this repository.
 2. Run ``flutter pub get`` to install all the dependencies.
