@@ -46,7 +46,7 @@ class Connect extends _$Connect {
     if (Regexps.ipAddress.hasMatch(value) || Regexps.domain.hasMatch(value)) {
       state.ipDomainError = null;
     } else {
-      state.ipDomainError = "Error";
+      state.ipDomainError = t.onboarding.invalidIpDomain;
     }
     state.validValues = validValues();
     ref.notifyListeners();
@@ -57,7 +57,7 @@ class Connect extends _$Connect {
       if (int.tryParse(value) != null && int.parse(value) <= 65535) {
         state.portError = null;
       } else {
-        state.portError = "Invalid port";
+        state.portError = t.onboarding.invalidPort;
       }
     }
     state.validValues = validValues();
@@ -68,7 +68,7 @@ class Connect extends _$Connect {
     if (value != "") {
       state.tokenError = null;
     } else {
-      state.tokenError = "Error";
+      state.tokenError = t.onboarding.tokenRequired;
     }
     state.validValues = validValues();
     ref.notifyListeners();

@@ -30,7 +30,10 @@
     "connect": "Conectar",
     "connecting": "Conectando...",
     "cannotConnectToServer": "No se puede conectar con el servidor.",
-    "invalidToken": "Token no válido."
+    "invalidToken": "Token no válido.",
+    "invalidIpDomain": "Dirección IP o dominio no válido",
+    "invalidPort": "Puerto no válido",
+    "tokenRequired": "Token requerido"
   },
   "bookmarks": {
     "bookmarks": "Marcadores",

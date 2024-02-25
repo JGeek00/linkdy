@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 226 (113 per locale)
+/// Strings: 232 (116 per locale)
 ///
-/// Built on 2024-02-24 at 22:54 UTC
+/// Built on 2024-02-25 at 03:19 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -202,6 +202,9 @@ class _StringsOnboardingEn {
 	String get connecting => 'Connecting...';
 	String get cannotConnectToServer => 'Cannot connect to the server.';
 	String get invalidToken => 'Invalid token.';
+	String get invalidIpDomain => 'Invalid IP address or domain';
+	String get invalidPort => 'Invalid port';
+	String get tokenRequired => 'Token is required';
 }
 
 // Path: bookmarks
@@ -491,6 +494,9 @@ class _StringsOnboardingEs implements _StringsOnboardingEn {
 	@override String get connecting => 'Conectando...';
 	@override String get cannotConnectToServer => 'No se puede conectar con el servidor.';
 	@override String get invalidToken => 'Token no válido.';
+	@override String get invalidIpDomain => 'Dirección IP o dominio no válido';
+	@override String get invalidPort => 'Puerto no válido';
+	@override String get tokenRequired => 'Token requerido';
 }
 
 // Path: bookmarks
@@ -737,6 +743,9 @@ extension on Translations {
 			case 'onboarding.connecting': return 'Connecting...';
 			case 'onboarding.cannotConnectToServer': return 'Cannot connect to the server.';
 			case 'onboarding.invalidToken': return 'Invalid token.';
+			case 'onboarding.invalidIpDomain': return 'Invalid IP address or domain';
+			case 'onboarding.invalidPort': return 'Invalid port';
+			case 'onboarding.tokenRequired': return 'Token is required';
 			case 'bookmarks.bookmarks': return 'Bookmarks';
 			case 'bookmarks.noBookmarksAdded': return 'No bookmarks added';
 			case 'bookmarks.cannotLoadBookmarks': return 'Cannot load the bookmarks';
@@ -858,6 +867,9 @@ extension on _StringsEs {
 			case 'onboarding.connecting': return 'Conectando...';
 			case 'onboarding.cannotConnectToServer': return 'No se puede conectar con el servidor.';
 			case 'onboarding.invalidToken': return 'Token no válido.';
+			case 'onboarding.invalidIpDomain': return 'Dirección IP o dominio no válido';
+			case 'onboarding.invalidPort': return 'Puerto no válido';
+			case 'onboarding.tokenRequired': return 'Token requerido';
 			case 'bookmarks.bookmarks': return 'Marcadores';
 			case 'bookmarks.noBookmarksAdded': return 'No hay marcadores añadidos';
 			case 'bookmarks.cannotLoadBookmarks': return 'No se pueden cargar los marcadores';
