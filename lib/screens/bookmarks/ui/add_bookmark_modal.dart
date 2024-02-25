@@ -97,6 +97,7 @@ class _ModalContent extends ConsumerWidget {
             controller: provider.urlController,
             onChanged: ref.read(addBookmarkProvider.notifier).validateUrl,
             enabled: provider.checkBookmarkLoadStatus != LoadStatus.loading,
+            autocorrect: false,
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.link_rounded),
               border: const OutlineInputBorder(

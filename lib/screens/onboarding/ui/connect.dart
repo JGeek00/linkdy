@@ -138,6 +138,7 @@ class _ConnectForm extends ConsumerWidget {
         TextFormField(
           controller: provider.ipDomainController,
           onChanged: ref.read(connectProvider.notifier).validateIpDomain,
+          autocorrect: false,
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.link_rounded),
             border: const OutlineInputBorder(
@@ -154,6 +155,7 @@ class _ConnectForm extends ConsumerWidget {
         TextFormField(
           controller: provider.portController,
           onChanged: ref.read(connectProvider.notifier).validatePort,
+          autocorrect: false,
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.tag_rounded),
             border: const OutlineInputBorder(
@@ -172,6 +174,7 @@ class _ConnectForm extends ConsumerWidget {
         TextFormField(
           controller: provider.tokenController,
           onChanged: ref.read(connectProvider.notifier).validateToken,
+          autocorrect: false,
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.key_rounded),
             border: const OutlineInputBorder(

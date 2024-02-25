@@ -48,6 +48,7 @@ class AddTagModal extends ConsumerWidget {
                       TextFormField(
                         controller: provider.nameController,
                         onChanged: (_) => ref.read(addTagProvider.notifier).notifyOnWrite(),
+                        autocorrect: false,
                         decoration: InputDecoration(
                           prefixIcon: const Icon(Icons.label_rounded),
                           border: const OutlineInputBorder(
