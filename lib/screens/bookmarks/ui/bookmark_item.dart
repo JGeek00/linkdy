@@ -31,116 +31,116 @@ class BookmarkItem extends ConsumerWidget {
       }
     }
 
-    return ListTile(
+    return InkWell(
       onTap: ref.watch(appStatusProvider).useInAppBrowser == true
           ? () => ref.watch(routerProvider).push(RoutesPaths.webview, extra: bookmark)
           : () => openUrl(bookmark.url!),
-      isThreeLine: true,
-      title: Padding(
-        padding: const EdgeInsets.only(bottom: 4),
-        child: Row(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (ref.watch(appStatusProvider).showFavicon == true)
-              FutureBuilder(
-                future: FaviconFinder.getBest(bookmark.url!),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData == false) {
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(4),
-                        child: Skeletonizer(
-                          enabled: true,
-                          ignoreContainers: true,
-                          child: Container(
-                            width: 16,
-                            height: 16,
-                            color: Colors.black,
+            Row(
+              children: [
+                if (ref.watch(appStatusProvider).showFavicon == true)
+                  FutureBuilder(
+                    future: FaviconFinder.getBest(bookmark.url!),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData == false) {
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(4),
+                            child: Skeletonizer(
+                              enabled: true,
+                              ignoreContainers: true,
+                              child: Container(
+                                width: 16,
+                                height: 16,
+                                color: Colors.black,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    );
-                  }
-                  return Row(
-                    children: [
-                      if (snapshot.data!.url.contains("svg"))
-                        SvgPicture.network(
-                          snapshot.data!.url,
-                          width: 16,
-                          height: 16,
-                        ),
-                      if (!snapshot.data!.url.contains("svg"))
-                        Image.network(
-                          snapshot.data!.url,
-                          width: 16,
-                          height: 16,
-                        ),
-                      const SizedBox(width: 8),
-                    ],
-                  );
-                },
-              ),
-            Expanded(
-              child: Text(
-                validateStrings(bookmark.title, bookmark.websiteTitle),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Theme.of(context).colorScheme.onSurface,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            validateStrings(bookmark.description, bookmark.websiteDescription),
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              fontSize: 14,
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  bookmark.tagNames?.map((tag) => "#$tag").join(" ") ?? '',
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
+                        );
+                      }
+                      return Row(
+                        children: [
+                          if (snapshot.data!.url.contains("svg"))
+                            SvgPicture.network(
+                              snapshot.data!.url,
+                              width: 16,
+                              height: 16,
+                            ),
+                          if (!snapshot.data!.url.contains("svg"))
+                            Image.network(
+                              snapshot.data!.url,
+                              width: 16,
+                              height: 16,
+                            ),
+                          const SizedBox(width: 8),
+                        ],
+                      );
+                    },
                   ),
-                ),
-              ),
-              if (bookmark.dateModified != null) ...[
-                if (bookmark.tagNames?.isNotEmpty == true)
-                  Container(
-                    width: 1,
-                    height: 12,
-                    margin: const EdgeInsets.symmetric(horizontal: 8),
-                    color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
-                  ),
-                Text(
-                  dateToString(bookmark.dateModified!),
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                Expanded(
+                  child: Text(
+                    validateStrings(bookmark.title, bookmark.websiteTitle),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
                   ),
                 ),
               ],
-            ],
-          ),
-        ],
+            ),
+            const SizedBox(height: 4),
+            Text(
+              validateStrings(bookmark.description, bookmark.websiteDescription),
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 14,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    bookmark.tagNames?.map((tag) => "#$tag").join(" ") ?? '',
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                if (bookmark.dateModified != null) ...[
+                  if (bookmark.tagNames?.isNotEmpty == true)
+                    Container(
+                      width: 1,
+                      height: 12,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
+                    ),
+                  Text(
+                    dateToString(bookmark.dateModified!),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -118,20 +118,7 @@ class BookmarksScreen extends ConsumerWidget {
                             // Bottom gap for FAB
                             return const SizedBox(height: 80);
                           }
-
-                          final link = bookmarks.bookmarks[index];
-                          return Column(
-                            children: [
-                              BookmarkItem(bookmark: link),
-                              if (index < bookmarks.bookmarks.length - 1)
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                                  child: Divider(
-                                    color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
-                                  ),
-                                ),
-                            ],
-                          );
+                          return BookmarkItem(bookmark: bookmarks.bookmarks[index]);
                         },
                       ),
                   ],
