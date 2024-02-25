@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
@@ -7,15 +6,13 @@ import 'package:linkdy/screens/tag_bookmarks/provider/tag_bookmarks.provider.dar
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
-import 'package:linkdy/models/api_response.dart';
-import 'package:linkdy/models/data/bookmarks.dart';
-import 'package:linkdy/models/data/tag_bookmarks.dart';
 import 'package:linkdy/models/data/tags.dart';
+import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/providers/router_provider.dart';
 import 'package:linkdy/router/paths.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 
-class TagBookmarksScreen extends ConsumerWidget {
+class TagBookmarksScreen extends ConsumerStatefulWidget {
   final String? tagId;
   final Tag? tag;
 
@@ -26,31 +23,48 @@ class TagBookmarksScreen extends ConsumerWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    // Redirect to initial screen if no tagId or tag
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      if (tag == null && tagId == null) {
-        final router = ref.watch(routerProvider);
-        while (router.canPop() == true) {
-          router.pop();
-        }
-        router.pushReplacement(RoutesPaths.bookmarks);
+  TagBookmarksScreenState createState() => TagBookmarksScreenState();
+}
+
+class TagBookmarksScreenState extends ConsumerState<TagBookmarksScreen> {
+  @override
+  void initState() {
+    if (widget.tag == null && widget.tagId == null) {
+      final router = ref.watch(routerProvider);
+      while (router.canPop() == true) {
+        router.pop();
       }
-    });
+      router.pushReplacement(RoutesPaths.bookmarks);
+      return;
+    }
+    if (widget.tag != null) {
+      ref.read(tagBookmarksProvider).tag = widget.tag;
+    }
+    if (widget.tagId != null) {
+      ref.read(tagBookmarksProvider).tagId = widget.tagId;
+    }
+    ref.read(tagBookmarksRequestProvider(widget.tag, widget.tagId, ref.read(tagBookmarksProvider).limit));
 
-    if (tag == null && tagId == null) return const Material();
+    super.initState();
+  }
 
-    final bookmarksResponse =
-        tag != null ? ref.watch(tagBookmarksRequestProvider(tag!)) : ref.watch(tagIdBookmarksRequestProvider(tagId!));
+  @override
+  Widget build(BuildContext context) {
+    if (widget.tag == null && widget.tagId == null) return const Material();
 
-    final bookmarks = tag != null
-        ? (bookmarksResponse.value as ApiResponse<BookmarksResponse>?)?.content
-        : (bookmarksResponse.value as ApiResponse<TagBookmarksResponse?>?)?.content?.bookmarksResponse;
+    final provider = ref.watch(tagBookmarksProvider);
 
-    final title = tag != null
-        ? tag!.name!
-        : ((bookmarksResponse.value as ApiResponse<TagBookmarksResponse?>?)?.content?.tag?.name ?? '');
+    bool scrollListener(ScrollUpdateNotification scrollNotification) {
+      if (scrollNotification.metrics.extentAfter < 100 &&
+          provider.loadingMore == false &&
+          provider.bookmarks.length < provider.maxNumber) {
+        ref.read(tagBookmarksProvider.notifier).setLoadingMore(true);
+        ref.watch(tagBookmarksRequestLoadMoreProvider);
+      }
+      return false;
+    }
 
+    print(provider.maxNumber);
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -61,52 +75,65 @@ class TagBookmarksScreen extends ConsumerWidget {
               floating: true,
               centerTitle: false,
               forceElevated: innerBoxIsScrolled,
-              title: Text(title != "" ? "#$title" : ""),
+              title: Text(
+                widget.tag != null
+                    ? "#${widget.tag!.name}"
+                    : provider.tag != null
+                        ? "#${provider.tag!.name}"
+                        : '',
+              ),
             ),
           ),
         ],
         body: SafeArea(
           top: false,
-          bottom: false,
           child: Builder(
             builder: (context) => RefreshIndicator(
               displacement: 120,
-              onRefresh: () => tag != null
-                  ? ref.watch(tagBookmarksRequestProvider(tag!).future)
-                  : ref.watch(tagIdBookmarksRequestProvider(tagId!).future),
-              child: CustomScrollView(
-                slivers: [
-                  SliverOverlapInjector(
-                    handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                  ),
-                  if (bookmarksResponse.isLoading && !bookmarksResponse.isRefreshing)
-                    const SliverFillRemaining(
-                      child: Center(child: CircularProgressIndicator()),
+              onRefresh: () => ref.read(tagBookmarksProvider.notifier).refresh(),
+              child: NotificationListener(
+                onNotification: scrollListener,
+                child: CustomScrollView(
+                  slivers: [
+                    SliverOverlapInjector(
+                      handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                     ),
-                  if (bookmarksResponse.value != null && bookmarksResponse.value!.successful == false)
-                    SliverFillRemaining(
-                      child: ErrorScreen(
-                        error: t.bookmarks.cannotLoadBookmarks,
+                    if (provider.initialLoadStatus == LoadStatus.loading)
+                      const SliverFillRemaining(
+                        child: Center(child: CircularProgressIndicator()),
                       ),
-                    ),
-                  if (bookmarksResponse.value != null &&
-                      bookmarksResponse.value!.successful == true &&
-                      bookmarks!.results!.isEmpty)
-                    SliverFillRemaining(
-                      child: NoDataScreen(
-                        message: t.tags.tagBookmarks.noBookmarksWithThisTag,
+                    if (provider.initialLoadStatus == LoadStatus.error)
+                      SliverFillRemaining(
+                        child: ErrorScreen(
+                          error: t.bookmarks.cannotLoadBookmarks,
+                        ),
                       ),
-                    ),
-                  if (bookmarksResponse.value != null &&
-                      bookmarksResponse.value!.successful == true &&
-                      bookmarks!.results!.isNotEmpty)
-                    SliverList.builder(
-                      itemCount: bookmarks.results!.length,
-                      itemBuilder: (context, index) => BookmarkItem(
-                        bookmark: bookmarks.results![index],
+                    if (provider.bookmarks.isEmpty)
+                      SliverFillRemaining(
+                        child: NoDataScreen(
+                          message: t.tags.tagBookmarks.noBookmarksWithThisTag,
+                        ),
                       ),
-                    ),
-                ],
+                    if (provider.bookmarks.isNotEmpty)
+                      SliverList.builder(
+                        itemCount:
+                            provider.loadingMore == true ? provider.bookmarks.length + 1 : provider.bookmarks.length,
+                        itemBuilder: (context, index) {
+                          if (provider.loadingMore == true && index == provider.bookmarks.length) {
+                            return const Padding(
+                              padding: EdgeInsets.all(16),
+                              child: Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                            );
+                          }
+                          return BookmarkItem(
+                            bookmark: provider.bookmarks[index],
+                          );
+                        },
+                      ),
+                  ],
+                ),
               ),
             ),
           ),
