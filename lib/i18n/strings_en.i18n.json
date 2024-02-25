@@ -6,7 +6,8 @@
     "save": "Save",
     "close": "Close",
     "error": "Error",
-    "optional": "Optional"
+    "optional": "Optional",
+    "authTokenNotValid": "Your authorization token is not valid anymore. Please, reauthenticate."
   },
   "onboarding": {
     "title": "Welcome to Linkdy",

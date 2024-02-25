@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 232 (116 per locale)
+/// Strings: 234 (117 per locale)
 ///
-/// Built on 2024-02-25 at 03:19 UTC
+/// Built on 2024-02-25 at 03:56 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -171,6 +171,7 @@ class _StringsGenericEn {
 	String get close => 'Close';
 	String get error => 'Error';
 	String get optional => 'Optional';
+	String get authTokenNotValid => 'Your authorization token is not valid anymore. Please, reauthenticate.';
 }
 
 // Path: onboarding
@@ -463,6 +464,7 @@ class _StringsGenericEs implements _StringsGenericEn {
 	@override String get close => 'Cerrar';
 	@override String get error => 'Error';
 	@override String get optional => 'Opcional';
+	@override String get authTokenNotValid => 'Su token de autorización ya no es válido. Por favor, vuelva a autenticarse.';
 }
 
 // Path: onboarding
@@ -721,6 +723,7 @@ extension on Translations {
 			case 'generic.close': return 'Close';
 			case 'generic.error': return 'Error';
 			case 'generic.optional': return 'Optional';
+			case 'generic.authTokenNotValid': return 'Your authorization token is not valid anymore. Please, reauthenticate.';
 			case 'onboarding.title': return 'Welcome to Linkdy';
 			case 'onboarding.subtitle': return 'An application to manage your bookmarks.';
 			case 'onboarding.start': return 'Start';
@@ -845,6 +848,7 @@ extension on _StringsEs {
 			case 'generic.close': return 'Cerrar';
 			case 'generic.error': return 'Error';
 			case 'generic.optional': return 'Opcional';
+			case 'generic.authTokenNotValid': return 'Su token de autorización ya no es válido. Por favor, vuelva a autenticarse.';
 			case 'onboarding.title': return 'Bienvenido a Linkdy';
 			case 'onboarding.subtitle': return 'Una aplicación para gestionar tus enlaces favoritos.';
 			case 'onboarding.start': return 'Comenzar';

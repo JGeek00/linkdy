@@ -64,7 +64,6 @@ class TagBookmarksScreenState extends ConsumerState<TagBookmarksScreen> {
       return false;
     }
 
-    print(provider.maxNumber);
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [

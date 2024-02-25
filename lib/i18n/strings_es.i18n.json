@@ -6,7 +6,8 @@
     "save": "Guardar",
     "close": "Cerrar",
     "error": "Error",
-    "optional": "Opcional"
+    "optional": "Opcional",
+    "authTokenNotValid": "Su token de autorización ya no es válido. Por favor, vuelva a autenticarse."
   },
   "onboarding": {
     "title": "Bienvenido a Linkdy",

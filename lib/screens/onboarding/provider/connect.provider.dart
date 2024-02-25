@@ -5,6 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/onboarding/model/connect.model.dart';
 
+import 'package:linkdy/providers/dio_interceptor.provider.dart';
 import 'package:linkdy/providers/server_instances_provider.dart';
 import 'package:linkdy/utils/api_base_url.dart';
 import 'package:linkdy/i18n/strings.g.dart';
@@ -102,7 +103,7 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
           "Authorization": "Token ${serverInstance.token}",
         },
       ),
-    ),
+    )..interceptors.add(ref.watch(dioInterceptorProvider)),
   );
 
   final processModal = ProcessModal();

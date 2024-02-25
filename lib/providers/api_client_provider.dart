@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import 'package:linkdy/providers/server_instances_provider.dart';
+import 'package:linkdy/providers/dio_interceptor.provider.dart';
 import 'package:linkdy/services/api_client.dart';
 import 'package:linkdy/utils/api_base_url.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'api_client_provider.g.dart';
 
@@ -13,16 +15,17 @@ class ApiClient extends _$ApiClient {
     final savedInstances = ref.watch(serverInstancesProvider);
     if (savedInstances.isNotEmpty) {
       final instance = savedInstances[0];
+      final dio = Dio(
+        BaseOptions(
+          baseUrl: apiBaseUrl(instance),
+          headers: {
+            "Authorization": "Token ${instance.token}",
+          },
+        ),
+      )..interceptors.add(ref.watch(dioInterceptorProvider));
       return ApiClientService(
         serverInstance: instance,
-        dioInstance: Dio(
-          BaseOptions(
-            baseUrl: apiBaseUrl(instance),
-            headers: {
-              "Authorization": "Token ${instance.token}",
-            },
-          ),
-        ),
+        dioInstance: dio,
       );
     }
     return null;
