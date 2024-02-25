@@ -17,6 +17,8 @@ FutureOr<void> bookmarksRequest(BookmarksRequestRef ref, int limit) async {
   if (result.successful == true) {
     ref.read(bookmarksProvider).bookmarks = result.content!.results!;
     ref.read(bookmarksProvider).maxNumber = result.content!.count!;
+    ref.read(bookmarksProvider).currentPage = 0;
+    ref.read(bookmarksProvider).loadingMore = false;
     ref.read(bookmarksProvider).inialLoadStatus = LoadStatus.loaded;
   } else {
     ref.read(bookmarksProvider).inialLoadStatus = LoadStatus.error;
@@ -74,8 +76,5 @@ class Bookmarks extends _$Bookmarks {
 
   Future<void> refresh() async {
     await ref.read(bookmarksRequestProvider(state.limit).future);
-    state.currentPage = 0;
-    state.loadingMore = false;
-    ref.notifyListeners();
   }
 }

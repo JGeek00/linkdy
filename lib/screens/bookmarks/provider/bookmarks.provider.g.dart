@@ -6,7 +6,7 @@ part of 'bookmarks.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bookmarksRequestHash() => r'716bbb168bef640b11619d7f6a333c53b3c29bdb';
+String _$bookmarksRequestHash() => r'04ee313bc986046f5c401f7539b0ba2386001303';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -172,7 +172,7 @@ final bookmarksRequestLoadMoreProvider =
 );
 
 typedef BookmarksRequestLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$bookmarksHash() => r'fa25d1f42aaf2a5d5b09cb082e2a2b70f277309c';
+String _$bookmarksHash() => r'63863329236a127fce0f7b75e2461a841c0cae55';
 
 /// See also [Bookmarks].
 @ProviderFor(Bookmarks)
