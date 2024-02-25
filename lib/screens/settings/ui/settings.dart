@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -51,17 +53,17 @@ class SettingsScreen extends ConsumerWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                // if (Platform.isAndroid)
-                //   IconButton(
-                //     onPressed: () => openUrl(Urls.playStore),
-                //     icon: SvgPicture.asset(
-                //       'assets/resources/google-play.svg',
-                //       color: Theme.of(context).colorScheme.onSurfaceVariant,
-                //       width: 30,
-                //       height: 30,
-                //     ),
-                //     tooltip: t.settings.visitGooglePlay,
-                //   ),
+                if (Platform.isAndroid)
+                  IconButton(
+                    onPressed: () => openUrl(Urls.playStoreLink),
+                    icon: SvgPicture.asset(
+                      'assets/resources/google-play.svg',
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      width: 30,
+                      height: 30,
+                    ),
+                    tooltip: t.settings.visitGooglePlay,
+                  ),
                 IconButton(
                   onPressed: () => openUrl(Urls.gitHubRepo),
                   icon: SvgPicture.asset(
