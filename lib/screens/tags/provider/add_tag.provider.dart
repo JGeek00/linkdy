@@ -6,8 +6,8 @@ import 'package:linkdy/screens/tags/provider/tags.provider.dart';
 import 'package:linkdy/screens/tags/models/add_tag.modal.dart';
 
 import 'package:linkdy/router/routes.dart';
-import 'package:linkdy/providers/api_client_provider.dart';
-import 'package:linkdy/providers/router_provider.dart';
+import 'package:linkdy/providers/api_client.provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/utils/process_modal.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 

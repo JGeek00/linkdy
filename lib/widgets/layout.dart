@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:linkdy/widgets/system_overlay_style.dart';
 
 import 'package:linkdy/config/app_screens.dart';
-import 'package:linkdy/providers/router_provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
 
 class Layout extends ConsumerWidget {
   final GoRouterState state;

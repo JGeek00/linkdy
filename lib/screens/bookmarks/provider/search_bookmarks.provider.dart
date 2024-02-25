@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:linkdy/screens/bookmarks/model/search_bookmarks.model.dart';
 
 import 'package:linkdy/constants/enums.dart';
-import 'package:linkdy/providers/api_client_provider.dart';
+import 'package:linkdy/providers/api_client.provider.dart';
 
 part 'search_bookmarks.provider.g.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:linkdy/providers/router_provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/router/names.dart';
 
 import 'package:linkdy/screens/tags/provider/tags.provider.dart';

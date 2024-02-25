@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:linkdy/providers/server_instances_provider.dart';
+import 'package:linkdy/providers/server_instances.provider.dart';
 import 'package:linkdy/providers/dio_interceptor.provider.dart';
 import 'package:linkdy/services/api_client.dart';
 import 'package:linkdy/utils/api_base_url.dart';
 
-part 'api_client_provider.g.dart';
+part 'api_client.provider.g.dart';
 
 @Riverpod(keepAlive: true)
 class ApiClient extends _$ApiClient {

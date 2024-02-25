@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:linkdy/providers/router_provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/router/paths.dart';
 
 import 'package:linkdy/widgets/section_label.dart';
 import 'package:linkdy/widgets/custom_list_tile.dart';
 
-import 'package:linkdy/providers/app_info_provider.dart';
+import 'package:linkdy/providers/app_info.provider.dart';
 import 'package:linkdy/utils/open_url.dart';
 import 'package:linkdy/constants/strings.dart';
 import 'package:linkdy/constants/urls.dart';

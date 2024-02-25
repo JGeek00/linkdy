@@ -8,8 +8,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 
 import 'package:linkdy/models/data/bookmarks.dart';
-import 'package:linkdy/providers/app_status_provider.dart';
-import 'package:linkdy/providers/router_provider.dart';
+import 'package:linkdy/providers/app_status.provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/router/paths.dart';
 import 'package:linkdy/utils/date_to_string.dart';
 import 'package:linkdy/utils/open_url.dart';

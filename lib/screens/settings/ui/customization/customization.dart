@@ -13,7 +13,7 @@ import 'package:linkdy/widgets/section_label.dart';
 import 'package:linkdy/constants/colors.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/i18n/strings.g.dart';
-import 'package:linkdy/providers/app_status_provider.dart';
+import 'package:linkdy/providers/app_status.provider.dart';
 
 class Customization extends ConsumerWidget {
   const Customization({Key? key}) : super(key: key);

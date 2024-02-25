@@ -9,12 +9,12 @@ import 'package:linkdy/utils/snackbar.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/utils/process_modal.dart';
 import 'package:linkdy/models/data/post_bookmark.dart';
-import 'package:linkdy/providers/router_provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/constants/regexp.dart';
 import 'package:linkdy/models/api_response.dart';
 import 'package:linkdy/models/data/check_bookmark.dart';
-import 'package:linkdy/providers/api_client_provider.dart';
+import 'package:linkdy/providers/api_client.provider.dart';
 
 part 'add_bookmark.provider.g.dart';
 

@@ -4,7 +4,7 @@ import 'package:linkdy/screens/tag_bookmarks/model/tag_bookmarks.model.dart';
 
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/data/tags.dart';
-import 'package:linkdy/providers/api_client_provider.dart';
+import 'package:linkdy/providers/api_client.provider.dart';
 
 part 'tag_bookmarks.provider.g.dart';
 

@@ -7,7 +7,7 @@ import 'package:linkdy/widgets/enter_search_term_screen.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 
 import 'package:linkdy/constants/enums.dart';
-import 'package:linkdy/providers/router_provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';

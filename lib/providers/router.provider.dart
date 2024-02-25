@@ -3,9 +3,9 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/router/routes.dart';
 import 'package:linkdy/router/paths.dart';
-import 'package:linkdy/providers/api_client_provider.dart';
+import 'package:linkdy/providers/api_client.provider.dart';
 
-part 'router_provider.g.dart';
+part 'router.provider.g.dart';
 
 @Riverpod(keepAlive: true)
 GoRouter router(RouterRef ref) {

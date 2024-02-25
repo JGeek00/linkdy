@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/screens/settings/ui/general_settings/disconnect_modal.dart';
 
-import 'package:linkdy/providers/app_status_provider.dart';
+import 'package:linkdy/providers/app_status.provider.dart';
 import 'package:linkdy/widgets/section_label.dart';
 
 class GeneralSettings extends ConsumerWidget {

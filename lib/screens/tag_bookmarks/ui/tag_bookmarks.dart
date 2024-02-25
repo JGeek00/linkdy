@@ -8,7 +8,7 @@ import 'package:linkdy/widgets/no_data_screen.dart';
 
 import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/constants/enums.dart';
-import 'package:linkdy/providers/router_provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/router/paths.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
-import 'package:linkdy/providers/api_client_provider.dart';
+import 'package:linkdy/providers/api_client.provider.dart';
 
 class DisconnectModal extends ConsumerWidget {
   const DisconnectModal({Key? key}) : super(key: key);

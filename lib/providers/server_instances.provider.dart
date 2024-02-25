@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:linkdy/constants/shared_preferences_keys.dart';
-import 'package:linkdy/providers/shared_preferences_provider.dart';
+import 'package:linkdy/providers/shared_preferences.provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/models/server_instance.dart';
 
-part 'server_instances_provider.g.dart';
+part 'server_instances.provider.g.dart';
 
 @Riverpod(keepAlive: true)
 class ServerInstances extends _$ServerInstances {

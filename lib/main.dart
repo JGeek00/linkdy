@@ -14,13 +14,13 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:linkdy/providers/app_status_provider.dart';
-import 'package:linkdy/providers/app_info_provider.dart';
+import 'package:linkdy/providers/app_status.provider.dart';
+import 'package:linkdy/providers/app_info.provider.dart';
 import 'package:linkdy/config/theme.dart';
 import 'package:linkdy/constants/colors.dart';
 import 'package:linkdy/i18n/strings.g.dart';
-import 'package:linkdy/providers/router_provider.dart';
-import 'package:linkdy/providers/shared_preferences_provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
+import 'package:linkdy/providers/shared_preferences.provider.dart';
 import 'package:linkdy/utils/http_overrides.dart';
 
 void main() async {
