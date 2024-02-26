@@ -123,12 +123,12 @@ class _ModalContent extends ConsumerWidget {
               style: ButtonStyle(
                 foregroundColor: provider.checkBookmarkLoadStatus == LoadStatus.loaded
                     ? const MaterialStatePropertyAll(Colors.green)
-                    : provider.checkBookmarkLoadStatus == LoadStatus.loaded
+                    : provider.checkBookmarkLoadStatus == LoadStatus.error
                         ? const MaterialStatePropertyAll(Colors.red)
                         : null,
                 backgroundColor: provider.checkBookmarkLoadStatus == LoadStatus.loaded
                     ? MaterialStatePropertyAll(Colors.green.withOpacity(0.15))
-                    : provider.checkBookmarkLoadStatus == LoadStatus.loaded
+                    : provider.checkBookmarkLoadStatus == LoadStatus.error
                         ? MaterialStatePropertyAll(Colors.red.withOpacity(0.15))
                         : null,
               ),

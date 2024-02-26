@@ -206,7 +206,7 @@ final tagBookmarksRequestLoadMoreProvider =
 );
 
 typedef TagBookmarksRequestLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$tagBookmarksHash() => r'ba10c98bdd9e359e885ee8edf56b99cdfcf2eb10';
+String _$tagBookmarksHash() => r'5a183019775e04aa10f28c1492993f09445867a7';
 
 /// See also [TagBookmarks].
 @ProviderFor(TagBookmarks)

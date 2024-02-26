@@ -7,12 +7,11 @@ import 'package:linkdy/screens/onboarding/provider/connect.provider.dart';
 import 'package:linkdy/screens/onboarding/provider/onboarding.provider.dart';
 import 'package:linkdy/widgets/section_label.dart';
 
-import 'package:linkdy/utils/open_url.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 
 class OnboardingConnect extends ConsumerWidget {
-  const OnboardingConnect({Key? key}) : super(key: key);
+  const OnboardingConnect({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -205,10 +204,47 @@ class _ConnectForm extends ConsumerWidget {
           obscureText: true,
         ),
         const SizedBox(height: 24),
-        ElevatedButton.icon(
-          onPressed: ref.watch(connectProvider).validValues == true ? () => openUrl(connectionString) : null,
-          icon: const Icon(Icons.open_in_browser_rounded),
-          label: Text(t.onboarding.testConnectionUrl),
+        ElevatedButton(
+          onPressed: provider.testConnection == null ? () => ref.read(connectProvider.notifier).testConnection() : null,
+          style: ButtonStyle(
+            foregroundColor: provider.testConnection == LoadStatus.loaded
+                ? const MaterialStatePropertyAll(Colors.green)
+                : provider.testConnection == LoadStatus.error
+                    ? const MaterialStatePropertyAll(Colors.red)
+                    : null,
+            backgroundColor: provider.testConnection == LoadStatus.loaded
+                ? MaterialStatePropertyAll(Colors.green.withOpacity(0.15))
+                : provider.testConnection == LoadStatus.error
+                    ? MaterialStatePropertyAll(Colors.red.withOpacity(0.15))
+                    : null,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (provider.testConnection == null) Text(t.bookmarks.addBookmark.validateUrl),
+              if (provider.testConnection == LoadStatus.loading) ...[
+                const SizedBox(
+                  width: 12,
+                  height: 12,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Text(t.onboarding.testingConnection),
+              ],
+              if (provider.testConnection == LoadStatus.loaded) ...[
+                const Icon(Icons.check_circle_rounded),
+                const SizedBox(width: 8),
+                Text(t.onboarding.connectionServerEstablished),
+              ],
+              if (provider.testConnection == LoadStatus.error) ...[
+                const Icon(Icons.error_rounded),
+                const SizedBox(width: 8),
+                Text(t.onboarding.connectionServerFailed),
+              ],
+            ],
+          ),
         ),
         const SizedBox(height: 16),
       ],

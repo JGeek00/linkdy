@@ -19,6 +19,8 @@ import 'package:linkdy/constants/regexp.dart';
 
 part 'connect.provider.g.dart';
 
+const uuid = Uuid();
+
 @riverpod
 class Connect extends _$Connect {
   @override
@@ -39,11 +41,13 @@ class Connect extends _$Connect {
   }
 
   void setConnectionMethod(int method) {
+    state.testConnection = null;
     state.method = method;
     ref.notifyListeners();
   }
 
   void validateIpDomain(String value) {
+    state.testConnection = null;
     if (Regexps.ipAddress.hasMatch(value) || Regexps.domain.hasMatch(value)) {
       state.ipDomainError = null;
     } else {
@@ -54,6 +58,7 @@ class Connect extends _$Connect {
   }
 
   void validatePort(String value) {
+    state.testConnection = null;
     if (value != '') {
       if (int.tryParse(value) != null && int.parse(value) <= 65535) {
         state.portError = null;
@@ -66,6 +71,7 @@ class Connect extends _$Connect {
   }
 
   void validatePath(String value) {
+    state.testConnection = null;
     if (value == "") {
       state.pathError = null;
     } else {
@@ -80,6 +86,7 @@ class Connect extends _$Connect {
   }
 
   void validateToken(String value) {
+    state.testConnection = null;
     if (value != "") {
       state.tokenError = null;
     } else {
@@ -97,17 +104,32 @@ class Connect extends _$Connect {
         state.pathError == null &&
         state.portError == null;
   }
+
+  void testConnection() async {
+    state.testConnection = LoadStatus.loading;
+    ref.notifyListeners();
+
+    final connectionString =
+        "${ConnectionMethod.values[state.method].name}://${state.ipDomainController.text}${state.portController.text != '' ? ':${state.portController.text}' : ""}${state.pathController.text}";
+    final result = await testServerReachability(connectionString);
+
+    if (result == true) {
+      state.testConnection = LoadStatus.loaded;
+    } else {
+      state.testConnection = LoadStatus.error;
+    }
+    ref.notifyListeners();
+  }
 }
 
 @riverpod
 FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
-  const uuid = Uuid();
-
   final serverInstance = ServerInstance(
     id: uuid.v4(),
     method: ConnectionMethod.values[ref.watch(connectProvider).method].name,
     ipDomain: ref.watch(connectProvider).ipDomainController.text,
     token: ref.watch(connectProvider).tokenController.text,
+    path: ref.watch(connectProvider).pathController.text,
   );
 
   final apiClient = ApiClientService(

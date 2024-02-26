@@ -9,6 +9,15 @@ import 'package:linkdy/models/data/set_bookmark_data.dart';
 import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/models/server_instance.dart';
 
+Future<bool> testServerReachability(String url) async {
+  try {
+    await Dio().get(url);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 class ApiClientService {
   final ServerInstance serverInstance;
   final Dio dioInstance;

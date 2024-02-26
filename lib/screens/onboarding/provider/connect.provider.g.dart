@@ -6,7 +6,7 @@ part of 'connect.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$connectToServerHash() => r'370f2b67b9d20818d94e4d9b6ffb57c44aa18494';
+String _$connectToServerHash() => r'a5225cddee0824ab2e6393da9d5c305e212bbfba';
 
 /// See also [connectToServer].
 @ProviderFor(connectToServer)
@@ -21,7 +21,7 @@ final connectToServerProvider = AutoDisposeFutureProvider<bool>.internal(
 );
 
 typedef ConnectToServerRef = AutoDisposeFutureProviderRef<bool>;
-String _$connectHash() => r'576283d8c543cdb4b1ae22c99cc63a23e4ff2981';
+String _$connectHash() => r'5382c9c95131bf263662799f30d2c131a548a8c5';
 
 /// See also [Connect].
 @ProviderFor(Connect)

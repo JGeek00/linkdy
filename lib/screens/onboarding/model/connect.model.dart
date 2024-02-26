@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:linkdy/constants/enums.dart';
+
 class ConnectModel {
   bool isConnecting;
   int method;
@@ -12,6 +14,7 @@ class ConnectModel {
   final TextEditingController tokenController;
   String? tokenError;
   bool validValues;
+  LoadStatus? testConnection;
 
   ConnectModel({
     this.isConnecting = false,
@@ -25,5 +28,6 @@ class ConnectModel {
     required this.tokenController,
     this.tokenError,
     this.validValues = true,
+    this.testConnection,
   });
 }
