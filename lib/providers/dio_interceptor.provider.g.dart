@@ -6,7 +6,7 @@ part of 'dio_interceptor.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dioInterceptorHash() => r'449d19df5bf143a7e0f92249d99b4d223b2468f3';
+String _$dioInterceptorHash() => r'15186eb74bde12048a96b1d38f1c9308c9f435a8';
 
 /// See also [dioInterceptor].
 @ProviderFor(dioInterceptor)

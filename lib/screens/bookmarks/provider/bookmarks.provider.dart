@@ -89,7 +89,8 @@ class Bookmarks extends _$Bookmarks {
   }
 
   void deleteBookmark(Bookmark bookmark) async {
-    final result = await BookmarkCommonFunctions.deleteBookmark(
+    final result = await BookmarkCommonFunctions.deleteBookmark<BookmarksModel>(
+      ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
     );
@@ -100,7 +101,8 @@ class Bookmarks extends _$Bookmarks {
   }
 
   void markAsReadUnread(Bookmark bookmark) async {
-    final result = await BookmarkCommonFunctions.markAsReadUnread(
+    final result = await BookmarkCommonFunctions.markAsReadUnread<BookmarksModel>(
+      ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
     );
@@ -111,7 +113,8 @@ class Bookmarks extends _$Bookmarks {
   }
 
   void archiveUnarchive(Bookmark bookmark) async {
-    final result = await BookmarkCommonFunctions.markAsReadUnread(
+    final result = await BookmarkCommonFunctions.archiveUnarchive<BookmarksModel>(
+      ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
     );

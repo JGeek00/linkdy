@@ -6,12 +6,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:linkdy/screens/onboarding/model/connect.model.dart';
 
 import 'package:linkdy/providers/dio_interceptor.provider.dart';
+import 'package:linkdy/providers/snackbar.provider.dart';
 import 'package:linkdy/providers/server_instances.provider.dart';
 import 'package:linkdy/utils/api_base_url.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/utils/process_modal.dart';
-import 'package:linkdy/utils/snackbar.dart';
 import 'package:linkdy/models/server_instance.dart';
 import 'package:linkdy/providers/api_client.provider.dart';
 import 'package:linkdy/services/api_client.dart';
@@ -116,9 +116,9 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
     ref.read(apiClientProvider.notifier).setApiClient(apiClient);
     ref.read(serverInstancesProvider.notifier).saveNewInstance(serverInstance);
   } else if (result == AuthResult.invalidToken) {
-    showSnacbkar(label: t.onboarding.invalidToken, color: Colors.red);
+    ref.read(snackbarProvider.notifier).showSnacbkar(label: t.onboarding.invalidToken, color: Colors.red);
   } else {
-    showSnacbkar(label: t.onboarding.cannotConnectToServer, color: Colors.red);
+    ref.read(snackbarProvider.notifier).showSnacbkar(label: t.onboarding.cannotConnectToServer, color: Colors.red);
   }
 
   return false;

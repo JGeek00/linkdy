@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:linkdy/providers/snackbar.provider.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/models/data/set_bookmark_data.dart';
 import 'package:linkdy/services/api_client.dart';
 import 'package:linkdy/utils/process_modal.dart';
-import 'package:linkdy/utils/snackbar.dart';
 
 class BookmarkCommonFunctions {
-  static Future<bool> deleteBookmark({
+  static Future<bool> deleteBookmark<T>({
+    required AutoDisposeNotifierProviderRef<T> ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
   }) async {
@@ -19,14 +21,19 @@ class BookmarkCommonFunctions {
 
     processModal.close();
     if (result.successful == true) {
-      showSnacbkar(label: t.bookmarks.bookmarkOptions.bookmarkDeleted, color: Colors.green);
+      ref
+          .read(snackbarProvider.notifier)
+          .showSnacbkar(label: t.bookmarks.bookmarkOptions.bookmarkDeleted, color: Colors.green);
     } else {
-      showSnacbkar(label: t.bookmarks.bookmarkOptions.bookmarkNotDeleted, color: Colors.red);
+      ref
+          .read(snackbarProvider.notifier)
+          .showSnacbkar(label: t.bookmarks.bookmarkOptions.bookmarkNotDeleted, color: Colors.red);
     }
     return result.successful;
   }
 
-  static Future<Bookmark?> markAsReadUnread({
+  static Future<Bookmark?> markAsReadUnread<T>({
+    required AutoDisposeNotifierProviderRef<T> ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
   }) async {
@@ -50,25 +57,26 @@ class BookmarkCommonFunctions {
 
     processModal.close();
     if (result.successful == true) {
-      showSnacbkar(
-        label: bookmark.unread == true
-            ? t.bookmarks.bookmarkOptions.markedAsReadSuccessfully
-            : t.bookmarks.bookmarkOptions.markedAsUnreadSuccessfully,
-        color: Colors.green,
-      );
+      ref.read(snackbarProvider.notifier).showSnacbkar(
+            label: bookmark.unread == true
+                ? t.bookmarks.bookmarkOptions.markedAsReadSuccessfully
+                : t.bookmarks.bookmarkOptions.markedAsUnreadSuccessfully,
+            color: Colors.green,
+          );
       return result.content;
     } else {
-      showSnacbkar(
-        label: bookmark.unread == true
-            ? t.bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead
-            : t.bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread,
-        color: Colors.red,
-      );
+      ref.read(snackbarProvider.notifier).showSnacbkar(
+            label: bookmark.unread == true
+                ? t.bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead
+                : t.bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread,
+            color: Colors.red,
+          );
       return null;
     }
   }
 
-  static Future<Bookmark?> archiveUnarchive({
+  static Future<Bookmark?> archiveUnarchive<T>({
+    required AutoDisposeNotifierProviderRef<T> ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
   }) async {
@@ -94,20 +102,20 @@ class BookmarkCommonFunctions {
 
     processModal.close();
     if (result.successful == true) {
-      showSnacbkar(
-        label: bookmark.isArchived == true
-            ? t.bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully
-            : t.bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully,
-        color: Colors.green,
-      );
+      ref.read(snackbarProvider.notifier).showSnacbkar(
+            label: bookmark.isArchived == true
+                ? t.bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully
+                : t.bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully,
+            color: Colors.green,
+          );
       return result.content;
     } else {
-      showSnacbkar(
-        label: bookmark.isArchived == true
-            ? t.bookmarks.bookmarkOptions.bookmarkNotUnrchived
-            : t.bookmarks.bookmarkOptions.bookmarkNotArchived,
-        color: Colors.red,
-      );
+      ref.read(snackbarProvider.notifier).showSnacbkar(
+            label: bookmark.isArchived == true
+                ? t.bookmarks.bookmarkOptions.bookmarkNotUnrchived
+                : t.bookmarks.bookmarkOptions.bookmarkNotArchived,
+            color: Colors.red,
+          );
       return null;
     }
   }

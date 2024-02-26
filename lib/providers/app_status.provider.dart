@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/providers/shared_preferences.provider.dart';
 import 'package:linkdy/constants/enums.dart';
-import 'package:linkdy/models/app_status.dart';
+import 'package:linkdy/models/providers_models/app_status.model.dart';
 
 part 'app_status.provider.g.dart';
 

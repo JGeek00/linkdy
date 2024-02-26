@@ -99,7 +99,8 @@ class SearchBookmarks extends _$SearchBookmarks {
   }
 
   void deleteBookmark(Bookmark bookmark) async {
-    final result = await BookmarkCommonFunctions.deleteBookmark(
+    final result = await BookmarkCommonFunctions.deleteBookmark<SearchBookmarksModel>(
+      ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
     );
@@ -113,7 +114,8 @@ class SearchBookmarks extends _$SearchBookmarks {
   }
 
   void markAsReadUnread(Bookmark bookmark) async {
-    final result = await BookmarkCommonFunctions.markAsReadUnread(
+    final result = await BookmarkCommonFunctions.markAsReadUnread<SearchBookmarksModel>(
+      ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
     );
@@ -127,7 +129,8 @@ class SearchBookmarks extends _$SearchBookmarks {
   }
 
   void archiveUnarchive(Bookmark bookmark) async {
-    final result = await BookmarkCommonFunctions.markAsReadUnread(
+    final result = await BookmarkCommonFunctions.markAsReadUnread<SearchBookmarksModel>(
+      ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
     );

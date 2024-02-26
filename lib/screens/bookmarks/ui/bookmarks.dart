@@ -11,10 +11,10 @@ import 'package:linkdy/screens/bookmarks/ui/add_bookmark_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
+import 'package:linkdy/widgets/snackbar_fab.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/providers/router.provider.dart';
-import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/router/paths.dart';
 
 class BookmarksScreen extends ConsumerWidget {
@@ -42,8 +42,6 @@ class BookmarksScreen extends ConsumerWidget {
       );
     }
 
-    void openDeleteBookmarkModal(Bookmark bookmark) {}
-
     bool scrollListener(ScrollUpdateNotification scrollNotification) {
       if (scrollNotification.metrics.extentAfter < 100 &&
           bookmarks.loadingMore == false &&
@@ -55,99 +53,103 @@ class BookmarksScreen extends ConsumerWidget {
     }
 
     return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          SliverOverlapAbsorber(
-            handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-            sliver: SliverAppBar.large(
-              pinned: true,
-              floating: true,
-              centerTitle: false,
-              forceElevated: innerBoxIsScrolled,
-              title: Text(t.bookmarks.bookmarks),
-              actions: [
-                IconButton(
-                  onPressed: () => ref.watch(routerProvider).push(RoutesPaths.bookmarksSearch),
-                  icon: const Icon(Icons.search_rounded),
-                  tooltip: t.bookmarks.search.searchBookmarks,
-                ),
-                const SizedBox(width: 8),
-              ],
-            ),
-          ),
-        ],
-        body: SafeArea(
-          top: false,
-          bottom: false,
-          child: Builder(
-            builder: (context) => RefreshIndicator(
-              displacement: 120,
-              onRefresh: () => ref.read(bookmarksProvider.notifier).refresh(),
-              child: NotificationListener(
-                onNotification: scrollListener,
-                child: CustomScrollView(
-                  slivers: [
-                    SliverOverlapInjector(
-                      handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+      body: Stack(
+        children: [
+          NestedScrollView(
+            headerSliverBuilder: (context, innerBoxIsScrolled) => [
+              SliverOverlapAbsorber(
+                handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                sliver: SliverAppBar.large(
+                  pinned: true,
+                  floating: true,
+                  centerTitle: false,
+                  forceElevated: innerBoxIsScrolled,
+                  title: Text(t.bookmarks.bookmarks),
+                  actions: [
+                    IconButton(
+                      onPressed: () => ref.watch(routerProvider).push(RoutesPaths.bookmarksSearch),
+                      icon: const Icon(Icons.search_rounded),
+                      tooltip: t.bookmarks.search.searchBookmarks,
                     ),
-                    if (bookmarks.inialLoadStatus == LoadStatus.loading)
-                      const SliverFillRemaining(
-                        child: Center(child: CircularProgressIndicator()),
-                      ),
-                    if (bookmarks.inialLoadStatus == LoadStatus.error)
-                      SliverFillRemaining(
-                        child: ErrorScreen(
-                          error: t.bookmarks.cannotLoadBookmarks,
+                    const SizedBox(width: 8),
+                  ],
+                ),
+              ),
+            ],
+            body: SafeArea(
+              top: false,
+              bottom: false,
+              child: Builder(
+                builder: (context) => RefreshIndicator(
+                  displacement: 120,
+                  onRefresh: () => ref.read(bookmarksProvider.notifier).refresh(),
+                  child: NotificationListener(
+                    onNotification: scrollListener,
+                    child: CustomScrollView(
+                      slivers: [
+                        SliverOverlapInjector(
+                          handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                         ),
-                      ),
-                    if (bookmarks.bookmarks.isEmpty)
-                      SliverFillRemaining(
-                        child: NoDataScreen(
-                          message: t.bookmarks.noBookmarksAdded,
-                        ),
-                      ),
-                    if (bookmarks.bookmarks.isNotEmpty)
-                      SlidableAutoCloseBehavior(
-                        child: SliverList.builder(
-                          itemCount: bookmarks.bookmarks.length + 1,
-                          itemBuilder: (context, index) {
-                            // index == bookmarks.value!.content!.results!.length -> itemCount + 1
-                            if (index == bookmarks.bookmarks.length) {
-                              if (bookmarks.loadingMore) {
-                                return const SizedBox(
-                                  height: 80,
-                                  child: Center(
-                                    child: CircularProgressIndicator(),
+                        if (bookmarks.inialLoadStatus == LoadStatus.loading)
+                          const SliverFillRemaining(
+                            child: Center(child: CircularProgressIndicator()),
+                          ),
+                        if (bookmarks.inialLoadStatus == LoadStatus.error)
+                          SliverFillRemaining(
+                            child: ErrorScreen(
+                              error: t.bookmarks.cannotLoadBookmarks,
+                            ),
+                          ),
+                        if (bookmarks.bookmarks.isEmpty)
+                          SliverFillRemaining(
+                            child: NoDataScreen(
+                              message: t.bookmarks.noBookmarksAdded,
+                            ),
+                          ),
+                        if (bookmarks.bookmarks.isNotEmpty)
+                          SlidableAutoCloseBehavior(
+                            child: SliverList.builder(
+                              itemCount: bookmarks.bookmarks.length + 1,
+                              itemBuilder: (context, index) {
+                                // index == bookmarks.value!.content!.results!.length -> itemCount + 1
+                                if (index == bookmarks.bookmarks.length) {
+                                  if (bookmarks.loadingMore) {
+                                    return const SizedBox(
+                                      height: 80,
+                                      child: Center(
+                                        child: CircularProgressIndicator(),
+                                      ),
+                                    );
+                                  }
+                                  // Bottom gap for FAB
+                                  return const SizedBox(height: 80);
+                                }
+                                return BookmarkItem(
+                                  bookmark: bookmarks.bookmarks[index],
+                                  onReadUnread: ref.read(bookmarksProvider.notifier).markAsReadUnread,
+                                  onDelete: (bookmark) => showDialog(
+                                    context: context,
+                                    builder: (context) => DeleteBookmarkModal(
+                                      bookmark: bookmark,
+                                      onDelete: ref.read(bookmarksProvider.notifier).deleteBookmark,
+                                    ),
                                   ),
                                 );
-                              }
-                              // Bottom gap for FAB
-                              return const SizedBox(height: 80);
-                            }
-                            return BookmarkItem(
-                              bookmark: bookmarks.bookmarks[index],
-                              onReadUnread: ref.read(bookmarksProvider.notifier).markAsReadUnread,
-                              onDelete: (bookmark) => showDialog(
-                                context: context,
-                                builder: (context) => DeleteBookmarkModal(
-                                  bookmark: bookmark,
-                                  onDelete: ref.read(bookmarksProvider.notifier).deleteBookmark,
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                  ],
+                              },
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: openAddModal,
-        child: const Icon(Icons.add_rounded),
+          SnackbarFloatingActionButton(
+            onPressed: openAddModal,
+            child: const Icon(Icons.add_rounded),
+          ),
+        ],
       ),
     );
   }
