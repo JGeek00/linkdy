@@ -139,6 +139,7 @@ class TagBookmarksScreenState extends ConsumerState<TagBookmarksScreen> {
                                   onDelete: ref.read(tagBookmarksProvider.notifier).deleteBookmark,
                                 ),
                               ),
+                              onArchiveUnarchive: ref.read(tagBookmarksProvider.notifier).archiveUnarchive,
                             );
                           },
                         ),

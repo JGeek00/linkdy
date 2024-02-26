@@ -118,8 +118,9 @@ class Bookmarks extends _$Bookmarks {
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
     );
-    if (result != null) {
-      state.bookmarks = state.bookmarks.map((b) => b.id == result.id ? result : b).toList();
+    if (result == true) {
+      // On this case the bookmark always will pass from unarchived to archived
+      state.bookmarks = state.bookmarks.where((b) => b.id != bookmark.id).toList();
       ref.notifyListeners();
     }
   }

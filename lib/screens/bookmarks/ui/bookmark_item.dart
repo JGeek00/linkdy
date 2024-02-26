@@ -20,12 +20,14 @@ class BookmarkItem extends ConsumerWidget {
   final Bookmark bookmark;
   final void Function(Bookmark bookmark) onDelete;
   final void Function(Bookmark bookmark) onReadUnread;
+  final void Function(Bookmark bookmark) onArchiveUnarchive;
 
   const BookmarkItem({
     Key? key,
     required this.bookmark,
     required this.onDelete,
     required this.onReadUnread,
+    required this.onArchiveUnarchive,
   }) : super(key: key);
 
   @override
@@ -45,7 +47,7 @@ class BookmarkItem extends ConsumerWidget {
       groupTag: ConfigOptions.slidableGroupTag,
       startActionPane: ActionPane(
         motion: const DrawerMotion(),
-        extentRatio: 0.5,
+        extentRatio: 0.75,
         children: [
           SlidableAction(
             onPressed: (_) => onReadUnread(bookmark),
@@ -54,13 +56,13 @@ class BookmarkItem extends ConsumerWidget {
             icon: bookmark.unread == true ? Icons.mark_email_read_rounded : Icons.mark_as_unread_rounded,
             padding: const EdgeInsets.all(4),
           ),
-          // SlidableAction(
-          //   onPressed: (ctx) => {},
-          //   backgroundColor: Colors.grey,
-          //   label: t.bookmarks.bookmarkOptions.archive,
-          //   icon: Icons.archive_rounded,
-          //   padding: const EdgeInsets.all(4),
-          // ),
+          SlidableAction(
+            onPressed: (ctx) => onArchiveUnarchive(bookmark),
+            backgroundColor: Colors.grey,
+            label: t.bookmarks.bookmarkOptions.archive,
+            icon: Icons.archive_rounded,
+            padding: const EdgeInsets.all(4),
+          ),
           SlidableAction(
             onPressed: (ctx) => Share.shareUri(Uri.parse(bookmark.url!)),
             backgroundColor: Colors.orange,

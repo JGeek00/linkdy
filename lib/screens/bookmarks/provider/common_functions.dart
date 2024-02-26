@@ -75,30 +75,21 @@ class BookmarkCommonFunctions {
     }
   }
 
-  static Future<Bookmark?> archiveUnarchive<T>({
+  static Future<bool> archiveUnarchive<T>({
     required AutoDisposeNotifierProviderRef<T> ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
   }) async {
     final processModal = ProcessModal();
     processModal.open(
-      bookmark.unread == true
-          ? t.bookmarks.bookmarkOptions.archivingBookmark
-          : t.bookmarks.bookmarkOptions.unarchivingBookmark,
+      bookmark.isArchived == true
+          ? t.bookmarks.bookmarkOptions.unarchivingBookmark
+          : t.bookmarks.bookmarkOptions.archivingBookmark,
     );
 
-    final result = await apiClient.putUpdateBookmark(
-      bookmark.id!,
-      SetBookmarkData(
-        url: bookmark.url!,
-        description: bookmark.description ?? '',
-        unread: bookmark.unread ?? false,
-        shared: bookmark.shared ?? false,
-        isArchived: bookmark.isArchived == true ? false : true,
-        tagNames: bookmark.tagNames?.join(",") ?? '',
-        title: bookmark.title ?? '',
-      ),
-    );
+    final result = bookmark.isArchived == true
+        ? await apiClient.postUnrchiveBookmark(bookmark.id!)
+        : await apiClient.postArchiveBookmark(bookmark.id!);
 
     processModal.close();
     if (result.successful == true) {
@@ -108,7 +99,6 @@ class BookmarkCommonFunctions {
                 : t.bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully,
             color: Colors.green,
           );
-      return result.content;
     } else {
       ref.read(snackbarProvider.notifier).showSnacbkar(
             label: bookmark.isArchived == true
@@ -116,7 +106,7 @@ class BookmarkCommonFunctions {
                 : t.bookmarks.bookmarkOptions.bookmarkNotArchived,
             color: Colors.red,
           );
-      return null;
     }
+    return result.successful;
   }
 }

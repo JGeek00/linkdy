@@ -134,6 +134,7 @@ class BookmarksScreen extends ConsumerWidget {
                                       onDelete: ref.read(bookmarksProvider.notifier).deleteBookmark,
                                     ),
                                   ),
+                                  onArchiveUnarchive: ref.read(bookmarksProvider.notifier).archiveUnarchive,
                                 );
                               },
                             ),

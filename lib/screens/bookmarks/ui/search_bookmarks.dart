@@ -124,6 +124,7 @@ class SearchBookmarksScreen extends ConsumerWidget {
                         onDelete: ref.read(searchBookmarksProvider.notifier).deleteBookmark,
                       ),
                     ),
+                    onArchiveUnarchive: ref.read(searchBookmarksProvider.notifier).archiveUnarchive,
                   );
                 },
               ),

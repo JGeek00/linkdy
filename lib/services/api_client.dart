@@ -46,6 +46,8 @@ class ApiClientService {
         successful: true,
         content: BookmarksResponse.fromJson(response.data),
       );
+    } on DioException {
+      return const ApiResponse(successful: false);
     } catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
@@ -64,6 +66,8 @@ class ApiClientService {
         successful: true,
         content: CheckBookmark.fromJson(response.data),
       );
+    } on DioException {
+      return const ApiResponse(successful: false);
     } catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
@@ -80,6 +84,8 @@ class ApiClientService {
         successful: true,
         content: Bookmark.fromJson(response.data),
       );
+    } on DioException {
+      return const ApiResponse(successful: false);
     } catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
@@ -100,6 +106,8 @@ class ApiClientService {
         successful: true,
         content: TagsResponse.fromJson(response.data),
       );
+    } on DioException {
+      return const ApiResponse(successful: false);
     } catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
@@ -116,6 +124,8 @@ class ApiClientService {
         successful: true,
         content: Tag.fromJson(response.data),
       );
+    } on DioException {
+      return const ApiResponse(successful: false);
     } catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
@@ -129,6 +139,8 @@ class ApiClientService {
         successful: true,
         content: Tag.fromJson(response.data),
       );
+    } on DioException {
+      return const ApiResponse(successful: false);
     } catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
@@ -139,6 +151,8 @@ class ApiClientService {
     try {
       await dioInstance.delete("/bookmarks/$bookmarkId/");
       return const ApiResponse(successful: true);
+    } on DioException {
+      return const ApiResponse(successful: false);
     } catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
@@ -155,6 +169,32 @@ class ApiClientService {
         successful: true,
         content: Bookmark.fromJson(result.data),
       );
+    } on DioException {
+      return const ApiResponse(successful: false);
+    } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    }
+  }
+
+  Future<ApiResponse<bool>> postArchiveBookmark(int bookmarkId) async {
+    try {
+      await dioInstance.post("/bookmarks/$bookmarkId/archive/");
+      return const ApiResponse(successful: true);
+    } on DioException {
+      return const ApiResponse(successful: false);
+    } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    }
+  }
+
+  Future<ApiResponse<bool>> postUnrchiveBookmark(int bookmarkId) async {
+    try {
+      await dioInstance.post("/bookmarks/$bookmarkId/unarchive/");
+      return const ApiResponse(successful: true);
+    } on DioException {
+      return const ApiResponse(successful: false);
     } catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
       return const ApiResponse(successful: false);
