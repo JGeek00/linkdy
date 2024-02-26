@@ -23,6 +23,8 @@
     "createConnectionSubtitle": "Introduce todos los detalles requeridos para crear una conexión con el servidor",
     "ipAddressOrDomain": "Dirección IP o dominio",
     "port": "Puerto",
+    "path": "Ruta",
+    "invalidPath": "Ruta no válida",
     "token": "Token",
     "required": "Requerido",
     "serverDetails": "Detalles del servidor",

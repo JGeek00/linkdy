@@ -77,7 +77,7 @@ class _ConnectForm extends ConsumerWidget {
     final connectionMethod = ConnectionMethod.values[provider.method];
 
     final connectionString =
-        "${connectionMethod.name}://${provider.ipDomainController.text}${provider.portController.text != '' ? ':${provider.portController.text}' : ""}";
+        "${connectionMethod.name}://${provider.ipDomainController.text}${provider.portController.text != '' ? ':${provider.portController.text}' : ""}${provider.pathController.text}";
 
     return Column(
       children: [
@@ -165,6 +165,22 @@ class _ConnectForm extends ConsumerWidget {
             ),
             errorText: provider.portError,
             labelText: t.onboarding.port,
+          ),
+        ),
+        const SizedBox(height: 24),
+        TextFormField(
+          controller: provider.pathController,
+          onChanged: ref.read(connectProvider.notifier).validatePath,
+          autocorrect: false,
+          decoration: InputDecoration(
+            prefixIcon: const Icon(Icons.route_rounded),
+            border: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(10),
+              ),
+            ),
+            errorText: provider.pathError,
+            labelText: t.onboarding.path,
           ),
         ),
         SectionLabel(

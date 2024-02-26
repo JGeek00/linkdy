@@ -53,12 +53,26 @@ class Connect extends _$Connect {
     ref.notifyListeners();
   }
 
-  void validatePort(value) {
-    if (value != null && value != '') {
+  void validatePort(String value) {
+    if (value != '') {
       if (int.tryParse(value) != null && int.parse(value) <= 65535) {
         state.portError = null;
       } else {
         state.portError = t.onboarding.invalidPort;
+      }
+    }
+    state.validValues = validValues();
+    ref.notifyListeners();
+  }
+
+  void validatePath(String value) {
+    if (value == "") {
+      state.pathError = null;
+    } else {
+      if (Regexps.path.hasMatch(value) == true) {
+        state.pathError = null;
+      } else {
+        state.pathError = t.onboarding.invalidPath;
       }
     }
     state.validValues = validValues();
@@ -79,7 +93,9 @@ class Connect extends _$Connect {
     return state.tokenController.text != "" &&
         state.tokenError == null &&
         state.ipDomainController.text != "" &&
-        state.ipDomainError == null;
+        state.ipDomainError == null &&
+        state.pathError == null &&
+        state.portError == null;
   }
 }
 

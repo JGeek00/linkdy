@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 280 (140 per locale)
+/// Strings: 284 (142 per locale)
 ///
-/// Built on 2024-02-26 at 09:50 UTC
+/// Built on 2024-02-26 at 14:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -194,6 +194,8 @@ class _StringsOnboardingEn {
 	String get createConnectionSubtitle => 'Enter all the required details to create a connection to your server.';
 	String get ipAddressOrDomain => 'IP address or domain';
 	String get port => 'Port';
+	String get path => 'Path';
+	String get invalidPath => 'Invalid path';
 	String get token => 'Token';
 	String get required => 'Required';
 	String get serverDetails => 'Server details';
@@ -520,6 +522,8 @@ class _StringsOnboardingEs implements _StringsOnboardingEn {
 	@override String get createConnectionSubtitle => 'Introduce todos los detalles requeridos para crear una conexión con el servidor';
 	@override String get ipAddressOrDomain => 'Dirección IP o dominio';
 	@override String get port => 'Puerto';
+	@override String get path => 'Ruta';
+	@override String get invalidPath => 'Ruta no válida';
 	@override String get token => 'Token';
 	@override String get required => 'Requerido';
 	@override String get serverDetails => 'Detalles del servidor';
@@ -803,6 +807,8 @@ extension on Translations {
 			case 'onboarding.createConnectionSubtitle': return 'Enter all the required details to create a connection to your server.';
 			case 'onboarding.ipAddressOrDomain': return 'IP address or domain';
 			case 'onboarding.port': return 'Port';
+			case 'onboarding.path': return 'Path';
+			case 'onboarding.invalidPath': return 'Invalid path';
 			case 'onboarding.token': return 'Token';
 			case 'onboarding.required': return 'Required';
 			case 'onboarding.serverDetails': return 'Server details';
@@ -951,6 +957,8 @@ extension on _StringsEs {
 			case 'onboarding.createConnectionSubtitle': return 'Introduce todos los detalles requeridos para crear una conexión con el servidor';
 			case 'onboarding.ipAddressOrDomain': return 'Dirección IP o dominio';
 			case 'onboarding.port': return 'Puerto';
+			case 'onboarding.path': return 'Ruta';
+			case 'onboarding.invalidPath': return 'Ruta no válida';
 			case 'onboarding.token': return 'Token';
 			case 'onboarding.required': return 'Requerido';
 			case 'onboarding.serverDetails': return 'Detalles del servidor';
