@@ -68,7 +68,7 @@ class OnboardingConnect extends ConsumerWidget {
 }
 
 class _ConnectForm extends ConsumerWidget {
-  const _ConnectForm({Key? key}) : super(key: key);
+  const _ConnectForm();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
