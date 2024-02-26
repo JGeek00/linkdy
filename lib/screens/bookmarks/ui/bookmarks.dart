@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:linkdy/constants/enums.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
@@ -106,34 +107,36 @@ class BookmarksScreen extends ConsumerWidget {
                         ),
                       ),
                     if (bookmarks.bookmarks.isNotEmpty)
-                      SliverList.builder(
-                        itemCount: bookmarks.bookmarks.length + 1,
-                        itemBuilder: (context, index) {
-                          // index == bookmarks.value!.content!.results!.length -> itemCount + 1
-                          if (index == bookmarks.bookmarks.length) {
-                            if (bookmarks.loadingMore) {
-                              return const SizedBox(
-                                height: 80,
-                                child: Center(
-                                  child: CircularProgressIndicator(),
-                                ),
-                              );
+                      SlidableAutoCloseBehavior(
+                        child: SliverList.builder(
+                          itemCount: bookmarks.bookmarks.length + 1,
+                          itemBuilder: (context, index) {
+                            // index == bookmarks.value!.content!.results!.length -> itemCount + 1
+                            if (index == bookmarks.bookmarks.length) {
+                              if (bookmarks.loadingMore) {
+                                return const SizedBox(
+                                  height: 80,
+                                  child: Center(
+                                    child: CircularProgressIndicator(),
+                                  ),
+                                );
+                              }
+                              // Bottom gap for FAB
+                              return const SizedBox(height: 80);
                             }
-                            // Bottom gap for FAB
-                            return const SizedBox(height: 80);
-                          }
-                          return BookmarkItem(
-                            bookmark: bookmarks.bookmarks[index],
-                            onReadUnread: ref.read(bookmarksProvider.notifier).markAsReadUnread,
-                            onDelete: (bookmark) => showDialog(
-                              context: context,
-                              builder: (context) => DeleteBookmarkModal(
-                                bookmark: bookmark,
-                                onDelete: ref.read(bookmarksProvider.notifier).deleteBookmark,
+                            return BookmarkItem(
+                              bookmark: bookmarks.bookmarks[index],
+                              onReadUnread: ref.read(bookmarksProvider.notifier).markAsReadUnread,
+                              onDelete: (bookmark) => showDialog(
+                                context: context,
+                                builder: (context) => DeleteBookmarkModal(
+                                  bookmark: bookmark,
+                                  onDelete: ref.read(bookmarksProvider.notifier).deleteBookmark,
+                                ),
                               ),
-                            ),
-                          );
-                        },
+                            );
+                          },
+                        ),
                       ),
                   ],
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
@@ -115,30 +116,32 @@ class TagBookmarksScreenState extends ConsumerState<TagBookmarksScreen> {
                         ),
                       ),
                     if (provider.bookmarks.isNotEmpty)
-                      SliverList.builder(
-                        itemCount:
-                            provider.loadingMore == true ? provider.bookmarks.length + 1 : provider.bookmarks.length,
-                        itemBuilder: (context, index) {
-                          if (provider.loadingMore == true && index == provider.bookmarks.length) {
-                            return const Padding(
-                              padding: EdgeInsets.all(16),
-                              child: Center(
-                                child: CircularProgressIndicator(),
+                      SlidableAutoCloseBehavior(
+                        child: SliverList.builder(
+                          itemCount:
+                              provider.loadingMore == true ? provider.bookmarks.length + 1 : provider.bookmarks.length,
+                          itemBuilder: (context, index) {
+                            if (provider.loadingMore == true && index == provider.bookmarks.length) {
+                              return const Padding(
+                                padding: EdgeInsets.all(16),
+                                child: Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                              );
+                            }
+                            return BookmarkItem(
+                              bookmark: provider.bookmarks[index],
+                              onReadUnread: ref.read(tagBookmarksProvider.notifier).markAsReadUnread,
+                              onDelete: (bookmark) => showDialog(
+                                context: context,
+                                builder: (context) => DeleteBookmarkModal(
+                                  bookmark: bookmark,
+                                  onDelete: ref.read(tagBookmarksProvider.notifier).deleteBookmark,
+                                ),
                               ),
                             );
-                          }
-                          return BookmarkItem(
-                            bookmark: provider.bookmarks[index],
-                            onReadUnread: ref.read(tagBookmarksProvider.notifier).markAsReadUnread,
-                            onDelete: (bookmark) => showDialog(
-                              context: context,
-                              builder: (context) => DeleteBookmarkModal(
-                                bookmark: bookmark,
-                                onDelete: ref.read(tagBookmarksProvider.notifier).deleteBookmark,
-                              ),
-                            ),
-                          );
-                        },
+                          },
+                        ),
                       ),
                   ],
                 ),

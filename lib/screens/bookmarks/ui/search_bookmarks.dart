@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/search_bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
@@ -101,29 +102,31 @@ class SearchBookmarksScreen extends ConsumerWidget {
 
           return NotificationListener(
             onNotification: scrollListener,
-            child: ListView.builder(
-              itemCount: provider.loadingMore ? provider.bookmarks.length + 1 : provider.bookmarks.length,
-              itemBuilder: (context, index) {
-                if (provider.loadingMore == true && index == provider.bookmarks.length) {
-                  return const Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Center(
-                      child: CircularProgressIndicator(),
+            child: SlidableAutoCloseBehavior(
+              child: ListView.builder(
+                itemCount: provider.loadingMore ? provider.bookmarks.length + 1 : provider.bookmarks.length,
+                itemBuilder: (context, index) {
+                  if (provider.loadingMore == true && index == provider.bookmarks.length) {
+                    return const Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                    );
+                  }
+                  return BookmarkItem(
+                    bookmark: provider.bookmarks[index],
+                    onReadUnread: ref.read(searchBookmarksProvider.notifier).markAsReadUnread,
+                    onDelete: (bookmark) => showDialog(
+                      context: context,
+                      builder: (context) => DeleteBookmarkModal(
+                        bookmark: bookmark,
+                        onDelete: ref.read(searchBookmarksProvider.notifier).deleteBookmark,
+                      ),
                     ),
                   );
-                }
-                return BookmarkItem(
-                  bookmark: provider.bookmarks[index],
-                  onReadUnread: ref.read(searchBookmarksProvider.notifier).markAsReadUnread,
-                  onDelete: (bookmark) => showDialog(
-                    context: context,
-                    builder: (context) => DeleteBookmarkModal(
-                      bookmark: bookmark,
-                      onDelete: ref.read(searchBookmarksProvider.notifier).deleteBookmark,
-                    ),
-                  ),
-                );
-              },
+                },
+              ),
             ),
           );
         },

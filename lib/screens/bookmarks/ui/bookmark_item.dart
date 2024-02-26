@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 
+import 'package:linkdy/config/options.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/providers/app_status.provider.dart';
@@ -40,6 +41,8 @@ class BookmarkItem extends ConsumerWidget {
     }
 
     return Slidable(
+      key: ValueKey(bookmark.id!),
+      groupTag: ConfigOptions.slidableGroupTag,
       startActionPane: ActionPane(
         motion: const DrawerMotion(),
         extentRatio: 0.5,
