@@ -11,8 +11,13 @@ import 'package:linkdy/models/server_instance.dart';
 
 Future<bool> testServerReachability(String url) async {
   try {
-    await Dio().get(url);
+    await Dio(BaseOptions(connectTimeout: const Duration(seconds: 5))).get("$url/api/");
     return true;
+  } on DioException catch (e) {
+    if (e.response?.statusCode != null) {
+      return true;
+    }
+    return false;
   } catch (e) {
     return false;
   }
