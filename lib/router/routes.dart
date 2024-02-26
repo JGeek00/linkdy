@@ -4,7 +4,6 @@ import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/router/names.dart';
 
 import 'package:linkdy/screens/bookmarks/ui/bookmarks.dart';
-import 'package:linkdy/screens/bookmarks/ui/search_bookmarks.dart';
 import 'package:linkdy/screens/onboarding/ui/onboarding.dart';
 import 'package:linkdy/screens/settings/ui/customization/customization.dart';
 import 'package:linkdy/screens/settings/ui/general_settings/general_settings.dart';

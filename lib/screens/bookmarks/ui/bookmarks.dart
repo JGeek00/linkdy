@@ -15,8 +15,6 @@ import 'package:linkdy/widgets/no_data_screen.dart';
 import 'package:linkdy/widgets/snackbar_fab.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
-import 'package:linkdy/providers/router.provider.dart';
-import 'package:linkdy/router/paths.dart';
 
 class BookmarksScreen extends ConsumerWidget {
   const BookmarksScreen({super.key});
