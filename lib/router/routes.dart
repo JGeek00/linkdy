@@ -49,10 +49,6 @@ final List<RouteBase> appRoutes = [
     ],
   ),
   GoRoute(
-    path: RoutesPaths.bookmarksSearch,
-    builder: (context, state) => const SearchBookmarksScreen(),
-  ),
-  GoRoute(
     path: RoutesPaths.tagBookmarks,
     name: RoutesNames.tagBookmarks,
     builder: (context, state) => TagBookmarksScreen(tagId: state.pathParameters['id'], tag: state.extra as Tag?),

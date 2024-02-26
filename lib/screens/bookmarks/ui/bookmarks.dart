@@ -9,6 +9,7 @@ import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/screens/bookmarks/ui/add_bookmark_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
+import 'package:linkdy/screens/bookmarks/ui/search_bookmarks.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 import 'package:linkdy/widgets/snackbar_fab.dart';
@@ -18,7 +19,7 @@ import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/router/paths.dart';
 
 class BookmarksScreen extends ConsumerWidget {
-  const BookmarksScreen({Key? key}) : super(key: key);
+  const BookmarksScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,6 +40,22 @@ class BookmarksScreen extends ConsumerWidget {
           );
         },
         pageBuilder: (context, animation, secondaryAnimation) => AddBookmarkModal(fullscreen: width <= 700),
+      );
+    }
+
+    void openSearchModal() {
+      showGeneralDialog(
+        context: context,
+        barrierColor: !(width > 700 || !(Platform.isAndroid || Platform.isIOS)) ? Colors.transparent : Colors.black54,
+        transitionBuilder: (context, anim1, anim2, child) {
+          return SlideTransition(
+            position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0)).animate(
+              CurvedAnimation(parent: anim1, curve: Curves.easeInOutCubicEmphasized),
+            ),
+            child: child,
+          );
+        },
+        pageBuilder: (context, animation, secondaryAnimation) => SearchBookmarksModal(fullscreen: width <= 700),
       );
     }
 
@@ -67,7 +84,7 @@ class BookmarksScreen extends ConsumerWidget {
                   title: Text(t.bookmarks.bookmarks),
                   actions: [
                     IconButton(
-                      onPressed: () => ref.watch(routerProvider).push(RoutesPaths.bookmarksSearch),
+                      onPressed: openSearchModal,
                       icon: const Icon(Icons.search_rounded),
                       tooltip: t.bookmarks.search.searchBookmarks,
                     ),

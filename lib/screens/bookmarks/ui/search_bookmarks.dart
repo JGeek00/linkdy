@@ -14,8 +14,13 @@ import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
-class SearchBookmarksScreen extends ConsumerWidget {
-  const SearchBookmarksScreen({Key? key}) : super(key: key);
+class SearchBookmarksModal extends ConsumerWidget {
+  final bool fullscreen;
+
+  const SearchBookmarksModal({
+    super.key,
+    required this.fullscreen,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,106 +36,108 @@ class SearchBookmarksScreen extends ConsumerWidget {
       return false;
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 68,
-        leading: Padding(
-          padding: const EdgeInsets.only(bottom: 8),
-          child: BackButton(
-            onPressed: () => ref.watch(routerProvider).pop(),
-          ),
-        ),
-        titleSpacing: 0,
-        title: Padding(
-          padding: const EdgeInsets.only(bottom: 8, right: 16),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-            child: TextFormField(
-              controller: ref.watch(searchBookmarksProvider).searchController,
-              onChanged: (_) => ref.read(searchBookmarksProvider.notifier).notifyListeners(),
-              onEditingComplete: () {
-                ref.read(searchBookmarksProvider.notifier).setSearchTerm();
-                ref.read(searchBookmarksProvider.notifier).setInitialLoadStatus(LoadStatus.loading);
-                ref.read(fetchSearchBookmarksProvider(provider.limit));
-              },
-              autofocus: true,
-              decoration: InputDecoration(
-                hintText: t.bookmarks.search.searchBookmarks,
-                prefixIcon: const Icon(Icons.search_rounded),
-                border: InputBorder.none,
-                filled: true,
-                fillColor: Colors.grey.withOpacity(0.2),
-                suffixIcon: ref.watch(searchBookmarksProvider).searchController.text != ""
-                    ? IconButton(
-                        onPressed: ref.read(searchBookmarksProvider.notifier).clearSearch,
-                        icon: const Icon(
-                          Icons.close_rounded,
-                          size: 20,
-                        ),
-                        tooltip: t.bookmarks.search.clearSearch,
-                      )
-                    : null,
-              ),
-              textInputAction: TextInputAction.search,
+    return Dialog.fullscreen(
+      child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 68,
+          leading: Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: BackButton(
+              onPressed: () => ref.watch(routerProvider).pop(),
             ),
           ),
-        ),
-      ),
-      body: Builder(
-        builder: (context) {
-          if (provider.searchTerm == "") {
-            return EnterSearchTermScreen(message: t.bookmarks.search.inputSearchTerm);
-          }
-
-          if (provider.inialLoadStatus == LoadStatus.loading) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-
-          if (provider.inialLoadStatus == LoadStatus.error) {
-            return ErrorScreen(
-              error: t.bookmarks.search.cannotSearchError,
-            );
-          }
-
-          if (provider.bookmarks.isEmpty) {
-            return NoDataScreen(
-              message: t.bookmarks.search.inputtedSearchTermNoResults,
-            );
-          }
-
-          return NotificationListener(
-            onNotification: scrollListener,
-            child: SlidableAutoCloseBehavior(
-              child: ListView.builder(
-                itemCount: provider.loadingMore ? provider.bookmarks.length + 1 : provider.bookmarks.length,
-                itemBuilder: (context, index) {
-                  if (provider.loadingMore == true && index == provider.bookmarks.length) {
-                    return const Padding(
-                      padding: EdgeInsets.all(16),
-                      child: Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                    );
-                  }
-                  return BookmarkItem(
-                    bookmark: provider.bookmarks[index],
-                    onReadUnread: ref.read(searchBookmarksProvider.notifier).markAsReadUnread,
-                    onDelete: (bookmark) => showDialog(
-                      context: context,
-                      builder: (context) => DeleteBookmarkModal(
-                        bookmark: bookmark,
-                        onDelete: ref.read(searchBookmarksProvider.notifier).deleteBookmark,
-                      ),
-                    ),
-                    onArchiveUnarchive: ref.read(searchBookmarksProvider.notifier).archiveUnarchive,
-                  );
+          titleSpacing: 0,
+          title: Padding(
+            padding: const EdgeInsets.only(bottom: 8, right: 16),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: TextFormField(
+                controller: ref.watch(searchBookmarksProvider).searchController,
+                onChanged: (_) => ref.read(searchBookmarksProvider.notifier).notifyListeners(),
+                onEditingComplete: () {
+                  ref.read(searchBookmarksProvider.notifier).setSearchTerm();
+                  ref.read(searchBookmarksProvider.notifier).setInitialLoadStatus(LoadStatus.loading);
+                  ref.read(fetchSearchBookmarksProvider(provider.limit));
                 },
+                autofocus: true,
+                decoration: InputDecoration(
+                  hintText: t.bookmarks.search.searchBookmarks,
+                  prefixIcon: const Icon(Icons.search_rounded),
+                  border: InputBorder.none,
+                  filled: true,
+                  fillColor: Colors.grey.withOpacity(0.2),
+                  suffixIcon: ref.watch(searchBookmarksProvider).searchController.text != ""
+                      ? IconButton(
+                          onPressed: ref.read(searchBookmarksProvider.notifier).clearSearch,
+                          icon: const Icon(
+                            Icons.close_rounded,
+                            size: 20,
+                          ),
+                          tooltip: t.bookmarks.search.clearSearch,
+                        )
+                      : null,
+                ),
+                textInputAction: TextInputAction.search,
               ),
             ),
-          );
-        },
+          ),
+        ),
+        body: Builder(
+          builder: (context) {
+            if (provider.searchTerm == "") {
+              return EnterSearchTermScreen(message: t.bookmarks.search.inputSearchTerm);
+            }
+
+            if (provider.inialLoadStatus == LoadStatus.loading) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
+            if (provider.inialLoadStatus == LoadStatus.error) {
+              return ErrorScreen(
+                error: t.bookmarks.search.cannotSearchError,
+              );
+            }
+
+            if (provider.bookmarks.isEmpty) {
+              return NoDataScreen(
+                message: t.bookmarks.search.inputtedSearchTermNoResults,
+              );
+            }
+
+            return NotificationListener(
+              onNotification: scrollListener,
+              child: SlidableAutoCloseBehavior(
+                child: ListView.builder(
+                  itemCount: provider.loadingMore ? provider.bookmarks.length + 1 : provider.bookmarks.length,
+                  itemBuilder: (context, index) {
+                    if (provider.loadingMore == true && index == provider.bookmarks.length) {
+                      return const Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      );
+                    }
+                    return BookmarkItem(
+                      bookmark: provider.bookmarks[index],
+                      onReadUnread: ref.read(searchBookmarksProvider.notifier).markAsReadUnread,
+                      onDelete: (bookmark) => showDialog(
+                        context: context,
+                        builder: (context) => DeleteBookmarkModal(
+                          bookmark: bookmark,
+                          onDelete: ref.read(searchBookmarksProvider.notifier).deleteBookmark,
+                        ),
+                      ),
+                      onArchiveUnarchive: ref.read(searchBookmarksProvider.notifier).archiveUnarchive,
+                    );
+                  },
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
