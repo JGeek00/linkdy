@@ -175,7 +175,7 @@ final getTagsProvider =
 );
 
 typedef GetTagsRef = AutoDisposeFutureProviderRef<ApiResponse<TagsResponse>>;
-String _$bookmarkFormHash() => r'e0a6612cb2a409f488614e3e91619f41055df61b';
+String _$bookmarkFormHash() => r'52de9be86618f5e736cfe348d91f7f4154c4db64';
 
 /// See also [BookmarkForm].
 @ProviderFor(BookmarkForm)

@@ -125,7 +125,7 @@ class BookmarkForm extends _$BookmarkForm {
       ref.read(bookmarksProvider.notifier).refresh();
       ref.watch(routerProvider).pop();
       showSnackbar(
-        key: ScaffoldMessengerKeys.bookmarks,
+        key: ScaffoldMessengerKeys.root,
         label: t.bookmarks.addBookmark.bookmarkSavedSuccessfully,
         color: Colors.green,
       );
