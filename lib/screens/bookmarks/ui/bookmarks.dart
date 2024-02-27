@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -9,12 +7,15 @@ import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_form_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/search_bookmarks.dart';
+import 'package:linkdy/widgets/circle_page_transition.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/i18n/strings.g.dart';
+
+final GlobalKey _searchButtonKey = GlobalKey();
 
 class BookmarksScreen extends ConsumerWidget {
   const BookmarksScreen({super.key});
@@ -26,18 +27,14 @@ class BookmarksScreen extends ConsumerWidget {
     final width = MediaQuery.of(context).size.width;
 
     void openSearchModal() {
-      showGeneralDialog(
-        context: context,
-        barrierColor: !(width > 700 || !(Platform.isAndroid || Platform.isIOS)) ? Colors.transparent : Colors.black54,
-        transitionBuilder: (context, anim1, anim2, child) {
-          return SlideTransition(
-            position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0)).animate(
-              CurvedAnimation(parent: anim1, curve: Curves.easeInOutCubicEmphasized),
-            ),
-            child: child,
-          );
-        },
-        pageBuilder: (context, animation, secondaryAnimation) => SearchBookmarksModal(fullscreen: width <= 700),
+      if (_searchButtonKey.currentContext == null) return;
+      RenderBox box = _searchButtonKey.currentContext!.findRenderObject() as RenderBox;
+      Offset position = box.localToGlobal(Offset.zero);
+      Navigator.of(context).push(
+        circlePageBuilder(
+          page: const SearchBookmarksModal(fullscreen: true),
+          beginPosition: Offset(position.dx + 20, position.dy + 20),
+        ),
       );
     }
 
@@ -66,6 +63,7 @@ class BookmarksScreen extends ConsumerWidget {
                 title: Text(t.bookmarks.bookmarks),
                 actions: [
                   IconButton(
+                    key: _searchButtonKey,
                     onPressed: openSearchModal,
                     icon: const Icon(Icons.search_rounded),
                     tooltip: t.bookmarks.search.searchBookmarks,
