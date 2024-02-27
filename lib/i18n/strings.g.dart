@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 294 (147 per locale)
+/// Strings: 322 (161 per locale)
 ///
-/// Built on 2024-02-27 at 14:35 UTC
+/// Built on 2024-02-27 at 17:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -227,6 +227,7 @@ class _StringsBookmarksEn {
 	late final _StringsBookmarksAddBookmarkEn addBookmark = _StringsBookmarksAddBookmarkEn._(_root);
 	late final _StringsBookmarksSearchEn search = _StringsBookmarksSearchEn._(_root);
 	late final _StringsBookmarksBookmarkOptionsEn bookmarkOptions = _StringsBookmarksBookmarkOptionsEn._(_root);
+	late final _StringsBookmarksShareOptionsEn shareOptions = _StringsBookmarksShareOptionsEn._(_root);
 }
 
 // Path: tags
@@ -368,6 +369,7 @@ class _StringsBookmarksBookmarkOptionsEn {
 	String get unread => 'Unread';
 	String get read => 'Read';
 	String get share => 'Share';
+	String get shared => 'Shared';
 	String get archive => 'Archive';
 	String get deletingBookmark => 'Deleting bookmark...';
 	String get bookmarkDeleted => 'Bookmark deleted successfully';
@@ -386,6 +388,28 @@ class _StringsBookmarksBookmarkOptionsEn {
 	String get bookmarkUnrchivedSuccessfully => 'Bookmark unarchived successfully.';
 	String get bookmarkNotArchived => 'The bookmark couldn\'t be archived.';
 	String get bookmarkNotUnrchived => 'The bookmark couldn\'t be unarchived.';
+}
+
+// Path: bookmarks.shareOptions
+class _StringsBookmarksShareOptionsEn {
+	_StringsBookmarksShareOptionsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get shareOptions => 'Share options';
+	String get shareInternally => 'Share internally';
+	String get unshareInternally => 'Unhare internally';
+	String get shareInternallyDescription => 'Share internally with the rest of the users of this Linkding instance';
+	String get unshareInternallyDescription => 'Unshare this internally shared bookmark';
+	String get shareExternally => 'Share bookmark URL externally';
+	String get shareExternallyDescription => 'Share the bookmark URL externally using a third party application';
+	String get sharingBookmark => 'Sharing bookmark...';
+	String get unsharingBookmark => 'Unsharing bookmark...';
+	String get bookmarkSharedSuccessfully => 'Bookmark shared successfully.';
+	String get bookmarkNotShared => 'Bookmark couldn\'t be shared.';
+	String get bookmarkUnsharedSuccessfully => 'Bookmark unshared successfully.';
+	String get bookmarkNotUnshared => 'Bookmark couldn\'t be unshared.';
 }
 
 // Path: tags.createTag
@@ -560,6 +584,7 @@ class _StringsBookmarksEs implements _StringsBookmarksEn {
 	@override late final _StringsBookmarksAddBookmarkEs addBookmark = _StringsBookmarksAddBookmarkEs._(_root);
 	@override late final _StringsBookmarksSearchEs search = _StringsBookmarksSearchEs._(_root);
 	@override late final _StringsBookmarksBookmarkOptionsEs bookmarkOptions = _StringsBookmarksBookmarkOptionsEs._(_root);
+	@override late final _StringsBookmarksShareOptionsEs shareOptions = _StringsBookmarksShareOptionsEs._(_root);
 }
 
 // Path: tags
@@ -701,6 +726,7 @@ class _StringsBookmarksBookmarkOptionsEs implements _StringsBookmarksBookmarkOpt
 	@override String get unread => 'No leído';
 	@override String get read => 'Leído';
 	@override String get share => 'Compartir';
+	@override String get shared => 'Compartido';
 	@override String get archive => 'Archivar';
 	@override String get deletingBookmark => 'Eliminando marcador...';
 	@override String get bookmarkDeleted => 'Marcador eliminado correctamente';
@@ -719,6 +745,28 @@ class _StringsBookmarksBookmarkOptionsEs implements _StringsBookmarksBookmarkOpt
 	@override String get bookmarkUnrchivedSuccessfully => 'Marcador desarchivado correctamente.';
 	@override String get bookmarkNotArchived => 'El marcador no pudo ser archivado.';
 	@override String get bookmarkNotUnrchived => 'El marcador no pudo ser desarchivado.';
+}
+
+// Path: bookmarks.shareOptions
+class _StringsBookmarksShareOptionsEs implements _StringsBookmarksShareOptionsEn {
+	_StringsBookmarksShareOptionsEs._(this._root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get shareOptions => 'Opciones de compartir';
+	@override String get shareInternally => 'Compartir internamente';
+	@override String get unshareInternally => 'Descompartir internamente';
+	@override String get shareInternallyDescription => 'Compartir internamente con el resto de usuarios de la instancia de Linkding';
+	@override String get unshareInternallyDescription => 'Descompartir el marcador compartido internamente';
+	@override String get shareExternally => 'Compartir URL del marcador externamente';
+	@override String get shareExternallyDescription => 'Compartir la URL del marcador externamente usando una aplicación de terceros';
+	@override String get sharingBookmark => 'Compartiendo marcador...';
+	@override String get unsharingBookmark => 'Descompartiendo marcador...';
+	@override String get bookmarkSharedSuccessfully => 'Marcador compartido correctamente.';
+	@override String get bookmarkNotShared => 'El marcador no pudo ser compartido.';
+	@override String get bookmarkUnsharedSuccessfully => 'Marcador descompartido correctamente.';
+	@override String get bookmarkNotUnshared => 'El marcador no pudo ser descompartido.';
 }
 
 // Path: tags.createTag
@@ -875,6 +923,7 @@ extension on Translations {
 			case 'bookmarks.bookmarkOptions.unread': return 'Unread';
 			case 'bookmarks.bookmarkOptions.read': return 'Read';
 			case 'bookmarks.bookmarkOptions.share': return 'Share';
+			case 'bookmarks.bookmarkOptions.shared': return 'Shared';
 			case 'bookmarks.bookmarkOptions.archive': return 'Archive';
 			case 'bookmarks.bookmarkOptions.deletingBookmark': return 'Deleting bookmark...';
 			case 'bookmarks.bookmarkOptions.bookmarkDeleted': return 'Bookmark deleted successfully';
@@ -893,6 +942,19 @@ extension on Translations {
 			case 'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully': return 'Bookmark unarchived successfully.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotArchived': return 'The bookmark couldn\'t be archived.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotUnrchived': return 'The bookmark couldn\'t be unarchived.';
+			case 'bookmarks.shareOptions.shareOptions': return 'Share options';
+			case 'bookmarks.shareOptions.shareInternally': return 'Share internally';
+			case 'bookmarks.shareOptions.unshareInternally': return 'Unhare internally';
+			case 'bookmarks.shareOptions.shareInternallyDescription': return 'Share internally with the rest of the users of this Linkding instance';
+			case 'bookmarks.shareOptions.unshareInternallyDescription': return 'Unshare this internally shared bookmark';
+			case 'bookmarks.shareOptions.shareExternally': return 'Share bookmark URL externally';
+			case 'bookmarks.shareOptions.shareExternallyDescription': return 'Share the bookmark URL externally using a third party application';
+			case 'bookmarks.shareOptions.sharingBookmark': return 'Sharing bookmark...';
+			case 'bookmarks.shareOptions.unsharingBookmark': return 'Unsharing bookmark...';
+			case 'bookmarks.shareOptions.bookmarkSharedSuccessfully': return 'Bookmark shared successfully.';
+			case 'bookmarks.shareOptions.bookmarkNotShared': return 'Bookmark couldn\'t be shared.';
+			case 'bookmarks.shareOptions.bookmarkUnsharedSuccessfully': return 'Bookmark unshared successfully.';
+			case 'bookmarks.shareOptions.bookmarkNotUnshared': return 'Bookmark couldn\'t be unshared.';
 			case 'tags.tags': return 'Tags';
 			case 'tags.created': return ({required Object created}) => 'Created: ${created}';
 			case 'tags.createTag.createTag': return 'Create tag';
@@ -1030,6 +1092,7 @@ extension on _StringsEs {
 			case 'bookmarks.bookmarkOptions.unread': return 'No leído';
 			case 'bookmarks.bookmarkOptions.read': return 'Leído';
 			case 'bookmarks.bookmarkOptions.share': return 'Compartir';
+			case 'bookmarks.bookmarkOptions.shared': return 'Compartido';
 			case 'bookmarks.bookmarkOptions.archive': return 'Archivar';
 			case 'bookmarks.bookmarkOptions.deletingBookmark': return 'Eliminando marcador...';
 			case 'bookmarks.bookmarkOptions.bookmarkDeleted': return 'Marcador eliminado correctamente';
@@ -1048,6 +1111,19 @@ extension on _StringsEs {
 			case 'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully': return 'Marcador desarchivado correctamente.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotArchived': return 'El marcador no pudo ser archivado.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotUnrchived': return 'El marcador no pudo ser desarchivado.';
+			case 'bookmarks.shareOptions.shareOptions': return 'Opciones de compartir';
+			case 'bookmarks.shareOptions.shareInternally': return 'Compartir internamente';
+			case 'bookmarks.shareOptions.unshareInternally': return 'Descompartir internamente';
+			case 'bookmarks.shareOptions.shareInternallyDescription': return 'Compartir internamente con el resto de usuarios de la instancia de Linkding';
+			case 'bookmarks.shareOptions.unshareInternallyDescription': return 'Descompartir el marcador compartido internamente';
+			case 'bookmarks.shareOptions.shareExternally': return 'Compartir URL del marcador externamente';
+			case 'bookmarks.shareOptions.shareExternallyDescription': return 'Compartir la URL del marcador externamente usando una aplicación de terceros';
+			case 'bookmarks.shareOptions.sharingBookmark': return 'Compartiendo marcador...';
+			case 'bookmarks.shareOptions.unsharingBookmark': return 'Descompartiendo marcador...';
+			case 'bookmarks.shareOptions.bookmarkSharedSuccessfully': return 'Marcador compartido correctamente.';
+			case 'bookmarks.shareOptions.bookmarkNotShared': return 'El marcador no pudo ser compartido.';
+			case 'bookmarks.shareOptions.bookmarkUnsharedSuccessfully': return 'Marcador descompartido correctamente.';
+			case 'bookmarks.shareOptions.bookmarkNotUnshared': return 'El marcador no pudo ser descompartido.';
 			case 'tags.tags': return 'Etiquetas';
 			case 'tags.created': return ({required Object created}) => 'Creado: ${created}';
 			case 'tags.createTag.createTag': return 'Crear etiqueta';

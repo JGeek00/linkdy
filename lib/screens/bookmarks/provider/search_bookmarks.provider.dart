@@ -147,4 +147,20 @@ class SearchBookmarks extends _$SearchBookmarks {
           .setBookmarks(ref.read(bookmarksProvider).bookmarks.where((b) => b.id != bookmark.id).toList());
     }
   }
+
+  void shareUnshare(Bookmark bookmark) async {
+    final result = await BookmarkCommonFunctions.shareUnshare<SearchBookmarksModel>(
+      scaffoldMessengerKey: ScaffoldMessengerKeys.search,
+      ref: ref,
+      bookmark: bookmark,
+      apiClient: ref.read(apiClientProvider)!,
+    );
+    if (result != null) {
+      state.bookmarks = state.bookmarks.map((b) => b.id == result.id ? result : b).toList();
+      ref.notifyListeners();
+      ref
+          .read(bookmarksProvider.notifier)
+          .setBookmarks(ref.read(bookmarksProvider).bookmarks.map((b) => b.id == result.id ? result : b).toList());
+    }
+  }
 }

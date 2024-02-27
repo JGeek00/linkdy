@@ -90,6 +90,7 @@
       "unread": "No leído",
       "read": "Leído",
       "share": "Compartir",
+      "shared": "Compartido",
       "archive": "Archivar",
       "deletingBookmark": "Eliminando marcador...",
       "bookmarkDeleted": "Marcador eliminado correctamente",
@@ -108,6 +109,21 @@
       "bookmarkUnrchivedSuccessfully": "Marcador desarchivado correctamente.",
       "bookmarkNotArchived": "El marcador no pudo ser archivado.",
       "bookmarkNotUnrchived": "El marcador no pudo ser desarchivado."
+    },
+    "shareOptions": {
+      "shareOptions": "Opciones de compartir",
+      "shareInternally": "Compartir internamente",
+      "unshareInternally": "Descompartir internamente",
+      "shareInternallyDescription": "Compartir internamente con el resto de usuarios de la instancia de Linkding",
+      "unshareInternallyDescription": "Descompartir el marcador compartido internamente",
+      "shareExternally": "Compartir URL del marcador externamente",
+      "shareExternallyDescription": "Compartir la URL del marcador externamente usando una aplicación de terceros",
+      "sharingBookmark": "Compartiendo marcador...",
+      "unsharingBookmark": "Descompartiendo marcador...",
+      "bookmarkSharedSuccessfully": "Marcador compartido correctamente.",
+      "bookmarkNotShared": "El marcador no pudo ser compartido.",
+      "bookmarkUnsharedSuccessfully": "Marcador descompartido correctamente.",
+      "bookmarkNotUnshared": "El marcador no pudo ser descompartido."
     }
   },
   "tags": {

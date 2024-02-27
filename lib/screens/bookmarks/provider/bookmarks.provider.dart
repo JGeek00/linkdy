@@ -128,4 +128,17 @@ class Bookmarks extends _$Bookmarks {
       ref.notifyListeners();
     }
   }
+
+  void shareUnshare(Bookmark bookmark) async {
+    final result = await BookmarkCommonFunctions.shareUnshare<BookmarksModel>(
+      scaffoldMessengerKey: ScaffoldMessengerKeys.bookmarks,
+      ref: ref,
+      bookmark: bookmark,
+      apiClient: ref.read(apiClientProvider)!,
+    );
+    if (result != null) {
+      state.bookmarks = state.bookmarks.map((b) => b.id == result.id ? result : b).toList();
+      ref.notifyListeners();
+    }
+  }
 }

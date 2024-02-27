@@ -137,4 +137,17 @@ class TagBookmarks extends _$TagBookmarks {
       ref.notifyListeners();
     }
   }
+
+  void shareUnshare(Bookmark bookmark) async {
+    final result = await BookmarkCommonFunctions.shareUnshare<TagBookmarksModel>(
+      scaffoldMessengerKey: ScaffoldMessengerKeys.tagBookmarks,
+      ref: ref,
+      bookmark: bookmark,
+      apiClient: ref.read(apiClientProvider)!,
+    );
+    if (result != null) {
+      state.bookmarks = state.bookmarks.map((b) => b.id == result.id ? result : b).toList();
+      ref.notifyListeners();
+    }
+  }
 }

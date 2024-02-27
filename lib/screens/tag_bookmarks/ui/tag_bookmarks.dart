@@ -147,6 +147,7 @@ class TagBookmarksScreenState extends ConsumerState<TagBookmarksScreen> {
                                   ),
                                 ),
                                 onArchiveUnarchive: ref.read(tagBookmarksProvider.notifier).archiveUnarchive,
+                                onShareInternally: ref.read(tagBookmarksProvider.notifier).shareUnshare,
                                 onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
                               );
                             },

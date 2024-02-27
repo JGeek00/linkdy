@@ -90,6 +90,7 @@
       "unread": "Unread",
       "read": "Read",
       "share": "Share",
+      "shared": "Shared",
       "archive": "Archive",
       "deletingBookmark": "Deleting bookmark...",
       "bookmarkDeleted": "Bookmark deleted successfully",
@@ -108,6 +109,21 @@
       "bookmarkUnrchivedSuccessfully": "Bookmark unarchived successfully.",
       "bookmarkNotArchived": "The bookmark couldn't be archived.",
       "bookmarkNotUnrchived": "The bookmark couldn't be unarchived."
+    },
+    "shareOptions": {
+      "shareOptions": "Share options",
+      "shareInternally": "Share internally",
+      "unshareInternally": "Unhare internally",
+      "shareInternallyDescription": "Share internally with the rest of the users of this Linkding instance",
+      "unshareInternallyDescription": "Unshare this internally shared bookmark",
+      "shareExternally": "Share bookmark URL externally",
+      "shareExternallyDescription": "Share the bookmark URL externally using a third party application",
+      "sharingBookmark": "Sharing bookmark...",
+      "unsharingBookmark": "Unsharing bookmark...",
+      "bookmarkSharedSuccessfully": "Bookmark shared successfully.",
+      "bookmarkNotShared": "Bookmark couldn't be shared.",
+      "bookmarkUnsharedSuccessfully": "Bookmark unshared successfully.",
+      "bookmarkNotUnshared": "Bookmark couldn't be unshared."
     }
   },
   "tags": {

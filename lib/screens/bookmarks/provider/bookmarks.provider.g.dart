@@ -172,7 +172,7 @@ final bookmarksRequestLoadMoreProvider =
 );
 
 typedef BookmarksRequestLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$bookmarksHash() => r'84a236ccce48c0a0069ca2b754da59ff88b17ef2';
+String _$bookmarksHash() => r'602a50d02cde9a67335372659f8e2f656ac21995';
 
 /// See also [Bookmarks].
 @ProviderFor(Bookmarks)

@@ -140,6 +140,7 @@ class SearchBookmarksModal extends ConsumerWidget {
                           ),
                         ),
                         onArchiveUnarchive: ref.read(searchBookmarksProvider.notifier).archiveUnarchive,
+                        onShareInternally: ref.read(searchBookmarksProvider.notifier).shareUnshare,
                         onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
                       );
                     },

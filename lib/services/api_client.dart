@@ -5,6 +5,7 @@ import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/api_response.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/models/data/check_bookmark.dart';
+import 'package:linkdy/models/data/patch_bookmark_data.dart';
 import 'package:linkdy/models/data/set_bookmark_data.dart';
 import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/models/server_instance.dart';
@@ -207,6 +208,24 @@ class ApiClientService {
     try {
       await dioInstance.post("/bookmarks/$bookmarkId/unarchive/");
       return const ApiResponse(successful: true);
+    } on DioException {
+      return const ApiResponse(successful: false);
+    } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    }
+  }
+
+  Future<ApiResponse<Bookmark>> patchUpdateBookmark(int bookmarkId, PatchBookmarkData bookmark) async {
+    try {
+      final result = await dioInstance.patch(
+        "/bookmarks/$bookmarkId/",
+        data: FormData.fromMap(bookmark.toJson()),
+      );
+      return ApiResponse(
+        successful: true,
+        content: Bookmark.fromJson(result.data),
+      );
     } on DioException {
       return const ApiResponse(successful: false);
     } catch (e, stackTrace) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/models/data/patch_bookmark_data.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/utils/snackbar.dart';
 import 'package:linkdy/models/data/set_bookmark_data.dart';
@@ -120,5 +121,45 @@ class BookmarkCommonFunctions {
       );
     }
     return result.successful;
+  }
+
+  static Future<Bookmark?> shareUnshare<T>({
+    required AutoDisposeNotifierProviderRef<T> ref,
+    required Bookmark bookmark,
+    required ApiClientService apiClient,
+    required GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
+  }) async {
+    final processModal = ProcessModal();
+    processModal.open(
+      bookmark.shared == true ? t.bookmarks.shareOptions.unsharingBookmark : t.bookmarks.shareOptions.sharingBookmark,
+    );
+
+    final result = await apiClient.patchUpdateBookmark(
+      bookmark.id!,
+      PatchBookmarkData(
+        shared: !bookmark.shared!,
+      ),
+    );
+
+    processModal.close();
+    if (result.successful == true) {
+      showSnackbar(
+        key: scaffoldMessengerKey,
+        label: bookmark.isArchived == true
+            ? t.bookmarks.shareOptions.bookmarkUnsharedSuccessfully
+            : t.bookmarks.shareOptions.bookmarkSharedSuccessfully,
+        color: Colors.green,
+      );
+      return result.content;
+    } else {
+      showSnackbar(
+        key: scaffoldMessengerKey,
+        label: bookmark.isArchived == true
+            ? t.bookmarks.shareOptions.bookmarkNotUnshared
+            : t.bookmarks.shareOptions.bookmarkNotShared,
+        color: Colors.red,
+      );
+      return null;
+    }
   }
 }

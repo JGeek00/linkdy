@@ -132,6 +132,7 @@ class BookmarksScreen extends ConsumerWidget {
                                   ),
                                 ),
                                 onArchiveUnarchive: ref.read(bookmarksProvider.notifier).archiveUnarchive,
+                                onShareInternally: ref.read(bookmarksProvider.notifier).shareUnshare,
                                 onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
                               );
                             },

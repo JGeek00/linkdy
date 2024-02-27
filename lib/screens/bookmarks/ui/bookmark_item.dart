@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:linkdy/screens/bookmarks/ui/share_options_modal.dart';
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 
 import 'package:linkdy/config/options.dart';
@@ -22,6 +22,7 @@ class BookmarkItem extends ConsumerWidget {
   final void Function(Bookmark bookmark) onReadUnread;
   final void Function(Bookmark bookmark) onArchiveUnarchive;
   final void Function(Bookmark bookmark) onEdit;
+  final void Function(Bookmark bookmark) onShareInternally;
 
   const BookmarkItem({
     super.key,
@@ -30,6 +31,7 @@ class BookmarkItem extends ConsumerWidget {
     required this.onReadUnread,
     required this.onArchiveUnarchive,
     required this.onEdit,
+    required this.onShareInternally,
   });
 
   @override
@@ -66,7 +68,10 @@ class BookmarkItem extends ConsumerWidget {
             padding: const EdgeInsets.all(4),
           ),
           SlidableAction(
-            onPressed: (ctx) => Share.shareUri(Uri.parse(bookmark.url!)),
+            onPressed: (ctx) => showDialog(
+              context: context,
+              builder: (ctx) => ShareOptionsModal(bookmark: bookmark, onShareInternally: onShareInternally),
+            ),
             backgroundColor: Colors.orange,
             label: t.bookmarks.bookmarkOptions.share,
             icon: Icons.share_rounded,
@@ -214,8 +219,45 @@ class BookmarkItem extends ConsumerWidget {
                       ),
                     ),
                   ),
-                  if (bookmark.unread == true) ...[
+                  if (bookmark.shared == true) ...[
                     if (bookmark.tagNames?.isNotEmpty == true)
+                      Container(
+                        width: 1,
+                        height: 12,
+                        margin: const EdgeInsets.symmetric(horizontal: 8),
+                        color: Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
+                      ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6,
+                        vertical: 2,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).colorScheme.primaryContainer,
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.share_rounded,
+                            size: 12,
+                            color: Theme.of(context).colorScheme.onPrimaryContainer,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            t.bookmarks.bookmarkOptions.shared,
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Theme.of(context).colorScheme.onPrimaryContainer,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                  if (bookmark.unread == true) ...[
+                    if (bookmark.tagNames?.isNotEmpty == true || bookmark.shared == true)
                       Container(
                         width: 1,
                         height: 12,
@@ -252,7 +294,7 @@ class BookmarkItem extends ConsumerWidget {
                     ),
                   ],
                   if (bookmark.dateModified != null) ...[
-                    if (bookmark.unread == true)
+                    if (bookmark.unread == true || bookmark.shared == true || bookmark.tagNames?.isNotEmpty == true)
                       Container(
                         width: 1,
                         height: 12,
