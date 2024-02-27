@@ -12,10 +12,10 @@ class Layout extends ConsumerWidget {
   final Widget child;
 
   const Layout({
-    Key? key,
+    super.key,
     required this.state,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

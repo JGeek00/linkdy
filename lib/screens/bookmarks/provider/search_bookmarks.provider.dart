@@ -104,7 +104,7 @@ class SearchBookmarks extends _$SearchBookmarks {
       ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
-      scaffoldMessengerKey: searchScaffoldMessengerKey,
+      scaffoldMessengerKey: ScaffoldMessengerKeys.search,
     );
     if (result == true) {
       state.bookmarks = state.bookmarks.where((b) => b.id != bookmark.id).toList();
@@ -120,7 +120,7 @@ class SearchBookmarks extends _$SearchBookmarks {
       ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
-      scaffoldMessengerKey: searchScaffoldMessengerKey,
+      scaffoldMessengerKey: ScaffoldMessengerKeys.search,
     );
     if (result != null) {
       state.bookmarks = state.bookmarks.map((b) => b.id == result.id ? result : b).toList();
@@ -136,7 +136,7 @@ class SearchBookmarks extends _$SearchBookmarks {
       ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
-      scaffoldMessengerKey: searchScaffoldMessengerKey,
+      scaffoldMessengerKey: ScaffoldMessengerKeys.search,
     );
     if (result == true) {
       // On this case the bookmark always will pass from unarchived to archived

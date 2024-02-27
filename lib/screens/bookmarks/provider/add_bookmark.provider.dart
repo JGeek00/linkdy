@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:linkdy/constants/global_keys.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/model/add_link.model.dart';
 
-import 'package:linkdy/providers/snackbar.provider.dart';
+import 'package:linkdy/utils/snackbar.dart';
 import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/utils/process_modal.dart';
@@ -101,10 +102,11 @@ class AddBookmark extends _$AddBookmark {
       ref.read(bookmarksProvider.notifier).refresh();
       ref.watch(routerProvider).pop();
     } else {
-      ref.read(snackbarProvider.notifier).showSnacbkar(
-            label: t.bookmarks.addBookmark.errorSavingBookmark,
-            color: Colors.red,
-          );
+      showSnackbar(
+        key: ScaffoldMessengerKeys.addBookmark,
+        label: t.bookmarks.addBookmark.errorSavingBookmark,
+        color: Colors.red,
+      );
     }
   }
 

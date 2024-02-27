@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:linkdy/providers/snackbar.provider.dart';
+import 'package:linkdy/utils/snackbar.dart';
 import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/providers/server_instances.provider.dart';
 import 'package:linkdy/router/routes.dart';
 import 'package:linkdy/router/paths.dart';
@@ -23,7 +24,7 @@ InterceptorsWrapper dioInterceptor(DioInterceptorRef ref) {
         GoRouter.of(rootNavigatorKey.currentContext!).pushReplacement(RoutesPaths.onboarding);
         ref.read(apiClientProvider.notifier).disconnectApiClient();
         ref.read(serverInstancesProvider.notifier).removeServerInstances();
-        ref.read(snackbarProvider.notifier).showSnacbkar(label: t.generic.authTokenNotValid, color: Colors.red);
+        showSnackbar(key: ScaffoldMessengerKeys.root, label: t.generic.authTokenNotValid, color: Colors.red);
       }
       handler.next(error);
     },

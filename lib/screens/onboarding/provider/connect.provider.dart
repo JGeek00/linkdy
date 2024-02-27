@@ -5,8 +5,9 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/onboarding/model/connect.model.dart';
 
+import 'package:linkdy/constants/global_keys.dart';
+import 'package:linkdy/utils/snackbar.dart';
 import 'package:linkdy/providers/dio_interceptor.provider.dart';
-import 'package:linkdy/providers/snackbar.provider.dart';
 import 'package:linkdy/providers/server_instances.provider.dart';
 import 'package:linkdy/utils/api_base_url.dart';
 import 'package:linkdy/i18n/strings.g.dart';
@@ -155,9 +156,17 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
     ref.read(apiClientProvider.notifier).setApiClient(apiClient);
     ref.read(serverInstancesProvider.notifier).saveNewInstance(serverInstance);
   } else if (result == AuthResult.invalidToken) {
-    ref.read(snackbarProvider.notifier).showSnacbkar(label: t.onboarding.invalidToken, color: Colors.red);
+    showSnackbar(
+      key: ScaffoldMessengerKeys.onboarding,
+      label: t.onboarding.invalidToken,
+      color: Colors.red,
+    );
   } else {
-    ref.read(snackbarProvider.notifier).showSnacbkar(label: t.onboarding.cannotConnectToServer, color: Colors.red);
+    showSnackbar(
+      key: ScaffoldMessengerKeys.onboarding,
+      label: t.onboarding.cannotConnectToServer,
+      color: Colors.red,
+    );
   }
 
   return false;

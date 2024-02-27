@@ -1,3 +1,4 @@
+import 'package:linkdy/constants/global_keys.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
@@ -99,6 +100,7 @@ class TagBookmarks extends _$TagBookmarks {
 
   void deleteBookmark(Bookmark bookmark) async {
     final result = await BookmarkCommonFunctions.deleteBookmark<TagBookmarksModel>(
+      scaffoldMessengerKey: ScaffoldMessengerKeys.tagBookmarks,
       ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
@@ -111,6 +113,7 @@ class TagBookmarks extends _$TagBookmarks {
 
   void markAsReadUnread(Bookmark bookmark) async {
     final result = await BookmarkCommonFunctions.markAsReadUnread<TagBookmarksModel>(
+      scaffoldMessengerKey: ScaffoldMessengerKeys.tagBookmarks,
       ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
@@ -123,6 +126,7 @@ class TagBookmarks extends _$TagBookmarks {
 
   void archiveUnarchive(Bookmark bookmark) async {
     final result = await BookmarkCommonFunctions.archiveUnarchive<TagBookmarksModel>(
+      scaffoldMessengerKey: ScaffoldMessengerKeys.tagBookmarks,
       ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,

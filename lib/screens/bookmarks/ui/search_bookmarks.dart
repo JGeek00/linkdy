@@ -38,7 +38,7 @@ class SearchBookmarksModal extends ConsumerWidget {
     }
 
     return ScaffoldMessenger(
-      key: searchScaffoldMessengerKey,
+      key: ScaffoldMessengerKeys.search,
       child: Dialog.fullscreen(
         child: Scaffold(
           appBar: AppBar(

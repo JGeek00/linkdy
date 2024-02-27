@@ -174,7 +174,7 @@ final fetchSearchBookmarksLoadMoreProvider =
 );
 
 typedef FetchSearchBookmarksLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$searchBookmarksHash() => r'5a5bc02d87a3eff3976a3bc6991c2208f4232fb4';
+String _$searchBookmarksHash() => r'c7c8394ae9ad71f8106a3b73100b88e09c154e13';
 
 /// See also [SearchBookmarks].
 @ProviderFor(SearchBookmarks)

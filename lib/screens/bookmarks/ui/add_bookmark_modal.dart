@@ -6,61 +6,65 @@ import 'package:linkdy/screens/bookmarks/provider/add_bookmark.provider.dart';
 import 'package:linkdy/widgets/section_label.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/constants/enums.dart';
 
 class AddBookmarkModal extends ConsumerWidget {
   final bool fullscreen;
 
   const AddBookmarkModal({
-    Key? key,
+    super.key,
     required this.fullscreen,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Dialog.fullscreen(
-      child: Scaffold(
-        body: NestedScrollView(
-          headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            SliverOverlapAbsorber(
-              handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-              sliver: SliverAppBar.large(
-                pinned: true,
-                floating: true,
-                centerTitle: false,
-                forceElevated: innerBoxIsScrolled,
-                leading: CloseButton(
-                  onPressed: () => Navigator.pop(context),
+    return ScaffoldMessenger(
+      key: ScaffoldMessengerKeys.addBookmark,
+      child: Dialog.fullscreen(
+        child: Scaffold(
+          body: NestedScrollView(
+            headerSliverBuilder: (context, innerBoxIsScrolled) => [
+              SliverOverlapAbsorber(
+                handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                sliver: SliverAppBar.large(
+                  pinned: true,
+                  floating: true,
+                  centerTitle: false,
+                  forceElevated: innerBoxIsScrolled,
+                  leading: CloseButton(
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                  title: Text(t.bookmarks.addBookmark.addBookmark),
+                  actions: [
+                    IconButton(
+                      onPressed: ref.watch(addBookmarkProvider).checkBookmark != null
+                          ? () => ref.read(addBookmarkProvider.notifier).addBookmark()
+                          : null,
+                      icon: const Icon(Icons.save_rounded),
+                      tooltip: t.generic.save,
+                    ),
+                    const SizedBox(width: 8),
+                  ],
                 ),
-                title: Text(t.bookmarks.addBookmark.addBookmark),
-                actions: [
-                  IconButton(
-                    onPressed: ref.watch(addBookmarkProvider).checkBookmark != null
-                        ? () => ref.read(addBookmarkProvider.notifier).addBookmark()
-                        : null,
-                    icon: const Icon(Icons.save_rounded),
-                    tooltip: t.generic.save,
-                  ),
-                  const SizedBox(width: 8),
-                ],
               ),
-            ),
-          ],
-          body: SafeArea(
-            top: false,
-            bottom: true,
-            child: Builder(
-              builder: (context) => CustomScrollView(
-                slivers: [
-                  SliverOverlapInjector(
-                    handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                  ),
-                  SliverList.list(
-                    children: const [
-                      _ModalContent(),
-                    ],
-                  ),
-                ],
+            ],
+            body: SafeArea(
+              top: false,
+              bottom: true,
+              child: Builder(
+                builder: (context) => CustomScrollView(
+                  slivers: [
+                    SliverOverlapInjector(
+                      handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                    ),
+                    SliverList.list(
+                      children: const [
+                        _ModalContent(),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -71,7 +75,7 @@ class AddBookmarkModal extends ConsumerWidget {
 }
 
 class _ModalContent extends ConsumerWidget {
-  const _ModalContent({Key? key}) : super(key: key);
+  const _ModalContent();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

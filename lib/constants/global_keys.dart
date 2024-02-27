@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
 
-final scaffoldMessengerGlobalKey = GlobalKey<ScaffoldMessengerState>();
-final searchScaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+class ScaffoldMessengerKeys {
+  static final root = GlobalKey<ScaffoldMessengerState>();
+  static final onboarding = GlobalKey<ScaffoldMessengerState>();
+  static final bookmarks = GlobalKey<ScaffoldMessengerState>();
+  static final search = GlobalKey<ScaffoldMessengerState>();
+  static final tags = GlobalKey<ScaffoldMessengerState>();
+  static final addBookmark = GlobalKey<ScaffoldMessengerState>();
+  static final tagBookmarks = GlobalKey<ScaffoldMessengerState>();
+  static final webview = GlobalKey<ScaffoldMessengerState>();
+}

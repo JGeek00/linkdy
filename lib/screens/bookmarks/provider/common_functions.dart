@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:linkdy/providers/snackbar.provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
+import 'package:linkdy/utils/snackbar.dart';
 import 'package:linkdy/models/data/set_bookmark_data.dart';
 import 'package:linkdy/services/api_client.dart';
 import 'package:linkdy/utils/process_modal.dart';
@@ -13,7 +13,7 @@ class BookmarkCommonFunctions {
     required AutoDisposeNotifierProviderRef<T> ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
-    GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey,
+    required GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
   }) async {
     final processModal = ProcessModal();
     processModal.open(t.bookmarks.bookmarkOptions.deletingBookmark);
@@ -22,17 +22,17 @@ class BookmarkCommonFunctions {
 
     processModal.close();
     if (result.successful == true) {
-      ref.read(snackbarProvider.notifier).showSnacbkar(
-            key: scaffoldMessengerKey,
-            label: t.bookmarks.bookmarkOptions.bookmarkDeleted,
-            color: Colors.green,
-          );
+      showSnackbar(
+        key: scaffoldMessengerKey,
+        label: t.bookmarks.bookmarkOptions.bookmarkDeleted,
+        color: Colors.green,
+      );
     } else {
-      ref.read(snackbarProvider.notifier).showSnacbkar(
-            key: scaffoldMessengerKey,
-            label: t.bookmarks.bookmarkOptions.bookmarkNotDeleted,
-            color: Colors.red,
-          );
+      showSnackbar(
+        key: scaffoldMessengerKey,
+        label: t.bookmarks.bookmarkOptions.bookmarkNotDeleted,
+        color: Colors.red,
+      );
     }
     return result.successful;
   }
@@ -41,7 +41,7 @@ class BookmarkCommonFunctions {
     required AutoDisposeNotifierProviderRef<T> ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
-    GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey,
+    required GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
   }) async {
     final processModal = ProcessModal();
     processModal.open(
@@ -63,22 +63,22 @@ class BookmarkCommonFunctions {
 
     processModal.close();
     if (result.successful == true) {
-      ref.read(snackbarProvider.notifier).showSnacbkar(
-            key: scaffoldMessengerKey,
-            label: bookmark.unread == true
-                ? t.bookmarks.bookmarkOptions.markedAsReadSuccessfully
-                : t.bookmarks.bookmarkOptions.markedAsUnreadSuccessfully,
-            color: Colors.green,
-          );
+      showSnackbar(
+        key: scaffoldMessengerKey,
+        label: bookmark.unread == true
+            ? t.bookmarks.bookmarkOptions.markedAsReadSuccessfully
+            : t.bookmarks.bookmarkOptions.markedAsUnreadSuccessfully,
+        color: Colors.green,
+      );
       return result.content;
     } else {
-      ref.read(snackbarProvider.notifier).showSnacbkar(
-            key: scaffoldMessengerKey,
-            label: bookmark.unread == true
-                ? t.bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead
-                : t.bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread,
-            color: Colors.red,
-          );
+      showSnackbar(
+        key: scaffoldMessengerKey,
+        label: bookmark.unread == true
+            ? t.bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead
+            : t.bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread,
+        color: Colors.red,
+      );
       return null;
     }
   }
@@ -87,7 +87,7 @@ class BookmarkCommonFunctions {
     required AutoDisposeNotifierProviderRef<T> ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
-    GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey,
+    required GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
   }) async {
     final processModal = ProcessModal();
     processModal.open(
@@ -102,21 +102,21 @@ class BookmarkCommonFunctions {
 
     processModal.close();
     if (result.successful == true) {
-      ref.read(snackbarProvider.notifier).showSnacbkar(
-            key: scaffoldMessengerKey,
-            label: bookmark.isArchived == true
-                ? t.bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully
-                : t.bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully,
-            color: Colors.green,
-          );
+      showSnackbar(
+        key: scaffoldMessengerKey,
+        label: bookmark.isArchived == true
+            ? t.bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully
+            : t.bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully,
+        color: Colors.green,
+      );
     } else {
-      ref.read(snackbarProvider.notifier).showSnacbkar(
-            key: scaffoldMessengerKey,
-            label: bookmark.isArchived == true
-                ? t.bookmarks.bookmarkOptions.bookmarkNotUnrchived
-                : t.bookmarks.bookmarkOptions.bookmarkNotArchived,
-            color: Colors.red,
-          );
+      showSnackbar(
+        key: scaffoldMessengerKey,
+        label: bookmark.isArchived == true
+            ? t.bookmarks.bookmarkOptions.bookmarkNotUnrchived
+            : t.bookmarks.bookmarkOptions.bookmarkNotArchived,
+        color: Colors.red,
+      );
     }
     return result.successful;
   }

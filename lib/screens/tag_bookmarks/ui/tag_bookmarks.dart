@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:linkdy/constants/global_keys.dart';
 
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
@@ -19,10 +20,10 @@ class TagBookmarksScreen extends ConsumerStatefulWidget {
   final Tag? tag;
 
   const TagBookmarksScreen({
-    Key? key,
+    super.key,
     required this.tagId,
     this.tag,
-  }) : super(key: key);
+  });
 
   @override
   TagBookmarksScreenState createState() => TagBookmarksScreenState();
@@ -66,85 +67,89 @@ class TagBookmarksScreenState extends ConsumerState<TagBookmarksScreen> {
       return false;
     }
 
-    return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          SliverOverlapAbsorber(
-            handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-            sliver: SliverAppBar.large(
-              pinned: true,
-              floating: true,
-              centerTitle: false,
-              forceElevated: innerBoxIsScrolled,
-              title: Text(
-                widget.tag != null
-                    ? "#${widget.tag!.name}"
-                    : provider.tag != null
-                        ? "#${provider.tag!.name}"
-                        : '',
+    return ScaffoldMessenger(
+      key: ScaffoldMessengerKeys.tagBookmarks,
+      child: Scaffold(
+        body: NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) => [
+            SliverOverlapAbsorber(
+              handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+              sliver: SliverAppBar.large(
+                pinned: true,
+                floating: true,
+                centerTitle: false,
+                forceElevated: innerBoxIsScrolled,
+                title: Text(
+                  widget.tag != null
+                      ? "#${widget.tag!.name}"
+                      : provider.tag != null
+                          ? "#${provider.tag!.name}"
+                          : '',
+                ),
               ),
             ),
-          ),
-        ],
-        body: SafeArea(
-          top: false,
-          child: Builder(
-            builder: (context) => RefreshIndicator(
-              displacement: 120,
-              onRefresh: () => ref.read(tagBookmarksProvider.notifier).refresh(),
-              child: NotificationListener(
-                onNotification: scrollListener,
-                child: CustomScrollView(
-                  slivers: [
-                    SliverOverlapInjector(
-                      handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                    ),
-                    if (provider.initialLoadStatus == LoadStatus.loading)
-                      const SliverFillRemaining(
-                        child: Center(child: CircularProgressIndicator()),
+          ],
+          body: SafeArea(
+            top: false,
+            child: Builder(
+              builder: (context) => RefreshIndicator(
+                displacement: 120,
+                onRefresh: () => ref.read(tagBookmarksProvider.notifier).refresh(),
+                child: NotificationListener(
+                  onNotification: scrollListener,
+                  child: CustomScrollView(
+                    slivers: [
+                      SliverOverlapInjector(
+                        handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                       ),
-                    if (provider.initialLoadStatus == LoadStatus.error)
-                      SliverFillRemaining(
-                        child: ErrorScreen(
-                          error: t.bookmarks.cannotLoadBookmarks,
+                      if (provider.initialLoadStatus == LoadStatus.loading)
+                        const SliverFillRemaining(
+                          child: Center(child: CircularProgressIndicator()),
                         ),
-                      ),
-                    if (provider.bookmarks.isEmpty)
-                      SliverFillRemaining(
-                        child: NoDataScreen(
-                          message: t.tags.tagBookmarks.noBookmarksWithThisTag,
+                      if (provider.initialLoadStatus == LoadStatus.error)
+                        SliverFillRemaining(
+                          child: ErrorScreen(
+                            error: t.bookmarks.cannotLoadBookmarks,
+                          ),
                         ),
-                      ),
-                    if (provider.bookmarks.isNotEmpty)
-                      SlidableAutoCloseBehavior(
-                        child: SliverList.builder(
-                          itemCount:
-                              provider.loadingMore == true ? provider.bookmarks.length + 1 : provider.bookmarks.length,
-                          itemBuilder: (context, index) {
-                            if (provider.loadingMore == true && index == provider.bookmarks.length) {
-                              return const Padding(
-                                padding: EdgeInsets.all(16),
-                                child: Center(
-                                  child: CircularProgressIndicator(),
+                      if (provider.bookmarks.isEmpty)
+                        SliverFillRemaining(
+                          child: NoDataScreen(
+                            message: t.tags.tagBookmarks.noBookmarksWithThisTag,
+                          ),
+                        ),
+                      if (provider.bookmarks.isNotEmpty)
+                        SlidableAutoCloseBehavior(
+                          child: SliverList.builder(
+                            itemCount: provider.loadingMore == true
+                                ? provider.bookmarks.length + 1
+                                : provider.bookmarks.length,
+                            itemBuilder: (context, index) {
+                              if (provider.loadingMore == true && index == provider.bookmarks.length) {
+                                return const Padding(
+                                  padding: EdgeInsets.all(16),
+                                  child: Center(
+                                    child: CircularProgressIndicator(),
+                                  ),
+                                );
+                              }
+                              return BookmarkItem(
+                                bookmark: provider.bookmarks[index],
+                                onReadUnread: ref.read(tagBookmarksProvider.notifier).markAsReadUnread,
+                                onDelete: (bookmark) => showDialog(
+                                  context: context,
+                                  builder: (context) => DeleteBookmarkModal(
+                                    bookmark: bookmark,
+                                    onDelete: ref.read(tagBookmarksProvider.notifier).deleteBookmark,
+                                  ),
                                 ),
+                                onArchiveUnarchive: ref.read(tagBookmarksProvider.notifier).archiveUnarchive,
                               );
-                            }
-                            return BookmarkItem(
-                              bookmark: provider.bookmarks[index],
-                              onReadUnread: ref.read(tagBookmarksProvider.notifier).markAsReadUnread,
-                              onDelete: (bookmark) => showDialog(
-                                context: context,
-                                builder: (context) => DeleteBookmarkModal(
-                                  bookmark: bookmark,
-                                  onDelete: ref.read(tagBookmarksProvider.notifier).deleteBookmark,
-                                ),
-                              ),
-                              onArchiveUnarchive: ref.read(tagBookmarksProvider.notifier).archiveUnarchive,
-                            );
-                          },
+                            },
+                          ),
                         ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
