@@ -12,7 +12,6 @@ import 'package:linkdy/screens/bookmarks/ui/search_bookmarks.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
-import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/i18n/strings.g.dart';
