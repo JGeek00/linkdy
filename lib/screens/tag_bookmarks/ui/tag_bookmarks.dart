@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:linkdy/constants/global_keys.dart';
 
+import 'package:linkdy/screens/bookmarks/ui/bookmark_form_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
 import 'package:linkdy/screens/tag_bookmarks/provider/tag_bookmarks.provider.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
+import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/providers/router.provider.dart';
@@ -56,6 +57,8 @@ class TagBookmarksScreenState extends ConsumerState<TagBookmarksScreen> {
     if (widget.tag == null && widget.tagId == null) return const Material();
 
     final provider = ref.watch(tagBookmarksProvider);
+
+    final width = MediaQuery.of(context).size.width;
 
     bool scrollListener(ScrollUpdateNotification scrollNotification) {
       if (scrollNotification.metrics.extentAfter < 100 &&
@@ -144,6 +147,7 @@ class TagBookmarksScreenState extends ConsumerState<TagBookmarksScreen> {
                                   ),
                                 ),
                                 onArchiveUnarchive: ref.read(tagBookmarksProvider.notifier).archiveUnarchive,
+                                onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
                               );
                             },
                           ),

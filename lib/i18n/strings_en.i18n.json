@@ -51,6 +51,7 @@
     },
     "addBookmark": {
       "addBookmark": "Add new bookmark",
+      "editBookmark": "Edit bookmark",
       "bookmarkUrl": "Bookmark URL",
       "bookmarkDetails": "Bookmark details",
       "validateUrl": "Validate URL",
@@ -71,6 +72,7 @@
       "addTag": "Add tag",
       "others": "Others",
       "savingBookmark": "Saving bookmark...",
+      "bookmarkSavedSuccessfully": "Bookmark saved successfully.",
       "errorSavingBookmark": "An error occured when saving the new bookmark.",
       "leaveEmptyUseWebsiteTitle": "Leave empty to use the website's title.",
       "leaveEmptyUseWebsiteDescription": "Leave empty to use the website's description."

@@ -58,6 +58,7 @@ class BookmarkCommonFunctions {
         unread: bookmark.unread == true ? false : true,
         tagNames: bookmark.tagNames?.join(",") ?? '',
         title: bookmark.title ?? '',
+        notes: bookmark.notes ?? '',
       ),
     );
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'add_bookmark.provider.dart';
+part of 'bookmark_form.provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -175,20 +175,20 @@ final getTagsProvider =
 );
 
 typedef GetTagsRef = AutoDisposeFutureProviderRef<ApiResponse<TagsResponse>>;
-String _$addBookmarkHash() => r'a350eee7aeed2fabae90966afadc609ee5eef895';
+String _$bookmarkFormHash() => r'e0a6612cb2a409f488614e3e91619f41055df61b';
 
-/// See also [AddBookmark].
-@ProviderFor(AddBookmark)
-final addBookmarkProvider =
-    AutoDisposeNotifierProvider<AddBookmark, AddBookmarkModel>.internal(
-  AddBookmark.new,
-  name: r'addBookmarkProvider',
+/// See also [BookmarkForm].
+@ProviderFor(BookmarkForm)
+final bookmarkFormProvider =
+    AutoDisposeNotifierProvider<BookmarkForm, BookmarkFormModel>.internal(
+  BookmarkForm.new,
+  name: r'bookmarkFormProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$addBookmarkHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$bookmarkFormHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$AddBookmark = AutoDisposeNotifier<AddBookmarkModel>;
+typedef _$BookmarkForm = AutoDisposeNotifier<BookmarkFormModel>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

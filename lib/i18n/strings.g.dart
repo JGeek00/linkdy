@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 290 (145 per locale)
+/// Strings: 294 (147 per locale)
 ///
-/// Built on 2024-02-27 at 00:35 UTC
+/// Built on 2024-02-27 at 14:35 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -315,6 +315,7 @@ class _StringsBookmarksAddBookmarkEn {
 
 	// Translations
 	String get addBookmark => 'Add new bookmark';
+	String get editBookmark => 'Edit bookmark';
 	String get bookmarkUrl => 'Bookmark URL';
 	String get bookmarkDetails => 'Bookmark details';
 	String get validateUrl => 'Validate URL';
@@ -335,6 +336,7 @@ class _StringsBookmarksAddBookmarkEn {
 	String get addTag => 'Add tag';
 	String get others => 'Others';
 	String get savingBookmark => 'Saving bookmark...';
+	String get bookmarkSavedSuccessfully => 'Bookmark saved successfully.';
 	String get errorSavingBookmark => 'An error occured when saving the new bookmark.';
 	String get leaveEmptyUseWebsiteTitle => 'Leave empty to use the website\'s title.';
 	String get leaveEmptyUseWebsiteDescription => 'Leave empty to use the website\'s description.';
@@ -646,6 +648,7 @@ class _StringsBookmarksAddBookmarkEs implements _StringsBookmarksAddBookmarkEn {
 
 	// Translations
 	@override String get addBookmark => 'Añadir nuevo marcador';
+	@override String get editBookmark => 'Editar marcador';
 	@override String get url => 'URL';
 	@override String get bookmarkUrl => 'URL del marcador';
 	@override String get bookmarkDetails => 'Detalles del marcador';
@@ -666,6 +669,7 @@ class _StringsBookmarksAddBookmarkEs implements _StringsBookmarksAddBookmarkEn {
 	@override String get addTag => 'Añadir etiqueta';
 	@override String get others => 'Otros';
 	@override String get savingBookmark => 'Guardando marcador...';
+	@override String get bookmarkSavedSuccessfully => 'Marcador guardado correctamente';
 	@override String get errorSavingBookmark => 'Ocurrió un error al guardar el nuevo marcador.';
 	@override String get leaveEmptyUseWebsiteTitle => 'Dejar vacío para usar el título del sitio web.';
 	@override String get leaveEmptyUseWebsiteDescription => 'Dejar vacío para usar la descripción del sitio web.';
@@ -836,6 +840,7 @@ extension on Translations {
 			case 'bookmarks.dates.todayAt': return ({required Object time}) => 'Today, ${time}';
 			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
 			case 'bookmarks.addBookmark.addBookmark': return 'Add new bookmark';
+			case 'bookmarks.addBookmark.editBookmark': return 'Edit bookmark';
 			case 'bookmarks.addBookmark.bookmarkUrl': return 'Bookmark URL';
 			case 'bookmarks.addBookmark.bookmarkDetails': return 'Bookmark details';
 			case 'bookmarks.addBookmark.validateUrl': return 'Validate URL';
@@ -856,6 +861,7 @@ extension on Translations {
 			case 'bookmarks.addBookmark.addTag': return 'Add tag';
 			case 'bookmarks.addBookmark.others': return 'Others';
 			case 'bookmarks.addBookmark.savingBookmark': return 'Saving bookmark...';
+			case 'bookmarks.addBookmark.bookmarkSavedSuccessfully': return 'Bookmark saved successfully.';
 			case 'bookmarks.addBookmark.errorSavingBookmark': return 'An error occured when saving the new bookmark.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Leave empty to use the website\'s title.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Leave empty to use the website\'s description.';
@@ -989,6 +995,7 @@ extension on _StringsEs {
 			case 'bookmarks.dates.todayAt': return ({required Object time}) => 'Hoy, ${time}';
 			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';
 			case 'bookmarks.addBookmark.addBookmark': return 'Añadir nuevo marcador';
+			case 'bookmarks.addBookmark.editBookmark': return 'Editar marcador';
 			case 'bookmarks.addBookmark.url': return 'URL';
 			case 'bookmarks.addBookmark.bookmarkUrl': return 'URL del marcador';
 			case 'bookmarks.addBookmark.bookmarkDetails': return 'Detalles del marcador';
@@ -1009,6 +1016,7 @@ extension on _StringsEs {
 			case 'bookmarks.addBookmark.addTag': return 'Añadir etiqueta';
 			case 'bookmarks.addBookmark.others': return 'Otros';
 			case 'bookmarks.addBookmark.savingBookmark': return 'Guardando marcador...';
+			case 'bookmarks.addBookmark.bookmarkSavedSuccessfully': return 'Marcador guardado correctamente';
 			case 'bookmarks.addBookmark.errorSavingBookmark': return 'Ocurrió un error al guardar el nuevo marcador.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Dejar vacío para usar el título del sitio web.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Dejar vacío para usar la descripción del sitio web.';

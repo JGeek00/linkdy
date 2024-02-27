@@ -6,6 +6,7 @@ class SetBookmarkData {
   final bool unread;
   final bool shared;
   final String tagNames;
+  final String notes;
 
   const SetBookmarkData({
     required this.url,
@@ -15,6 +16,7 @@ class SetBookmarkData {
     required this.unread,
     required this.shared,
     required this.tagNames,
+    required this.notes,
   });
 
   Map<String, dynamic> toJson() {
@@ -25,6 +27,7 @@ class SetBookmarkData {
       "is_archived": isArchived,
       "unread": unread,
       "shared": shared,
+      "notes": notes,
     };
     if (tagNames != "") {
       ret = {

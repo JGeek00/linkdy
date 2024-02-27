@@ -1,24 +1,42 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_autocomplete/easy_autocomplete.dart';
 
-import 'package:linkdy/screens/bookmarks/provider/add_bookmark.provider.dart';
+import 'package:linkdy/screens/bookmarks/provider/bookmark_form.provider.dart';
 import 'package:linkdy/widgets/section_label.dart';
 
+import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/constants/enums.dart';
 
-class AddBookmarkModal extends ConsumerWidget {
+class BookmarkFormModal extends ConsumerStatefulWidget {
   final bool fullscreen;
+  final Bookmark? bookmark;
 
-  const AddBookmarkModal({
+  const BookmarkFormModal({
     super.key,
     required this.fullscreen,
+    this.bookmark,
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  BookmarkFormModalState createState() => BookmarkFormModalState();
+}
+
+class BookmarkFormModalState extends ConsumerState<BookmarkFormModal> {
+  @override
+  void initState() {
+    if (widget.bookmark != null) {
+      ref.read(bookmarkFormProvider.notifier).initializeProvider(widget.bookmark!);
+    }
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return ScaffoldMessenger(
       key: ScaffoldMessengerKeys.addBookmark,
       child: Dialog.fullscreen(
@@ -35,11 +53,15 @@ class AddBookmarkModal extends ConsumerWidget {
                   leading: CloseButton(
                     onPressed: () => Navigator.pop(context),
                   ),
-                  title: Text(t.bookmarks.addBookmark.addBookmark),
+                  title: Text(
+                    widget.bookmark != null
+                        ? t.bookmarks.addBookmark.editBookmark
+                        : t.bookmarks.addBookmark.addBookmark,
+                  ),
                   actions: [
                     IconButton(
-                      onPressed: ref.watch(addBookmarkProvider).checkBookmark != null
-                          ? () => ref.read(addBookmarkProvider.notifier).addBookmark()
+                      onPressed: ref.watch(bookmarkFormProvider).checkBookmark != null
+                          ? () => ref.read(bookmarkFormProvider.notifier).saveBookmark()
                           : null,
                       icon: const Icon(Icons.save_rounded),
                       tooltip: t.generic.save,
@@ -59,9 +81,7 @@ class AddBookmarkModal extends ConsumerWidget {
                       handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                     ),
                     SliverList.list(
-                      children: const [
-                        _ModalContent(),
-                      ],
+                      children: const [_ModalContent()],
                     ),
                   ],
                 ),
@@ -79,9 +99,11 @@ class _ModalContent extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final provider = ref.watch(addBookmarkProvider);
+    final provider = ref.watch(bookmarkFormProvider);
 
     final tags = ref.watch(getTagsProvider);
+
+    final enabledFields = provider.checkBookmark != null;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,7 +121,7 @@ class _ModalContent extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: TextFormField(
             controller: provider.urlController,
-            onChanged: ref.read(addBookmarkProvider.notifier).validateUrl,
+            onChanged: ref.read(bookmarkFormProvider.notifier).validateUrl,
             enabled: provider.checkBookmarkLoadStatus != LoadStatus.loading,
             autocorrect: false,
             decoration: InputDecoration(
@@ -122,7 +144,7 @@ class _ModalContent extends ConsumerWidget {
               onPressed: provider.checkBookmarkLoadStatus == null &&
                       provider.urlError == null &&
                       provider.urlController.text != ""
-                  ? () => ref.read(addBookmarkProvider.notifier).checkUrlDetails()
+                  ? () => ref.read(bookmarkFormProvider.notifier).checkUrlDetails()
                   : null,
               style: ButtonStyle(
                 foregroundColor: provider.checkBookmarkLoadStatus == LoadStatus.loaded
@@ -189,7 +211,7 @@ class _ModalContent extends ConsumerWidget {
               floatingLabelBehavior:
                   provider.checkBookmark != null ? FloatingLabelBehavior.always : FloatingLabelBehavior.auto,
               helperText: t.bookmarks.addBookmark.leaveEmptyUseWebsiteTitle,
-              enabled: provider.checkBookmark != null,
+              enabled: enabledFields,
             ),
           ),
         ),
@@ -210,7 +232,7 @@ class _ModalContent extends ConsumerWidget {
               floatingLabelBehavior:
                   provider.checkBookmark != null ? FloatingLabelBehavior.always : FloatingLabelBehavior.auto,
               helperText: t.bookmarks.addBookmark.leaveEmptyUseWebsiteDescription,
-              enabled: provider.checkBookmark != null,
+              enabled: enabledFields,
             ),
           ),
         ),
@@ -226,13 +248,13 @@ class _ModalContent extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
-                if (provider.checkBookmark != null)
+                if (enabledFields == true)
                   Row(
                     children: [
                       Expanded(
                         child: EasyAutocomplete(
                           controller: provider.tagsController,
-                          onChanged: ref.read(addBookmarkProvider.notifier).validateTagInput,
+                          onChanged: ref.read(bookmarkFormProvider.notifier).validateTagInput,
                           suggestions: tags.value?.content?.results?.map((t) => t.name!).toList() ?? [],
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(
@@ -252,8 +274,8 @@ class _ModalContent extends ConsumerWidget {
                           ),
                           onSubmitted: provider.tagsController.text != "" && provider.tagsError == null
                               ? (v) {
-                                  ref.read(addBookmarkProvider.notifier).setTags([...provider.tags, v]);
-                                  ref.read(addBookmarkProvider.notifier).clearTagsController();
+                                  ref.read(bookmarkFormProvider.notifier).setTags([...provider.tags, v]);
+                                  ref.read(bookmarkFormProvider.notifier).clearTagsController();
                                 }
                               : null,
                         ),
@@ -263,9 +285,9 @@ class _ModalContent extends ConsumerWidget {
                         onPressed: provider.tagsController.text != "" && provider.tagsError == null
                             ? () {
                                 ref
-                                    .read(addBookmarkProvider.notifier)
+                                    .read(bookmarkFormProvider.notifier)
                                     .setTags([...provider.tags, provider.tagsController.text]);
-                                ref.read(addBookmarkProvider.notifier).clearTagsController();
+                                ref.read(bookmarkFormProvider.notifier).clearTagsController();
                               }
                             : null,
                         icon: const Icon(Icons.check_rounded),
@@ -273,7 +295,7 @@ class _ModalContent extends ConsumerWidget {
                       ),
                     ],
                   ),
-                if (provider.checkBookmark != null) const SizedBox(height: 16),
+                if (enabledFields == true) const SizedBox(height: 16),
                 SizedBox(
                   height: 40,
                   child: provider.tags.isNotEmpty
@@ -284,7 +306,7 @@ class _ModalContent extends ConsumerWidget {
                           itemBuilder: (context, index) => InputChip(
                             label: Text(provider.tags[index]),
                             onDeleted: () => ref
-                                .read(addBookmarkProvider.notifier)
+                                .read(bookmarkFormProvider.notifier)
                                 .setTags(provider.tags.where((tag) => tag != provider.tags[index]).toList()),
                           ),
                         )
@@ -329,7 +351,7 @@ class _ModalContent extends ConsumerWidget {
               minLines: null,
               maxLines: null,
               textAlignVertical: TextAlignVertical.top,
-              enabled: provider.checkBookmark != null,
+              enabled: enabledFields,
             ),
           ),
         ),
@@ -339,11 +361,34 @@ class _ModalContent extends ConsumerWidget {
           title: Text(t.bookmarks.addBookmark.markAsUnread),
           value: provider.markAsUnread,
           onChanged: provider.checkBookmark != null
-              ? (v) => ref.read(addBookmarkProvider.notifier).updateMarkAsUnread(v)
+              ? (v) => ref.read(bookmarkFormProvider.notifier).updateMarkAsUnread(v)
               : null,
         ),
         const SizedBox(height: 16),
       ],
     );
   }
+}
+
+void openBookmarkFormModal({
+  required BuildContext context,
+  required double width,
+  Bookmark? bookmark,
+}) {
+  showGeneralDialog(
+    context: context,
+    barrierColor: !(width > 700 || !(Platform.isAndroid || Platform.isIOS)) ? Colors.transparent : Colors.black54,
+    transitionBuilder: (context, anim1, anim2, child) {
+      return SlideTransition(
+        position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0)).animate(
+          CurvedAnimation(parent: anim1, curve: Curves.easeInOutCubicEmphasized),
+        ),
+        child: child,
+      );
+    },
+    pageBuilder: (context, animation, secondaryAnimation) => BookmarkFormModal(
+      fullscreen: width <= 700,
+      bookmark: bookmark,
+    ),
+  );
 }

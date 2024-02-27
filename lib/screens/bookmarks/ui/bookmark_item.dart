@@ -21,14 +21,16 @@ class BookmarkItem extends ConsumerWidget {
   final void Function(Bookmark bookmark) onDelete;
   final void Function(Bookmark bookmark) onReadUnread;
   final void Function(Bookmark bookmark) onArchiveUnarchive;
+  final void Function(Bookmark bookmark) onEdit;
 
   const BookmarkItem({
-    Key? key,
+    super.key,
     required this.bookmark,
     required this.onDelete,
     required this.onReadUnread,
     required this.onArchiveUnarchive,
-  }) : super(key: key);
+    required this.onEdit,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -77,7 +79,7 @@ class BookmarkItem extends ConsumerWidget {
         extentRatio: 0.5,
         children: [
           SlidableAction(
-            onPressed: (ctx) => {},
+            onPressed: (ctx) => onEdit(bookmark),
             backgroundColor: Colors.green,
             label: t.bookmarks.bookmarkOptions.edit,
             icon: Icons.edit_rounded,

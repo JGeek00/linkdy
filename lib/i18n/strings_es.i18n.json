@@ -51,6 +51,7 @@
     },
     "addBookmark": {
       "addBookmark": "Añadir nuevo marcador",
+      "editBookmark": "Editar marcador",
       "url": "URL",
       "bookmarkUrl": "URL del marcador",
       "bookmarkDetails": "Detalles del marcador",
@@ -71,6 +72,7 @@
       "addTag": "Añadir etiqueta",
       "others": "Otros",
       "savingBookmark": "Guardando marcador...",
+      "bookmarkSavedSuccessfully": "Marcador guardado correctamente",
       "errorSavingBookmark": "Ocurrió un error al guardar el nuevo marcador.",
       "leaveEmptyUseWebsiteTitle": "Dejar vacío para usar el título del sitio web.",
       "leaveEmptyUseWebsiteDescription": "Dejar vacío para usar la descripción del sitio web."

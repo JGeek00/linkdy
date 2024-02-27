@@ -6,12 +6,13 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
-import 'package:linkdy/screens/bookmarks/ui/add_bookmark_modal.dart';
+import 'package:linkdy/screens/bookmarks/ui/bookmark_form_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/search_bookmarks.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
+import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/i18n/strings.g.dart';
@@ -24,22 +25,6 @@ class BookmarksScreen extends ConsumerWidget {
     final bookmarks = ref.watch(bookmarksProvider);
 
     final width = MediaQuery.of(context).size.width;
-
-    void openAddModal() {
-      showGeneralDialog(
-        context: context,
-        barrierColor: !(width > 700 || !(Platform.isAndroid || Platform.isIOS)) ? Colors.transparent : Colors.black54,
-        transitionBuilder: (context, anim1, anim2, child) {
-          return SlideTransition(
-            position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0)).animate(
-              CurvedAnimation(parent: anim1, curve: Curves.easeInOutCubicEmphasized),
-            ),
-            child: child,
-          );
-        },
-        pageBuilder: (context, animation, secondaryAnimation) => AddBookmarkModal(fullscreen: width <= 700),
-      );
-    }
 
     void openSearchModal() {
       showGeneralDialog(
@@ -150,6 +135,7 @@ class BookmarksScreen extends ConsumerWidget {
                                   ),
                                 ),
                                 onArchiveUnarchive: ref.read(bookmarksProvider.notifier).archiveUnarchive,
+                                onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
                               );
                             },
                           ),
@@ -162,7 +148,7 @@ class BookmarksScreen extends ConsumerWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: openAddModal,
+          onPressed: () => openBookmarkFormModal(context: context, width: width),
           child: const Icon(Icons.add_rounded),
         ),
       ),

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/search_bookmarks.provider.dart';
+import 'package:linkdy/screens/bookmarks/ui/bookmark_form_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
 import 'package:linkdy/widgets/enter_search_term_screen.dart';
@@ -26,6 +27,8 @@ class SearchBookmarksModal extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final provider = ref.watch(searchBookmarksProvider);
+
+    final width = MediaQuery.of(context).size.width;
 
     bool scrollListener(ScrollUpdateNotification scrollNotification) {
       if (scrollNotification.metrics.extentAfter < 100 &&
@@ -135,6 +138,7 @@ class SearchBookmarksModal extends ConsumerWidget {
                           ),
                         ),
                         onArchiveUnarchive: ref.read(searchBookmarksProvider.notifier).archiveUnarchive,
+                        onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
                       );
                     },
                   ),

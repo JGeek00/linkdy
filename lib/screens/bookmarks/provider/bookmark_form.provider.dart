@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:linkdy/constants/global_keys.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
-import 'package:linkdy/screens/bookmarks/model/add_link.model.dart';
+import 'package:linkdy/screens/bookmarks/model/bookmark_form.model.dart';
 
+import 'package:linkdy/constants/global_keys.dart';
+import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/utils/snackbar.dart';
 import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/i18n/strings.g.dart';
@@ -17,7 +18,7 @@ import 'package:linkdy/models/api_response.dart';
 import 'package:linkdy/models/data/check_bookmark.dart';
 import 'package:linkdy/providers/api_client.provider.dart';
 
-part 'add_bookmark.provider.g.dart';
+part 'bookmark_form.provider.g.dart';
 
 @riverpod
 Future<ApiResponse<CheckBookmark>> checkBookmark(CheckBookmarkRef ref, String url) async {
@@ -32,10 +33,10 @@ FutureOr<ApiResponse<TagsResponse>> getTags(GetTagsRef ref) async {
 }
 
 @riverpod
-class AddBookmark extends _$AddBookmark {
+class BookmarkForm extends _$BookmarkForm {
   @override
-  AddBookmarkModel build() {
-    return AddBookmarkModel(
+  BookmarkFormModel build() {
+    return BookmarkFormModel(
       urlController: TextEditingController(),
       titleController: TextEditingController(),
       descriptionController: TextEditingController(),
@@ -43,6 +44,25 @@ class AddBookmark extends _$AddBookmark {
       tags: [],
       notesController: TextEditingController(),
     );
+  }
+
+  void initializeProvider(Bookmark bookmark) {
+    state.editBookmarkId = bookmark.id;
+    state.checkBookmark = CheckBookmark(
+      bookmark: bookmark,
+      metadata: Metadata(
+        url: bookmark.url,
+        description: bookmark.websiteDescription,
+        title: bookmark.websiteTitle,
+      ),
+    );
+    state.checkBookmarkLoadStatus = LoadStatus.loaded;
+    state.urlController.text = bookmark.url ?? '';
+    state.titleController.text = bookmark.title ?? '';
+    state.descriptionController.text = bookmark.description ?? '';
+    state.tags = bookmark.tagNames ?? [];
+    state.notesController.text = bookmark.notes ?? '';
+    state.markAsUnread = bookmark.unread ?? false;
   }
 
   void validateUrl(String value) {
@@ -78,7 +98,7 @@ class AddBookmark extends _$AddBookmark {
     ref.notifyListeners();
   }
 
-  void addBookmark() async {
+  void saveBookmark() async {
     final newBookmark = SetBookmarkData(
       url: state.urlController.text,
       title: state.titleController.text != "" ? state.titleController.text : state.checkBookmark?.metadata?.title ?? '',
@@ -89,18 +109,26 @@ class AddBookmark extends _$AddBookmark {
       unread: state.markAsUnread,
       shared: false,
       tagNames: state.tags.join(","),
+      notes: state.notesController.text,
     );
 
     final processModal = ProcessModal();
     processModal.open(t.bookmarks.addBookmark.savingBookmark);
 
-    final result = await ref.watch(apiClientProvider)!.postBookmark(newBookmark);
+    final result = state.editBookmarkId != null
+        ? await ref.watch(apiClientProvider)!.putUpdateBookmark(state.editBookmarkId!, newBookmark)
+        : await ref.watch(apiClientProvider)!.postBookmark(newBookmark);
 
     processModal.close();
 
     if (result.successful == true) {
       ref.read(bookmarksProvider.notifier).refresh();
       ref.watch(routerProvider).pop();
+      showSnackbar(
+        key: ScaffoldMessengerKeys.bookmarks,
+        label: t.bookmarks.addBookmark.bookmarkSavedSuccessfully,
+        color: Colors.green,
+      );
     } else {
       showSnackbar(
         key: ScaffoldMessengerKeys.addBookmark,

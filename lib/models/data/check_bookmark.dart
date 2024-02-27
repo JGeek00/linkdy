@@ -1,5 +1,7 @@
+import 'package:linkdy/models/data/bookmarks.dart';
+
 class CheckBookmark {
-  final dynamic bookmark;
+  final Bookmark? bookmark;
   final Metadata? metadata;
 
   CheckBookmark({
@@ -8,12 +10,12 @@ class CheckBookmark {
   });
 
   factory CheckBookmark.fromJson(Map<String, dynamic> json) => CheckBookmark(
-        bookmark: json["bookmark"],
+        bookmark: json["bookmark"] != null ? Bookmark.fromJson(json["bookmark"]) : null,
         metadata: json["metadata"] == null ? null : Metadata.fromJson(json["metadata"]),
       );
 
   Map<String, dynamic> toJson() => {
-        "bookmark": bookmark,
+        "bookmark": bookmark?.toJson(),
         "metadata": metadata?.toJson(),
       };
 }
