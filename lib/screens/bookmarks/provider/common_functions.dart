@@ -13,6 +13,7 @@ class BookmarkCommonFunctions {
     required AutoDisposeNotifierProviderRef<T> ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
+    GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey,
   }) async {
     final processModal = ProcessModal();
     processModal.open(t.bookmarks.bookmarkOptions.deletingBookmark);
@@ -21,13 +22,17 @@ class BookmarkCommonFunctions {
 
     processModal.close();
     if (result.successful == true) {
-      ref
-          .read(snackbarProvider.notifier)
-          .showSnacbkar(label: t.bookmarks.bookmarkOptions.bookmarkDeleted, color: Colors.green);
+      ref.read(snackbarProvider.notifier).showSnacbkar(
+            key: scaffoldMessengerKey,
+            label: t.bookmarks.bookmarkOptions.bookmarkDeleted,
+            color: Colors.green,
+          );
     } else {
-      ref
-          .read(snackbarProvider.notifier)
-          .showSnacbkar(label: t.bookmarks.bookmarkOptions.bookmarkNotDeleted, color: Colors.red);
+      ref.read(snackbarProvider.notifier).showSnacbkar(
+            key: scaffoldMessengerKey,
+            label: t.bookmarks.bookmarkOptions.bookmarkNotDeleted,
+            color: Colors.red,
+          );
     }
     return result.successful;
   }
@@ -36,6 +41,7 @@ class BookmarkCommonFunctions {
     required AutoDisposeNotifierProviderRef<T> ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
+    GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey,
   }) async {
     final processModal = ProcessModal();
     processModal.open(
@@ -58,6 +64,7 @@ class BookmarkCommonFunctions {
     processModal.close();
     if (result.successful == true) {
       ref.read(snackbarProvider.notifier).showSnacbkar(
+            key: scaffoldMessengerKey,
             label: bookmark.unread == true
                 ? t.bookmarks.bookmarkOptions.markedAsReadSuccessfully
                 : t.bookmarks.bookmarkOptions.markedAsUnreadSuccessfully,
@@ -66,6 +73,7 @@ class BookmarkCommonFunctions {
       return result.content;
     } else {
       ref.read(snackbarProvider.notifier).showSnacbkar(
+            key: scaffoldMessengerKey,
             label: bookmark.unread == true
                 ? t.bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead
                 : t.bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread,
@@ -79,6 +87,7 @@ class BookmarkCommonFunctions {
     required AutoDisposeNotifierProviderRef<T> ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
+    GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey,
   }) async {
     final processModal = ProcessModal();
     processModal.open(
@@ -94,6 +103,7 @@ class BookmarkCommonFunctions {
     processModal.close();
     if (result.successful == true) {
       ref.read(snackbarProvider.notifier).showSnacbkar(
+            key: scaffoldMessengerKey,
             label: bookmark.isArchived == true
                 ? t.bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully
                 : t.bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully,
@@ -101,6 +111,7 @@ class BookmarkCommonFunctions {
           );
     } else {
       ref.read(snackbarProvider.notifier).showSnacbkar(
+            key: scaffoldMessengerKey,
             label: bookmark.isArchived == true
                 ? t.bookmarks.bookmarkOptions.bookmarkNotUnrchived
                 : t.bookmarks.bookmarkOptions.bookmarkNotArchived,

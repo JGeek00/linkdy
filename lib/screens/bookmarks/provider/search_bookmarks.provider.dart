@@ -6,6 +6,7 @@ import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
 import 'package:linkdy/screens/bookmarks/model/search_bookmarks.model.dart';
 
+import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/providers/api_client.provider.dart';
@@ -103,6 +104,7 @@ class SearchBookmarks extends _$SearchBookmarks {
       ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
+      scaffoldMessengerKey: searchScaffoldMessengerKey,
     );
     if (result == true) {
       state.bookmarks = state.bookmarks.where((b) => b.id != bookmark.id).toList();
@@ -118,6 +120,7 @@ class SearchBookmarks extends _$SearchBookmarks {
       ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
+      scaffoldMessengerKey: searchScaffoldMessengerKey,
     );
     if (result != null) {
       state.bookmarks = state.bookmarks.map((b) => b.id == result.id ? result : b).toList();
@@ -133,6 +136,7 @@ class SearchBookmarks extends _$SearchBookmarks {
       ref: ref,
       bookmark: bookmark,
       apiClient: ref.read(apiClientProvider)!,
+      scaffoldMessengerKey: searchScaffoldMessengerKey,
     );
     if (result == true) {
       // On this case the bookmark always will pass from unarchived to archived
