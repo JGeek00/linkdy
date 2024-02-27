@@ -130,6 +130,7 @@ FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
     ipDomain: ref.watch(connectProvider).ipDomainController.text,
     token: ref.watch(connectProvider).tokenController.text,
     path: ref.watch(connectProvider).pathController.text,
+    port: int.tryParse(ref.watch(connectProvider).portController.text),
   );
 
   final apiClient = ApiClientService(
