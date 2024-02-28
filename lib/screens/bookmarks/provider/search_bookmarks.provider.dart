@@ -107,7 +107,7 @@ class SearchBookmarks extends _$SearchBookmarks {
   void selectBookmark(Bookmark bookmark, double width) {
     if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == true) {
       ref.watch(routerProvider).push(RoutesPaths.webview, extra: bookmark);
-    } else if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == true) {
+    } else if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == false) {
       openUrl(bookmark.url!);
     }
     state.selectedBookmark = bookmark;
