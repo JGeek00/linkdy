@@ -69,6 +69,50 @@ class ApiClientService {
     }
   }
 
+  Future<ApiResponse<BookmarksResponse>> fetchArchivedBookmarks({String? q, int? limit, int? offset}) async {
+    try {
+      final response = await dioInstance.get(
+        "/bookmarks/archived/",
+        queryParameters: {
+          "q": q,
+          "limit": limit,
+          "offset": offset,
+        },
+      );
+      return ApiResponse(
+        successful: true,
+        content: BookmarksResponse.fromJson(response.data),
+      );
+    } on DioException {
+      return const ApiResponse(successful: false);
+    } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    }
+  }
+
+  Future<ApiResponse<BookmarksResponse>> fetchSharedBookmarks({String? q, int? limit, int? offset}) async {
+    try {
+      final response = await dioInstance.get(
+        "/bookmarks/shared/",
+        queryParameters: {
+          "q": q,
+          "limit": limit,
+          "offset": offset,
+        },
+      );
+      return ApiResponse(
+        successful: true,
+        content: BookmarksResponse.fromJson(response.data),
+      );
+    } on DioException {
+      return const ApiResponse(successful: false);
+    } catch (e, stackTrace) {
+      Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    }
+  }
+
   Future<ApiResponse<CheckBookmark>> fetchCheckAddBookmark({required String url}) async {
     try {
       final response = await dioInstance.get(

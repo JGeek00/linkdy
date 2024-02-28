@@ -145,7 +145,7 @@ class BookmarkCommonFunctions {
     if (result.successful == true) {
       showSnackbar(
         key: scaffoldMessengerKey,
-        label: bookmark.isArchived == true
+        label: bookmark.shared == true
             ? t.bookmarks.shareOptions.bookmarkUnsharedSuccessfully
             : t.bookmarks.shareOptions.bookmarkSharedSuccessfully,
         color: Colors.green,
@@ -154,7 +154,7 @@ class BookmarkCommonFunctions {
     } else {
       showSnackbar(
         key: scaffoldMessengerKey,
-        label: bookmark.isArchived == true
+        label: bookmark.shared == true
             ? t.bookmarks.shareOptions.bookmarkNotUnshared
             : t.bookmarks.shareOptions.bookmarkNotShared,
         color: Colors.red,

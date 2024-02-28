@@ -12,6 +12,8 @@ import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
 import 'package:linkdy/constants/enums.dart';
+import 'package:linkdy/providers/router.provider.dart';
+import 'package:linkdy/router/paths.dart';
 import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 
@@ -67,6 +69,30 @@ class BookmarksScreen extends ConsumerWidget {
                     onPressed: openSearchModal,
                     icon: const Icon(Icons.search_rounded),
                     tooltip: t.bookmarks.search.searchBookmarks,
+                  ),
+                  PopupMenuButton(
+                    itemBuilder: (context) => [
+                      PopupMenuItem(
+                        onTap: () => ref.read(routerProvider).push(RoutesPaths.archivedBookmarks),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.archive_rounded),
+                            const SizedBox(width: 16),
+                            Text(t.bookmarks.archived),
+                          ],
+                        ),
+                      ),
+                      PopupMenuItem(
+                        onTap: () => ref.read(routerProvider).push(RoutesPaths.sharedBookmarks),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.share_rounded),
+                            const SizedBox(width: 16),
+                            Text(t.bookmarks.shared),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(width: 8),
                 ],

@@ -49,6 +49,8 @@
       "todayAt": "Hoy, $time",
       "yesterdayAt": "Ayer, $time"
     },
+    "shared": "Compartidos",
+    "archived": "Archivados",
     "addBookmark": {
       "addBookmark": "Añadir nuevo marcador",
       "editBookmark": "Editar marcador",
@@ -89,9 +91,10 @@
       "delete": "Eliminar",
       "unread": "No leído",
       "read": "Leído",
-      "share": "Compartir",
+      "shareOptions": "Opciones de compartir",
       "shared": "Compartido",
       "archive": "Archivar",
+      "unarchive": "Desarchivar",
       "deletingBookmark": "Eliminando marcador...",
       "bookmarkDeleted": "Marcador eliminado correctamente",
       "bookmarkNotDeleted": "El marcador no se ha podido eliminar debido a un error.",
@@ -135,8 +138,10 @@
       "creatingTag": "Creando etiqueta...",
       "errorCreatingTag": "Ocurrió un error al crear la etiqueta."
     },
-    "tagBookmarks": {
-      "noBookmarksWithThisTag": "No hay marcadores con esta etiqueta"
+    "filteredBookmarks": {
+      "noBookmarksWithThisTag": "No hay marcadores con esta etiqueta",
+      "noArchivedBookmarks": "No hay marcadores archivados",
+      "noSharedBookmarks": "No hay marcadores compartidos"
     }
   },
   "settings": {

@@ -7,6 +7,6 @@ class ScaffoldMessengerKeys {
   static final search = GlobalKey<ScaffoldMessengerState>();
   static final tags = GlobalKey<ScaffoldMessengerState>();
   static final addBookmark = GlobalKey<ScaffoldMessengerState>();
-  static final tagBookmarks = GlobalKey<ScaffoldMessengerState>();
+  static final filteredBookmarks = GlobalKey<ScaffoldMessengerState>();
   static final webview = GlobalKey<ScaffoldMessengerState>();
 }

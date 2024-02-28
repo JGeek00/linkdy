@@ -3,7 +3,8 @@ import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/models/data/tags.dart';
 
-class TagBookmarksModel {
+class FilteredBookmarksModel {
+  FilteredBookmarksMode filteredBookmarksMode;
   String? tagId;
   Tag? tag;
   int currentPage;
@@ -13,7 +14,8 @@ class TagBookmarksModel {
   int maxNumber;
   bool loadingMore;
 
-  TagBookmarksModel({
+  FilteredBookmarksModel({
+    this.filteredBookmarksMode = FilteredBookmarksMode.shared,
     this.tagId,
     this.tag,
     this.currentPage = 0,

@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'tag_bookmarks.provider.dart';
+part of 'filtered_bookmarks.provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
 String _$tagBookmarksRequestHash() =>
-    r'9a4d4582b680da41069054429315f85976378524';
+    r'abcde0e4ef3aecf21708a24573ddd4279211e288';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -190,7 +190,7 @@ class _TagBookmarksRequestProviderElement
 }
 
 String _$tagBookmarksRequestLoadMoreHash() =>
-    r'ce7c52c446c2d4b8593fd06e818b3499bdc36a39';
+    r'36205474b3c1d3f18f31af56cc97c700f328a4bc';
 
 /// See also [tagBookmarksRequestLoadMore].
 @ProviderFor(tagBookmarksRequestLoadMore)
@@ -206,20 +206,187 @@ final tagBookmarksRequestLoadMoreProvider =
 );
 
 typedef TagBookmarksRequestLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$tagBookmarksHash() => r'35a9ed7751c2d7e9644907f969fb03950b7b9a04';
+String _$filteredBookmarksRequestHash() =>
+    r'f5352c5076d8bf2ed0cf738bdc0c0cffc9d18a25';
 
-/// See also [TagBookmarks].
-@ProviderFor(TagBookmarks)
-final tagBookmarksProvider =
-    AutoDisposeNotifierProvider<TagBookmarks, TagBookmarksModel>.internal(
-  TagBookmarks.new,
-  name: r'tagBookmarksProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$tagBookmarksHash,
+/// See also [filteredBookmarksRequest].
+@ProviderFor(filteredBookmarksRequest)
+const filteredBookmarksRequestProvider = FilteredBookmarksRequestFamily();
+
+/// See also [filteredBookmarksRequest].
+class FilteredBookmarksRequestFamily extends Family<AsyncValue<void>> {
+  /// See also [filteredBookmarksRequest].
+  const FilteredBookmarksRequestFamily();
+
+  /// See also [filteredBookmarksRequest].
+  FilteredBookmarksRequestProvider call(
+    FilteredBookmarksMode mode,
+    int limit,
+  ) {
+    return FilteredBookmarksRequestProvider(
+      mode,
+      limit,
+    );
+  }
+
+  @override
+  FilteredBookmarksRequestProvider getProviderOverride(
+    covariant FilteredBookmarksRequestProvider provider,
+  ) {
+    return call(
+      provider.mode,
+      provider.limit,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'filteredBookmarksRequestProvider';
+}
+
+/// See also [filteredBookmarksRequest].
+class FilteredBookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
+  /// See also [filteredBookmarksRequest].
+  FilteredBookmarksRequestProvider(
+    FilteredBookmarksMode mode,
+    int limit,
+  ) : this._internal(
+          (ref) => filteredBookmarksRequest(
+            ref as FilteredBookmarksRequestRef,
+            mode,
+            limit,
+          ),
+          from: filteredBookmarksRequestProvider,
+          name: r'filteredBookmarksRequestProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$filteredBookmarksRequestHash,
+          dependencies: FilteredBookmarksRequestFamily._dependencies,
+          allTransitiveDependencies:
+              FilteredBookmarksRequestFamily._allTransitiveDependencies,
+          mode: mode,
+          limit: limit,
+        );
+
+  FilteredBookmarksRequestProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.mode,
+    required this.limit,
+  }) : super.internal();
+
+  final FilteredBookmarksMode mode;
+  final int limit;
+
+  @override
+  Override overrideWith(
+    FutureOr<void> Function(FilteredBookmarksRequestRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FilteredBookmarksRequestProvider._internal(
+        (ref) => create(ref as FilteredBookmarksRequestRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        mode: mode,
+        limit: limit,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<void> createElement() {
+    return _FilteredBookmarksRequestProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FilteredBookmarksRequestProvider &&
+        other.mode == mode &&
+        other.limit == limit;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, mode.hashCode);
+    hash = _SystemHash.combine(hash, limit.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FilteredBookmarksRequestRef on AutoDisposeFutureProviderRef<void> {
+  /// The parameter `mode` of this provider.
+  FilteredBookmarksMode get mode;
+
+  /// The parameter `limit` of this provider.
+  int get limit;
+}
+
+class _FilteredBookmarksRequestProviderElement
+    extends AutoDisposeFutureProviderElement<void>
+    with FilteredBookmarksRequestRef {
+  _FilteredBookmarksRequestProviderElement(super.provider);
+
+  @override
+  FilteredBookmarksMode get mode =>
+      (origin as FilteredBookmarksRequestProvider).mode;
+  @override
+  int get limit => (origin as FilteredBookmarksRequestProvider).limit;
+}
+
+String _$filteredBookmarksRequestLoadMoreHash() =>
+    r'a40280a01fcfa3892c76287a5e67e5ab9cc00cd5';
+
+/// See also [filteredBookmarksRequestLoadMore].
+@ProviderFor(filteredBookmarksRequestLoadMore)
+final filteredBookmarksRequestLoadMoreProvider =
+    AutoDisposeFutureProvider<void>.internal(
+  filteredBookmarksRequestLoadMore,
+  name: r'filteredBookmarksRequestLoadMoreProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$filteredBookmarksRequestLoadMoreHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$TagBookmarks = AutoDisposeNotifier<TagBookmarksModel>;
+typedef FilteredBookmarksRequestLoadMoreRef
+    = AutoDisposeFutureProviderRef<void>;
+String _$filteredBookmarksHash() => r'acb051c3b3e53c084c8c33d6ec1e80a1aa2a10f7';
+
+/// See also [FilteredBookmarks].
+@ProviderFor(FilteredBookmarks)
+final filteredBookmarksProvider = AutoDisposeNotifierProvider<FilteredBookmarks,
+    FilteredBookmarksModel>.internal(
+  FilteredBookmarks.new,
+  name: r'filteredBookmarksProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$filteredBookmarksHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$FilteredBookmarks = AutoDisposeNotifier<FilteredBookmarksModel>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

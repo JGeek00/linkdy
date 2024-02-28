@@ -63,8 +63,10 @@ class BookmarkItem extends ConsumerWidget {
           SlidableAction(
             onPressed: (ctx) => onArchiveUnarchive(bookmark),
             backgroundColor: Colors.grey,
-            label: t.bookmarks.bookmarkOptions.archive,
-            icon: Icons.archive_rounded,
+            label: bookmark.isArchived == true
+                ? t.bookmarks.bookmarkOptions.unarchive
+                : t.bookmarks.bookmarkOptions.archive,
+            icon: bookmark.isArchived == true ? Icons.unarchive_rounded : Icons.archive_rounded,
             padding: const EdgeInsets.all(4),
           ),
           SlidableAction(
@@ -73,7 +75,7 @@ class BookmarkItem extends ConsumerWidget {
               builder: (ctx) => ShareOptionsModal(bookmark: bookmark, onShareInternally: onShareInternally),
             ),
             backgroundColor: Colors.orange,
-            label: t.bookmarks.bookmarkOptions.share,
+            label: t.bookmarks.bookmarkOptions.shareOptions,
             icon: Icons.share_rounded,
             padding: const EdgeInsets.all(4),
           ),

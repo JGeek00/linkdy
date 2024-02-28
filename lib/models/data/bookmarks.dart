@@ -88,4 +88,35 @@ class Bookmark {
         "date_added": dateAdded?.toIso8601String(),
         "date_modified": dateModified?.toIso8601String(),
       };
+
+  Bookmark copyWith({
+    int? id,
+    String? url,
+    String? title,
+    String? description,
+    String? notes,
+    String? websiteTitle,
+    String? websiteDescription,
+    bool? isArchived,
+    bool? unread,
+    bool? shared,
+    List<String>? tagNames,
+    DateTime? dateAdded,
+    DateTime? dateModified,
+  }) =>
+      Bookmark(
+        id: id ?? this.id,
+        url: url ?? this.url,
+        title: title ?? this.title,
+        description: description ?? this.description,
+        notes: notes ?? this.notes,
+        websiteTitle: websiteTitle ?? this.websiteTitle,
+        websiteDescription: websiteDescription ?? this.websiteDescription,
+        isArchived: isArchived ?? this.isArchived,
+        unread: unread ?? this.unread,
+        shared: shared ?? this.shared,
+        tagNames: tagNames ?? this.tagNames,
+        dateAdded: dateAdded ?? this.dateAdded,
+        dateModified: dateModified ?? this.dateModified,
+      );
 }

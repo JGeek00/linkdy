@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 322 (161 per locale)
+/// Strings: 332 (166 per locale)
 ///
-/// Built on 2024-02-27 at 17:13 UTC
+/// Built on 2024-02-28 at 00:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -224,6 +224,8 @@ class _StringsBookmarksEn {
 	String get noBookmarksAdded => 'No bookmarks added';
 	String get cannotLoadBookmarks => 'Cannot load the bookmarks';
 	late final _StringsBookmarksDatesEn dates = _StringsBookmarksDatesEn._(_root);
+	String get shared => 'Shared';
+	String get archived => 'Archived';
 	late final _StringsBookmarksAddBookmarkEn addBookmark = _StringsBookmarksAddBookmarkEn._(_root);
 	late final _StringsBookmarksSearchEn search = _StringsBookmarksSearchEn._(_root);
 	late final _StringsBookmarksBookmarkOptionsEn bookmarkOptions = _StringsBookmarksBookmarkOptionsEn._(_root);
@@ -240,7 +242,7 @@ class _StringsTagsEn {
 	String get tags => 'Tags';
 	String created({required Object created}) => 'Created: ${created}';
 	late final _StringsTagsCreateTagEn createTag = _StringsTagsCreateTagEn._(_root);
-	late final _StringsTagsTagBookmarksEn tagBookmarks = _StringsTagsTagBookmarksEn._(_root);
+	late final _StringsTagsFilteredBookmarksEn filteredBookmarks = _StringsTagsFilteredBookmarksEn._(_root);
 }
 
 // Path: settings
@@ -368,9 +370,10 @@ class _StringsBookmarksBookmarkOptionsEn {
 	String get delete => 'Delete';
 	String get unread => 'Unread';
 	String get read => 'Read';
-	String get share => 'Share';
+	String get shareOptions => 'Share options';
 	String get shared => 'Shared';
 	String get archive => 'Archive';
+	String get unarchive => 'Unarchive';
 	String get deletingBookmark => 'Deleting bookmark...';
 	String get bookmarkDeleted => 'Bookmark deleted successfully';
 	String get bookmarkNotDeleted => 'The bookmark couldn\'t be deleted due to an error.';
@@ -425,14 +428,16 @@ class _StringsTagsCreateTagEn {
 	String get errorCreatingTag => 'An error occured when creating the tag.';
 }
 
-// Path: tags.tagBookmarks
-class _StringsTagsTagBookmarksEn {
-	_StringsTagsTagBookmarksEn._(this._root);
+// Path: tags.filteredBookmarks
+class _StringsTagsFilteredBookmarksEn {
+	_StringsTagsFilteredBookmarksEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
 	String get noBookmarksWithThisTag => 'There are no bookmarks with this tag';
+	String get noArchivedBookmarks => 'There are no archived bookmarks';
+	String get noSharedBookmarks => 'There are no shared bookmarks';
 }
 
 // Path: settings.customization
@@ -581,6 +586,8 @@ class _StringsBookmarksEs implements _StringsBookmarksEn {
 	@override String get noBookmarksAdded => 'No hay marcadores añadidos';
 	@override String get cannotLoadBookmarks => 'No se pueden cargar los marcadores';
 	@override late final _StringsBookmarksDatesEs dates = _StringsBookmarksDatesEs._(_root);
+	@override String get shared => 'Compartidos';
+	@override String get archived => 'Archivados';
 	@override late final _StringsBookmarksAddBookmarkEs addBookmark = _StringsBookmarksAddBookmarkEs._(_root);
 	@override late final _StringsBookmarksSearchEs search = _StringsBookmarksSearchEs._(_root);
 	@override late final _StringsBookmarksBookmarkOptionsEs bookmarkOptions = _StringsBookmarksBookmarkOptionsEs._(_root);
@@ -597,7 +604,7 @@ class _StringsTagsEs implements _StringsTagsEn {
 	@override String get tags => 'Etiquetas';
 	@override String created({required Object created}) => 'Creado: ${created}';
 	@override late final _StringsTagsCreateTagEs createTag = _StringsTagsCreateTagEs._(_root);
-	@override late final _StringsTagsTagBookmarksEs tagBookmarks = _StringsTagsTagBookmarksEs._(_root);
+	@override late final _StringsTagsFilteredBookmarksEs filteredBookmarks = _StringsTagsFilteredBookmarksEs._(_root);
 }
 
 // Path: settings
@@ -725,9 +732,10 @@ class _StringsBookmarksBookmarkOptionsEs implements _StringsBookmarksBookmarkOpt
 	@override String get delete => 'Eliminar';
 	@override String get unread => 'No leído';
 	@override String get read => 'Leído';
-	@override String get share => 'Compartir';
+	@override String get shareOptions => 'Opciones de compartir';
 	@override String get shared => 'Compartido';
 	@override String get archive => 'Archivar';
+	@override String get unarchive => 'Desarchivar';
 	@override String get deletingBookmark => 'Eliminando marcador...';
 	@override String get bookmarkDeleted => 'Marcador eliminado correctamente';
 	@override String get bookmarkNotDeleted => 'El marcador no se ha podido eliminar debido a un error.';
@@ -782,14 +790,16 @@ class _StringsTagsCreateTagEs implements _StringsTagsCreateTagEn {
 	@override String get errorCreatingTag => 'Ocurrió un error al crear la etiqueta.';
 }
 
-// Path: tags.tagBookmarks
-class _StringsTagsTagBookmarksEs implements _StringsTagsTagBookmarksEn {
-	_StringsTagsTagBookmarksEs._(this._root);
+// Path: tags.filteredBookmarks
+class _StringsTagsFilteredBookmarksEs implements _StringsTagsFilteredBookmarksEn {
+	_StringsTagsFilteredBookmarksEs._(this._root);
 
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
 	@override String get noBookmarksWithThisTag => 'No hay marcadores con esta etiqueta';
+	@override String get noArchivedBookmarks => 'No hay marcadores archivados';
+	@override String get noSharedBookmarks => 'No hay marcadores compartidos';
 }
 
 // Path: settings.customization
@@ -887,6 +897,8 @@ extension on Translations {
 			case 'bookmarks.cannotLoadBookmarks': return 'Cannot load the bookmarks';
 			case 'bookmarks.dates.todayAt': return ({required Object time}) => 'Today, ${time}';
 			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
+			case 'bookmarks.shared': return 'Shared';
+			case 'bookmarks.archived': return 'Archived';
 			case 'bookmarks.addBookmark.addBookmark': return 'Add new bookmark';
 			case 'bookmarks.addBookmark.editBookmark': return 'Edit bookmark';
 			case 'bookmarks.addBookmark.bookmarkUrl': return 'Bookmark URL';
@@ -922,9 +934,10 @@ extension on Translations {
 			case 'bookmarks.bookmarkOptions.delete': return 'Delete';
 			case 'bookmarks.bookmarkOptions.unread': return 'Unread';
 			case 'bookmarks.bookmarkOptions.read': return 'Read';
-			case 'bookmarks.bookmarkOptions.share': return 'Share';
+			case 'bookmarks.bookmarkOptions.shareOptions': return 'Share options';
 			case 'bookmarks.bookmarkOptions.shared': return 'Shared';
 			case 'bookmarks.bookmarkOptions.archive': return 'Archive';
+			case 'bookmarks.bookmarkOptions.unarchive': return 'Unarchive';
 			case 'bookmarks.bookmarkOptions.deletingBookmark': return 'Deleting bookmark...';
 			case 'bookmarks.bookmarkOptions.bookmarkDeleted': return 'Bookmark deleted successfully';
 			case 'bookmarks.bookmarkOptions.bookmarkNotDeleted': return 'The bookmark couldn\'t be deleted due to an error.';
@@ -961,7 +974,9 @@ extension on Translations {
 			case 'tags.createTag.name': return 'Name';
 			case 'tags.createTag.creatingTag': return 'Creating tag...';
 			case 'tags.createTag.errorCreatingTag': return 'An error occured when creating the tag.';
-			case 'tags.tagBookmarks.noBookmarksWithThisTag': return 'There are no bookmarks with this tag';
+			case 'tags.filteredBookmarks.noBookmarksWithThisTag': return 'There are no bookmarks with this tag';
+			case 'tags.filteredBookmarks.noArchivedBookmarks': return 'There are no archived bookmarks';
+			case 'tags.filteredBookmarks.noSharedBookmarks': return 'There are no shared bookmarks';
 			case 'settings.settings': return 'Settings';
 			case 'settings.appSettings': return 'App settings';
 			case 'settings.aboutApp': return 'About the app';
@@ -1056,6 +1071,8 @@ extension on _StringsEs {
 			case 'bookmarks.cannotLoadBookmarks': return 'No se pueden cargar los marcadores';
 			case 'bookmarks.dates.todayAt': return ({required Object time}) => 'Hoy, ${time}';
 			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';
+			case 'bookmarks.shared': return 'Compartidos';
+			case 'bookmarks.archived': return 'Archivados';
 			case 'bookmarks.addBookmark.addBookmark': return 'Añadir nuevo marcador';
 			case 'bookmarks.addBookmark.editBookmark': return 'Editar marcador';
 			case 'bookmarks.addBookmark.url': return 'URL';
@@ -1091,9 +1108,10 @@ extension on _StringsEs {
 			case 'bookmarks.bookmarkOptions.delete': return 'Eliminar';
 			case 'bookmarks.bookmarkOptions.unread': return 'No leído';
 			case 'bookmarks.bookmarkOptions.read': return 'Leído';
-			case 'bookmarks.bookmarkOptions.share': return 'Compartir';
+			case 'bookmarks.bookmarkOptions.shareOptions': return 'Opciones de compartir';
 			case 'bookmarks.bookmarkOptions.shared': return 'Compartido';
 			case 'bookmarks.bookmarkOptions.archive': return 'Archivar';
+			case 'bookmarks.bookmarkOptions.unarchive': return 'Desarchivar';
 			case 'bookmarks.bookmarkOptions.deletingBookmark': return 'Eliminando marcador...';
 			case 'bookmarks.bookmarkOptions.bookmarkDeleted': return 'Marcador eliminado correctamente';
 			case 'bookmarks.bookmarkOptions.bookmarkNotDeleted': return 'El marcador no se ha podido eliminar debido a un error.';
@@ -1130,7 +1148,9 @@ extension on _StringsEs {
 			case 'tags.createTag.name': return 'Nombre';
 			case 'tags.createTag.creatingTag': return 'Creando etiqueta...';
 			case 'tags.createTag.errorCreatingTag': return 'Ocurrió un error al crear la etiqueta.';
-			case 'tags.tagBookmarks.noBookmarksWithThisTag': return 'No hay marcadores con esta etiqueta';
+			case 'tags.filteredBookmarks.noBookmarksWithThisTag': return 'No hay marcadores con esta etiqueta';
+			case 'tags.filteredBookmarks.noArchivedBookmarks': return 'No hay marcadores archivados';
+			case 'tags.filteredBookmarks.noSharedBookmarks': return 'No hay marcadores compartidos';
 			case 'settings.settings': return 'Ajustes';
 			case 'settings.appSettings': return 'Ajustes de la aplicación';
 			case 'settings.aboutApp': return 'Sobre la aplicación';

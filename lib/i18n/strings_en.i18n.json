@@ -49,6 +49,8 @@
       "todayAt": "Today, $time",
       "yesterdayAt": "Yesterday, $time"
     },
+    "shared": "Shared",
+    "archived": "Archived",
     "addBookmark": {
       "addBookmark": "Add new bookmark",
       "editBookmark": "Edit bookmark",
@@ -89,9 +91,10 @@
       "delete": "Delete",
       "unread": "Unread",
       "read": "Read",
-      "share": "Share",
+      "shareOptions": "Share options",
       "shared": "Shared",
       "archive": "Archive",
+      "unarchive": "Unarchive",
       "deletingBookmark": "Deleting bookmark...",
       "bookmarkDeleted": "Bookmark deleted successfully",
       "bookmarkNotDeleted": "The bookmark couldn't be deleted due to an error.",
@@ -135,8 +138,10 @@
       "creatingTag": "Creating tag...",
       "errorCreatingTag": "An error occured when creating the tag."
     },
-    "tagBookmarks": {
-      "noBookmarksWithThisTag": "There are no bookmarks with this tag"
+    "filteredBookmarks": {
+      "noBookmarksWithThisTag": "There are no bookmarks with this tag",
+      "noArchivedBookmarks": "There are no archived bookmarks",
+      "noSharedBookmarks": "There are no shared bookmarks"
     }
   },
   "settings": {

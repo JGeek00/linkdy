@@ -20,7 +20,7 @@ class NoDataScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.clear_rounded,
+                  Icons.clear_all_rounded,
                   size: 50,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
