@@ -10,6 +10,7 @@ class BookmarksModel {
   bool loadingMore;
   int maxNumber;
   ReadStatus readStatus;
+  Bookmark? selectedBookmark;
 
   BookmarksModel({
     this.currentPage = 0,
@@ -19,5 +20,6 @@ class BookmarksModel {
     this.loadingMore = false,
     this.maxNumber = 0,
     this.readStatus = ReadStatus.all,
+    this.selectedBookmark,
   });
 }

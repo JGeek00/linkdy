@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
 
 import 'package:linkdy/screens/webview/provider/webview.provider.dart';
@@ -11,7 +12,7 @@ import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/utils/copy_clipboard.dart';
 import 'package:linkdy/utils/open_url.dart';
 
-class WebViewScreen extends ConsumerStatefulWidget {
+class WebViewScreen extends HookConsumerWidget {
   final Bookmark bookmark;
 
   const WebViewScreen({
@@ -20,18 +21,15 @@ class WebViewScreen extends ConsumerStatefulWidget {
   });
 
   @override
-  WebViewScreenState createState() => WebViewScreenState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    useEffect(
+      () {
+        ref.read(webViewProvider).webViewController.loadRequest(Uri.parse(bookmark.url!));
+        return null;
+      },
+      [bookmark],
+    );
 
-class WebViewScreenState extends ConsumerState<WebViewScreen> {
-  @override
-  void initState() {
-    ref.read(webViewProvider).webViewController.loadRequest(Uri.parse(widget.bookmark.url!));
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return ScaffoldMessenger(
       key: ScaffoldMessengerKeys.webview,
       child: Scaffold(
@@ -41,12 +39,12 @@ class WebViewScreenState extends ConsumerState<WebViewScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.bookmark.title != "" ? widget.bookmark.title! : widget.bookmark.websiteTitle!,
+                bookmark.title != "" ? bookmark.title! : bookmark.websiteTitle!,
                 style: const TextStyle(fontSize: 14),
               ),
               const SizedBox(height: 4),
               Text(
-                widget.bookmark.url!,
+                bookmark.url!,
                 style: TextStyle(
                   fontSize: 12,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -104,7 +102,7 @@ class WebViewScreenState extends ConsumerState<WebViewScreen> {
                     PopupMenuButton(
                       itemBuilder: (context) => [
                         PopupMenuItem(
-                          onTap: () => Share.shareUri(Uri.parse(widget.bookmark.url!)),
+                          onTap: () => Share.shareUri(Uri.parse(bookmark.url!)),
                           child: Row(
                             children: [
                               const Icon(Icons.share_rounded),
@@ -116,7 +114,7 @@ class WebViewScreenState extends ConsumerState<WebViewScreen> {
                         PopupMenuItem(
                           onTap: () => copyToClipboard(
                             key: ScaffoldMessengerKeys.webview,
-                            value: widget.bookmark.url!,
+                            value: bookmark.url!,
                             successMessage: t.webview.linkCopiedClipboard,
                           ),
                           child: Row(
@@ -128,7 +126,7 @@ class WebViewScreenState extends ConsumerState<WebViewScreen> {
                           ),
                         ),
                         PopupMenuItem(
-                          onTap: () => openUrl(widget.bookmark.url!),
+                          onTap: () => openUrl(bookmark.url!),
                           child: Row(
                             children: [
                               const Icon(Icons.open_in_browser_rounded),

@@ -13,6 +13,7 @@ class FilteredBookmarksModel {
   List<Bookmark> bookmarks;
   int maxNumber;
   bool loadingMore;
+  Bookmark? selectedBookmark;
 
   FilteredBookmarksModel({
     this.filteredBookmarksMode = FilteredBookmarksMode.shared,
@@ -24,5 +25,6 @@ class FilteredBookmarksModel {
     required this.bookmarks,
     this.maxNumber = 0,
     this.loadingMore = false,
+    this.selectedBookmark,
   });
 }

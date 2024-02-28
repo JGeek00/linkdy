@@ -183,7 +183,7 @@
         "description": "Are you sure you want to disconnect from the server?\nYou will be redirected to the initial setup."
       },
       "useInAppBrowser": "Use in app browser",
-      "useInAppBrowserDescription": "Opens the bookmarks with the integrated browser instead of with the system browser."
+      "useInAppBrowserDescription": "Opens the bookmarks with the integrated browser instead of with the system browser. On tablet mode the internal browser will always be used."
     }
   },
   "webview": {

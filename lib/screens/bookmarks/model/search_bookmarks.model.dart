@@ -13,6 +13,7 @@ class SearchBookmarksModel {
   LoadStatus inialLoadStatus;
   bool loadingMore;
   int maxNumber;
+  Bookmark? selectedBookmark;
 
   SearchBookmarksModel({
     required this.searchController,
@@ -23,5 +24,6 @@ class SearchBookmarksModel {
     this.inialLoadStatus = LoadStatus.loaded,
     this.loadingMore = false,
     this.maxNumber = 0,
+    this.selectedBookmark,
   });
 }

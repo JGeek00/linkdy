@@ -6,6 +6,11 @@ import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
 import 'package:linkdy/screens/bookmarks/model/search_bookmarks.model.dart';
 
+import 'package:linkdy/config/sizes.dart';
+import 'package:linkdy/providers/app_status.provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
+import 'package:linkdy/router/paths.dart';
+import 'package:linkdy/utils/open_url.dart';
 import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
@@ -96,6 +101,16 @@ class SearchBookmarks extends _$SearchBookmarks {
   }
 
   void notifyListeners() {
+    ref.notifyListeners();
+  }
+
+  void selectBookmark(Bookmark bookmark, double width) {
+    if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == true) {
+      ref.watch(routerProvider).push(RoutesPaths.webview, extra: bookmark);
+    } else if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == true) {
+      openUrl(bookmark.url!);
+    }
+    state.selectedBookmark = bookmark;
     ref.notifyListeners();
   }
 

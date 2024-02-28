@@ -372,7 +372,7 @@ final filteredBookmarksRequestLoadMoreProvider =
 
 typedef FilteredBookmarksRequestLoadMoreRef
     = AutoDisposeFutureProviderRef<void>;
-String _$filteredBookmarksHash() => r'fdd67391d76f2bf8fd879b2f64a30d54922c4938';
+String _$filteredBookmarksHash() => r'584c9ee245200f653d43b10d807860dcbac68ff5';
 
 /// See also [FilteredBookmarks].
 @ProviderFor(FilteredBookmarks)

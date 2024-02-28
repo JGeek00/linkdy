@@ -1,4 +1,3 @@
-import 'package:linkdy/constants/global_keys.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
@@ -6,6 +5,12 @@ import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/filtered_bookmarks/model/filtered_bookmarks.model.dart';
 
+import 'package:linkdy/config/sizes.dart';
+import 'package:linkdy/constants/global_keys.dart';
+import 'package:linkdy/providers/app_status.provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
+import 'package:linkdy/router/paths.dart';
+import 'package:linkdy/utils/open_url.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/data/tags.dart';
@@ -146,6 +151,16 @@ class FilteredBookmarks extends _$FilteredBookmarks {
 
   void setLoadingMore(bool status) {
     state.loadingMore = status;
+    ref.notifyListeners();
+  }
+
+  void selectBookmark(Bookmark bookmark, double width) {
+    if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == true) {
+      ref.watch(routerProvider).push(RoutesPaths.webview, extra: bookmark);
+    } else if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == true) {
+      openUrl(bookmark.url!);
+    }
+    state.selectedBookmark = bookmark;
     ref.notifyListeners();
   }
 
