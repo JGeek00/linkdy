@@ -3,6 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
+import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/filtered_bookmarks/model/filtered_bookmarks.model.dart';
 
 import 'package:linkdy/models/data/bookmarks.dart';
@@ -174,6 +175,9 @@ class FilteredBookmarks extends _$FilteredBookmarks {
     if (result == true) {
       state.bookmarks = state.bookmarks.where((b) => b.id != bookmark.id).toList();
       ref.notifyListeners();
+      ref
+          .read(bookmarksProvider.notifier)
+          .setBookmarks(ref.read(bookmarksProvider).bookmarks.where((b) => b.id != bookmark.id).toList());
     }
   }
 
@@ -187,6 +191,9 @@ class FilteredBookmarks extends _$FilteredBookmarks {
     if (result != null) {
       state.bookmarks = state.bookmarks.map((b) => b.id == result.id ? result : b).toList();
       ref.notifyListeners();
+      ref
+          .read(bookmarksProvider.notifier)
+          .setBookmarks(ref.read(bookmarksProvider).bookmarks.map((b) => b.id == result.id ? result : b).toList());
     }
   }
 
@@ -199,8 +206,9 @@ class FilteredBookmarks extends _$FilteredBookmarks {
     );
     if (result == true) {
       state.bookmarks = state.bookmarks.where((b) => b.id != bookmark.id).toList();
+      ref.notifyListeners();
+      ref.read(bookmarksProvider.notifier).refresh();
     }
-    ref.notifyListeners();
   }
 
   void shareUnshare(Bookmark bookmark) async {
@@ -216,5 +224,10 @@ class FilteredBookmarks extends _$FilteredBookmarks {
       state.bookmarks = state.bookmarks.map((b) => b.id == result.id ? result : b).toList();
     }
     ref.notifyListeners();
+    if (result != null) {
+      ref
+          .read(bookmarksProvider.notifier)
+          .setBookmarks(ref.read(bookmarksProvider).bookmarks.map((b) => b.id == result.id ? result : b).toList());
+    }
   }
 }
