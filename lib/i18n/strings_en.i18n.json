@@ -59,6 +59,7 @@
     "all": "All",
     "unread": "Unread",
     "read": "Read",
+    "filterSort": "Filter and sort",
     "addBookmark": {
       "addBookmark": "Add new bookmark",
       "editBookmark": "Edit bookmark",

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 348 (174 per locale)
+/// Strings: 350 (175 per locale)
 ///
-/// Built on 2024-02-28 at 14:44 UTC
+/// Built on 2024-02-28 at 16:02 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -234,6 +234,7 @@ class _StringsBookmarksEn {
 	String get all => 'All';
 	String get unread => 'Unread';
 	String get read => 'Read';
+	String get filterSort => 'Filter and sort';
 	late final _StringsBookmarksAddBookmarkEn addBookmark = _StringsBookmarksAddBookmarkEn._(_root);
 	late final _StringsBookmarksSearchEn search = _StringsBookmarksSearchEn._(_root);
 	late final _StringsBookmarksBookmarkOptionsEn bookmarkOptions = _StringsBookmarksBookmarkOptionsEn._(_root);
@@ -604,6 +605,7 @@ class _StringsBookmarksEs implements _StringsBookmarksEn {
 	@override String get all => 'Todos';
 	@override String get unread => 'No leídos';
 	@override String get read => 'Leídos';
+	@override String get filterSort => 'Filtrar y ordenar';
 	@override late final _StringsBookmarksAddBookmarkEs addBookmark = _StringsBookmarksAddBookmarkEs._(_root);
 	@override late final _StringsBookmarksSearchEs search = _StringsBookmarksSearchEs._(_root);
 	@override late final _StringsBookmarksBookmarkOptionsEs bookmarkOptions = _StringsBookmarksBookmarkOptionsEs._(_root);
@@ -923,6 +925,7 @@ extension on Translations {
 			case 'bookmarks.all': return 'All';
 			case 'bookmarks.unread': return 'Unread';
 			case 'bookmarks.read': return 'Read';
+			case 'bookmarks.filterSort': return 'Filter and sort';
 			case 'bookmarks.addBookmark.addBookmark': return 'Add new bookmark';
 			case 'bookmarks.addBookmark.editBookmark': return 'Edit bookmark';
 			case 'bookmarks.addBookmark.bookmarkUrl': return 'Bookmark URL';
@@ -1105,6 +1108,7 @@ extension on _StringsEs {
 			case 'bookmarks.all': return 'Todos';
 			case 'bookmarks.unread': return 'No leídos';
 			case 'bookmarks.read': return 'Leídos';
+			case 'bookmarks.filterSort': return 'Filtrar y ordenar';
 			case 'bookmarks.addBookmark.addBookmark': return 'Añadir nuevo marcador';
 			case 'bookmarks.addBookmark.editBookmark': return 'Editar marcador';
 			case 'bookmarks.addBookmark.url': return 'URL';

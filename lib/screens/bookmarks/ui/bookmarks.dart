@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:quds_popup_menu/quds_popup_menu.dart';
+import 'package:linkdy/screens/bookmarks/ui/visualization_modal.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
@@ -124,76 +124,47 @@ class BookmarksScreen extends ConsumerWidget {
                     icon: const Icon(Icons.search_rounded),
                     tooltip: t.bookmarks.search.searchBookmarks,
                   ),
-                  const SizedBox(width: 8),
-                  QudsPopupButton(
-                    radius: 22,
-                    backgroundColor: Theme.of(context).popupMenuTheme.surfaceTintColor,
-                    items: [
-                      QudsPopupMenuItem(
-                        leading: const Icon(Icons.archive_rounded),
-                        title: Text(t.bookmarks.archived),
-                        onPressed: () => ref.read(routerProvider).push(RoutesPaths.archivedBookmarks),
+                  PopupMenuButton(
+                    itemBuilder: (context) => <PopupMenuEntry>[
+                      PopupMenuItem(
+                        onTap: () => ref.read(routerProvider).push(RoutesPaths.archivedBookmarks),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.archive_rounded),
+                            const SizedBox(width: 16),
+                            Text(t.bookmarks.archived),
+                          ],
+                        ),
                       ),
-                      QudsPopupMenuItem(
-                        leading: const Icon(Icons.share_rounded),
-                        title: Text(t.bookmarks.shared),
-                        onPressed: () => ref.read(routerProvider).push(RoutesPaths.sharedBookmarks),
+                      PopupMenuItem(
+                        onTap: () => ref.read(routerProvider).push(RoutesPaths.sharedBookmarks),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.share_rounded),
+                            const SizedBox(width: 16),
+                            Text(t.bookmarks.shared),
+                          ],
+                        ),
                       ),
-                      QudsPopupMenuDivider(),
-                      QudsPopupMenuSection(
-                        leading: const Icon(Icons.list_rounded),
-                        titleText: t.bookmarks.readStatus,
-                        subTitle: Text(readStatus()),
-                        subItems: [
-                          QudsPopupMenuItem(
-                            leading: const Icon(Icons.list_rounded),
-                            title: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(child: Text(t.bookmarks.showAllBookmarks)),
-                                if (bookmarks.readStatus == ReadStatus.all) ...[
-                                  const SizedBox(width: 8),
-                                  const Icon(Icons.check_rounded),
-                                ],
-                              ],
-                            ),
-                            onPressed: () => ref.read(bookmarksProvider.notifier).setReadStatus(ReadStatus.all),
-                          ),
-                          QudsPopupMenuItem(
-                            leading: const Icon(Icons.mark_as_unread_rounded),
-                            title: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(child: Text(t.bookmarks.showOnlyUnread)),
-                                if (bookmarks.readStatus == ReadStatus.unread) ...[
-                                  const SizedBox(width: 8),
-                                  const Icon(Icons.check_rounded),
-                                ],
-                              ],
-                            ),
-                            onPressed: () => ref.read(bookmarksProvider.notifier).setReadStatus(ReadStatus.unread),
-                          ),
-                          QudsPopupMenuItem(
-                            leading: const Icon(Icons.mark_email_read_rounded),
-                            title: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(child: Text(t.bookmarks.showOnlyRead)),
-                                if (bookmarks.readStatus == ReadStatus.read) ...[
-                                  const SizedBox(width: 8),
-                                  const Icon(Icons.check_rounded),
-                                ],
-                              ],
-                            ),
-                            onPressed: () => ref.read(bookmarksProvider.notifier).setReadStatus(ReadStatus.read),
-                          ),
-                        ],
+                      const PopupMenuDivider(height: 1),
+                      PopupMenuItem(
+                        onTap: () => showModalBottomSheet(
+                          context: context,
+                          useRootNavigator: true,
+                          builder: (context) => const VisualizationModal(),
+                          isScrollControlled: true,
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.sort_rounded),
+                            const SizedBox(width: 16),
+                            Text(t.bookmarks.filterSort),
+                          ],
+                        ),
                       ),
                     ],
-                    tooltip: t.generic.options,
-                    child: const Icon(Icons.more_vert_rounded),
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: 8),
                 ],
               ),
             ),

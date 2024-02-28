@@ -6,7 +6,7 @@ import 'package:linkdy/screens/tags/provider/add_tag.provider.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 
 class AddTagModal extends ConsumerWidget {
-  const AddTagModal({Key? key}) : super(key: key);
+  const AddTagModal({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
