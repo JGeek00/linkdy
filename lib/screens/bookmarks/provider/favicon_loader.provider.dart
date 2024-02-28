@@ -74,10 +74,10 @@ class FaviconStore extends _$FaviconStore {
                 )
               : null,
         )
-        .where((e) => e != null)
-        .toList() as List<FaviconItem>;
+        .toList();
+    faviconUrls.removeWhere((v) => v == null);
 
-    state.favicons = [...state.favicons, ...faviconUrls];
+    state.favicons = [...state.favicons, ...List<FaviconItem>.from(faviconUrls)];
     state.loadingFavicons = false;
     ref.notifyListeners();
   }
