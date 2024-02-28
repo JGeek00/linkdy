@@ -59,6 +59,10 @@ dependencies:
   webview_flutter: ^4.7.0
   flutter_hooks: ^0.20.5
   hooks_riverpod: ^2.4.10
+  flutter_split_view:
+    git:
+      url: https://github.com/JGeek00/flutter_split_view
+      ref: master-alt
 
 dev_dependencies:
   build_runner: ^2.4.8
