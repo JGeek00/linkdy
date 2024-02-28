@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_autocomplete/easy_autocomplete.dart';
@@ -8,17 +6,16 @@ import 'package:linkdy/screens/bookmarks/provider/bookmark_form.provider.dart';
 import 'package:linkdy/widgets/section_label.dart';
 
 import 'package:linkdy/models/data/bookmarks.dart';
+import 'package:linkdy/config/sizes.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/constants/enums.dart';
 
 class BookmarkFormModal extends ConsumerStatefulWidget {
-  final bool fullscreen;
   final Bookmark? bookmark;
 
   const BookmarkFormModal({
     super.key,
-    required this.fullscreen,
     this.bookmark,
   });
 
@@ -37,60 +34,111 @@ class BookmarkFormModalState extends ConsumerState<BookmarkFormModal> {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldMessenger(
-      key: ScaffoldMessengerKeys.addBookmark,
-      child: Dialog.fullscreen(
-        child: Scaffold(
-          body: NestedScrollView(
-            headerSliverBuilder: (context, innerBoxIsScrolled) => [
-              SliverOverlapAbsorber(
-                handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                sliver: SliverAppBar.large(
-                  pinned: true,
-                  floating: true,
-                  centerTitle: false,
-                  forceElevated: innerBoxIsScrolled,
-                  leading: CloseButton(
-                    onPressed: () => Navigator.pop(context),
+    final width = MediaQuery.of(context).size.width;
+
+    if (width > Sizes.tabletBreakpoint) {
+      return ScaffoldMessenger(
+        key: ScaffoldMessengerKeys.addBookmark,
+        child: Dialog(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 500, maxHeight: 700),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          CloseButton(
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                          const SizedBox(width: 16),
+                          Text(
+                            widget.bookmark != null
+                                ? t.bookmarks.addBookmark.editBookmark
+                                : t.bookmarks.addBookmark.addBookmark,
+                            style: const TextStyle(fontSize: 24),
+                          ),
+                        ],
+                      ),
+                      IconButton(
+                        onPressed: ref.watch(bookmarkFormProvider).checkBookmark != null
+                            ? () => ref.read(bookmarkFormProvider.notifier).saveBookmark()
+                            : null,
+                        icon: const Icon(Icons.save_rounded),
+                        tooltip: t.generic.save,
+                      ),
+                    ],
                   ),
-                  title: Text(
-                    widget.bookmark != null
-                        ? t.bookmarks.addBookmark.editBookmark
-                        : t.bookmarks.addBookmark.addBookmark,
-                  ),
-                  actions: [
-                    IconButton(
-                      onPressed: ref.watch(bookmarkFormProvider).checkBookmark != null
-                          ? () => ref.read(bookmarkFormProvider.notifier).saveBookmark()
-                          : null,
-                      icon: const Icon(Icons.save_rounded),
-                      tooltip: t.generic.save,
-                    ),
-                    const SizedBox(width: 8),
-                  ],
                 ),
-              ),
-            ],
-            body: SafeArea(
-              top: false,
-              bottom: true,
-              child: Builder(
-                builder: (context) => CustomScrollView(
-                  slivers: [
-                    SliverOverlapInjector(
-                      handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                Expanded(
+                  child: ListView(
+                    children: const [_ModalContent()],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    } else {
+      return ScaffoldMessenger(
+        key: ScaffoldMessengerKeys.addBookmark,
+        child: Dialog.fullscreen(
+          child: Scaffold(
+            body: NestedScrollView(
+              headerSliverBuilder: (context, innerBoxIsScrolled) => [
+                SliverOverlapAbsorber(
+                  handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                  sliver: SliverAppBar.large(
+                    pinned: true,
+                    floating: true,
+                    centerTitle: false,
+                    forceElevated: innerBoxIsScrolled,
+                    leading: CloseButton(
+                      onPressed: () => Navigator.pop(context),
                     ),
-                    SliverList.list(
-                      children: const [_ModalContent()],
+                    title: Text(
+                      widget.bookmark != null
+                          ? t.bookmarks.addBookmark.editBookmark
+                          : t.bookmarks.addBookmark.addBookmark,
                     ),
-                  ],
+                    actions: [
+                      IconButton(
+                        onPressed: ref.watch(bookmarkFormProvider).checkBookmark != null
+                            ? () => ref.read(bookmarkFormProvider.notifier).saveBookmark()
+                            : null,
+                        icon: const Icon(Icons.save_rounded),
+                        tooltip: t.generic.save,
+                      ),
+                      const SizedBox(width: 8),
+                    ],
+                  ),
+                ),
+              ],
+              body: SafeArea(
+                top: false,
+                bottom: true,
+                child: Builder(
+                  builder: (context) => CustomScrollView(
+                    slivers: [
+                      SliverOverlapInjector(
+                        handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                      ),
+                      SliverList.list(
+                        children: const [_ModalContent()],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
         ),
-      ),
-    );
+      );
+    }
   }
 }
 
@@ -377,7 +425,7 @@ void openBookmarkFormModal({
 }) {
   showGeneralDialog(
     context: context,
-    barrierColor: !(width > 700 || !(Platform.isAndroid || Platform.isIOS)) ? Colors.transparent : Colors.black54,
+    barrierColor: Colors.black54,
     transitionBuilder: (context, anim1, anim2, child) {
       return SlideTransition(
         position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0)).animate(
@@ -386,9 +434,6 @@ void openBookmarkFormModal({
         child: child,
       );
     },
-    pageBuilder: (context, animation, secondaryAnimation) => BookmarkFormModal(
-      fullscreen: width <= 700,
-      bookmark: bookmark,
-    ),
+    pageBuilder: (context, animation, secondaryAnimation) => const BookmarkFormModal(),
   );
 }
