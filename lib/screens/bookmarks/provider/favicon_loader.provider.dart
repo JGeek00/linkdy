@@ -62,13 +62,20 @@ class FaviconStore extends _$FaviconStore {
       notExist,
     );
 
-    final faviconUrls = favicons.asMap().entries.map(
-          (e) => FaviconItem(
-            url: notExist[e.key],
-            favicon: e.value!.url,
-            isSvg: e.value!.url.contains('svg'),
-          ),
-        );
+    final faviconUrls = favicons
+        .asMap()
+        .entries
+        .map(
+          (e) => e.value != null
+              ? FaviconItem(
+                  url: notExist[e.key],
+                  favicon: e.value!.url,
+                  isSvg: e.value!.url.contains('svg'),
+                )
+              : null,
+        )
+        .where((e) => e != null)
+        .toList() as List<FaviconItem>;
 
     state.favicons = [...state.favicons, ...faviconUrls];
     state.loadingFavicons = false;
