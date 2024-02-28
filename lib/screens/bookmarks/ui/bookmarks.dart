@@ -33,7 +33,7 @@ class BookmarksScreen extends ConsumerWidget {
       if (_searchButtonKey.currentContext == null) return;
       RenderBox box = _searchButtonKey.currentContext!.findRenderObject() as RenderBox;
       Offset position = box.localToGlobal(Offset.zero);
-      Navigator.of(context).push(
+      Navigator.of(context, rootNavigator: true).push(
         circlePageBuilder(
           page: const SearchBookmarksModal(fullscreen: true),
           beginPosition: Offset(position.dx + 20, position.dy + 20),
@@ -49,22 +49,6 @@ class BookmarksScreen extends ConsumerWidget {
         ref.watch(bookmarksRequestLoadMoreProvider);
       }
       return false;
-    }
-
-    String readStatus() {
-      switch (bookmarks.readStatus) {
-        case ReadStatus.all:
-          return t.bookmarks.all;
-
-        case ReadStatus.unread:
-          return t.bookmarks.unread;
-
-        case ReadStatus.read:
-          return t.bookmarks.read;
-
-        default:
-          return "";
-      }
     }
 
     return ScaffoldMessenger(
