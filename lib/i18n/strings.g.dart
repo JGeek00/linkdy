@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 332 (166 per locale)
+/// Strings: 348 (174 per locale)
 ///
-/// Built on 2024-02-28 at 00:11 UTC
+/// Built on 2024-02-28 at 14:44 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -172,6 +172,7 @@ class _StringsGenericEn {
 	String get error => 'Error';
 	String get optional => 'Optional';
 	String get authTokenNotValid => 'Your authorization token is not valid anymore. Please, reauthenticate.';
+	String get options => 'Options';
 }
 
 // Path: onboarding
@@ -226,6 +227,13 @@ class _StringsBookmarksEn {
 	late final _StringsBookmarksDatesEn dates = _StringsBookmarksDatesEn._(_root);
 	String get shared => 'Shared';
 	String get archived => 'Archived';
+	String get showOnlyRead => 'Show only read';
+	String get showOnlyUnread => 'Show only unread';
+	String get showAllBookmarks => 'Show all bookmarks';
+	String get readStatus => 'Read status';
+	String get all => 'All';
+	String get unread => 'Unread';
+	String get read => 'Read';
 	late final _StringsBookmarksAddBookmarkEn addBookmark = _StringsBookmarksAddBookmarkEn._(_root);
 	late final _StringsBookmarksSearchEn search = _StringsBookmarksSearchEn._(_root);
 	late final _StringsBookmarksBookmarkOptionsEn bookmarkOptions = _StringsBookmarksBookmarkOptionsEn._(_root);
@@ -534,6 +542,7 @@ class _StringsGenericEs implements _StringsGenericEn {
 	@override String get error => 'Error';
 	@override String get optional => 'Opcional';
 	@override String get authTokenNotValid => 'Su token de autorización ya no es válido. Por favor, vuelva a autenticarse.';
+	@override String get options => 'Opciones';
 }
 
 // Path: onboarding
@@ -588,6 +597,13 @@ class _StringsBookmarksEs implements _StringsBookmarksEn {
 	@override late final _StringsBookmarksDatesEs dates = _StringsBookmarksDatesEs._(_root);
 	@override String get shared => 'Compartidos';
 	@override String get archived => 'Archivados';
+	@override String get showOnlyRead => 'Mostrar solo leídos';
+	@override String get showOnlyUnread => 'Mostrar solo no leídos';
+	@override String get showAllBookmarks => 'Mostrar todos los marcadores';
+	@override String get readStatus => 'Estado de lectura';
+	@override String get all => 'Todos';
+	@override String get unread => 'No leídos';
+	@override String get read => 'Leídos';
 	@override late final _StringsBookmarksAddBookmarkEs addBookmark = _StringsBookmarksAddBookmarkEs._(_root);
 	@override late final _StringsBookmarksSearchEs search = _StringsBookmarksSearchEs._(_root);
 	@override late final _StringsBookmarksBookmarkOptionsEs bookmarkOptions = _StringsBookmarksBookmarkOptionsEs._(_root);
@@ -862,6 +878,7 @@ extension on Translations {
 			case 'generic.error': return 'Error';
 			case 'generic.optional': return 'Optional';
 			case 'generic.authTokenNotValid': return 'Your authorization token is not valid anymore. Please, reauthenticate.';
+			case 'generic.options': return 'Options';
 			case 'onboarding.title': return 'Welcome to Linkdy';
 			case 'onboarding.subtitle': return 'An application to manage your bookmarks.';
 			case 'onboarding.start': return 'Start';
@@ -899,6 +916,13 @@ extension on Translations {
 			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
 			case 'bookmarks.shared': return 'Shared';
 			case 'bookmarks.archived': return 'Archived';
+			case 'bookmarks.showOnlyRead': return 'Show only read';
+			case 'bookmarks.showOnlyUnread': return 'Show only unread';
+			case 'bookmarks.showAllBookmarks': return 'Show all bookmarks';
+			case 'bookmarks.readStatus': return 'Read status';
+			case 'bookmarks.all': return 'All';
+			case 'bookmarks.unread': return 'Unread';
+			case 'bookmarks.read': return 'Read';
 			case 'bookmarks.addBookmark.addBookmark': return 'Add new bookmark';
 			case 'bookmarks.addBookmark.editBookmark': return 'Edit bookmark';
 			case 'bookmarks.addBookmark.bookmarkUrl': return 'Bookmark URL';
@@ -1036,6 +1060,7 @@ extension on _StringsEs {
 			case 'generic.error': return 'Error';
 			case 'generic.optional': return 'Opcional';
 			case 'generic.authTokenNotValid': return 'Su token de autorización ya no es válido. Por favor, vuelva a autenticarse.';
+			case 'generic.options': return 'Opciones';
 			case 'onboarding.title': return 'Bienvenido a Linkdy';
 			case 'onboarding.subtitle': return 'Una aplicación para gestionar tus enlaces favoritos.';
 			case 'onboarding.start': return 'Comenzar';
@@ -1073,6 +1098,13 @@ extension on _StringsEs {
 			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';
 			case 'bookmarks.shared': return 'Compartidos';
 			case 'bookmarks.archived': return 'Archivados';
+			case 'bookmarks.showOnlyRead': return 'Mostrar solo leídos';
+			case 'bookmarks.showOnlyUnread': return 'Mostrar solo no leídos';
+			case 'bookmarks.showAllBookmarks': return 'Mostrar todos los marcadores';
+			case 'bookmarks.readStatus': return 'Estado de lectura';
+			case 'bookmarks.all': return 'Todos';
+			case 'bookmarks.unread': return 'No leídos';
+			case 'bookmarks.read': return 'Leídos';
 			case 'bookmarks.addBookmark.addBookmark': return 'Añadir nuevo marcador';
 			case 'bookmarks.addBookmark.editBookmark': return 'Editar marcador';
 			case 'bookmarks.addBookmark.url': return 'URL';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:quds_popup_menu/quds_popup_menu.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
@@ -50,6 +51,22 @@ class BookmarksScreen extends ConsumerWidget {
       return false;
     }
 
+    String readStatus() {
+      switch (bookmarks.readStatus) {
+        case ReadStatus.all:
+          return t.bookmarks.all;
+
+        case ReadStatus.unread:
+          return t.bookmarks.unread;
+
+        case ReadStatus.read:
+          return t.bookmarks.read;
+
+        default:
+          return "";
+      }
+    }
+
     return ScaffoldMessenger(
       key: ScaffoldMessengerKeys.bookmarks,
       child: Scaffold(
@@ -62,7 +79,44 @@ class BookmarksScreen extends ConsumerWidget {
                 floating: true,
                 centerTitle: false,
                 forceElevated: innerBoxIsScrolled,
-                title: Text(t.bookmarks.bookmarks),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(t.bookmarks.bookmarks),
+                    if (bookmarks.readStatus == ReadStatus.read || bookmarks.readStatus == ReadStatus.unread)
+                      Container(
+                        margin: const EdgeInsets.only(left: 8),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Theme.of(context).colorScheme.primaryContainer,
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              bookmarks.readStatus == ReadStatus.read
+                                  ? Icons.mark_email_read_rounded
+                                  : Icons.mark_as_unread_rounded,
+                              size: 14,
+                              color: Theme.of(context).colorScheme.onPrimaryContainer,
+                            ),
+                            const SizedBox(width: 4),
+                            Text(
+                              bookmarks.readStatus == ReadStatus.read ? t.bookmarks.read : t.bookmarks.unread,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Theme.of(context).colorScheme.onPrimaryContainer,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ],
+                ),
                 actions: [
                   IconButton(
                     key: _searchButtonKey,
@@ -70,31 +124,76 @@ class BookmarksScreen extends ConsumerWidget {
                     icon: const Icon(Icons.search_rounded),
                     tooltip: t.bookmarks.search.searchBookmarks,
                   ),
-                  PopupMenuButton(
-                    itemBuilder: (context) => [
-                      PopupMenuItem(
-                        onTap: () => ref.read(routerProvider).push(RoutesPaths.archivedBookmarks),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.archive_rounded),
-                            const SizedBox(width: 16),
-                            Text(t.bookmarks.archived),
-                          ],
-                        ),
+                  const SizedBox(width: 8),
+                  QudsPopupButton(
+                    radius: 22,
+                    backgroundColor: Theme.of(context).popupMenuTheme.surfaceTintColor,
+                    items: [
+                      QudsPopupMenuItem(
+                        leading: const Icon(Icons.archive_rounded),
+                        title: Text(t.bookmarks.archived),
+                        onPressed: () => ref.read(routerProvider).push(RoutesPaths.archivedBookmarks),
                       ),
-                      PopupMenuItem(
-                        onTap: () => ref.read(routerProvider).push(RoutesPaths.sharedBookmarks),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.share_rounded),
-                            const SizedBox(width: 16),
-                            Text(t.bookmarks.shared),
-                          ],
-                        ),
+                      QudsPopupMenuItem(
+                        leading: const Icon(Icons.share_rounded),
+                        title: Text(t.bookmarks.shared),
+                        onPressed: () => ref.read(routerProvider).push(RoutesPaths.sharedBookmarks),
+                      ),
+                      QudsPopupMenuDivider(),
+                      QudsPopupMenuSection(
+                        leading: const Icon(Icons.list_rounded),
+                        titleText: t.bookmarks.readStatus,
+                        subTitle: Text(readStatus()),
+                        subItems: [
+                          QudsPopupMenuItem(
+                            leading: const Icon(Icons.list_rounded),
+                            title: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(child: Text(t.bookmarks.showAllBookmarks)),
+                                if (bookmarks.readStatus == ReadStatus.all) ...[
+                                  const SizedBox(width: 8),
+                                  const Icon(Icons.check_rounded),
+                                ],
+                              ],
+                            ),
+                            onPressed: () => ref.read(bookmarksProvider.notifier).setReadStatus(ReadStatus.all),
+                          ),
+                          QudsPopupMenuItem(
+                            leading: const Icon(Icons.mark_as_unread_rounded),
+                            title: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(child: Text(t.bookmarks.showOnlyUnread)),
+                                if (bookmarks.readStatus == ReadStatus.unread) ...[
+                                  const SizedBox(width: 8),
+                                  const Icon(Icons.check_rounded),
+                                ],
+                              ],
+                            ),
+                            onPressed: () => ref.read(bookmarksProvider.notifier).setReadStatus(ReadStatus.unread),
+                          ),
+                          QudsPopupMenuItem(
+                            leading: const Icon(Icons.mark_email_read_rounded),
+                            title: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(child: Text(t.bookmarks.showOnlyRead)),
+                                if (bookmarks.readStatus == ReadStatus.read) ...[
+                                  const SizedBox(width: 8),
+                                  const Icon(Icons.check_rounded),
+                                ],
+                              ],
+                            ),
+                            onPressed: () => ref.read(bookmarksProvider.notifier).setReadStatus(ReadStatus.read),
+                          ),
+                        ],
                       ),
                     ],
+                    tooltip: t.generic.options,
+                    child: const Icon(Icons.more_vert_rounded),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 16),
                 ],
               ),
             ),

@@ -12,10 +12,11 @@ import 'package:linkdy/constants/enums.dart';
 part 'bookmarks.provider.g.dart';
 
 @riverpod
-FutureOr<void> bookmarksRequest(BookmarksRequestRef ref, int limit) async {
+FutureOr<void> bookmarksRequest(BookmarksRequestRef ref, ReadStatus readStatus, int limit) async {
   final result = await ref.watch(apiClientProvider)!.fetchBookmarks(
         limit: limit,
         offset: 0,
+        unread: readStatus,
       );
 
   if (result.successful == true) {
@@ -40,6 +41,7 @@ FutureOr<void> bookmarksRequestLoadMore(BookmarksRequestLoadMoreRef ref) async {
   final result = await ref.watch(apiClientProvider)!.fetchBookmarks(
         limit: provider.limit,
         offset: newOffset,
+        unread: ref.read(bookmarksProvider).readStatus,
       );
 
   if (result.successful == true) {
@@ -59,7 +61,7 @@ class Bookmarks extends _$Bookmarks {
     final model = BookmarksModel(
       bookmarks: [],
     );
-    ref.read(bookmarksRequestProvider(model.limit));
+    ref.read(bookmarksRequestProvider(model.readStatus, model.limit));
     return model;
   }
 
@@ -85,8 +87,14 @@ class Bookmarks extends _$Bookmarks {
     ref.notifyListeners();
   }
 
+  void setReadStatus(ReadStatus status) {
+    state.readStatus = status;
+    ref.read(bookmarksRequestProvider(status, state.limit));
+    ref.notifyListeners();
+  }
+
   Future<void> refresh() async {
-    await ref.read(bookmarksRequestProvider(state.limit).future);
+    await ref.read(bookmarksRequestProvider(state.readStatus, state.limit).future);
   }
 
   void deleteBookmark(Bookmark bookmark) async {

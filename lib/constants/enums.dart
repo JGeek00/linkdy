@@ -7,3 +7,5 @@ enum SelectedTheme { system, light, dark }
 enum AuthResult { success, invalidToken, other }
 
 enum FilteredBookmarksMode { tag, shared, archived }
+
+enum ReadStatus { all, unread, read }

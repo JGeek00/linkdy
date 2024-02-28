@@ -6,7 +6,7 @@ part of 'bookmarks.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bookmarksRequestHash() => r'2da88ec52b4f959e6355f5f5fa8660d6cebd157d';
+String _$bookmarksRequestHash() => r'eb1ddffb83edc0fa433fae76859bde4206e59940';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -40,9 +40,11 @@ class BookmarksRequestFamily extends Family<AsyncValue<void>> {
 
   /// See also [bookmarksRequest].
   BookmarksRequestProvider call(
+    ReadStatus readStatus,
     int limit,
   ) {
     return BookmarksRequestProvider(
+      readStatus,
       limit,
     );
   }
@@ -52,6 +54,7 @@ class BookmarksRequestFamily extends Family<AsyncValue<void>> {
     covariant BookmarksRequestProvider provider,
   ) {
     return call(
+      provider.readStatus,
       provider.limit,
     );
   }
@@ -75,10 +78,12 @@ class BookmarksRequestFamily extends Family<AsyncValue<void>> {
 class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
   /// See also [bookmarksRequest].
   BookmarksRequestProvider(
+    ReadStatus readStatus,
     int limit,
   ) : this._internal(
           (ref) => bookmarksRequest(
             ref as BookmarksRequestRef,
+            readStatus,
             limit,
           ),
           from: bookmarksRequestProvider,
@@ -90,6 +95,7 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
           dependencies: BookmarksRequestFamily._dependencies,
           allTransitiveDependencies:
               BookmarksRequestFamily._allTransitiveDependencies,
+          readStatus: readStatus,
           limit: limit,
         );
 
@@ -100,9 +106,11 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
+    required this.readStatus,
     required this.limit,
   }) : super.internal();
 
+  final ReadStatus readStatus;
   final int limit;
 
   @override
@@ -118,6 +126,7 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
+        readStatus: readStatus,
         limit: limit,
       ),
     );
@@ -130,12 +139,15 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
 
   @override
   bool operator ==(Object other) {
-    return other is BookmarksRequestProvider && other.limit == limit;
+    return other is BookmarksRequestProvider &&
+        other.readStatus == readStatus &&
+        other.limit == limit;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, readStatus.hashCode);
     hash = _SystemHash.combine(hash, limit.hashCode);
 
     return _SystemHash.finish(hash);
@@ -143,6 +155,9 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
 }
 
 mixin BookmarksRequestRef on AutoDisposeFutureProviderRef<void> {
+  /// The parameter `readStatus` of this provider.
+  ReadStatus get readStatus;
+
   /// The parameter `limit` of this provider.
   int get limit;
 }
@@ -152,11 +167,13 @@ class _BookmarksRequestProviderElement
   _BookmarksRequestProviderElement(super.provider);
 
   @override
+  ReadStatus get readStatus => (origin as BookmarksRequestProvider).readStatus;
+  @override
   int get limit => (origin as BookmarksRequestProvider).limit;
 }
 
 String _$bookmarksRequestLoadMoreHash() =>
-    r'36b0703684218e1c6bf01643788d5f9d3da32327';
+    r'1a206bd974677fd862eb4d5b5f453df9f566d995';
 
 /// See also [bookmarksRequestLoadMore].
 @ProviderFor(bookmarksRequestLoadMore)
@@ -172,7 +189,7 @@ final bookmarksRequestLoadMoreProvider =
 );
 
 typedef BookmarksRequestLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$bookmarksHash() => r'602a50d02cde9a67335372659f8e2f656ac21995';
+String _$bookmarksHash() => r'0a1d73459b3c148ba31655347364ee3a9e70b68a';
 
 /// See also [Bookmarks].
 @ProviderFor(Bookmarks)

@@ -7,7 +7,8 @@
     "close": "Cerrar",
     "error": "Error",
     "optional": "Opcional",
-    "authTokenNotValid": "Su token de autorización ya no es válido. Por favor, vuelva a autenticarse."
+    "authTokenNotValid": "Su token de autorización ya no es válido. Por favor, vuelva a autenticarse.",
+    "options": "Opciones"
   },
   "onboarding": {
     "title": "Bienvenido a Linkdy",
@@ -51,6 +52,13 @@
     },
     "shared": "Compartidos",
     "archived": "Archivados",
+    "showOnlyRead": "Mostrar solo leídos",
+    "showOnlyUnread": "Mostrar solo no leídos",
+    "showAllBookmarks": "Mostrar todos los marcadores",
+    "readStatus": "Estado de lectura",
+    "all": "Todos",
+    "unread": "No leídos",
+    "read": "Leídos",
     "addBookmark": {
       "addBookmark": "Añadir nuevo marcador",
       "editBookmark": "Editar marcador",

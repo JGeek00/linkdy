@@ -9,6 +9,7 @@ class BookmarksModel {
   LoadStatus inialLoadStatus;
   bool loadingMore;
   int maxNumber;
+  ReadStatus readStatus;
 
   BookmarksModel({
     this.currentPage = 0,
@@ -17,5 +18,6 @@ class BookmarksModel {
     this.inialLoadStatus = LoadStatus.loading,
     this.loadingMore = false,
     this.maxNumber = 0,
+    this.readStatus = ReadStatus.all,
   });
 }

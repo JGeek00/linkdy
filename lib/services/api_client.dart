@@ -47,7 +47,12 @@ class ApiClientService {
     }
   }
 
-  Future<ApiResponse<BookmarksResponse>> fetchBookmarks({String? q, int? limit, int? offset}) async {
+  Future<ApiResponse<BookmarksResponse>> fetchBookmarks({
+    String? q,
+    int? limit,
+    int? offset,
+    ReadStatus? unread,
+  }) async {
     try {
       final response = await dioInstance.get(
         "/bookmarks/",
@@ -55,6 +60,11 @@ class ApiClientService {
           "q": q,
           "limit": limit,
           "offset": offset,
+          "unread": unread == ReadStatus.unread
+              ? "yes"
+              : unread == ReadStatus.read
+                  ? "no"
+                  : null,
         },
       );
       return ApiResponse(

@@ -6,7 +6,7 @@ part of 'favicon_loader.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$faviconStoreHash() => r'aeda388d2c7d220a43a29825a9850d8d7433d84f';
+String _$faviconStoreHash() => r'459949315bf6a236946c8b03ba90ce047b691b7e';
 
 /// See also [FaviconStore].
 @ProviderFor(FaviconStore)

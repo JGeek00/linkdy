@@ -7,7 +7,8 @@
     "close": "Close",
     "error": "Error",
     "optional": "Optional",
-    "authTokenNotValid": "Your authorization token is not valid anymore. Please, reauthenticate."
+    "authTokenNotValid": "Your authorization token is not valid anymore. Please, reauthenticate.",
+    "options": "Options"
   },
   "onboarding": {
     "title": "Welcome to Linkdy",
@@ -51,6 +52,13 @@
     },
     "shared": "Shared",
     "archived": "Archived",
+    "showOnlyRead": "Show only read",
+    "showOnlyUnread": "Show only unread",
+    "showAllBookmarks": "Show all bookmarks",
+    "readStatus": "Read status",
+    "all": "All",
+    "unread": "Unread",
+    "read": "Read",
     "addBookmark": {
       "addBookmark": "Add new bookmark",
       "editBookmark": "Edit bookmark",
