@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -11,7 +11,7 @@ import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/utils/copy_clipboard.dart';
 import 'package:linkdy/utils/open_url.dart';
 
-class WebViewScreen extends ConsumerWidget {
+class WebViewScreen extends ConsumerStatefulWidget {
   final Bookmark bookmark;
 
   const WebViewScreen({
@@ -20,7 +20,18 @@ class WebViewScreen extends ConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  WebViewScreenState createState() => WebViewScreenState();
+}
+
+class WebViewScreenState extends ConsumerState<WebViewScreen> {
+  @override
+  void initState() {
+    ref.read(webViewProvider).webViewController.loadRequest(Uri.parse(widget.bookmark.url!));
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return ScaffoldMessenger(
       key: ScaffoldMessengerKeys.webview,
       child: Scaffold(
@@ -30,12 +41,12 @@ class WebViewScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                bookmark.title != "" ? bookmark.title! : bookmark.websiteTitle!,
+                widget.bookmark.title != "" ? widget.bookmark.title! : widget.bookmark.websiteTitle!,
                 style: const TextStyle(fontSize: 14),
               ),
               const SizedBox(height: 4),
               Text(
-                bookmark.url!,
+                widget.bookmark.url!,
                 style: TextStyle(
                   fontSize: 12,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -56,32 +67,8 @@ class WebViewScreen extends ConsumerWidget {
           child: Column(
             children: [
               Expanded(
-                child: InAppWebView(
-                  initialUrlRequest: URLRequest(url: WebUri.uri(Uri.parse(bookmark.url!))),
-                  onWebViewCreated: (controller) {
-                    ref.read(webViewProvider).inAppWebViewController = controller;
-                  },
-                  onPermissionRequest: (controller, request) async {
-                    return PermissionResponse(
-                      resources: request.resources,
-                      action: PermissionResponseAction.DENY,
-                    );
-                  },
-                  onProgressChanged: (controller, progress) {
-                    ref.read(webViewProvider.notifier).setLoadProgress(progress);
-                  },
-                  initialSettings: InAppWebViewSettings(
-                    cacheEnabled: false,
-                    isInspectable: false,
-                  ),
-                  onUpdateVisitedHistory: (controller, url, androidIsReload) {
-                    controller.canGoBack().then(
-                          (value) => context.mounted ? ref.read(webViewProvider.notifier).setCanGoBack(value) : null,
-                        );
-                    controller.canGoForward().then(
-                          (value) => context.mounted ? ref.read(webViewProvider.notifier).setCanGoForward(value) : null,
-                        );
-                  },
+                child: WebViewWidget(
+                  controller: ref.watch(webViewProvider).webViewController,
                 ),
               ),
               Padding(
@@ -93,7 +80,7 @@ class WebViewScreen extends ConsumerWidget {
                       children: [
                         IconButton(
                           onPressed: ref.watch(webViewProvider).canGoBack == true
-                              ? () => ref.watch(webViewProvider).inAppWebViewController?.goBack()
+                              ? () => ref.watch(webViewProvider).webViewController.goBack()
                               : null,
                           icon: const Icon(Icons.arrow_back_rounded),
                           tooltip: t.webview.goForward,
@@ -101,14 +88,14 @@ class WebViewScreen extends ConsumerWidget {
                         const SizedBox(width: 8),
                         IconButton(
                           onPressed: ref.watch(webViewProvider).canGoForward == true
-                              ? () => ref.watch(webViewProvider).inAppWebViewController?.goForward()
+                              ? () => ref.watch(webViewProvider).webViewController.goForward()
                               : null,
                           icon: const Icon(Icons.arrow_forward_rounded),
                           tooltip: t.webview.goForward,
                         ),
                         const SizedBox(width: 16),
                         IconButton(
-                          onPressed: () => ref.watch(webViewProvider).inAppWebViewController?.reload(),
+                          onPressed: () => ref.watch(webViewProvider).webViewController.reload(),
                           icon: const Icon(Icons.refresh_rounded),
                           tooltip: t.webview.reload,
                         ),
@@ -117,7 +104,7 @@ class WebViewScreen extends ConsumerWidget {
                     PopupMenuButton(
                       itemBuilder: (context) => [
                         PopupMenuItem(
-                          onTap: () => Share.shareUri(Uri.parse(bookmark.url!)),
+                          onTap: () => Share.shareUri(Uri.parse(widget.bookmark.url!)),
                           child: Row(
                             children: [
                               const Icon(Icons.share_rounded),
@@ -129,7 +116,7 @@ class WebViewScreen extends ConsumerWidget {
                         PopupMenuItem(
                           onTap: () => copyToClipboard(
                             key: ScaffoldMessengerKeys.webview,
-                            value: bookmark.url!,
+                            value: widget.bookmark.url!,
                             successMessage: t.webview.linkCopiedClipboard,
                           ),
                           child: Row(
@@ -141,7 +128,7 @@ class WebViewScreen extends ConsumerWidget {
                           ),
                         ),
                         PopupMenuItem(
-                          onTap: () => openUrl(bookmark.url!),
+                          onTap: () => openUrl(widget.bookmark.url!),
                           child: Row(
                             children: [
                               const Icon(Icons.open_in_browser_rounded),

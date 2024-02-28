@@ -1,5 +1,5 @@
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import 'package:linkdy/screens/webview/model/webview.model.dart';
 
@@ -9,11 +9,27 @@ part 'webview.provider.g.dart';
 class WebView extends _$WebView {
   @override
   WebViewModel build() {
-    return WebViewModel();
-  }
-
-  void initializeController(InAppWebViewController controller) {
-    state.inAppWebViewController = controller;
+    return WebViewModel(
+      webViewController: WebViewController()
+        ..setNavigationDelegate(
+          NavigationDelegate(
+            onProgress: (progress) {
+              state.loadProgress = progress;
+              ref.notifyListeners();
+            },
+            onUrlChange: (change) {
+              state.webViewController.canGoBack().then((value) {
+                state.canGoBack = value;
+                ref.notifyListeners();
+              });
+              state.webViewController.canGoForward().then((value) {
+                state.canGoForward = value;
+                ref.notifyListeners();
+              });
+            },
+          ),
+        ),
+    );
   }
 
   void setLoadProgress(int progress) {
