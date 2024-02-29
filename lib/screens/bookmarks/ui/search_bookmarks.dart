@@ -38,7 +38,6 @@ class SearchBookmarksModal extends ConsumerWidget {
                   Expanded(
                     flex: 3,
                     child: Material(
-                      color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
                       child: Router.withConfig(config: ref.watch(searchBookmarksProvider).webViewRouter),
                     ),
                   ),
@@ -78,9 +77,7 @@ class _List extends ConsumerWidget {
     }
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer.withOpacity(0),
         toolbarHeight: 68,
         leading: Padding(
           padding: const EdgeInsets.only(bottom: 8),

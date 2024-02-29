@@ -22,6 +22,7 @@ class BookmarkItem extends ConsumerWidget {
   final void Function(Bookmark bookmark) onShareInternally;
   final bool selected;
   final bool tabletMode;
+  final Color? tileBackgroundColor;
 
   const BookmarkItem({
     super.key,
@@ -34,6 +35,7 @@ class BookmarkItem extends ConsumerWidget {
     required this.onShareInternally,
     required this.selected,
     required this.tabletMode,
+    this.tileBackgroundColor,
   });
 
   @override
@@ -108,7 +110,7 @@ class BookmarkItem extends ConsumerWidget {
           child: Material(
             color: selected && tabletMode
                 ? Theme.of(context).colorScheme.primaryContainer
-                : Theme.of(context).colorScheme.surface,
+                : tileBackgroundColor ?? Theme.of(context).colorScheme.surface,
             child: InkWell(
               onTap: () => onSelect(bookmark),
               child: Padding(

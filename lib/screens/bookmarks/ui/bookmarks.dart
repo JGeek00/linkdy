@@ -7,7 +7,6 @@ import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_form_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/search_bookmarks.dart';
-import 'package:linkdy/widgets/circle_page_transition.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
@@ -70,12 +69,11 @@ class _List extends ConsumerWidget {
         ref.read(bookmarksProvider.notifier).clearSelectedBookmark();
         ref.read(bookmarksProvider).webViewRouter.pop();
       }
-      RenderBox box = _searchButtonKey.currentContext!.findRenderObject() as RenderBox;
-      Offset position = box.localToGlobal(Offset.zero);
+      // RenderBox box = _searchButtonKey.currentContext!.findRenderObject() as RenderBox;
+      // Offset position = box.localToGlobal(Offset.zero);
       Navigator.of(context, rootNavigator: true).push(
-        CirclePageRoute(
-          page: const SearchBookmarksModal(fullscreen: true),
-          beginPosition: Offset(position.dx + 20, position.dy + 20),
+        MaterialPageRoute(
+          builder: (ctx) => const SearchBookmarksModal(fullscreen: true),
         ),
       );
     }
