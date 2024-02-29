@@ -111,7 +111,7 @@ class WebViewScreen extends HookConsumerWidget {
                       ),
                       PopupMenuItem(
                         onTap: () => copyToClipboard(
-                          key: ScaffoldMessengerKeys.webview,
+                          key: ScaffoldMessengerKeys.root,
                           value: bookmark.url!,
                           successMessage: t.webview.linkCopiedClipboard,
                         ),
