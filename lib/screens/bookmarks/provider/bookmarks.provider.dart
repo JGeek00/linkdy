@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:linkdy/screens/webview/ui/webview.dart';
 import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 import 'package:linkdy/screens/bookmarks/model/bookmarks.model.dart';
@@ -59,12 +62,29 @@ FutureOr<void> bookmarksRequestLoadMore(BookmarksRequestLoadMoreRef ref) async {
   ref.read(bookmarksProvider.notifier).setLoadingMore(false);
 }
 
+const _webViewRoute = "wb";
+const _webViewRoutePath = "/wb";
+
 @riverpod
 class Bookmarks extends _$Bookmarks {
   @override
   BookmarksModel build() {
     final model = BookmarksModel(
       bookmarks: [],
+      webViewRouter: GoRouter(
+        routes: [
+          GoRoute(
+            path: "/",
+            builder: (context, state) => const SizedBox(),
+            routes: [
+              GoRoute(
+                path: _webViewRoute,
+                builder: (context, state) => WebViewScreen(bookmark: state.extra as Bookmark),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
     ref.read(bookmarksRequestProvider(model.readStatus, model.limit));
     return model;
@@ -98,11 +118,27 @@ class Bookmarks extends _$Bookmarks {
     ref.notifyListeners();
   }
 
+  void pushRoute(String path, bool splitMode) {
+    if (splitMode == true && state.webViewRouter.canPop()) {
+      state.selectedBookmark = null;
+      ref.notifyListeners();
+      state.webViewRouter.pop();
+    }
+    ref.read(routerProvider).push(path);
+  }
+
+  void clearSelectedBookmark() {
+    state.selectedBookmark = null;
+    ref.notifyListeners();
+  }
+
   void selectBookmark(Bookmark bookmark, double width) {
     if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == true) {
       ref.watch(routerProvider).push(RoutesPaths.webview, extra: bookmark);
     } else if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == false) {
       openUrl(bookmark.url!);
+    } else if (bookmark != state.selectedBookmark) {
+      state.webViewRouter.go(_webViewRoutePath, extra: bookmark);
     }
     state.selectedBookmark = bookmark;
     ref.notifyListeners();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:linkdy/config/options.dart';
 import 'package:linkdy/constants/enums.dart';
@@ -14,6 +15,7 @@ class SearchBookmarksModel {
   bool loadingMore;
   int maxNumber;
   Bookmark? selectedBookmark;
+  final GoRouter webViewRouter;
 
   SearchBookmarksModel({
     required this.searchController,
@@ -25,5 +27,6 @@ class SearchBookmarksModel {
     this.loadingMore = false,
     this.maxNumber = 0,
     this.selectedBookmark,
+    required this.webViewRouter,
   });
 }

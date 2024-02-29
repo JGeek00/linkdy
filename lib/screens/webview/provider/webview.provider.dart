@@ -46,4 +46,9 @@ class WebView extends _$WebView {
     state.canGoForward = value;
     ref.notifyListeners();
   }
+
+  void loadNewUrl(String url) {
+    ref.invalidateSelf();
+    state.webViewController.loadRequest(Uri.parse(url));
+  }
 }

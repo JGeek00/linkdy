@@ -82,16 +82,12 @@ class FilteredBookmarksScreen extends HookConsumerWidget {
                       tabletMode: true,
                     ),
                   ),
-                  if (ref.watch(filteredBookmarksProvider).selectedBookmark != null)
-                    Expanded(
-                      flex: 3,
-                      child: WebViewScreen(bookmark: ref.watch(filteredBookmarksProvider).selectedBookmark!),
+                  Expanded(
+                    flex: 3,
+                    child: Material(
+                      child: Router.withConfig(config: ref.watch(filteredBookmarksProvider).webViewRouter),
                     ),
-                  if (ref.watch(filteredBookmarksProvider).selectedBookmark == null)
-                    const Expanded(
-                      flex: 3,
-                      child: SizedBox(),
-                    ),
+                  ),
                 ],
               ),
             );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:linkdy/screens/webview/ui/webview.dart';
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
@@ -63,6 +65,9 @@ FutureOr<void> fetchSearchBookmarksLoadMore(FetchSearchBookmarksLoadMoreRef ref)
   ref.read(searchBookmarksProvider.notifier).setLoadingMore(false);
 }
 
+const _webViewRoute = "wb";
+const _webViewRoutePath = "/wb";
+
 @riverpod
 class SearchBookmarks extends _$SearchBookmarks {
   @override
@@ -70,6 +75,20 @@ class SearchBookmarks extends _$SearchBookmarks {
     final model = SearchBookmarksModel(
       searchController: TextEditingController(),
       bookmarks: [],
+      webViewRouter: GoRouter(
+        routes: [
+          GoRoute(
+            path: "/",
+            builder: (context, state) => const SizedBox(),
+            routes: [
+              GoRoute(
+                path: _webViewRoute,
+                builder: (context, state) => WebViewScreen(bookmark: state.extra as Bookmark),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
     ref.read(fetchSearchBookmarksProvider(model.limit));
     return model;
@@ -109,6 +128,8 @@ class SearchBookmarks extends _$SearchBookmarks {
       ref.watch(routerProvider).push(RoutesPaths.webview, extra: bookmark);
     } else if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == false) {
       openUrl(bookmark.url!);
+    } else if (bookmark != state.selectedBookmark) {
+      state.webViewRouter.go(_webViewRoutePath, extra: bookmark);
     }
     state.selectedBookmark = bookmark;
     ref.notifyListeners();

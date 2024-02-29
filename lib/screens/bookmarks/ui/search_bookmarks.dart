@@ -6,7 +6,6 @@ import 'package:linkdy/screens/bookmarks/provider/search_bookmarks.provider.dart
 import 'package:linkdy/screens/bookmarks/ui/bookmark_form_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
-import 'package:linkdy/screens/webview/ui/webview.dart';
 import 'package:linkdy/widgets/enter_search_term_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 import 'package:linkdy/widgets/error_screen.dart';
@@ -37,18 +36,13 @@ class SearchBookmarksModal extends ConsumerWidget {
               return Row(
                 children: [
                   const Expanded(flex: 2, child: _List(tabletMode: true)),
-                  if (ref.watch(searchBookmarksProvider).selectedBookmark != null)
-                    Expanded(
-                      flex: 3,
-                      child: WebViewScreen(bookmark: ref.watch(searchBookmarksProvider).selectedBookmark!),
+                  Expanded(
+                    flex: 3,
+                    child: Material(
+                      color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
+                      child: Router.withConfig(config: ref.watch(searchBookmarksProvider).webViewRouter),
                     ),
-                  if (ref.watch(searchBookmarksProvider).selectedBookmark == null)
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
-                      ),
-                    ),
+                  ),
                 ],
               );
             } else {

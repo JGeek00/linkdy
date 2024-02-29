@@ -1,3 +1,5 @@
+import 'package:go_router/go_router.dart';
+
 import 'package:linkdy/config/options.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
@@ -11,6 +13,7 @@ class BookmarksModel {
   int maxNumber;
   ReadStatus readStatus;
   Bookmark? selectedBookmark;
+  final GoRouter webViewRouter;
 
   BookmarksModel({
     this.currentPage = 0,
@@ -21,5 +24,6 @@ class BookmarksModel {
     this.maxNumber = 0,
     this.readStatus = ReadStatus.all,
     this.selectedBookmark,
+    required this.webViewRouter,
   });
 }
