@@ -83,7 +83,10 @@ class SearchBookmarks extends _$SearchBookmarks {
             routes: [
               GoRoute(
                 path: _webViewRoute,
-                builder: (context, state) => WebViewScreen(bookmark: state.extra as Bookmark),
+                pageBuilder: (context, state) => CustomTransitionPage(
+                  child: WebViewScreen(bookmark: state.extra as Bookmark),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                ),
               ),
             ],
           ),
@@ -120,6 +123,11 @@ class SearchBookmarks extends _$SearchBookmarks {
   }
 
   void notifyListeners() {
+    ref.notifyListeners();
+  }
+
+  void clearSelectedBookmark() {
+    state.selectedBookmark = null;
     ref.notifyListeners();
   }
 

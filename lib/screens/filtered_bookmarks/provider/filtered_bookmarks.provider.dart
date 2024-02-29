@@ -143,7 +143,10 @@ class FilteredBookmarks extends _$FilteredBookmarks {
             routes: [
               GoRoute(
                 path: _webViewRoute,
-                builder: (context, state) => WebViewScreen(bookmark: state.extra as Bookmark),
+                pageBuilder: (context, state) => CustomTransitionPage(
+                  child: WebViewScreen(bookmark: state.extra as Bookmark),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                ),
               ),
             ],
           ),
@@ -171,6 +174,11 @@ class FilteredBookmarks extends _$FilteredBookmarks {
 
   void setLoadingMore(bool status) {
     state.loadingMore = status;
+    ref.notifyListeners();
+  }
+
+  void clearSelectedBookmark() {
+    state.selectedBookmark = null;
     ref.notifyListeners();
   }
 

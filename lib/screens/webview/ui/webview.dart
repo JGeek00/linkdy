@@ -6,6 +6,7 @@ import 'package:share_plus/share_plus.dart';
 
 import 'package:linkdy/screens/webview/provider/webview.provider.dart';
 
+import 'package:linkdy/config/sizes.dart';
 import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/i18n/strings.g.dart';
@@ -30,9 +31,19 @@ class WebViewScreen extends HookConsumerWidget {
       [bookmark],
     );
 
+    final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 3,
+        leading: width > Sizes.tabletBreakpoint
+            ? CloseButton(
+                onPressed: () {
+                  ref.read(webViewProvider.notifier).closeWebviewSplit();
+                  Navigator.pop(context);
+                },
+              )
+            : null,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

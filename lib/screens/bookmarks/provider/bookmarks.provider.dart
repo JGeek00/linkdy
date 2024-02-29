@@ -79,7 +79,10 @@ class Bookmarks extends _$Bookmarks {
             routes: [
               GoRoute(
                 path: _webViewRoute,
-                builder: (context, state) => WebViewScreen(bookmark: state.extra as Bookmark),
+                pageBuilder: (context, state) => CustomTransitionPage(
+                  child: WebViewScreen(bookmark: state.extra as Bookmark),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                ),
               ),
             ],
           ),
