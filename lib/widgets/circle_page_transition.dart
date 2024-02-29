@@ -1,35 +1,44 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/cupertino.dart';
 
-Route circlePageBuilder({
-  required Widget page,
-  required Offset beginPosition,
-  bool? fullScreenDialog,
-  Duration? transitionDuration,
-}) {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => page,
-    transitionDuration: transitionDuration ?? const Duration(milliseconds: 250),
-    reverseTransitionDuration: transitionDuration ?? const Duration(milliseconds: 250),
-    fullscreenDialog: fullScreenDialog ?? false,
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const double beganRadius = 0.0;
-      final size = MediaQuery.of(context).size;
-      final double endRadius = size.height > size.width ? size.height * 1.2 : size.width * 1.2;
+class CirclePageRoute extends PageRouteBuilder {
+  final Widget page;
+  final Offset beginPosition;
 
-      final radiusTweenAnimation = animation.drive(
-        Tween(begin: beganRadius, end: endRadius),
-      );
+  CirclePageRoute({
+    required this.page,
+    required this.beginPosition,
+  }) : super(
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+        );
 
-      return ClipPath(
-        clipper: _CircleTransitionClipper(
-          center: beginPosition,
-          radius: radiusTweenAnimation.value,
-        ),
-        child: child,
-      );
-    },
-  );
+  @override
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    const double beganRadius = 0.0;
+    final size = MediaQuery.of(context).size;
+    final double endRadius = size.height > size.width ? size.height * 1.2 : size.width * 1.2;
+
+    final radiusTweenAnimation = animation.drive(
+      Tween(begin: beganRadius, end: endRadius),
+    );
+
+    return ClipPath(
+      clipper: _CircleTransitionClipper(
+        center: beginPosition,
+        radius: radiusTweenAnimation.value,
+      ),
+      child: child,
+    );
+  }
 }
 
 class _CircleTransitionClipper extends CustomClipper<Path> {

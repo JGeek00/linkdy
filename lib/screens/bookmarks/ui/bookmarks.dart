@@ -73,7 +73,7 @@ class _List extends ConsumerWidget {
       RenderBox box = _searchButtonKey.currentContext!.findRenderObject() as RenderBox;
       Offset position = box.localToGlobal(Offset.zero);
       Navigator.of(context, rootNavigator: true).push(
-        circlePageBuilder(
+        CirclePageRoute(
           page: const SearchBookmarksModal(fullscreen: true),
           beginPosition: Offset(position.dx + 20, position.dy + 20),
         ),
