@@ -58,7 +58,17 @@ class FaviconStore extends _$FaviconStore {
     final notExist = bookmarks.map((b) => b.url!).where((b) => !mappedSaved.contains(b)).toList();
 
     final favicons = await compute(
-      (message) => Future.wait(message.map((e) => FaviconFinder.getBest(e))),
+      (message) => Future.wait(
+        message.map(
+          (e) {
+            try {
+              return FaviconFinder.getBest(e);
+            } catch (_) {
+              return Future.delayed(Duration.zero);
+            }
+          },
+        ),
+      ),
       notExist,
     );
 
