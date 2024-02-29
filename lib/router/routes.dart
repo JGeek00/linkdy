@@ -10,7 +10,6 @@ import 'package:linkdy/screens/settings/ui/settings.dart';
 import 'package:linkdy/screens/filtered_bookmarks/ui/filtered_bookmarks.dart';
 import 'package:linkdy/screens/tags/ui/tags.dart';
 import 'package:linkdy/screens/webview/ui/webview.dart';
-import 'package:linkdy/widgets/layout.dart';
 import 'package:linkdy/widgets/page_transition.dart';
 
 import 'package:linkdy/constants/enums.dart';

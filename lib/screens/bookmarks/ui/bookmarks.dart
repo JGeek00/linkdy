@@ -12,7 +12,6 @@ import 'package:linkdy/screens/webview/ui/webview.dart';
 import 'package:linkdy/widgets/circle_page_transition.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
-import 'package:linkdy/widgets/system_overlay_style.dart';
 
 import 'package:linkdy/config/sizes.dart';
 import 'package:linkdy/constants/enums.dart';
