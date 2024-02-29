@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:linkdy/screens/bookmarks/ui/visualization_modal.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
@@ -241,42 +240,40 @@ class _List extends ConsumerWidget {
                           ),
                         ),
                       if (bookmarks.bookmarks.isNotEmpty)
-                        SlidableAutoCloseBehavior(
-                          child: SliverList.builder(
-                            itemCount: bookmarks.bookmarks.length + 1,
-                            itemBuilder: (context, index) {
-                              // index == bookmarks.value!.content!.results!.length -> itemCount + 1
-                              if (index == bookmarks.bookmarks.length) {
-                                if (bookmarks.loadingMore) {
-                                  return const SizedBox(
-                                    height: 80,
-                                    child: Center(
-                                      child: CircularProgressIndicator(),
-                                    ),
-                                  );
-                                }
-                                // Bottom gap for FAB
-                                return const SizedBox(height: 80);
-                              }
-                              return BookmarkItem(
-                                bookmark: bookmarks.bookmarks[index],
-                                onSelect: (b) => ref.read(bookmarksProvider.notifier).selectBookmark(b, width),
-                                onReadUnread: ref.read(bookmarksProvider.notifier).markAsReadUnread,
-                                onDelete: (bookmark) => showDialog(
-                                  context: context,
-                                  builder: (context) => DeleteBookmarkModal(
-                                    bookmark: bookmark,
-                                    onDelete: ref.read(bookmarksProvider.notifier).deleteBookmark,
+                        SliverList.builder(
+                          itemCount: bookmarks.bookmarks.length + 1,
+                          itemBuilder: (context, index) {
+                            // index == bookmarks.value!.content!.results!.length -> itemCount + 1
+                            if (index == bookmarks.bookmarks.length) {
+                              if (bookmarks.loadingMore) {
+                                return const SizedBox(
+                                  height: 80,
+                                  child: Center(
+                                    child: CircularProgressIndicator(),
                                   ),
+                                );
+                              }
+                              // Bottom gap for FAB
+                              return const SizedBox(height: 80);
+                            }
+                            return BookmarkItem(
+                              bookmark: bookmarks.bookmarks[index],
+                              onSelect: (b) => ref.read(bookmarksProvider.notifier).selectBookmark(b, width),
+                              onReadUnread: ref.read(bookmarksProvider.notifier).markAsReadUnread,
+                              onDelete: (bookmark) => showDialog(
+                                context: context,
+                                builder: (context) => DeleteBookmarkModal(
+                                  bookmark: bookmark,
+                                  onDelete: ref.read(bookmarksProvider.notifier).deleteBookmark,
                                 ),
-                                onArchiveUnarchive: ref.read(bookmarksProvider.notifier).archiveUnarchive,
-                                onShareInternally: ref.read(bookmarksProvider.notifier).shareUnshare,
-                                onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
-                                selected: bookmarks.bookmarks[index] == bookmarks.selectedBookmark,
-                                tabletMode: tabletMode,
-                              );
-                            },
-                          ),
+                              ),
+                              onArchiveUnarchive: ref.read(bookmarksProvider.notifier).archiveUnarchive,
+                              onShareInternally: ref.read(bookmarksProvider.notifier).shareUnshare,
+                              onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
+                              selected: bookmarks.bookmarks[index] == bookmarks.selectedBookmark,
+                              tabletMode: tabletMode,
+                            );
+                          },
                         ),
                     ],
                   ),

@@ -98,8 +98,10 @@
     "bookmarkOptions": {
       "edit": "Edit",
       "delete": "Delete",
-      "unread": "Unread",
       "read": "Read",
+      "unread": "Unread",
+      "markAsUnread": "Mark as unread",
+      "markAsRead": "Mark as read",
       "shareOptions": "Share options",
       "shared": "Shared",
       "archive": "Archive",
@@ -120,12 +122,15 @@
       "bookmarkArchivedSuccessfully": "Bookmark archived successfully.",
       "bookmarkUnrchivedSuccessfully": "Bookmark unarchived successfully.",
       "bookmarkNotArchived": "The bookmark couldn't be archived.",
-      "bookmarkNotUnrchived": "The bookmark couldn't be unarchived."
+      "bookmarkNotUnrchived": "The bookmark couldn't be unarchived.",
+      "shareThirdPartyApp": "Share using a third party app",
+      "shareInternally": "Share internally",
+      "unshareInternally": "Unshare internally"
     },
     "shareOptions": {
       "shareOptions": "Share options",
       "shareInternally": "Share internally",
-      "unshareInternally": "Unhare internally",
+      "unshareInternally": "Unshare internally",
       "shareInternallyDescription": "Share internally with the rest of the users of this Linkding instance",
       "unshareInternallyDescription": "Unshare this internally shared bookmark",
       "shareExternally": "Share bookmark URL externally",

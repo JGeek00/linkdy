@@ -98,8 +98,10 @@
     "bookmarkOptions": {
       "edit": "Editar",
       "delete": "Eliminar",
-      "unread": "No leído",
       "read": "Leído",
+      "unread": "No leído",
+      "markAsUnread": "Marcar como no leído",
+      "markAsRead": "Marcar como leído",
       "shareOptions": "Opciones de compartir",
       "shared": "Compartido",
       "archive": "Archivar",
@@ -120,7 +122,10 @@
       "bookmarkArchivedSuccessfully": "Marcador archivado correctamente.",
       "bookmarkUnrchivedSuccessfully": "Marcador desarchivado correctamente.",
       "bookmarkNotArchived": "El marcador no pudo ser archivado.",
-      "bookmarkNotUnrchived": "El marcador no pudo ser desarchivado."
+      "bookmarkNotUnrchived": "El marcador no pudo ser desarchivado.",
+      "shareThirdPartyApp": "Compartir usando una app de terceros",
+      "shareInternally": "Compartir internamente",
+      "unshareInternally": "Descompartir internamente"
     },
     "shareOptions": {
       "shareOptions": "Opciones de compartir",

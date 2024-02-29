@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 350 (175 per locale)
+/// Strings: 360 (180 per locale)
 ///
-/// Built on 2024-02-29 at 10:47 UTC
+/// Built on 2024-02-29 at 17:55 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -377,8 +377,10 @@ class _StringsBookmarksBookmarkOptionsEn {
 	// Translations
 	String get edit => 'Edit';
 	String get delete => 'Delete';
-	String get unread => 'Unread';
 	String get read => 'Read';
+	String get unread => 'Unread';
+	String get markAsUnread => 'Mark as unread';
+	String get markAsRead => 'Mark as read';
 	String get shareOptions => 'Share options';
 	String get shared => 'Shared';
 	String get archive => 'Archive';
@@ -400,6 +402,9 @@ class _StringsBookmarksBookmarkOptionsEn {
 	String get bookmarkUnrchivedSuccessfully => 'Bookmark unarchived successfully.';
 	String get bookmarkNotArchived => 'The bookmark couldn\'t be archived.';
 	String get bookmarkNotUnrchived => 'The bookmark couldn\'t be unarchived.';
+	String get shareThirdPartyApp => 'Share using a third party app';
+	String get shareInternally => 'Share internally';
+	String get unshareInternally => 'Unshare internally';
 }
 
 // Path: bookmarks.shareOptions
@@ -411,7 +416,7 @@ class _StringsBookmarksShareOptionsEn {
 	// Translations
 	String get shareOptions => 'Share options';
 	String get shareInternally => 'Share internally';
-	String get unshareInternally => 'Unhare internally';
+	String get unshareInternally => 'Unshare internally';
 	String get shareInternallyDescription => 'Share internally with the rest of the users of this Linkding instance';
 	String get unshareInternallyDescription => 'Unshare this internally shared bookmark';
 	String get shareExternally => 'Share bookmark URL externally';
@@ -748,8 +753,10 @@ class _StringsBookmarksBookmarkOptionsEs implements _StringsBookmarksBookmarkOpt
 	// Translations
 	@override String get edit => 'Editar';
 	@override String get delete => 'Eliminar';
-	@override String get unread => 'No leído';
 	@override String get read => 'Leído';
+	@override String get unread => 'No leído';
+	@override String get markAsUnread => 'Marcar como no leído';
+	@override String get markAsRead => 'Marcar como leído';
 	@override String get shareOptions => 'Opciones de compartir';
 	@override String get shared => 'Compartido';
 	@override String get archive => 'Archivar';
@@ -771,6 +778,9 @@ class _StringsBookmarksBookmarkOptionsEs implements _StringsBookmarksBookmarkOpt
 	@override String get bookmarkUnrchivedSuccessfully => 'Marcador desarchivado correctamente.';
 	@override String get bookmarkNotArchived => 'El marcador no pudo ser archivado.';
 	@override String get bookmarkNotUnrchived => 'El marcador no pudo ser desarchivado.';
+	@override String get shareThirdPartyApp => 'Compartir usando una app de terceros';
+	@override String get shareInternally => 'Compartir internamente';
+	@override String get unshareInternally => 'Descompartir internamente';
 }
 
 // Path: bookmarks.shareOptions
@@ -959,8 +969,10 @@ extension on Translations {
 			case 'bookmarks.search.inputtedSearchTermNoResults': return 'The inputted search term doesn\'t have any results';
 			case 'bookmarks.bookmarkOptions.edit': return 'Edit';
 			case 'bookmarks.bookmarkOptions.delete': return 'Delete';
-			case 'bookmarks.bookmarkOptions.unread': return 'Unread';
 			case 'bookmarks.bookmarkOptions.read': return 'Read';
+			case 'bookmarks.bookmarkOptions.unread': return 'Unread';
+			case 'bookmarks.bookmarkOptions.markAsUnread': return 'Mark as unread';
+			case 'bookmarks.bookmarkOptions.markAsRead': return 'Mark as read';
 			case 'bookmarks.bookmarkOptions.shareOptions': return 'Share options';
 			case 'bookmarks.bookmarkOptions.shared': return 'Shared';
 			case 'bookmarks.bookmarkOptions.archive': return 'Archive';
@@ -982,9 +994,12 @@ extension on Translations {
 			case 'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully': return 'Bookmark unarchived successfully.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotArchived': return 'The bookmark couldn\'t be archived.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotUnrchived': return 'The bookmark couldn\'t be unarchived.';
+			case 'bookmarks.bookmarkOptions.shareThirdPartyApp': return 'Share using a third party app';
+			case 'bookmarks.bookmarkOptions.shareInternally': return 'Share internally';
+			case 'bookmarks.bookmarkOptions.unshareInternally': return 'Unshare internally';
 			case 'bookmarks.shareOptions.shareOptions': return 'Share options';
 			case 'bookmarks.shareOptions.shareInternally': return 'Share internally';
-			case 'bookmarks.shareOptions.unshareInternally': return 'Unhare internally';
+			case 'bookmarks.shareOptions.unshareInternally': return 'Unshare internally';
 			case 'bookmarks.shareOptions.shareInternallyDescription': return 'Share internally with the rest of the users of this Linkding instance';
 			case 'bookmarks.shareOptions.unshareInternallyDescription': return 'Unshare this internally shared bookmark';
 			case 'bookmarks.shareOptions.shareExternally': return 'Share bookmark URL externally';
@@ -1142,8 +1157,10 @@ extension on _StringsEs {
 			case 'bookmarks.search.inputtedSearchTermNoResults': return 'El término de búsqueda introducido no tiene resultados';
 			case 'bookmarks.bookmarkOptions.edit': return 'Editar';
 			case 'bookmarks.bookmarkOptions.delete': return 'Eliminar';
-			case 'bookmarks.bookmarkOptions.unread': return 'No leído';
 			case 'bookmarks.bookmarkOptions.read': return 'Leído';
+			case 'bookmarks.bookmarkOptions.unread': return 'No leído';
+			case 'bookmarks.bookmarkOptions.markAsUnread': return 'Marcar como no leído';
+			case 'bookmarks.bookmarkOptions.markAsRead': return 'Marcar como leído';
 			case 'bookmarks.bookmarkOptions.shareOptions': return 'Opciones de compartir';
 			case 'bookmarks.bookmarkOptions.shared': return 'Compartido';
 			case 'bookmarks.bookmarkOptions.archive': return 'Archivar';
@@ -1165,6 +1182,9 @@ extension on _StringsEs {
 			case 'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully': return 'Marcador desarchivado correctamente.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotArchived': return 'El marcador no pudo ser archivado.';
 			case 'bookmarks.bookmarkOptions.bookmarkNotUnrchived': return 'El marcador no pudo ser desarchivado.';
+			case 'bookmarks.bookmarkOptions.shareThirdPartyApp': return 'Compartir usando una app de terceros';
+			case 'bookmarks.bookmarkOptions.shareInternally': return 'Compartir internamente';
+			case 'bookmarks.bookmarkOptions.unshareInternally': return 'Descompartir internamente';
 			case 'bookmarks.shareOptions.shareOptions': return 'Opciones de compartir';
 			case 'bookmarks.shareOptions.shareInternally': return 'Compartir internamente';
 			case 'bookmarks.shareOptions.unshareInternally': return 'Descompartir internamente';

@@ -273,6 +273,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.4"
+  device_info_plus:
+    dependency: transitive
+    description:
+      name: device_info_plus
+      sha256: "77f757b789ff68e4eaf9c56d1752309bd9f7ad557cb105b938a7f8eb89e59110"
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.1.2"
+  device_info_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: device_info_plus_platform_interface
+      sha256: d3b01d5868b50ae571cd1dc6e502fc94d956b665756180f7b16ead09e836fd64
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.0"
   dio:
     dependency: "direct main"
     description:
@@ -435,14 +451,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.10"
-  flutter_slidable:
-    dependency: "direct main"
-    description:
-      name: flutter_slidable
-      sha256: "19ed4813003a6ff4e9c6bcce37e792a2a358919d7603b2b31ff200229191e44c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
   flutter_split_view:
     dependency: "direct main"
     description:
@@ -582,6 +590,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  irondash_engine_context:
+    dependency: transitive
+    description:
+      name: irondash_engine_context
+      sha256: "4f5e2629296430cce08cdff42e47cef07b8f74a64fdbdfb0525d147bc1a969a2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.2"
+  irondash_message_channel:
+    dependency: transitive
+    description:
+      name: irondash_message_channel
+      sha256: dd581214215dca054bd9873209d690ec3609288c28774cb509dbd86b21180cf8
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.0"
   js:
     dependency: transitive
     description:
@@ -774,6 +798,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.2"
+  pixel_snap:
+    dependency: transitive
+    description:
+      name: pixel_snap
+      sha256: "677410ea37b07cd37ecb6d5e6c0d8d7615a7cf3bd92ba406fd1ac57e937d1fb0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.5"
   platform:
     dependency: transitive
     description:
@@ -1083,6 +1115,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  super_context_menu:
+    dependency: "direct main"
+    description:
+      name: super_context_menu
+      sha256: a8e8d813ed109b6c76ea5ed37ed7d4ac371e2989825edb1b214a2296f0951df6
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.8.5"
+  super_native_extensions:
+    dependency: transitive
+    description:
+      name: super_native_extensions
+      sha256: f96db6b137a0b135e43034289bb55ca6447b65225076036e81f97ebb6381ffeb
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.8.5"
   term_glyph:
     dependency: transitive
     description:
@@ -1299,6 +1347,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.2.0"
+  win32_registry:
+    dependency: transitive
+    description:
+      name: win32_registry
+      sha256: "41fd8a189940d8696b1b810efb9abcf60827b6cbfab90b0c43e8439e3a39d85a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.2"
   xdg_directories:
     dependency: transitive
     description:

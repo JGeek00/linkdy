@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:linkdy/screens/bookmarks/ui/bookmark_form_modal.dart';
@@ -210,38 +209,36 @@ class _List extends ConsumerWidget {
                         ),
                       ),
                     if (provider.bookmarks.isNotEmpty)
-                      SlidableAutoCloseBehavior(
-                        child: SliverList.builder(
-                          itemCount:
-                              provider.loadingMore == true ? provider.bookmarks.length + 1 : provider.bookmarks.length,
-                          itemBuilder: (context, index) {
-                            if (provider.loadingMore == true && index == provider.bookmarks.length) {
-                              return const Padding(
-                                padding: EdgeInsets.all(16),
-                                child: Center(
-                                  child: CircularProgressIndicator(),
-                                ),
-                              );
-                            }
-                            return BookmarkItem(
-                              bookmark: provider.bookmarks[index],
-                              onSelect: (b) => ref.read(filteredBookmarksProvider.notifier).selectBookmark(b, width),
-                              onReadUnread: ref.read(filteredBookmarksProvider.notifier).markAsReadUnread,
-                              onDelete: (bookmark) => showDialog(
-                                context: context,
-                                builder: (context) => DeleteBookmarkModal(
-                                  bookmark: bookmark,
-                                  onDelete: ref.read(filteredBookmarksProvider.notifier).deleteBookmark,
-                                ),
+                      SliverList.builder(
+                        itemCount:
+                            provider.loadingMore == true ? provider.bookmarks.length + 1 : provider.bookmarks.length,
+                        itemBuilder: (context, index) {
+                          if (provider.loadingMore == true && index == provider.bookmarks.length) {
+                            return const Padding(
+                              padding: EdgeInsets.all(16),
+                              child: Center(
+                                child: CircularProgressIndicator(),
                               ),
-                              onArchiveUnarchive: ref.read(filteredBookmarksProvider.notifier).archiveUnarchive,
-                              onShareInternally: ref.read(filteredBookmarksProvider.notifier).shareUnshare,
-                              onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
-                              selected: provider.bookmarks[index] == provider.selectedBookmark,
-                              tabletMode: tabletMode,
                             );
-                          },
-                        ),
+                          }
+                          return BookmarkItem(
+                            bookmark: provider.bookmarks[index],
+                            onSelect: (b) => ref.read(filteredBookmarksProvider.notifier).selectBookmark(b, width),
+                            onReadUnread: ref.read(filteredBookmarksProvider.notifier).markAsReadUnread,
+                            onDelete: (bookmark) => showDialog(
+                              context: context,
+                              builder: (context) => DeleteBookmarkModal(
+                                bookmark: bookmark,
+                                onDelete: ref.read(filteredBookmarksProvider.notifier).deleteBookmark,
+                              ),
+                            ),
+                            onArchiveUnarchive: ref.read(filteredBookmarksProvider.notifier).archiveUnarchive,
+                            onShareInternally: ref.read(filteredBookmarksProvider.notifier).shareUnshare,
+                            onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
+                            selected: provider.bookmarks[index] == provider.selectedBookmark,
+                            tabletMode: tabletMode,
+                          );
+                        },
                       ),
                   ],
                 ),

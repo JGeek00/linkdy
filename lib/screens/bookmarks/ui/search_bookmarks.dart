@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/search_bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_form_modal.dart';
@@ -152,37 +151,35 @@ class _List extends ConsumerWidget {
 
           return NotificationListener(
             onNotification: scrollListener,
-            child: SlidableAutoCloseBehavior(
-              child: ListView.builder(
-                itemCount: provider.loadingMore ? provider.bookmarks.length + 1 : provider.bookmarks.length,
-                itemBuilder: (context, index) {
-                  if (provider.loadingMore == true && index == provider.bookmarks.length) {
-                    return const Padding(
-                      padding: EdgeInsets.all(16),
-                      child: Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                    );
-                  }
-                  return BookmarkItem(
-                    bookmark: provider.bookmarks[index],
-                    onSelect: (b) => ref.read(searchBookmarksProvider.notifier).selectBookmark(b, width),
-                    onReadUnread: ref.read(searchBookmarksProvider.notifier).markAsReadUnread,
-                    onDelete: (bookmark) => showDialog(
-                      context: context,
-                      builder: (context) => DeleteBookmarkModal(
-                        bookmark: bookmark,
-                        onDelete: ref.read(searchBookmarksProvider.notifier).deleteBookmark,
-                      ),
+            child: ListView.builder(
+              itemCount: provider.loadingMore ? provider.bookmarks.length + 1 : provider.bookmarks.length,
+              itemBuilder: (context, index) {
+                if (provider.loadingMore == true && index == provider.bookmarks.length) {
+                  return const Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Center(
+                      child: CircularProgressIndicator(),
                     ),
-                    onArchiveUnarchive: ref.read(searchBookmarksProvider.notifier).archiveUnarchive,
-                    onShareInternally: ref.read(searchBookmarksProvider.notifier).shareUnshare,
-                    onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
-                    selected: provider.bookmarks[index] == provider.selectedBookmark,
-                    tabletMode: tabletMode,
                   );
-                },
-              ),
+                }
+                return BookmarkItem(
+                  bookmark: provider.bookmarks[index],
+                  onSelect: (b) => ref.read(searchBookmarksProvider.notifier).selectBookmark(b, width),
+                  onReadUnread: ref.read(searchBookmarksProvider.notifier).markAsReadUnread,
+                  onDelete: (bookmark) => showDialog(
+                    context: context,
+                    builder: (context) => DeleteBookmarkModal(
+                      bookmark: bookmark,
+                      onDelete: ref.read(searchBookmarksProvider.notifier).deleteBookmark,
+                    ),
+                  ),
+                  onArchiveUnarchive: ref.read(searchBookmarksProvider.notifier).archiveUnarchive,
+                  onShareInternally: ref.read(searchBookmarksProvider.notifier).shareUnshare,
+                  onEdit: (b) => openBookmarkFormModal(context: context, width: width, bookmark: b),
+                  selected: provider.bookmarks[index] == provider.selectedBookmark,
+                  tabletMode: tabletMode,
+                );
+              },
             ),
           );
         },

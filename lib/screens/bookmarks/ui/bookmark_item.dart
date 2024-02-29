@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:linkdy/screens/bookmarks/ui/share_options_modal.dart';
 import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 
-import 'package:linkdy/config/options.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/providers/app_status.provider.dart';
 import 'package:linkdy/utils/date_to_string.dart';
+import 'package:super_context_menu/super_context_menu.dart';
 
 class BookmarkItem extends ConsumerWidget {
   final Bookmark bookmark;
@@ -53,63 +52,63 @@ class BookmarkItem extends ConsumerWidget {
       padding: tabletMode ? const EdgeInsets.symmetric(horizontal: 8) : const EdgeInsets.all(0),
       child: ClipRRect(
         borderRadius: tabletMode ? BorderRadius.circular(28) : BorderRadius.circular(0),
-        child: Slidable(
-          key: ValueKey(bookmark.id!),
-          groupTag: ConfigOptions.slidableGroupTag,
-          startActionPane: ActionPane(
-            motion: const DrawerMotion(),
-            extentRatio: 0.75,
+        child: ContextMenuWidget(
+          menuProvider: (request) => Menu(
             children: [
-              SlidableAction(
-                onPressed: (_) => onReadUnread(bookmark),
-                backgroundColor: Colors.blue,
-                label: bookmark.unread == true ? t.bookmarks.bookmarkOptions.read : t.bookmarks.bookmarkOptions.unread,
-                icon: bookmark.unread == true ? Icons.mark_email_read_rounded : Icons.mark_as_unread_rounded,
-                padding: const EdgeInsets.all(4),
+              MenuAction(
+                callback: () => onReadUnread(bookmark),
+                title: bookmark.unread == true
+                    ? t.bookmarks.bookmarkOptions.markAsRead
+                    : t.bookmarks.bookmarkOptions.markAsUnread,
+                image: MenuImage.icon(
+                  bookmark.unread == true ? Icons.mark_email_read_rounded : Icons.mark_as_unread_rounded,
+                ),
               ),
-              SlidableAction(
-                onPressed: (ctx) => onArchiveUnarchive(bookmark),
-                backgroundColor: Colors.grey,
-                label: bookmark.isArchived == true
+              MenuAction(
+                callback: () => onArchiveUnarchive(bookmark),
+                title: bookmark.isArchived == true
                     ? t.bookmarks.bookmarkOptions.unarchive
                     : t.bookmarks.bookmarkOptions.archive,
-                icon: bookmark.isArchived == true ? Icons.unarchive_rounded : Icons.archive_rounded,
-                padding: const EdgeInsets.all(4),
-              ),
-              SlidableAction(
-                onPressed: (ctx) => showDialog(
-                  context: context,
-                  builder: (ctx) => ShareOptionsModal(bookmark: bookmark, onShareInternally: onShareInternally),
+                image: MenuImage.icon(
+                  bookmark.isArchived == true ? Icons.unarchive_rounded : Icons.archive_rounded,
                 ),
-                backgroundColor: Colors.orange,
-                label: t.bookmarks.bookmarkOptions.shareOptions,
-                icon: Icons.share_rounded,
-                padding: const EdgeInsets.all(4),
               ),
-            ],
-          ),
-          endActionPane: ActionPane(
-            motion: const DrawerMotion(),
-            extentRatio: 0.5,
-            children: [
-              SlidableAction(
-                onPressed: (ctx) => onEdit(bookmark),
-                backgroundColor: Colors.green,
-                label: t.bookmarks.bookmarkOptions.edit,
-                icon: Icons.edit_rounded,
-                padding: const EdgeInsets.all(4),
+              Menu(
+                title: t.bookmarks.bookmarkOptions.shareOptions,
+                image: MenuImage.icon(Icons.share_rounded),
+                children: [
+                  MenuAction(
+                    callback: () => onShareInternally(bookmark),
+                    title: bookmark.shared == true
+                        ? t.bookmarks.bookmarkOptions.unshareInternally
+                        : t.bookmarks.bookmarkOptions.shareInternally,
+                    image: MenuImage.icon(Icons.input_rounded),
+                  ),
+                  MenuAction(
+                    callback: () => Share.shareUri(Uri.parse(bookmark.url!)),
+                    title: t.bookmarks.bookmarkOptions.shareThirdPartyApp,
+                    image: MenuImage.icon(Icons.output_rounded),
+                  ),
+                ],
               ),
-              SlidableAction(
-                onPressed: (_) => onDelete(bookmark),
-                backgroundColor: Colors.red,
-                label: t.bookmarks.bookmarkOptions.delete,
-                icon: Icons.delete_rounded,
-                padding: const EdgeInsets.all(4),
+              MenuSeparator(),
+              MenuAction(
+                callback: () => onEdit(bookmark),
+                title: t.bookmarks.bookmarkOptions.edit,
+                image: MenuImage.icon(Icons.edit_rounded),
+              ),
+              MenuAction(
+                callback: () => onDelete(bookmark),
+                title: t.bookmarks.bookmarkOptions.delete,
+                image: MenuImage.icon(Icons.delete_rounded),
+                attributes: const MenuActionAttributes(destructive: true),
               ),
             ],
           ),
           child: Material(
-            color: selected && tabletMode ? Theme.of(context).colorScheme.primaryContainer : Colors.transparent,
+            color: selected && tabletMode
+                ? Theme.of(context).colorScheme.primaryContainer
+                : Theme.of(context).colorScheme.surface,
             child: InkWell(
               onTap: () => onSelect(bookmark),
               child: Padding(

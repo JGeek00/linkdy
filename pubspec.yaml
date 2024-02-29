@@ -55,7 +55,6 @@ dependencies:
   favicon: ^1.1.2
   skeletonizer: ^1.0.1
   http: ^1.2.0
-  flutter_slidable: ^3.0.1
   webview_flutter: ^4.7.0
   flutter_hooks: ^0.20.5
   hooks_riverpod: ^2.4.10
@@ -63,6 +62,7 @@ dependencies:
     git:
       url: https://github.com/JGeek00/flutter_split_view
       ref: master-alt
+  super_context_menu: ^0.8.5
 
 dev_dependencies:
   build_runner: ^2.4.8
