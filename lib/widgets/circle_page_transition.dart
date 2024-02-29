@@ -14,7 +14,8 @@ Route circlePageBuilder({
     fullscreenDialog: fullScreenDialog ?? false,
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       const double beganRadius = 0.0;
-      final double endRadius = MediaQuery.of(context).size.height * 1.7;
+      final size = MediaQuery.of(context).size;
+      final double endRadius = size.height > size.width ? size.height * 1.2 : size.width * 1.2;
 
       final radiusTweenAnimation = animation.drive(
         Tween(begin: beganRadius, end: endRadius),

@@ -12,6 +12,7 @@ import 'package:linkdy/widgets/section_label.dart';
 import 'package:linkdy/widgets/custom_list_tile.dart';
 import 'package:linkdy/widgets/custom_settings_tile.dart';
 
+import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/providers/app_info.provider.dart';
 import 'package:linkdy/utils/open_url.dart';
 import 'package:linkdy/constants/strings.dart';
@@ -51,6 +52,7 @@ class _List extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
+        leading: BackButton(onPressed: () => ref.read(routerProvider).pop()),
         title: Text(t.settings.settings),
       ),
       body: ListView(

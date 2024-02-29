@@ -85,9 +85,7 @@ class FilteredBookmarksScreen extends HookConsumerWidget {
                   if (ref.watch(filteredBookmarksProvider).selectedBookmark != null)
                     Expanded(
                       flex: 3,
-                      child: WebViewScreen(
-                        bookmark: ref.watch(filteredBookmarksProvider).selectedBookmark!,
-                      ),
+                      child: WebViewScreen(bookmark: ref.watch(filteredBookmarksProvider).selectedBookmark!),
                     ),
                   if (ref.watch(filteredBookmarksProvider).selectedBookmark == null)
                     const Expanded(

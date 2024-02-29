@@ -40,9 +40,7 @@ class SearchBookmarksModal extends ConsumerWidget {
                   if (ref.watch(searchBookmarksProvider).selectedBookmark != null)
                     Expanded(
                       flex: 3,
-                      child: WebViewScreen(
-                        bookmark: ref.watch(searchBookmarksProvider).selectedBookmark!,
-                      ),
+                      child: WebViewScreen(bookmark: ref.watch(searchBookmarksProvider).selectedBookmark!),
                     ),
                   if (ref.watch(searchBookmarksProvider).selectedBookmark == null)
                     Expanded(

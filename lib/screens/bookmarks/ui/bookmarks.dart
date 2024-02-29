@@ -12,6 +12,7 @@ import 'package:linkdy/screens/webview/ui/webview.dart';
 import 'package:linkdy/widgets/circle_page_transition.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
+import 'package:linkdy/widgets/system_overlay_style.dart';
 
 import 'package:linkdy/config/sizes.dart';
 import 'package:linkdy/constants/enums.dart';
@@ -38,9 +39,7 @@ class BookmarksScreen extends ConsumerWidget {
                 if (ref.watch(bookmarksProvider).selectedBookmark != null)
                   Expanded(
                     flex: 3,
-                    child: WebViewScreen(
-                      bookmark: ref.watch(bookmarksProvider).selectedBookmark!,
-                    ),
+                    child: WebViewScreen(bookmark: ref.watch(bookmarksProvider).selectedBookmark!),
                   ),
                 if (ref.watch(bookmarksProvider).selectedBookmark == null)
                   const Expanded(
@@ -148,6 +147,16 @@ class _List extends ConsumerWidget {
                   icon: const Icon(Icons.search_rounded),
                   tooltip: t.bookmarks.search.searchBookmarks,
                 ),
+                IconButton(
+                  onPressed: () => showModalBottomSheet(
+                    context: context,
+                    useRootNavigator: true,
+                    builder: (context) => const VisualizationModal(),
+                    isScrollControlled: true,
+                  ),
+                  icon: const Icon(Icons.sort_rounded),
+                  tooltip: t.bookmarks.filterSort,
+                ),
                 PopupMenuButton(
                   itemBuilder: (context) => <PopupMenuEntry>[
                     PopupMenuItem(
@@ -172,17 +181,23 @@ class _List extends ConsumerWidget {
                     ),
                     const PopupMenuDivider(height: 1),
                     PopupMenuItem(
-                      onTap: () => showModalBottomSheet(
-                        context: context,
-                        useRootNavigator: true,
-                        builder: (context) => const VisualizationModal(),
-                        isScrollControlled: true,
-                      ),
+                      onTap: () => ref.read(routerProvider).push(RoutesPaths.tags),
                       child: Row(
                         children: [
-                          const Icon(Icons.sort_rounded),
+                          const Icon(Icons.label_rounded),
                           const SizedBox(width: 16),
-                          Text(t.bookmarks.filterSort),
+                          Text(t.tags.tags),
+                        ],
+                      ),
+                    ),
+                    const PopupMenuDivider(height: 1),
+                    PopupMenuItem(
+                      onTap: () => ref.read(routerProvider).push(RoutesPaths.settings),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.settings_rounded),
+                          const SizedBox(width: 16),
+                          Text(t.settings.settings),
                         ],
                       ),
                     ),
@@ -195,7 +210,7 @@ class _List extends ConsumerWidget {
         ],
         body: SafeArea(
           top: false,
-          bottom: false,
+          bottom: true,
           child: Builder(
             builder: (context) => RefreshIndicator(
               displacement: 120,

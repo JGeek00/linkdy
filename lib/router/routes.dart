@@ -28,25 +28,17 @@ final List<RouteBase> appRoutes = [
     path: RoutesPaths.onboarding,
     builder: (context, state) => const Onboarding(),
   ),
-  ShellRoute(
-    builder: (context, state, child) => Layout(
-      state: state,
-      child: child,
-    ),
-    routes: [
-      GoRoute(
-        path: RoutesPaths.bookmarks,
-        builder: (context, state) => const PageTransition(child: BookmarksScreen()),
-      ),
-      GoRoute(
-        path: RoutesPaths.tags,
-        builder: (context, state) => const PageTransition(child: TagsScreen()),
-      ),
-      GoRoute(
-        path: RoutesPaths.settings,
-        builder: (context, state) => const PageTransition(child: SettingsScreen()),
-      ),
-    ],
+  GoRoute(
+    path: RoutesPaths.bookmarks,
+    builder: (context, state) => const PageTransition(child: BookmarksScreen()),
+  ),
+  GoRoute(
+    path: RoutesPaths.tags,
+    builder: (context, state) => const PageTransition(child: TagsScreen()),
+  ),
+  GoRoute(
+    path: RoutesPaths.settings,
+    builder: (context, state) => const PageTransition(child: SettingsScreen()),
   ),
   GoRoute(
     path: RoutesPaths.tagBookmarks,
