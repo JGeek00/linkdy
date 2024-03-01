@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 360 (180 per locale)
+/// Strings: 364 (182 per locale)
 ///
-/// Built on 2024-02-29 at 17:55 UTC
+/// Built on 2024-03-01 at 13:46 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -268,6 +268,8 @@ class _StringsSettingsEn {
 	String get createdBy => 'Created by';
 	String get visitGooglePlay => 'Visit the application page at Google Play';
 	String get visitGitHubRepo => 'Visit the application repository at GitHub';
+	String get linkdingRepository => 'Linkding repository';
+	String get linkdingRepositoryDescription => 'Link to the Linkding repository on GitHub';
 	late final _StringsSettingsCustomizationEn customization = _StringsSettingsCustomizationEn._(_root);
 	late final _StringsSettingsGeneralSettingsEn generalSettings = _StringsSettingsGeneralSettingsEn._(_root);
 }
@@ -644,6 +646,8 @@ class _StringsSettingsEs implements _StringsSettingsEn {
 	@override String get createdBy => 'Creado por';
 	@override String get visitGooglePlay => 'Visita la página de la aplicación en Google Play';
 	@override String get visitGitHubRepo => 'Visita el repositorio de la aplicación en GitHub';
+	@override String get linkdingRepository => 'Repositorio de Linkding';
+	@override String get linkdingRepositoryDescription => 'Enlace al repositorio de Linkding en GitHub';
 	@override late final _StringsSettingsCustomizationEs customization = _StringsSettingsCustomizationEs._(_root);
 	@override late final _StringsSettingsGeneralSettingsEs generalSettings = _StringsSettingsGeneralSettingsEs._(_root);
 }
@@ -1026,6 +1030,8 @@ extension on Translations {
 			case 'settings.createdBy': return 'Created by';
 			case 'settings.visitGooglePlay': return 'Visit the application page at Google Play';
 			case 'settings.visitGitHubRepo': return 'Visit the application repository at GitHub';
+			case 'settings.linkdingRepository': return 'Linkding repository';
+			case 'settings.linkdingRepositoryDescription': return 'Link to the Linkding repository on GitHub';
 			case 'settings.customization.customization': return 'Customization';
 			case 'settings.customization.customizationDescription': return 'Set the app theme and color palette.';
 			case 'settings.customization.theme': return 'Theme';
@@ -1214,6 +1220,8 @@ extension on _StringsEs {
 			case 'settings.createdBy': return 'Creado por';
 			case 'settings.visitGooglePlay': return 'Visita la página de la aplicación en Google Play';
 			case 'settings.visitGitHubRepo': return 'Visita el repositorio de la aplicación en GitHub';
+			case 'settings.linkdingRepository': return 'Repositorio de Linkding';
+			case 'settings.linkdingRepositoryDescription': return 'Enlace al repositorio de Linkding en GitHub';
 			case 'settings.customization.customization': return 'Personalización';
 			case 'settings.customization.customizationDescription': return 'Configura el tema y la paleta de colores.';
 			case 'settings.customization.theme': return 'Tema';

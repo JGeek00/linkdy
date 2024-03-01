@@ -76,6 +76,15 @@ class _List extends ConsumerWidget {
           ),
           SectionLabel(label: t.settings.aboutApp),
           CustomListTile(
+            title: t.settings.linkdingRepository,
+            subtitle: t.settings.linkdingRepositoryDescription,
+            trailing: Icon(
+              Icons.open_in_new_rounded,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
+            onTap: () => openUrl(Urls.linkdingRepo),
+          ),
+          CustomListTile(
             title: t.settings.appVersion,
             subtitle: ref.watch(appInfoProvider).version,
           ),

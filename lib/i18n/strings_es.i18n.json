@@ -166,6 +166,8 @@
     "createdBy": "Creado por",
     "visitGooglePlay": "Visita la página de la aplicación en Google Play",
     "visitGitHubRepo": "Visita el repositorio de la aplicación en GitHub",
+    "linkdingRepository": "Repositorio de Linkding",
+    "linkdingRepositoryDescription": "Enlace al repositorio de Linkding en GitHub",
     "customization": {
       "customization": "Personalización",
       "customizationDescription": "Configura el tema y la paleta de colores.",
