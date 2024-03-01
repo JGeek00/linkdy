@@ -434,6 +434,6 @@ void openBookmarkFormModal({
         child: child,
       );
     },
-    pageBuilder: (context, animation, secondaryAnimation) => const BookmarkFormModal(),
+    pageBuilder: (context, animation, secondaryAnimation) => BookmarkFormModal(bookmark: bookmark),
   );
 }
