@@ -12,6 +12,9 @@ import 'package:linkdy/providers/app_status.provider.dart';
 import 'package:linkdy/utils/date_to_string.dart';
 import 'package:super_context_menu/super_context_menu.dart';
 
+// Wait until the context menu close animation animation finishes
+Duration _durationTime = const Duration(milliseconds: 150);
+
 class BookmarkItem extends ConsumerWidget {
   final Bookmark bookmark;
   final void Function(Bookmark bookmark) onSelect;
@@ -58,7 +61,7 @@ class BookmarkItem extends ConsumerWidget {
           menuProvider: (request) => Menu(
             children: [
               MenuAction(
-                callback: () => onReadUnread(bookmark),
+                callback: () => Future.delayed(_durationTime).then((value) => onReadUnread(bookmark)),
                 title: bookmark.unread == true
                     ? t.bookmarks.bookmarkOptions.markAsRead
                     : t.bookmarks.bookmarkOptions.markAsUnread,
@@ -67,7 +70,7 @@ class BookmarkItem extends ConsumerWidget {
                 ),
               ),
               MenuAction(
-                callback: () => onArchiveUnarchive(bookmark),
+                callback: () => Future.delayed(_durationTime).then((value) => onArchiveUnarchive(bookmark)),
                 title: bookmark.isArchived == true
                     ? t.bookmarks.bookmarkOptions.unarchive
                     : t.bookmarks.bookmarkOptions.archive,
@@ -80,14 +83,16 @@ class BookmarkItem extends ConsumerWidget {
                 image: MenuImage.icon(Icons.share_rounded),
                 children: [
                   MenuAction(
-                    callback: () => onShareInternally(bookmark),
+                    callback: () => Future.delayed(_durationTime).then((value) => onShareInternally(bookmark)),
                     title: bookmark.shared == true
                         ? t.bookmarks.bookmarkOptions.unshareInternally
                         : t.bookmarks.bookmarkOptions.shareInternally,
                     image: MenuImage.icon(Icons.input_rounded),
                   ),
                   MenuAction(
-                    callback: () => Share.shareUri(Uri.parse(bookmark.url!)),
+                    callback: () => Future.delayed(_durationTime).then(
+                      (value) => Share.shareUri(Uri.parse(bookmark.url!)),
+                    ),
                     title: t.bookmarks.bookmarkOptions.shareThirdPartyApp,
                     image: MenuImage.icon(Icons.output_rounded),
                   ),
@@ -95,12 +100,12 @@ class BookmarkItem extends ConsumerWidget {
               ),
               MenuSeparator(),
               MenuAction(
-                callback: () => onEdit(bookmark),
+                callback: () => Future.delayed(_durationTime).then((value) => onEdit(bookmark)),
                 title: t.bookmarks.bookmarkOptions.edit,
                 image: MenuImage.icon(Icons.edit_rounded),
               ),
               MenuAction(
-                callback: () => onDelete(bookmark),
+                callback: () => Future.delayed(_durationTime).then((value) => onDelete(bookmark)),
                 title: t.bookmarks.bookmarkOptions.delete,
                 image: MenuImage.icon(Icons.delete_rounded),
                 attributes: const MenuActionAttributes(destructive: true),
