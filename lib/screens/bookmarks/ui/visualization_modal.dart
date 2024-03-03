@@ -80,8 +80,8 @@ class VisualizationModal extends ConsumerWidget {
                         ),
                         SegmentedButtonSlide(
                           entries: [
-                            SegmentedButtonSlideEntry(label: t.bookmarks.date),
-                            SegmentedButtonSlideEntry(label: t.bookmarks.title),
+                            SegmentedButtonSlideEntry(label: t.bookmarks.date, icon: Icons.schedule_rounded),
+                            SegmentedButtonSlideEntry(label: t.bookmarks.title, icon: Icons.title_rounded),
                           ],
                           selectedEntry: ref.watch(bookmarksProvider).sortingType.index,
                           onChange: (v) => ref.read(bookmarksProvider.notifier).setSortingType(SortingType.values[v]),
@@ -96,8 +96,14 @@ class VisualizationModal extends ConsumerWidget {
                         const SizedBox(height: 16),
                         SegmentedButtonSlide(
                           entries: [
-                            SegmentedButtonSlideEntry(label: t.bookmarks.descendant),
-                            SegmentedButtonSlideEntry(label: t.bookmarks.ascendant),
+                            SegmentedButtonSlideEntry(
+                              label: t.bookmarks.descendant,
+                              icon: Icons.arrow_downward_rounded,
+                            ),
+                            SegmentedButtonSlideEntry(
+                              label: t.bookmarks.ascendant,
+                              icon: Icons.arrow_upward_rounded,
+                            ),
                           ],
                           selectedEntry: ref.watch(bookmarksProvider).sortingWay.index,
                           onChange: (v) => ref.read(bookmarksProvider.notifier).setSortingWay(SortingWay.values[v]),
