@@ -52,6 +52,7 @@ class ApiClientService {
     int? limit,
     int? offset,
     ReadStatus? unread,
+    String? sort,
   }) async {
     try {
       final response = await dioInstance.get(
@@ -65,6 +66,7 @@ class ApiClientService {
               : unread == ReadStatus.read
                   ? "no"
                   : null,
+          "sort": sort,
         },
       );
       return ApiResponse(

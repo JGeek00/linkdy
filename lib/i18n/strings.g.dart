@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 364 (182 per locale)
+/// Strings: 374 (187 per locale)
 ///
-/// Built on 2024-03-01 at 13:46 UTC
+/// Built on 2024-03-03 at 16:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -235,6 +235,11 @@ class _StringsBookmarksEn {
 	String get unread => 'Unread';
 	String get read => 'Read';
 	String get filterSort => 'Filter and sort';
+	String get sorting => 'Sorting';
+	String get date => 'Date';
+	String get title => 'Title';
+	String get ascendant => 'Ascendant';
+	String get descendant => 'Descendant';
 	late final _StringsBookmarksAddBookmarkEn addBookmark = _StringsBookmarksAddBookmarkEn._(_root);
 	late final _StringsBookmarksSearchEn search = _StringsBookmarksSearchEn._(_root);
 	late final _StringsBookmarksBookmarkOptionsEn bookmarkOptions = _StringsBookmarksBookmarkOptionsEn._(_root);
@@ -613,6 +618,11 @@ class _StringsBookmarksEs implements _StringsBookmarksEn {
 	@override String get unread => 'No leídos';
 	@override String get read => 'Leídos';
 	@override String get filterSort => 'Filtrar y ordenar';
+	@override String get sorting => 'Ordenación';
+	@override String get date => 'Fecha';
+	@override String get title => 'Título';
+	@override String get ascendant => 'Ascendiente';
+	@override String get descendant => 'Descendiente';
 	@override late final _StringsBookmarksAddBookmarkEs addBookmark = _StringsBookmarksAddBookmarkEs._(_root);
 	@override late final _StringsBookmarksSearchEs search = _StringsBookmarksSearchEs._(_root);
 	@override late final _StringsBookmarksBookmarkOptionsEs bookmarkOptions = _StringsBookmarksBookmarkOptionsEs._(_root);
@@ -940,6 +950,11 @@ extension on Translations {
 			case 'bookmarks.unread': return 'Unread';
 			case 'bookmarks.read': return 'Read';
 			case 'bookmarks.filterSort': return 'Filter and sort';
+			case 'bookmarks.sorting': return 'Sorting';
+			case 'bookmarks.date': return 'Date';
+			case 'bookmarks.title': return 'Title';
+			case 'bookmarks.ascendant': return 'Ascendant';
+			case 'bookmarks.descendant': return 'Descendant';
 			case 'bookmarks.addBookmark.addBookmark': return 'Add new bookmark';
 			case 'bookmarks.addBookmark.editBookmark': return 'Edit bookmark';
 			case 'bookmarks.addBookmark.bookmarkUrl': return 'Bookmark URL';
@@ -1130,6 +1145,11 @@ extension on _StringsEs {
 			case 'bookmarks.unread': return 'No leídos';
 			case 'bookmarks.read': return 'Leídos';
 			case 'bookmarks.filterSort': return 'Filtrar y ordenar';
+			case 'bookmarks.sorting': return 'Ordenación';
+			case 'bookmarks.date': return 'Fecha';
+			case 'bookmarks.title': return 'Título';
+			case 'bookmarks.ascendant': return 'Ascendiente';
+			case 'bookmarks.descendant': return 'Descendiente';
 			case 'bookmarks.addBookmark.addBookmark': return 'Añadir nuevo marcador';
 			case 'bookmarks.addBookmark.editBookmark': return 'Editar marcador';
 			case 'bookmarks.addBookmark.url': return 'URL';

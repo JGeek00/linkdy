@@ -19,12 +19,27 @@ import 'package:linkdy/constants/enums.dart';
 
 part 'bookmarks.provider.g.dart';
 
+String sortingMethod(SortingType type, SortingWay way) {
+  if (type == SortingType.date && way == SortingWay.descendant) {
+    return "";
+  } else {
+    return "${type == SortingType.title ? "title" : "date"}_${way == SortingWay.ascendant ? "asc" : "desc"}";
+  }
+}
+
 @riverpod
-FutureOr<void> bookmarksRequest(BookmarksRequestRef ref, ReadStatus readStatus, int limit) async {
+FutureOr<void> bookmarksRequest(
+  BookmarksRequestRef ref,
+  ReadStatus readStatus,
+  SortingType type,
+  SortingWay way,
+  int limit,
+) async {
   final result = await ref.watch(apiClientProvider)!.fetchBookmarks(
         limit: limit,
         offset: 0,
         unread: readStatus,
+        sort: sortingMethod(type, way),
       );
 
   if (result.successful == true) {
@@ -44,12 +59,16 @@ FutureOr<void> bookmarksRequest(BookmarksRequestRef ref, ReadStatus readStatus, 
 FutureOr<void> bookmarksRequestLoadMore(BookmarksRequestLoadMoreRef ref) async {
   final provider = ref.watch(bookmarksProvider);
 
+  final sortingType = ref.watch(bookmarksProvider).sortingType;
+  final sortingWay = ref.watch(bookmarksProvider).sortingWay;
+
   final newOffset = provider.limit * (provider.currentPage + 1);
 
   final result = await ref.watch(apiClientProvider)!.fetchBookmarks(
         limit: provider.limit,
         offset: newOffset,
         unread: ref.read(bookmarksProvider).readStatus,
+        sort: sortingMethod(sortingType, sortingWay),
       );
 
   if (result.successful == true) {
@@ -89,7 +108,7 @@ class Bookmarks extends _$Bookmarks {
         ],
       ),
     );
-    ref.read(bookmarksRequestProvider(model.readStatus, model.limit));
+    ref.read(bookmarksRequestProvider(model.readStatus, model.sortingType, model.sortingWay, model.limit));
     return model;
   }
 
@@ -117,7 +136,19 @@ class Bookmarks extends _$Bookmarks {
 
   void setReadStatus(ReadStatus status) {
     state.readStatus = status;
-    ref.read(bookmarksRequestProvider(status, state.limit));
+    ref.read(bookmarksRequestProvider(status, state.sortingType, state.sortingWay, state.limit));
+    ref.notifyListeners();
+  }
+
+  void setSortingType(SortingType type) {
+    state.sortingType = type;
+    ref.read(bookmarksRequestProvider(state.readStatus, type, state.sortingWay, state.limit));
+    ref.notifyListeners();
+  }
+
+  void setSortingWay(SortingWay way) {
+    state.sortingWay = way;
+    ref.read(bookmarksRequestProvider(state.readStatus, state.sortingType, way, state.limit));
     ref.notifyListeners();
   }
 
@@ -148,7 +179,7 @@ class Bookmarks extends _$Bookmarks {
   }
 
   Future<void> refresh() async {
-    await ref.read(bookmarksRequestProvider(state.readStatus, state.limit).future);
+    await ref.read(bookmarksRequestProvider(state.readStatus, state.sortingType, state.sortingWay, state.limit).future);
   }
 
   void deleteBookmark(Bookmark bookmark) async {

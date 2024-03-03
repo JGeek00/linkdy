@@ -14,6 +14,8 @@ class BookmarksModel {
   ReadStatus readStatus;
   Bookmark? selectedBookmark;
   final GoRouter webViewRouter;
+  SortingType sortingType;
+  SortingWay sortingWay;
 
   BookmarksModel({
     this.currentPage = 0,
@@ -25,5 +27,7 @@ class BookmarksModel {
     this.readStatus = ReadStatus.all,
     this.selectedBookmark,
     required this.webViewRouter,
+    this.sortingType = SortingType.date,
+    this.sortingWay = SortingWay.descendant,
   });
 }

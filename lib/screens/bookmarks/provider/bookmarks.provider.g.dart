@@ -6,7 +6,7 @@ part of 'bookmarks.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bookmarksRequestHash() => r'eb1ddffb83edc0fa433fae76859bde4206e59940';
+String _$bookmarksRequestHash() => r'c89579d46046980542ed9898867bfb39e85d1d6c';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -41,10 +41,14 @@ class BookmarksRequestFamily extends Family<AsyncValue<void>> {
   /// See also [bookmarksRequest].
   BookmarksRequestProvider call(
     ReadStatus readStatus,
+    SortingType type,
+    SortingWay way,
     int limit,
   ) {
     return BookmarksRequestProvider(
       readStatus,
+      type,
+      way,
       limit,
     );
   }
@@ -55,6 +59,8 @@ class BookmarksRequestFamily extends Family<AsyncValue<void>> {
   ) {
     return call(
       provider.readStatus,
+      provider.type,
+      provider.way,
       provider.limit,
     );
   }
@@ -79,11 +85,15 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
   /// See also [bookmarksRequest].
   BookmarksRequestProvider(
     ReadStatus readStatus,
+    SortingType type,
+    SortingWay way,
     int limit,
   ) : this._internal(
           (ref) => bookmarksRequest(
             ref as BookmarksRequestRef,
             readStatus,
+            type,
+            way,
             limit,
           ),
           from: bookmarksRequestProvider,
@@ -96,6 +106,8 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
           allTransitiveDependencies:
               BookmarksRequestFamily._allTransitiveDependencies,
           readStatus: readStatus,
+          type: type,
+          way: way,
           limit: limit,
         );
 
@@ -107,10 +119,14 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.readStatus,
+    required this.type,
+    required this.way,
     required this.limit,
   }) : super.internal();
 
   final ReadStatus readStatus;
+  final SortingType type;
+  final SortingWay way;
   final int limit;
 
   @override
@@ -127,6 +143,8 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         readStatus: readStatus,
+        type: type,
+        way: way,
         limit: limit,
       ),
     );
@@ -141,6 +159,8 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
   bool operator ==(Object other) {
     return other is BookmarksRequestProvider &&
         other.readStatus == readStatus &&
+        other.type == type &&
+        other.way == way &&
         other.limit == limit;
   }
 
@@ -148,6 +168,8 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, readStatus.hashCode);
+    hash = _SystemHash.combine(hash, type.hashCode);
+    hash = _SystemHash.combine(hash, way.hashCode);
     hash = _SystemHash.combine(hash, limit.hashCode);
 
     return _SystemHash.finish(hash);
@@ -157,6 +179,12 @@ class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
 mixin BookmarksRequestRef on AutoDisposeFutureProviderRef<void> {
   /// The parameter `readStatus` of this provider.
   ReadStatus get readStatus;
+
+  /// The parameter `type` of this provider.
+  SortingType get type;
+
+  /// The parameter `way` of this provider.
+  SortingWay get way;
 
   /// The parameter `limit` of this provider.
   int get limit;
@@ -169,11 +197,15 @@ class _BookmarksRequestProviderElement
   @override
   ReadStatus get readStatus => (origin as BookmarksRequestProvider).readStatus;
   @override
+  SortingType get type => (origin as BookmarksRequestProvider).type;
+  @override
+  SortingWay get way => (origin as BookmarksRequestProvider).way;
+  @override
   int get limit => (origin as BookmarksRequestProvider).limit;
 }
 
 String _$bookmarksRequestLoadMoreHash() =>
-    r'1a206bd974677fd862eb4d5b5f453df9f566d995';
+    r'cea7de930dc5cb77281b68e91dfa66ff3ecf57b5';
 
 /// See also [bookmarksRequestLoadMore].
 @ProviderFor(bookmarksRequestLoadMore)
@@ -189,7 +221,7 @@ final bookmarksRequestLoadMoreProvider =
 );
 
 typedef BookmarksRequestLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$bookmarksHash() => r'84c91bf9112343e4680040bfe25b5e17fb2f92d2';
+String _$bookmarksHash() => r'ed3a350dc6f4818adf146c1dab84005fec8c9be4';
 
 /// See also [Bookmarks].
 @ProviderFor(Bookmarks)

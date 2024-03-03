@@ -60,6 +60,11 @@
     "unread": "No leídos",
     "read": "Leídos",
     "filterSort": "Filtrar y ordenar",
+    "sorting": "Ordenación",
+    "date": "Fecha",
+    "title": "Título",
+    "ascendant": "Ascendiente",
+    "descendant": "Descendiente",
     "addBookmark": {
       "addBookmark": "Añadir nuevo marcador",
       "editBookmark": "Editar marcador",

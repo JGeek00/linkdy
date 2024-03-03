@@ -70,6 +70,45 @@ class VisualizationModal extends ConsumerWidget {
                             hoverColor: Theme.of(context).colorScheme.onSurfaceVariant,
                           ),
                         ),
+                        const SizedBox(height: 8),
+                        SectionLabel(
+                          label: t.bookmarks.sorting,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 0,
+                            vertical: 16,
+                          ),
+                        ),
+                        SegmentedButtonSlide(
+                          entries: [
+                            SegmentedButtonSlideEntry(label: t.bookmarks.date),
+                            SegmentedButtonSlideEntry(label: t.bookmarks.title),
+                          ],
+                          selectedEntry: ref.watch(bookmarksProvider).sortingType.index,
+                          onChange: (v) => ref.read(bookmarksProvider.notifier).setSortingType(SortingType.values[v]),
+                          colors: SegmentedButtonSlideColors(
+                            barColor: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                            backgroundSelectedColor: Theme.of(context).colorScheme.primary,
+                            foregroundSelectedColor: Theme.of(context).colorScheme.onPrimary,
+                            foregroundUnselectedColor: Theme.of(context).colorScheme.onSurface,
+                            hoverColor: Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        SegmentedButtonSlide(
+                          entries: [
+                            SegmentedButtonSlideEntry(label: t.bookmarks.descendant),
+                            SegmentedButtonSlideEntry(label: t.bookmarks.ascendant),
+                          ],
+                          selectedEntry: ref.watch(bookmarksProvider).sortingWay.index,
+                          onChange: (v) => ref.read(bookmarksProvider.notifier).setSortingWay(SortingWay.values[v]),
+                          colors: SegmentedButtonSlideColors(
+                            barColor: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                            backgroundSelectedColor: Theme.of(context).colorScheme.primary,
+                            foregroundSelectedColor: Theme.of(context).colorScheme.onPrimary,
+                            foregroundUnselectedColor: Theme.of(context).colorScheme.onSurface,
+                            hoverColor: Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                        ),
                       ],
                     ),
                   ),
