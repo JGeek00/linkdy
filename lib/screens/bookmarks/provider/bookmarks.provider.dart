@@ -19,14 +19,6 @@ import 'package:linkdy/constants/enums.dart';
 
 part 'bookmarks.provider.g.dart';
 
-String sortingMethod(SortingType type, SortingWay way) {
-  if (type == SortingType.date && way == SortingWay.descendant) {
-    return "";
-  } else {
-    return "${type == SortingType.title ? "title" : "date"}_${way == SortingWay.ascendant ? "asc" : "desc"}";
-  }
-}
-
 @riverpod
 FutureOr<void> bookmarksRequest(
   BookmarksRequestRef ref,
@@ -39,7 +31,7 @@ FutureOr<void> bookmarksRequest(
         limit: limit,
         offset: 0,
         unread: readStatus,
-        sort: sortingMethod(type, way),
+        sort: "${type == SortingType.title ? "title" : "added"}_${way == SortingWay.ascendant ? "asc" : "desc"}",
       );
 
   if (result.successful == true) {
@@ -68,7 +60,8 @@ FutureOr<void> bookmarksRequestLoadMore(BookmarksRequestLoadMoreRef ref) async {
         limit: provider.limit,
         offset: newOffset,
         unread: ref.read(bookmarksProvider).readStatus,
-        sort: sortingMethod(sortingType, sortingWay),
+        sort:
+            "${sortingType == SortingType.title ? "title" : "added"}_${sortingWay == SortingWay.ascendant ? "asc" : "desc"}",
       );
 
   if (result.successful == true) {
