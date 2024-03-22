@@ -6,14 +6,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:linkdy/constants/global_keys.dart';
-import 'package:linkdy/providers/temporary_directory.provider.dart';
 import 'package:linkdy/providers/app_status.provider.dart';
 import 'package:linkdy/providers/app_info.provider.dart';
 import 'package:linkdy/config/theme.dart';
@@ -37,15 +35,12 @@ void main() async {
 
   final appInfo = await PackageInfo.fromPlatform();
 
-  final baseDir = await getTemporaryDirectory();
-
   void startApp() => runApp(
         TranslationProvider(
           child: ProviderScope(
             overrides: [
               sharedPreferencesProvider.overrideWithValue(sharedPreferences),
               appInfoProvider.overrideWithValue(appInfo),
-              temporaryDirectoryProvider.overrideWithValue(baseDir),
             ],
             child: const MyApp(),
           ),
