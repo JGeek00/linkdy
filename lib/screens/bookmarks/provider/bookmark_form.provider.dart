@@ -65,6 +65,15 @@ class BookmarkForm extends _$BookmarkForm {
     state.markAsUnread = bookmark.unread ?? false;
   }
 
+  void initializeProviderUrl(String url) {
+    state.urlController.text = url;
+    if (Regexps.urlWithoutProtocol.hasMatch(url)) {
+      state.urlError = null;
+    } else {
+      state.urlError = t.bookmarks.addBookmark.invalidUrl;
+    }
+  }
+
   void validateUrl(String value) {
     state.checkBookmark = null;
     state.checkBookmarkLoadStatus = null;

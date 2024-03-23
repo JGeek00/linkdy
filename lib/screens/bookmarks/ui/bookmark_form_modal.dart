@@ -13,10 +13,12 @@ import 'package:linkdy/constants/enums.dart';
 
 class BookmarkFormModal extends ConsumerStatefulWidget {
   final Bookmark? bookmark;
+  final String? url;
 
   const BookmarkFormModal({
     super.key,
     this.bookmark,
+    this.url,
   });
 
   @override
@@ -28,6 +30,9 @@ class BookmarkFormModalState extends ConsumerState<BookmarkFormModal> {
   void initState() {
     if (widget.bookmark != null) {
       ref.read(bookmarkFormProvider.notifier).initializeProvider(widget.bookmark!);
+    }
+    if (widget.url != null) {
+      ref.read(bookmarkFormProvider.notifier).initializeProviderUrl(widget.url!);
     }
     super.initState();
   }
@@ -421,6 +426,7 @@ class _ModalContent extends ConsumerWidget {
 void openBookmarkFormModal({
   required BuildContext context,
   required double width,
+  String? url,
   Bookmark? bookmark,
 }) {
   showGeneralDialog(
@@ -434,6 +440,6 @@ void openBookmarkFormModal({
         child: child,
       );
     },
-    pageBuilder: (context, animation, secondaryAnimation) => BookmarkFormModal(bookmark: bookmark),
+    pageBuilder: (context, animation, secondaryAnimation) => BookmarkFormModal(bookmark: bookmark, url: url),
   );
 }

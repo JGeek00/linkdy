@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:linkdy/screens/bookmarks/ui/visualization_modal.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
@@ -10,6 +11,7 @@ import 'package:linkdy/screens/bookmarks/ui/search_bookmarks.dart';
 import 'package:linkdy/widgets/error_screen.dart';
 import 'package:linkdy/widgets/no_data_screen.dart';
 
+import 'package:linkdy/providers/receive_sharing_intent_url.provider.dart';
 import 'package:linkdy/config/sizes.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/router/paths.dart';
@@ -20,11 +22,20 @@ import 'package:linkdy/widgets/system_overlay_style.dart';
 final GlobalKey _searchButtonKey = GlobalKey();
 final webviewBookmarksKey = GlobalKey<NavigatorState>();
 
-class BookmarksScreen extends ConsumerWidget {
+class BookmarksScreen extends HookConsumerWidget {
   const BookmarksScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final width = MediaQuery.of(context).size.width;
+    final sharedUrl = ref.watch(receiveSharingIntentUrlProvider);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (sharedUrl == null) return;
+      openBookmarkFormModal(context: context, width: width, url: sharedUrl);
+      ref.read(receiveSharingIntentUrlProvider.notifier).setValue(null);
+    });
+
     return ScaffoldMessenger(
       key: ScaffoldMessengerKeys.bookmarks,
       child: LayoutBuilder(
