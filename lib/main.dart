@@ -9,7 +9,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:receive_sharing_intent/receive_sharing_intent.dart';
+import 'package:receive_sharing_intent_plus/receive_sharing_intent_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -76,10 +76,10 @@ class MyApp extends HookConsumerWidget {
     useEffect(
       () {
         // When app is on background
-        ReceiveSharingIntent.getMediaStream().listen(
+        ReceiveSharingIntentPlus.getTextStream().listen(
           (value) {
             if (value.isNotEmpty) {
-              ref.read(receiveSharingIntentUrlProvider.notifier).setValue(value[0].path);
+              ref.read(receiveSharingIntentUrlProvider.notifier).setValue(value);
               ref.read(routerProvider).go(RoutesPaths.bookmarks);
             }
           },
@@ -87,12 +87,12 @@ class MyApp extends HookConsumerWidget {
         );
 
         // When app is closed
-        ReceiveSharingIntent.getInitialMedia().then((value) {
-          if (value.isNotEmpty) {
-            ref.read(receiveSharingIntentUrlProvider.notifier).setValue(value[0].path);
+        ReceiveSharingIntentPlus.getInitialText().then((value) {
+          if (value != null) {
+            ref.read(receiveSharingIntentUrlProvider.notifier).setValue(value);
             ref.read(routerProvider).go(RoutesPaths.bookmarks);
           }
-          ReceiveSharingIntent.reset();
+          ReceiveSharingIntentPlus.reset();
         });
 
         return null;

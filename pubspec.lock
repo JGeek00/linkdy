@@ -854,14 +854,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.3"
-  receive_sharing_intent:
+  receive_sharing_intent_plus:
     dependency: "direct main"
     description:
-      name: receive_sharing_intent
-      sha256: "8fdf5927934041264becf65199ef8057b8b176e879d95ffa0420cd2a6219c0fd"
+      name: receive_sharing_intent_plus
+      sha256: "89020b3c72a0c70409c07f549ae7fc614a56278ecc9bde0a637e49918e00b083"
       url: "https://pub.dev"
     source: hosted
-    version: "1.6.7"
+    version: "1.0.1"
   riverpod:
     dependency: transitive
     description:
