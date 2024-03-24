@@ -58,7 +58,7 @@ class BookmarkItem extends ConsumerWidget {
       child: ClipRRect(
         borderRadius: tabletMode ? BorderRadius.circular(28) : BorderRadius.circular(0),
         child: Builder(
-          builder: (context) {
+          builder: (ctx) {
             return ContextMenuWidget(
               menuProvider: (request) => Menu(
                 children: [
@@ -93,7 +93,7 @@ class BookmarkItem extends ConsumerWidget {
                       ),
                       MenuAction(
                         callback: () {
-                          final box = context.findRenderObject() as RenderBox?;
+                          final box = ctx.findRenderObject() as RenderBox?;
                           Future.delayed(_durationTime).then(
                             (value) => Share.share(
                               bookmark.url!,

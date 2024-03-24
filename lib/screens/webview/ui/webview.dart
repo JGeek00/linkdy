@@ -108,43 +108,53 @@ class WebViewScreen extends HookConsumerWidget {
                       ),
                     ],
                   ),
-                  PopupMenuButton(
-                    itemBuilder: (context) => [
-                      PopupMenuItem(
-                        onTap: () => Share.shareUri(Uri.parse(bookmark.url!)),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.share_rounded),
-                            const SizedBox(width: 12),
-                            Flexible(child: Text(t.webview.share)),
-                          ],
-                        ),
-                      ),
-                      PopupMenuItem(
-                        onTap: () => copyToClipboard(
-                          key: ScaffoldMessengerKeys.root,
-                          value: bookmark.url!,
-                          successMessage: t.webview.linkCopiedClipboard,
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.copy_rounded),
-                            const SizedBox(width: 12),
-                            Flexible(child: Text(t.webview.copyLinkClipboard)),
-                          ],
-                        ),
-                      ),
-                      PopupMenuItem(
-                        onTap: () => openUrl(bookmark.url!),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.open_in_browser_rounded),
-                            const SizedBox(width: 12),
-                            Flexible(child: Text(t.webview.openInSystemBrowser)),
-                          ],
-                        ),
-                      ),
-                    ],
+                  Builder(
+                    builder: (ctx) {
+                      return PopupMenuButton(
+                        itemBuilder: (context) => [
+                          PopupMenuItem(
+                            onTap: () {
+                              final box = ctx.findRenderObject() as RenderBox?;
+                              Share.share(
+                                bookmark.url!,
+                                sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+                              );
+                            },
+                            child: Row(
+                              children: [
+                                const Icon(Icons.share_rounded),
+                                const SizedBox(width: 12),
+                                Flexible(child: Text(t.webview.share)),
+                              ],
+                            ),
+                          ),
+                          PopupMenuItem(
+                            onTap: () => copyToClipboard(
+                              key: ScaffoldMessengerKeys.root,
+                              value: bookmark.url!,
+                              successMessage: t.webview.linkCopiedClipboard,
+                            ),
+                            child: Row(
+                              children: [
+                                const Icon(Icons.copy_rounded),
+                                const SizedBox(width: 12),
+                                Flexible(child: Text(t.webview.copyLinkClipboard)),
+                              ],
+                            ),
+                          ),
+                          PopupMenuItem(
+                            onTap: () => openUrl(bookmark.url!),
+                            child: Row(
+                              children: [
+                                const Icon(Icons.open_in_browser_rounded),
+                                const SizedBox(width: 12),
+                                Flexible(child: Text(t.webview.openInSystemBrowser)),
+                              ],
+                            ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
                 ],
               ),

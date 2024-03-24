@@ -25,7 +25,10 @@ class Onboarding extends ConsumerWidget {
                 return Center(
                   child: ConstrainedBox(
                     constraints: constraints.maxWidth > Sizes.tabletBreakpoint
-                        ? const BoxConstraints(maxWidth: 500, maxHeight: 600)
+                        ? BoxConstraints(
+                            maxWidth: 500,
+                            maxHeight: constraints.maxHeight > 800 ? 800 : constraints.maxHeight - 100,
+                          )
                         : const BoxConstraints.expand(),
                     child: Container(
                       decoration: constraints.maxWidth > Sizes.tabletBreakpoint
