@@ -69,6 +69,9 @@ class ApiClientService {
           "sort": sort,
         },
       );
+      if (response.statusCode != 200) {
+        return const ApiResponse(successful: false);
+      }
       return ApiResponse(
         successful: true,
         content: BookmarksResponse.fromJson(response.data),
@@ -93,6 +96,9 @@ class ApiClientService {
           "offset": offset,
         },
       );
+      if (response.statusCode != 200) {
+        return const ApiResponse(successful: false);
+      }
       return ApiResponse(
         successful: true,
         content: BookmarksResponse.fromJson(response.data),
@@ -117,6 +123,9 @@ class ApiClientService {
           "offset": offset,
         },
       );
+      if (response.statusCode != 200) {
+        return const ApiResponse(successful: false);
+      }
       return ApiResponse(
         successful: true,
         content: BookmarksResponse.fromJson(response.data),
@@ -139,6 +148,9 @@ class ApiClientService {
           "url": url,
         },
       );
+      if (response.statusCode != 200) {
+        return const ApiResponse(successful: false);
+      }
       return ApiResponse(
         successful: true,
         content: CheckBookmark.fromJson(response.data),
@@ -159,6 +171,9 @@ class ApiClientService {
         "/bookmarks/",
         data: FormData.fromMap(bookmark.toJson()),
       );
+      if (response.statusCode != 200) {
+        return const ApiResponse(successful: false);
+      }
       return ApiResponse(
         successful: true,
         content: Bookmark.fromJson(response.data),
@@ -183,6 +198,9 @@ class ApiClientService {
           "offset": offset,
         },
       );
+      if (response.statusCode != 200) {
+        return const ApiResponse(successful: false);
+      }
       return ApiResponse(
         successful: true,
         content: TagsResponse.fromJson(response.data),
@@ -220,6 +238,9 @@ class ApiClientService {
   Future<ApiResponse<Tag>> fetchTagById(String tagId) async {
     try {
       final response = await dioInstance.get("/tags/$tagId/");
+      if (response.statusCode != 200) {
+        return const ApiResponse(successful: false);
+      }
       return ApiResponse(
         successful: true,
         content: Tag.fromJson(response.data),
@@ -254,6 +275,9 @@ class ApiClientService {
         "/bookmarks/$bookmarkId/",
         data: FormData.fromMap(bookmark.toJson()),
       );
+      if (result.statusCode != 200) {
+        return const ApiResponse(successful: false);
+      }
       return ApiResponse(
         successful: true,
         content: Bookmark.fromJson(result.data),
@@ -300,6 +324,9 @@ class ApiClientService {
         "/bookmarks/$bookmarkId/",
         data: FormData.fromMap(bookmark.toJson()),
       );
+      if (result.statusCode != 200) {
+        return const ApiResponse(successful: false);
+      }
       return ApiResponse(
         successful: true,
         content: Bookmark.fromJson(result.data),
