@@ -75,8 +75,10 @@ class ApiClientService {
       );
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }
@@ -97,8 +99,10 @@ class ApiClientService {
       );
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }
@@ -119,8 +123,10 @@ class ApiClientService {
       );
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }
@@ -139,8 +145,10 @@ class ApiClientService {
       );
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }
@@ -157,8 +165,10 @@ class ApiClientService {
       );
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }
@@ -179,8 +189,10 @@ class ApiClientService {
       );
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }
@@ -197,8 +209,10 @@ class ApiClientService {
       );
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }
@@ -212,8 +226,10 @@ class ApiClientService {
       );
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }
@@ -224,8 +240,10 @@ class ApiClientService {
       return const ApiResponse(successful: true);
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }
@@ -242,8 +260,10 @@ class ApiClientService {
       );
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }
@@ -266,8 +286,10 @@ class ApiClientService {
       return const ApiResponse(successful: true);
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }
@@ -284,8 +306,10 @@ class ApiClientService {
       );
     } on DioException {
       return const ApiResponse(successful: false);
-    } catch (e, stackTrace) {
+    } on FormatException catch (e, stackTrace) {
       Sentry.captureException(e, stackTrace: stackTrace);
+      return const ApiResponse(successful: false);
+    } catch (_) {
       return const ApiResponse(successful: false);
     }
   }

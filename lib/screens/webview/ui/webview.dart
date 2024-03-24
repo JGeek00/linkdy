@@ -48,12 +48,12 @@ class WebViewScreen extends HookConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              bookmark.title != "" ? bookmark.title! : bookmark.websiteTitle!,
+              bookmark.title ?? bookmark.websiteTitle ?? "Website",
               style: const TextStyle(fontSize: 14),
             ),
             const SizedBox(height: 4),
             Text(
-              bookmark.url!,
+              bookmark.url ?? "",
               style: TextStyle(
                 fontSize: 12,
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
