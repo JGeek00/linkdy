@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0D8852512BB0F5320049FE7A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0D88524F2BB0F36E0049FE7A /* PrivacyInfo.xcprivacy */; };
+		0D88526A2BB1B4910049FE7A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0D88524F2BB0F36E0049FE7A /* PrivacyInfo.xcprivacy */; };
+		0D88526B2BB1B4920049FE7A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0D88524F2BB0F36E0049FE7A /* PrivacyInfo.xcprivacy */; };
 		0DD98D4C2BAE797F00804BE7 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD98D4B2BAE797F00804BE7 /* ShareViewController.swift */; };
 		0DD98D4F2BAE797F00804BE7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0DD98D4E2BAE797F00804BE7 /* Base */; };
 		0DD98D532BAE797F00804BE7 /* Share Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0DD98D492BAE797F00804BE7 /* Share Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -327,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D88526A2BB1B4910049FE7A /* PrivacyInfo.xcprivacy in Resources */,
 				0DD98D4F2BAE797F00804BE7 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D88526B2BB1B4920049FE7A /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
