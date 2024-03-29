@@ -187,7 +187,7 @@ class _StringsOnboardingEn {
 	String get start => 'Start';
 	String get next => 'Next';
 	String get previous => 'Previous';
-	String get serverRequired => 'Servidor requerido';
+	String get serverRequired => 'Server required';
 	String get serverRequiredDescription => 'Linkdy it\'s not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.';
 	String get installationInstructions => 'Check the installation instructions on the official GitHub repository.';
 	String get serverRunningConfirmation => 'I confirm that I have an instance of the Linkding server already running.';
