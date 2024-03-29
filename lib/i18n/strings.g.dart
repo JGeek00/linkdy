@@ -910,7 +910,7 @@ extension on Translations {
 			case 'onboarding.start': return 'Start';
 			case 'onboarding.next': return 'Next';
 			case 'onboarding.previous': return 'Previous';
-			case 'onboarding.serverRequired': return 'Servidor requerido';
+			case 'onboarding.serverRequired': return 'Server required';
 			case 'onboarding.serverRequiredDescription': return 'Linkdy it\'s not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.';
 			case 'onboarding.installationInstructions': return 'Check the installation instructions on the official GitHub repository.';
 			case 'onboarding.serverRunningConfirmation': return 'I confirm that I have an instance of the Linkding server already running.';
