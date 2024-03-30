@@ -117,7 +117,9 @@ class MyApp extends HookConsumerWidget {
               : darkThemeOldVersions(colors[selectedColor]),
           themeMode: ref.watch(selectedThemeProvider),
           locale: TranslationProvider.of(context).flutterLocale,
-          supportedLocales: AppLocaleUtils.supportedLocales,
+          supportedLocales: const [
+            Locale('tr', ''),
+          ],
           localizationsDelegates: GlobalMaterialLocalizations.delegates,
           debugShowCheckedModeBanner: false,
           scaffoldMessengerKey: ScaffoldMessengerKeys.root,
