@@ -118,6 +118,8 @@ class MyApp extends HookConsumerWidget {
           themeMode: ref.watch(selectedThemeProvider),
           locale: TranslationProvider.of(context).flutterLocale,
           supportedLocales: const [
+            Locale('en', ''),
+            Locale('es', ''),
             Locale('tr', ''),
           ],
           localizationsDelegates: GlobalMaterialLocalizations.delegates,
