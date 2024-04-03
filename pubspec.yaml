@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.2.0+13
+version: 1.2.1+14
 
 environment:
   sdk: '>=3.2.6 <4.0.0'
@@ -33,36 +33,36 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_riverpod: ^2.4.10
-  go_router: ^13.2.0
-  riverpod_annotation: ^2.3.4
-  dynamic_color: ^1.6.9
+  flutter_riverpod: ^2.5.1
+  go_router: ^13.2.2
+  riverpod_annotation: ^2.3.5
+  dynamic_color: ^1.7.0
   shared_preferences: ^2.2.2
-  url_launcher: ^6.2.4
-  animations: ^2.0.10
+  url_launcher: ^6.2.5
+  animations: ^2.0.11
   segmented_button_slide: ^1.0.4
   dio: ^5.4.1
   uuid: ^4.3.3
-  slang: ^3.29.0
-  slang_flutter: ^3.29.0
+  slang: ^3.30.2
+  slang_flutter: ^3.30.0
   flutter_svg: ^2.0.9
   flutter_custom_tabs: ^2.0.0+1
-  share_plus: ^7.2.2
-  package_info_plus: ^5.0.1
+  share_plus: ^8.0.2
+  package_info_plus: ^4.2.0
   easy_autocomplete: ^1.6.0
-  sentry_flutter: ^7.16.1
+  sentry_flutter: ^7.18.0
   flutter_dotenv: ^5.1.0
   favicon: ^1.1.2
-  skeletonizer: ^1.0.1
-  http: ^1.2.0
+  skeletonizer: ^1.1.1
+  http: ^1.2.1
   webview_flutter: ^4.7.0
   flutter_hooks: ^0.20.5
-  hooks_riverpod: ^2.4.10
+  hooks_riverpod: ^2.5.1
   flutter_split_view:
     git:
       url: https://github.com/JGeek00/flutter_split_view
       ref: master-alt
-  super_context_menu: ^0.8.5
+  super_context_menu: ^0.8.10
   receive_sharing_intent_plus: ^1.0.1
 
 dev_dependencies:
