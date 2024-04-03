@@ -66,9 +66,12 @@ class BookmarkForm extends _$BookmarkForm {
   }
 
   void initializeProviderUrl(String url) {
-    state.urlController.text = url;
-    if (Regexps.urlWithoutProtocol.hasMatch(url)) {
+    final decoded = Uri.decodeComponent(url);
+    var value = decoded.contains(":~:text=") ? decoded.split(":~:text=")[1] : null;
+    state.urlController.text = value ?? decoded;
+    if (Regexps.urlWithoutProtocol.hasMatch(value ?? decoded)) {
       state.urlError = null;
+      checkUrlDetails(updateState: false);
     } else {
       state.urlError = t.bookmarks.addBookmark.invalidUrl;
     }
@@ -86,11 +89,13 @@ class BookmarkForm extends _$BookmarkForm {
     }
   }
 
-  void checkUrlDetails() async {
+  void checkUrlDetails({required bool updateState}) async {
     if (state.urlError == null && state.urlController.text != "") {
       state.checkBookmarkLoadStatus = LoadStatus.loading;
       state.checkBookmark = null;
-      ref.notifyListeners();
+      if (updateState == true) {
+        ref.notifyListeners();
+      }
       final result = await ref.read(checkBookmarkProvider(state.urlController.text).future);
       if (result.successful == true) {
         state.checkBookmark = result.content;

@@ -197,7 +197,7 @@ class _ModalContent extends ConsumerWidget {
               onPressed: provider.checkBookmarkLoadStatus == null &&
                       provider.urlError == null &&
                       provider.urlController.text != ""
-                  ? () => ref.read(bookmarkFormProvider.notifier).checkUrlDetails()
+                  ? () => ref.read(bookmarkFormProvider.notifier).checkUrlDetails(updateState: true)
                   : null,
               style: ButtonStyle(
                 foregroundColor: provider.checkBookmarkLoadStatus == LoadStatus.loaded
