@@ -62,7 +62,7 @@
     "filterSort": "Filtrele ve sırala",
     "sorting": "Sıralama",
     "date": "Tarih",
-    "title": "Unvanı",
+    "title": "Başlık",
     "ascendant": "Yükselen",
     "descendant": "Alt öğe",
     "addBookmark": {
@@ -142,10 +142,10 @@
       "shareExternallyDescription": "Üçüncü taraf bir uygulama kullanarak yer işareti bağlantısını harici olarak paylaşın",
       "sharingBookmark": "Yer işareti paylaşılıyor...",
       "unsharingBookmark": "Yer işareti paylaşımı kaldırılıyor...",
-      "bookmarkSharedSuccessfully": "Yer imi başarıyla paylaşıldı.",
-      "bookmarkNotShared": "Yer imi paylaşılamadı.",
-      "bookmarkUnsharedSuccessfully": "Yer imi başarıyla paylaşılmadı.",
-      "bookmarkNotUnshared": "Yer imi paylaşımı kaldırılamadı."
+      "bookmarkSharedSuccessfully": "Yer işareti başarıyla paylaşıldı.",
+      "bookmarkNotShared": "Yer işareti paylaşılamadı.",
+      "bookmarkUnsharedSuccessfully": "Yer işareti başarıyla paylaşılmadı.",
+      "bookmarkNotUnshared": "Yer işareti paylaşımı kaldırılamadı."
     }
   },
   "tags": {
@@ -158,9 +158,9 @@
       "errorCreatingTag": "Etiket oluşturulurken bir hata oluştu."
     },
     "filteredBookmarks": {
-      "noBookmarksWithThisTag": "Bu etikete sahip yer imi yok",
+      "noBookmarksWithThisTag": "Bu etikete sahip yer işareti yok",
       "noArchivedBookmarks": "Arşivlenmiş yer işareti yok",
-      "noSharedBookmarks": "Paylaşılan yer işareti yok"
+      "noSharedBookmarks": "Paylaşılmış yer işareti yok"
     }
   },
   "settings": {

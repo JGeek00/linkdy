@@ -6,7 +6,7 @@
 /// Locales: 3
 /// Strings: 561 (187 per locale)
 ///
-/// Built on 2024-04-03 at 17:41 UTC
+/// Built on 2024-04-03 at 17:47 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -1004,7 +1004,7 @@ class _StringsBookmarksTr implements _StringsBookmarksEn {
 	@override String get filterSort => 'Filtrele ve sırala';
 	@override String get sorting => 'Sıralama';
 	@override String get date => 'Tarih';
-	@override String get title => 'Unvanı';
+	@override String get title => 'Başlık';
 	@override String get ascendant => 'Yükselen';
 	@override String get descendant => 'Alt öğe';
 	@override late final _StringsBookmarksAddBookmarkTr addBookmark = _StringsBookmarksAddBookmarkTr._(_root);
@@ -1197,10 +1197,10 @@ class _StringsBookmarksShareOptionsTr implements _StringsBookmarksShareOptionsEn
 	@override String get shareExternallyDescription => 'Üçüncü taraf bir uygulama kullanarak yer işareti bağlantısını harici olarak paylaşın';
 	@override String get sharingBookmark => 'Yer işareti paylaşılıyor...';
 	@override String get unsharingBookmark => 'Yer işareti paylaşımı kaldırılıyor...';
-	@override String get bookmarkSharedSuccessfully => 'Yer imi başarıyla paylaşıldı.';
-	@override String get bookmarkNotShared => 'Yer imi paylaşılamadı.';
-	@override String get bookmarkUnsharedSuccessfully => 'Yer imi başarıyla paylaşılmadı.';
-	@override String get bookmarkNotUnshared => 'Yer imi paylaşımı kaldırılamadı.';
+	@override String get bookmarkSharedSuccessfully => 'Yer işareti başarıyla paylaşıldı.';
+	@override String get bookmarkNotShared => 'Yer işareti paylaşılamadı.';
+	@override String get bookmarkUnsharedSuccessfully => 'Yer işareti başarıyla paylaşılmadı.';
+	@override String get bookmarkNotUnshared => 'Yer işareti paylaşımı kaldırılamadı.';
 }
 
 // Path: tags.createTag
@@ -1223,9 +1223,9 @@ class _StringsTagsFilteredBookmarksTr implements _StringsTagsFilteredBookmarksEn
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get noBookmarksWithThisTag => 'Bu etikete sahip yer imi yok';
+	@override String get noBookmarksWithThisTag => 'Bu etikete sahip yer işareti yok';
 	@override String get noArchivedBookmarks => 'Arşivlenmiş yer işareti yok';
-	@override String get noSharedBookmarks => 'Paylaşılan yer işareti yok';
+	@override String get noSharedBookmarks => 'Paylaşılmış yer işareti yok';
 }
 
 // Path: settings.customization
@@ -1726,7 +1726,7 @@ extension on _StringsTr {
 			case 'bookmarks.filterSort': return 'Filtrele ve sırala';
 			case 'bookmarks.sorting': return 'Sıralama';
 			case 'bookmarks.date': return 'Tarih';
-			case 'bookmarks.title': return 'Unvanı';
+			case 'bookmarks.title': return 'Başlık';
 			case 'bookmarks.ascendant': return 'Yükselen';
 			case 'bookmarks.descendant': return 'Alt öğe';
 			case 'bookmarks.addBookmark.addBookmark': return 'Yeni yer işareti ekle';
@@ -1799,19 +1799,19 @@ extension on _StringsTr {
 			case 'bookmarks.shareOptions.shareExternallyDescription': return 'Üçüncü taraf bir uygulama kullanarak yer işareti bağlantısını harici olarak paylaşın';
 			case 'bookmarks.shareOptions.sharingBookmark': return 'Yer işareti paylaşılıyor...';
 			case 'bookmarks.shareOptions.unsharingBookmark': return 'Yer işareti paylaşımı kaldırılıyor...';
-			case 'bookmarks.shareOptions.bookmarkSharedSuccessfully': return 'Yer imi başarıyla paylaşıldı.';
-			case 'bookmarks.shareOptions.bookmarkNotShared': return 'Yer imi paylaşılamadı.';
-			case 'bookmarks.shareOptions.bookmarkUnsharedSuccessfully': return 'Yer imi başarıyla paylaşılmadı.';
-			case 'bookmarks.shareOptions.bookmarkNotUnshared': return 'Yer imi paylaşımı kaldırılamadı.';
+			case 'bookmarks.shareOptions.bookmarkSharedSuccessfully': return 'Yer işareti başarıyla paylaşıldı.';
+			case 'bookmarks.shareOptions.bookmarkNotShared': return 'Yer işareti paylaşılamadı.';
+			case 'bookmarks.shareOptions.bookmarkUnsharedSuccessfully': return 'Yer işareti başarıyla paylaşılmadı.';
+			case 'bookmarks.shareOptions.bookmarkNotUnshared': return 'Yer işareti paylaşımı kaldırılamadı.';
 			case 'tags.tags': return 'Etiketler';
 			case 'tags.created': return ({required Object created}) => 'Oluşturuldu: ${created}';
 			case 'tags.createTag.createTag': return 'Etiket oluştur';
 			case 'tags.createTag.name': return 'Adı';
 			case 'tags.createTag.creatingTag': return 'Etiket oluşturuluyor...';
 			case 'tags.createTag.errorCreatingTag': return 'Etiket oluşturulurken bir hata oluştu.';
-			case 'tags.filteredBookmarks.noBookmarksWithThisTag': return 'Bu etikete sahip yer imi yok';
+			case 'tags.filteredBookmarks.noBookmarksWithThisTag': return 'Bu etikete sahip yer işareti yok';
 			case 'tags.filteredBookmarks.noArchivedBookmarks': return 'Arşivlenmiş yer işareti yok';
-			case 'tags.filteredBookmarks.noSharedBookmarks': return 'Paylaşılan yer işareti yok';
+			case 'tags.filteredBookmarks.noSharedBookmarks': return 'Paylaşılmış yer işareti yok';
 			case 'settings.settings': return 'Ayarlar';
 			case 'settings.appSettings': return 'Uygulama ayarları';
 			case 'settings.aboutApp': return 'Uygulama hakkında';
