@@ -23,7 +23,7 @@
     "createConnection": "Bağlantı oluştur",
     "createConnectionSubtitle": "Sunucunuzla bağlantı kurmak için gerekli tüm ayrıntıları girin.",
     "ipAddressOrDomain": "IP adresi veya alan adı",
-    "port": "Liman",
+    "port": "Bağlantı noktası",
     "path": "Yol",
     "invalidPath": "Geçersiz yol",
     "token": "Jeton",

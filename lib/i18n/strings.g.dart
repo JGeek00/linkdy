@@ -6,7 +6,7 @@
 /// Locales: 3
 /// Strings: 561 (187 per locale)
 ///
-/// Built on 2024-04-03 at 17:47 UTC
+/// Built on 2024-04-03 at 17:48 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -961,7 +961,7 @@ class _StringsOnboardingTr implements _StringsOnboardingEn {
 	@override String get createConnection => 'Bağlantı oluştur';
 	@override String get createConnectionSubtitle => 'Sunucunuzla bağlantı kurmak için gerekli tüm ayrıntıları girin.';
 	@override String get ipAddressOrDomain => 'IP adresi veya alan adı';
-	@override String get port => 'Liman';
+	@override String get port => 'Bağlantı noktası';
 	@override String get path => 'Yol';
 	@override String get invalidPath => 'Geçersiz yol';
 	@override String get token => 'Jeton';
@@ -1691,7 +1691,7 @@ extension on _StringsTr {
 			case 'onboarding.createConnection': return 'Bağlantı oluştur';
 			case 'onboarding.createConnectionSubtitle': return 'Sunucunuzla bağlantı kurmak için gerekli tüm ayrıntıları girin.';
 			case 'onboarding.ipAddressOrDomain': return 'IP adresi veya alan adı';
-			case 'onboarding.port': return 'Liman';
+			case 'onboarding.port': return 'Bağlantı noktası';
 			case 'onboarding.path': return 'Yol';
 			case 'onboarding.invalidPath': return 'Geçersiz yol';
 			case 'onboarding.token': return 'Jeton';
