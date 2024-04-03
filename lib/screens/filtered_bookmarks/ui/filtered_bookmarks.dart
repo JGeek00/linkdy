@@ -181,6 +181,7 @@ class _List extends ConsumerWidget {
         ],
         body: SafeArea(
           top: false,
+          bottom: false,
           child: Builder(
             builder: (context) => RefreshIndicator(
               displacement: 120,

@@ -46,7 +46,7 @@ class TagsScreen extends ConsumerWidget {
           ],
           body: SafeArea(
             top: false,
-            bottom: true,
+            bottom: false,
             child: Builder(
               builder: (context) => RefreshIndicator(
                 displacement: 120,
