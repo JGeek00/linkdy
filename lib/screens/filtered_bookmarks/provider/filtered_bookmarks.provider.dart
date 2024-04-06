@@ -30,7 +30,7 @@ FutureOr<void> tagBookmarksRequest(TagBookmarksRequestRef ref, Tag? tag, String?
   }
 
   final bookmarksResult = await ref.read(apiClientProvider)!.fetchBookmarks(
-        q: tag != null ? tag.name : tagResult!.content!.name,
+        q: tag != null ? "#${tag.name}" : tagResult!.content!.name,
         limit: limit,
         offset: 0,
       );
