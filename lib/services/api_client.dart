@@ -69,7 +69,7 @@ class ApiClientService {
           "sort": sort,
         },
       );
-      if (response.statusCode != 200) {
+      if (response.statusCode == null || response.statusCode! >= 400) {
         return const ApiResponse(successful: false);
       }
       return ApiResponse(
@@ -171,10 +171,7 @@ class ApiClientService {
         "/bookmarks/",
         data: FormData.fromMap(bookmark.toJson()),
       );
-      if (response.statusCode == null) {
-        return const ApiResponse(successful: false);
-      }
-      if (response.statusCode! >= 400) {
+      if (response.statusCode == null || response.statusCode! >= 400) {
         return const ApiResponse(successful: false);
       }
       return ApiResponse(
@@ -278,7 +275,7 @@ class ApiClientService {
         "/bookmarks/$bookmarkId/",
         data: FormData.fromMap(bookmark.toJson()),
       );
-      if (result.statusCode != 200) {
+      if (result.statusCode == null || result.statusCode! >= 400) {
         return const ApiResponse(successful: false);
       }
       return ApiResponse(
