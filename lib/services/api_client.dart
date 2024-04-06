@@ -171,7 +171,10 @@ class ApiClientService {
         "/bookmarks/",
         data: FormData.fromMap(bookmark.toJson()),
       );
-      if (response.statusCode != 200) {
+      if (response.statusCode == null) {
+        return const ApiResponse(successful: false);
+      }
+      if (response.statusCode! >= 400) {
         return const ApiResponse(successful: false);
       }
       return ApiResponse(
