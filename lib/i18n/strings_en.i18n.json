@@ -80,6 +80,7 @@
       "title": "Title",
       "description": "Description",
       "markAsUnread": "Mark as unread",
+      "markAsUnreadDescription": "Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.",
       "notes": "Notes",
       "addNotes": "Add notes",
       "tags": "Tags",
@@ -91,7 +92,9 @@
       "bookmarkSavedSuccessfully": "Bookmark saved successfully.",
       "errorSavingBookmark": "An error occured when saving the new bookmark.",
       "leaveEmptyUseWebsiteTitle": "Leave empty to use the website's title.",
-      "leaveEmptyUseWebsiteDescription": "Leave empty to use the website's description."
+      "leaveEmptyUseWebsiteDescription": "Leave empty to use the website's description.",
+      "share": "Share",
+      "shareDescription": "Share this bookmark with other registered users and anonymous users."
     },
     "search": {
       "searchBookmarks": "Search bookmarks",

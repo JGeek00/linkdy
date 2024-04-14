@@ -80,6 +80,7 @@
       "title": "Başlık",
       "description": "Açıklama",
       "markAsUnread": "Okunmadı olarak işaretle",
+      "markAsUnreadDescription": "Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.",
       "notes": "Notlar",
       "addNotes": "Not ekle",
       "tags": "Etiketler",
@@ -91,7 +92,9 @@
       "bookmarkSavedSuccessfully": "Yer işareti başarıyla kaydedildi.",
       "errorSavingBookmark": "Yeni yer işareti kaydedilirken bir hata oluştu.",
       "leaveEmptyUseWebsiteTitle": "Web sitesinin başlığını kullanmak için boş bırakın.",
-      "leaveEmptyUseWebsiteDescription": "Web sitesinin açıklamasını kullanmak için boş bırakın."
+      "leaveEmptyUseWebsiteDescription": "Web sitesinin açıklamasını kullanmak için boş bırakın.",
+      "share": "Share",
+      "shareDescription": "Share this bookmark with other registered users and anonymous users."
     },
     "search": {
       "searchBookmarks": "Yer işaretlerini ara",

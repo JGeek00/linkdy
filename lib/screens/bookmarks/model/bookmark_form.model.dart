@@ -16,6 +16,7 @@ class BookmarkFormModel {
   List<String> tags;
   final TextEditingController notesController;
   int? editBookmarkId;
+  bool share;
 
   BookmarkFormModel({
     required this.urlController,
@@ -30,5 +31,6 @@ class BookmarkFormModel {
     required this.tags,
     required this.notesController,
     this.editBookmarkId,
+    this.share = false,
   });
 }

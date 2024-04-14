@@ -80,6 +80,7 @@
       "title": "Title",
       "description": "Description",
       "markAsUnread": "Marcar como no leído",
+      "markAsUnreadDescription": "Los marcadores no leídos pueden filtrarse y marcarse como leídos después de haberlos consultado.",
       "notes": "Notas",
       "addNotes": "Añadir notas",
       "tags": "Etiquetas",
@@ -91,7 +92,9 @@
       "bookmarkSavedSuccessfully": "Marcador guardado correctamente",
       "errorSavingBookmark": "Ocurrió un error al guardar el nuevo marcador.",
       "leaveEmptyUseWebsiteTitle": "Dejar vacío para usar el título del sitio web.",
-      "leaveEmptyUseWebsiteDescription": "Dejar vacío para usar la descripción del sitio web."
+      "leaveEmptyUseWebsiteDescription": "Dejar vacío para usar la descripción del sitio web.",
+      "share": "Compartir",
+      "shareDescription": "Comparte este marcador con otros usuarios registrados y usuarios anónimos."
     },
     "search": {
       "searchBookmarks": "Buscar marcadores",

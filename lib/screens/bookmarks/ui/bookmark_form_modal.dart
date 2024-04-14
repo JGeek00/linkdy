@@ -133,7 +133,10 @@ class BookmarkFormModalState extends ConsumerState<BookmarkFormModal> {
                         handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                       ),
                       SliverList.list(
-                        children: const [_ModalContent()],
+                        children: const [
+                          _ModalContent(),
+                          SizedBox(height: 16),
+                        ],
                       ),
                     ],
                   ),
@@ -412,10 +415,19 @@ class _ModalContent extends ConsumerWidget {
         SwitchListTile(
           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           title: Text(t.bookmarks.addBookmark.markAsUnread),
+          subtitle: Text(t.bookmarks.addBookmark.markAsUnreadDescription),
           value: provider.markAsUnread,
           onChanged: provider.checkBookmark != null
               ? (v) => ref.read(bookmarkFormProvider.notifier).updateMarkAsUnread(v)
               : null,
+        ),
+        SwitchListTile(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          title: Text(t.bookmarks.addBookmark.share),
+          subtitle: Text(t.bookmarks.addBookmark.shareDescription),
+          value: provider.share,
+          onChanged:
+              provider.checkBookmark != null ? (v) => ref.read(bookmarkFormProvider.notifier).updateShare(v) : null,
         ),
         const SizedBox(height: 16),
       ],

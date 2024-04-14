@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 3
-/// Strings: 561 (187 per locale)
+/// Strings: 570 (190 per locale)
 ///
-/// Built on 2024-04-03 at 23:27 UTC
+/// Built on 2024-04-14 at 18:40 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -348,6 +348,7 @@ class _StringsBookmarksAddBookmarkEn {
 	String get title => 'Title';
 	String get description => 'Description';
 	String get markAsUnread => 'Mark as unread';
+	String get markAsUnreadDescription => 'Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.';
 	String get notes => 'Notes';
 	String get addNotes => 'Add notes';
 	String get tags => 'Tags';
@@ -360,6 +361,8 @@ class _StringsBookmarksAddBookmarkEn {
 	String get errorSavingBookmark => 'An error occured when saving the new bookmark.';
 	String get leaveEmptyUseWebsiteTitle => 'Leave empty to use the website\'s title.';
 	String get leaveEmptyUseWebsiteDescription => 'Leave empty to use the website\'s description.';
+	String get share => 'Share';
+	String get shareDescription => 'Share this bookmark with other registered users and anonymous users.';
 }
 
 // Path: bookmarks.search
@@ -731,6 +734,7 @@ class _StringsBookmarksAddBookmarkEs implements _StringsBookmarksAddBookmarkEn {
 	@override String get title => 'Title';
 	@override String get description => 'Description';
 	@override String get markAsUnread => 'Marcar como no leído';
+	@override String get markAsUnreadDescription => 'Los marcadores no leídos pueden filtrarse y marcarse como leídos después de haberlos consultado.';
 	@override String get notes => 'Notas';
 	@override String get addNotes => 'Añadir notas';
 	@override String get tags => 'Etiquetas';
@@ -743,6 +747,8 @@ class _StringsBookmarksAddBookmarkEs implements _StringsBookmarksAddBookmarkEn {
 	@override String get errorSavingBookmark => 'Ocurrió un error al guardar el nuevo marcador.';
 	@override String get leaveEmptyUseWebsiteTitle => 'Dejar vacío para usar el título del sitio web.';
 	@override String get leaveEmptyUseWebsiteDescription => 'Dejar vacío para usar la descripción del sitio web.';
+	@override String get share => 'Compartir';
+	@override String get shareDescription => 'Comparte este marcador con otros usuarios registrados y usuarios anónimos.';
 }
 
 // Path: bookmarks.search
@@ -1114,6 +1120,7 @@ class _StringsBookmarksAddBookmarkTr implements _StringsBookmarksAddBookmarkEn {
 	@override String get title => 'Başlık';
 	@override String get description => 'Açıklama';
 	@override String get markAsUnread => 'Okunmadı olarak işaretle';
+	@override String get markAsUnreadDescription => 'Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.';
 	@override String get notes => 'Notlar';
 	@override String get addNotes => 'Not ekle';
 	@override String get tags => 'Etiketler';
@@ -1126,6 +1133,8 @@ class _StringsBookmarksAddBookmarkTr implements _StringsBookmarksAddBookmarkEn {
 	@override String get errorSavingBookmark => 'Yeni yer işareti kaydedilirken bir hata oluştu.';
 	@override String get leaveEmptyUseWebsiteTitle => 'Web sitesinin başlığını kullanmak için boş bırakın.';
 	@override String get leaveEmptyUseWebsiteDescription => 'Web sitesinin açıklamasını kullanmak için boş bırakın.';
+	@override String get share => 'Share';
+	@override String get shareDescription => 'Share this bookmark with other registered users and anonymous users.';
 }
 
 // Path: bookmarks.search
@@ -1353,6 +1362,7 @@ extension on Translations {
 			case 'bookmarks.addBookmark.title': return 'Title';
 			case 'bookmarks.addBookmark.description': return 'Description';
 			case 'bookmarks.addBookmark.markAsUnread': return 'Mark as unread';
+			case 'bookmarks.addBookmark.markAsUnreadDescription': return 'Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.';
 			case 'bookmarks.addBookmark.notes': return 'Notes';
 			case 'bookmarks.addBookmark.addNotes': return 'Add notes';
 			case 'bookmarks.addBookmark.tags': return 'Tags';
@@ -1365,6 +1375,8 @@ extension on Translations {
 			case 'bookmarks.addBookmark.errorSavingBookmark': return 'An error occured when saving the new bookmark.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Leave empty to use the website\'s title.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Leave empty to use the website\'s description.';
+			case 'bookmarks.addBookmark.share': return 'Share';
+			case 'bookmarks.addBookmark.shareDescription': return 'Share this bookmark with other registered users and anonymous users.';
 			case 'bookmarks.search.searchBookmarks': return 'Search bookmarks';
 			case 'bookmarks.search.clearSearch': return 'Clear search';
 			case 'bookmarks.search.inputSearchTerm': return 'Input a search term';
@@ -1548,6 +1560,7 @@ extension on _StringsEs {
 			case 'bookmarks.addBookmark.title': return 'Title';
 			case 'bookmarks.addBookmark.description': return 'Description';
 			case 'bookmarks.addBookmark.markAsUnread': return 'Marcar como no leído';
+			case 'bookmarks.addBookmark.markAsUnreadDescription': return 'Los marcadores no leídos pueden filtrarse y marcarse como leídos después de haberlos consultado.';
 			case 'bookmarks.addBookmark.notes': return 'Notas';
 			case 'bookmarks.addBookmark.addNotes': return 'Añadir notas';
 			case 'bookmarks.addBookmark.tags': return 'Etiquetas';
@@ -1560,6 +1573,8 @@ extension on _StringsEs {
 			case 'bookmarks.addBookmark.errorSavingBookmark': return 'Ocurrió un error al guardar el nuevo marcador.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Dejar vacío para usar el título del sitio web.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Dejar vacío para usar la descripción del sitio web.';
+			case 'bookmarks.addBookmark.share': return 'Compartir';
+			case 'bookmarks.addBookmark.shareDescription': return 'Comparte este marcador con otros usuarios registrados y usuarios anónimos.';
 			case 'bookmarks.search.searchBookmarks': return 'Buscar marcadores';
 			case 'bookmarks.search.clearSearch': return 'Limpiar búsqueda';
 			case 'bookmarks.search.inputSearchTerm': return 'Introduce un término de búsqueda';
@@ -1743,6 +1758,7 @@ extension on _StringsTr {
 			case 'bookmarks.addBookmark.title': return 'Başlık';
 			case 'bookmarks.addBookmark.description': return 'Açıklama';
 			case 'bookmarks.addBookmark.markAsUnread': return 'Okunmadı olarak işaretle';
+			case 'bookmarks.addBookmark.markAsUnreadDescription': return 'Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.';
 			case 'bookmarks.addBookmark.notes': return 'Notlar';
 			case 'bookmarks.addBookmark.addNotes': return 'Not ekle';
 			case 'bookmarks.addBookmark.tags': return 'Etiketler';
@@ -1755,6 +1771,8 @@ extension on _StringsTr {
 			case 'bookmarks.addBookmark.errorSavingBookmark': return 'Yeni yer işareti kaydedilirken bir hata oluştu.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Web sitesinin başlığını kullanmak için boş bırakın.';
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Web sitesinin açıklamasını kullanmak için boş bırakın.';
+			case 'bookmarks.addBookmark.share': return 'Share';
+			case 'bookmarks.addBookmark.shareDescription': return 'Share this bookmark with other registered users and anonymous users.';
 			case 'bookmarks.search.searchBookmarks': return 'Yer işaretlerini ara';
 			case 'bookmarks.search.clearSearch': return 'Aramayı temizle';
 			case 'bookmarks.search.inputSearchTerm': return 'Bir arama terimi girin';

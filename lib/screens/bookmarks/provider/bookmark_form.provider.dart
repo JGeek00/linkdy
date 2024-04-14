@@ -63,6 +63,7 @@ class BookmarkForm extends _$BookmarkForm {
     state.tags = bookmark.tagNames ?? [];
     state.notesController.text = bookmark.notes ?? '';
     state.markAsUnread = bookmark.unread ?? false;
+    state.share = bookmark.shared ?? false;
   }
 
   void initializeProviderUrl(String url) {
@@ -112,6 +113,11 @@ class BookmarkForm extends _$BookmarkForm {
     ref.notifyListeners();
   }
 
+  void updateShare(bool value) {
+    state.share = value;
+    ref.notifyListeners();
+  }
+
   void saveBookmark() async {
     final newBookmark = SetBookmarkData(
       url: state.urlController.text,
@@ -121,7 +127,7 @@ class BookmarkForm extends _$BookmarkForm {
           : state.checkBookmark?.metadata?.description ?? '',
       isArchived: false,
       unread: state.markAsUnread,
-      shared: false,
+      shared: state.share,
       tagNames: state.tags.join(","),
       notes: state.notesController.text,
     );
