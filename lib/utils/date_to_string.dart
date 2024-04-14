@@ -8,11 +8,13 @@ String dateToString(DateTime date) {
   final today = DateTime.now();
   final yesterday = DateTime.now().subtract(const Duration(days: 1));
 
-  if (date.day == today.day && date.month == today.month && date.year == today.year) {
-    return t.bookmarks.dates.todayAt(time: "${addZeros(date.hour)}:${addZeros(date.minute)}");
-  } else if (date.day == yesterday.day && date.month == yesterday.month && date.year == yesterday.year) {
-    return t.bookmarks.dates.yesterdayAt(time: "${addZeros(date.hour)}:${addZeros(date.minute)}");
+  final localDate = date.toLocal();
+
+  if (localDate.day == today.day && localDate.month == today.month && localDate.year == today.year) {
+    return t.bookmarks.dates.todayAt(time: "${addZeros(localDate.hour)}:${addZeros(localDate.minute)}");
+  } else if (localDate.day == yesterday.day && localDate.month == yesterday.month && localDate.year == yesterday.year) {
+    return t.bookmarks.dates.yesterdayAt(time: "${addZeros(localDate.hour)}:${addZeros(localDate.minute)}");
   } else {
-    return "${date.day}/${date.month}/${date.year} - ${addZeros(date.hour)}:${addZeros(date.minute)}";
+    return "${localDate.day}/${localDate.month}/${localDate.year} - ${addZeros(localDate.hour)}:${addZeros(localDate.minute)}";
   }
 }
