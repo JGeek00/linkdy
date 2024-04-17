@@ -10,6 +10,9 @@
   <a href="https://play.google.com/store/apps/details?id=com.jgeek00.linkdy" target="_blank" rel="noopener noreferrer">
     <img src="/assets/other/get_google_play.png" width="300px">
   </a>
+  <a href="https://apps.apple.com/us/app/linkdy/id6479930976" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/other/get-appstore.png" width="300px">
+  </a>
   <a href="https://github.com/JGeek00/linkdy/releases" target="_blank" rel="noopener noreferrer">
     <img src="/assets/other/get-github.png" width="300px">
   </a>
@@ -45,6 +48,12 @@ Check the privacy policy [here](https://github.com/JGeek00/linkdy/wiki/Privacy-p
   <br>
   Linkdy uses <a href="https://pub.dev/packages/slang">slang</a> to manage the translations of the application. To add a new translation, create a new file on <code>lib/i18n</code>, with the structure <code>strings_[lang_code].i18n.json</code>. When adding a new string, make sure to add the translation on all <code>.i18n.json</code> files. Then, run <code>dart run slang</code> to generate the translations.
 </p>
+
+### Android signing
+1. Clone ``android/key.properties.sample`` and rename it to ``key.properties``.
+2. Fill the varialbes with the values.
+3. Put your ``keystore.jks`` file inside ``android/app/``.
+4. Run ``flutter build apk --release`` or ``flutter build appbundle --release`` to compile and sign the production build.
 
 <br>
 <br>
