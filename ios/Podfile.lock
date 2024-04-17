@@ -17,7 +17,7 @@ PODS:
     - Flutter
   - Sentry/HybridSDK (8.21.0):
     - SentryPrivate (= 8.21.0)
-  - sentry_flutter (0.0.1):
+  - sentry_flutter (7.20.0):
     - Flutter
     - FlutterMacOS
     - Sentry/HybridSDK (= 8.21.0)
@@ -91,11 +91,11 @@ SPEC CHECKSUMS:
   flutter_custom_tabs_ios: 62439c843b2691aae516fd50119a01eb9755fff7
   flutter_native_splash: edf599c81f74d093a4daf8e17bd7a018854bc778
   irondash_engine_context: 3458bf979b90d616ffb8ae03a150bafe2e860cc9
-  package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
+  package_info_plus: 58f0028419748fad15bf008b270aaa8e54380b1c
   path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
   receive_sharing_intent_plus: f02db0a23c17f7aeef8de465cb2d8705a46143a6
   Sentry: ebc12276bd17613a114ab359074096b6b3725203
-  sentry_flutter: dff1df05dc39c83d04f9330b36360fc374574c5e
+  sentry_flutter: df6e28477322fc5202bbe20aafdd7404b6e97729
   SentryPrivate: d651efb234cf385ec9a1cdd3eff94b5e78a0e0fe
   share_plus: 8875f4f2500512ea181eef553c3e27dba5135aad
   shared_preferences_foundation: b4c3b4cddf1c21f02770737f147a3f5da9d39695
