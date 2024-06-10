@@ -312,6 +312,7 @@ class _ModalContent extends ConsumerWidget {
                           controller: provider.tagsController,
                           onChanged: ref.read(bookmarkFormProvider.notifier).validateTagInput,
                           suggestions: tags.value?.content?.results?.map((t) => t.name!).toList() ?? [],
+                          textCapitalization: TextCapitalization.none,
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(
                               borderRadius: BorderRadius.all(
