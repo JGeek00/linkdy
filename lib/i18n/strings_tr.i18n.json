@@ -202,7 +202,10 @@
       "openLinksWith": "Open links with...",
       "internalBrowser": "App internal browser",
       "browserCustomTab": "Browser custom tab",
-      "systemBrowser": "System browser"
+      "systemBrowser": "System browser",
+      "tags": "Tags",
+      "defaultTags": "Default tags",
+      "defaultTagsDescription": "Define a list of tags that will be added by default when creating a bookmark"
     }
   },
   "webview": {

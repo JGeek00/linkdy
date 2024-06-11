@@ -12,7 +12,6 @@ import 'package:linkdy/widgets/section_label.dart';
 import 'package:linkdy/widgets/custom_list_tile.dart';
 import 'package:linkdy/widgets/custom_settings_tile.dart';
 
-import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/providers/app_info.provider.dart';
 import 'package:linkdy/utils/open_url.dart';
 import 'package:linkdy/constants/strings.dart';
@@ -51,77 +50,100 @@ class _List extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        leading: BackButton(onPressed: () => ref.read(routerProvider).pop()),
-        title: Text(t.settings.settings),
-      ),
-      body: ListView(
-        children: [
-          SectionLabel(label: t.settings.appSettings),
-          _SettingsTile(
-            icon: Icons.palette_rounded,
-            title: t.settings.customization.customization,
-            subtitle: t.settings.customization.customizationDescription,
-            thisItem: 0,
-            twoColumns: tabletView,
-            screenToNavigate: const Customization(),
-          ),
-          _SettingsTile(
-            icon: Icons.settings_rounded,
-            title: t.settings.generalSettings.generalSettings,
-            subtitle: t.settings.generalSettings.generalSettingsDescription,
-            thisItem: 1,
-            screenToNavigate: const GeneralSettings(),
-            twoColumns: tabletView,
-          ),
-          SectionLabel(label: t.settings.aboutApp),
-          CustomListTile(
-            title: t.settings.linkdingRepository,
-            subtitle: t.settings.linkdingRepositoryDescription,
-            trailing: Icon(
-              Icons.open_in_new_rounded,
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          SliverOverlapAbsorber(
+            handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+            sliver: SliverAppBar.large(
+              pinned: true,
+              floating: true,
+              centerTitle: false,
+              forceElevated: innerBoxIsScrolled,
+              title: Text(t.settings.settings),
             ),
-            onTap: () => openUrlCustomTab(Urls.linkdingRepo),
           ),
-          CustomListTile(
-            title: t.settings.appVersion,
-            subtitle: ref.watch(appInfoProvider).version,
-          ),
-          CustomListTile(
-            title: t.settings.createdBy,
-            subtitle: Strings.createdBy,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                if (Platform.isAndroid)
-                  IconButton(
-                    onPressed: () => openUrlCustomTab(Urls.playStoreLink),
-                    icon: SvgPicture.asset(
-                      'assets/resources/google-play.svg',
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      width: 30,
-                      height: 30,
+        ],
+        body: SafeArea(
+          top: false,
+          bottom: false,
+          child: Builder(
+            builder: (context) => CustomScrollView(
+              slivers: [
+                SliverOverlapInjector(
+                  handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                ),
+                SliverList.list(
+                  children: [
+                    SectionLabel(label: t.settings.appSettings),
+                    _SettingsTile(
+                      icon: Icons.palette_rounded,
+                      title: t.settings.customization.customization,
+                      subtitle: t.settings.customization.customizationDescription,
+                      thisItem: 0,
+                      twoColumns: tabletView,
+                      screenToNavigate: const Customization(),
                     ),
-                    tooltip: t.settings.visitGooglePlay,
-                  ),
-                IconButton(
-                  onPressed: () => openUrlCustomTab(Urls.gitHubRepo),
-                  icon: SvgPicture.asset(
-                    'assets/resources/github.svg',
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    width: 30,
-                    height: 30,
-                  ),
-                  tooltip: t.settings.visitGitHubRepo,
+                    _SettingsTile(
+                      icon: Icons.settings_rounded,
+                      title: t.settings.generalSettings.generalSettings,
+                      subtitle: t.settings.generalSettings.generalSettingsDescription,
+                      thisItem: 1,
+                      screenToNavigate: const GeneralSettings(),
+                      twoColumns: tabletView,
+                    ),
+                    SectionLabel(label: t.settings.aboutApp),
+                    CustomListTile(
+                      title: t.settings.linkdingRepository,
+                      subtitle: t.settings.linkdingRepositoryDescription,
+                      trailing: Icon(
+                        Icons.open_in_new_rounded,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                      onTap: () => openUrlCustomTab(Urls.linkdingRepo),
+                    ),
+                    CustomListTile(
+                      title: t.settings.appVersion,
+                      subtitle: ref.watch(appInfoProvider).version,
+                    ),
+                    CustomListTile(
+                      title: t.settings.createdBy,
+                      subtitle: Strings.createdBy,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          if (Platform.isAndroid)
+                            IconButton(
+                              onPressed: () => openUrlCustomTab(Urls.playStoreLink),
+                              icon: SvgPicture.asset(
+                                'assets/resources/google-play.svg',
+                                color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                width: 30,
+                                height: 30,
+                              ),
+                              tooltip: t.settings.visitGooglePlay,
+                            ),
+                          IconButton(
+                            onPressed: () => openUrlCustomTab(Urls.gitHubRepo),
+                            icon: SvgPicture.asset(
+                              'assets/resources/github.svg',
+                              color: Theme.of(context).colorScheme.onSurfaceVariant,
+                              width: 30,
+                              height: 30,
+                            ),
+                            tooltip: t.settings.visitGitHubRepo,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -131,7 +153,6 @@ class _SettingsTile extends ConsumerWidget {
   final String title;
   final String subtitle;
   final IconData icon;
-  final Widget? trailing;
   final Widget screenToNavigate;
   final int thisItem;
   final bool twoColumns;
@@ -140,7 +161,6 @@ class _SettingsTile extends ConsumerWidget {
     required this.title,
     required this.subtitle,
     required this.icon,
-    this.trailing,
     required this.screenToNavigate,
     required this.thisItem,
     required this.twoColumns,
@@ -153,7 +173,6 @@ class _SettingsTile extends ConsumerWidget {
         title: title,
         subtitle: subtitle,
         icon: icon,
-        trailing: trailing,
         thisItem: thisItem,
         selectedItem: ref.watch(settingsProvider).selectedScreen,
         onTap: () {
@@ -166,7 +185,6 @@ class _SettingsTile extends ConsumerWidget {
         title: title,
         subtitle: subtitle,
         icon: icon,
-        trailing: trailing,
         onTap: () {
           Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (context) => screenToNavigate));
         },

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 3
-/// Strings: 582 (194 per locale)
+/// Strings: 591 (197 per locale)
 ///
-/// Built on 2024-06-11 at 12:16 UTC
+/// Built on 2024-06-11 at 16:25 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -502,6 +502,9 @@ class _StringsSettingsGeneralSettingsEn {
 	String get internalBrowser => 'App internal browser';
 	String get browserCustomTab => 'Browser custom tab';
 	String get systemBrowser => 'System browser';
+	String get tags => 'Tags';
+	String get defaultTags => 'Default tags';
+	String get defaultTagsDescription => 'Define a list of tags that will be added by default when creating a bookmark';
 }
 
 // Path: settings.generalSettings.disconnectModal
@@ -892,6 +895,9 @@ class _StringsSettingsGeneralSettingsEs implements _StringsSettingsGeneralSettin
 	@override String get internalBrowser => 'Navegador interno de la app';
 	@override String get browserCustomTab => 'Pestaña personalizada del navegador';
 	@override String get systemBrowser => 'Navegador del sistema';
+	@override String get tags => 'Etiquetas';
+	@override String get defaultTags => 'Etiquetas por defecto';
+	@override String get defaultTagsDescription => 'Define una lista de etiquetas que se añadirán por defecto al crear un marcador';
 }
 
 // Path: settings.generalSettings.disconnectModal
@@ -1282,6 +1288,9 @@ class _StringsSettingsGeneralSettingsTr implements _StringsSettingsGeneralSettin
 	@override String get internalBrowser => 'App internal browser';
 	@override String get browserCustomTab => 'Browser custom tab';
 	@override String get systemBrowser => 'System browser';
+	@override String get tags => 'Tags';
+	@override String get defaultTags => 'Default tags';
+	@override String get defaultTagsDescription => 'Define a list of tags that will be added by default when creating a bookmark';
 }
 
 // Path: settings.generalSettings.disconnectModal
@@ -1477,6 +1486,9 @@ extension on Translations {
 			case 'settings.generalSettings.internalBrowser': return 'App internal browser';
 			case 'settings.generalSettings.browserCustomTab': return 'Browser custom tab';
 			case 'settings.generalSettings.systemBrowser': return 'System browser';
+			case 'settings.generalSettings.tags': return 'Tags';
+			case 'settings.generalSettings.defaultTags': return 'Default tags';
+			case 'settings.generalSettings.defaultTagsDescription': return 'Define a list of tags that will be added by default when creating a bookmark';
 			case 'webview.goBack': return 'Go back';
 			case 'webview.goForward': return 'Go forward';
 			case 'webview.reload': return 'Reload';
@@ -1679,6 +1691,9 @@ extension on _StringsEs {
 			case 'settings.generalSettings.internalBrowser': return 'Navegador interno de la app';
 			case 'settings.generalSettings.browserCustomTab': return 'Pestaña personalizada del navegador';
 			case 'settings.generalSettings.systemBrowser': return 'Navegador del sistema';
+			case 'settings.generalSettings.tags': return 'Etiquetas';
+			case 'settings.generalSettings.defaultTags': return 'Etiquetas por defecto';
+			case 'settings.generalSettings.defaultTagsDescription': return 'Define una lista de etiquetas que se añadirán por defecto al crear un marcador';
 			case 'webview.goBack': return 'Ir atrás';
 			case 'webview.goForward': return 'Ir adelante';
 			case 'webview.reload': return 'Recargar';
@@ -1881,6 +1896,9 @@ extension on _StringsTr {
 			case 'settings.generalSettings.internalBrowser': return 'App internal browser';
 			case 'settings.generalSettings.browserCustomTab': return 'Browser custom tab';
 			case 'settings.generalSettings.systemBrowser': return 'System browser';
+			case 'settings.generalSettings.tags': return 'Tags';
+			case 'settings.generalSettings.defaultTags': return 'Default tags';
+			case 'settings.generalSettings.defaultTagsDescription': return 'Define a list of tags that will be added by default when creating a bookmark';
 			case 'webview.goBack': return 'Geri dön';
 			case 'webview.goForward': return 'İleri git';
 			case 'webview.reload': return 'Yenile';

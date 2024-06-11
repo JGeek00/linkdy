@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:linkdy/constants/enums.dart';
 
-import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/screens/settings/ui/general_settings/browser_mode_selection_modal.dart';
 import 'package:linkdy/screens/settings/ui/general_settings/disconnect_modal.dart';
-
-import 'package:linkdy/providers/app_status.provider.dart';
 import 'package:linkdy/widgets/section_label.dart';
+
+import 'package:linkdy/i18n/strings.g.dart';
+import 'package:linkdy/providers/app_status.provider.dart';
+import 'package:linkdy/constants/enums.dart';
 
 class GeneralSettings extends ConsumerWidget {
   const GeneralSettings({super.key});
@@ -33,47 +33,76 @@ class GeneralSettings extends ConsumerWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(t.settings.generalSettings.generalSettings),
-      ),
-      body: ListView(
-        children: [
-          SectionLabel(label: t.settings.generalSettings.bookmarks),
-          SwitchListTile(
-            title: Text(t.settings.generalSettings.showFavicon),
-            subtitle: Text(t.settings.generalSettings.showFaviconDescription),
-            value: ref.watch(appStatusProvider).showFavicon,
-            onChanged: ref.read(appStatusProvider.notifier).setShowFavicon,
-          ),
-          ListTile(
-            title: Text(t.settings.generalSettings.openLinksWith),
-            subtitle: Text(browserLabel()),
-            onTap: openBrowserSelectionSheet,
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16),
-            child: Divider(),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FilledButton.icon(
-                onPressed: () => showDialog(
-                  context: context,
-                  builder: (context) => const DisconnectModal(),
-                ),
-                icon: const Icon(Icons.clear_rounded),
-                label: Text(
-                  t.settings.generalSettings.disconnectFromServer,
-                ),
-                style: const ButtonStyle(
-                  foregroundColor: MaterialStatePropertyAll(Colors.white),
-                  backgroundColor: MaterialStatePropertyAll(Colors.red),
-                ),
-              ),
-            ],
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          SliverOverlapAbsorber(
+            handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+            sliver: SliverAppBar.large(
+              pinned: true,
+              floating: true,
+              centerTitle: false,
+              forceElevated: innerBoxIsScrolled,
+              title: Text(t.settings.generalSettings.generalSettings),
+            ),
           ),
         ],
+        body: SafeArea(
+          top: false,
+          bottom: false,
+          child: Builder(
+            builder: (context) => CustomScrollView(
+              slivers: [
+                SliverOverlapInjector(
+                  handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                ),
+                SliverList.list(
+                  children: [
+                    SectionLabel(label: t.settings.generalSettings.bookmarks),
+                    SwitchListTile(
+                      title: Text(t.settings.generalSettings.showFavicon),
+                      subtitle: Text(t.settings.generalSettings.showFaviconDescription),
+                      value: ref.watch(appStatusProvider).showFavicon,
+                      onChanged: ref.read(appStatusProvider.notifier).setShowFavicon,
+                    ),
+                    ListTile(
+                      title: Text(t.settings.generalSettings.openLinksWith),
+                      subtitle: Text(browserLabel()),
+                      onTap: openBrowserSelectionSheet,
+                    ),
+                    SectionLabel(label: t.settings.generalSettings.tags),
+                    ListTile(
+                      title: Text(t.settings.generalSettings.defaultTags),
+                      subtitle: Text(t.settings.generalSettings.defaultTagsDescription),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      child: Divider(),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        FilledButton.icon(
+                          onPressed: () => showDialog(
+                            context: context,
+                            builder: (context) => const DisconnectModal(),
+                          ),
+                          icon: const Icon(Icons.clear_rounded),
+                          label: Text(
+                            t.settings.generalSettings.disconnectFromServer,
+                          ),
+                          style: const ButtonStyle(
+                            foregroundColor: MaterialStatePropertyAll(Colors.white),
+                            backgroundColor: MaterialStatePropertyAll(Colors.red),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

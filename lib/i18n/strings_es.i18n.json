@@ -202,7 +202,10 @@
       "openLinksWith": "Abrir enlaces con...",
       "internalBrowser": "Navegador interno de la app",
       "browserCustomTab": "Pestaña personalizada del navegador",
-      "systemBrowser": "Navegador del sistema"
+      "systemBrowser": "Navegador del sistema",
+      "tags": "Etiquetas",
+      "defaultTags": "Etiquetas por defecto",
+      "defaultTagsDescription": "Define una lista de etiquetas que se añadirán por defecto al crear un marcador"
     }
   },
   "webview": {
