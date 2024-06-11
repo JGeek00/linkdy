@@ -6,6 +6,7 @@ import 'package:linkdy/screens/bookmarks/provider/bookmark_form.provider.dart';
 import 'package:linkdy/widgets/section_label.dart';
 
 import 'package:linkdy/models/data/bookmarks.dart';
+import 'package:linkdy/providers/app_status.provider.dart';
 import 'package:linkdy/config/sizes.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/constants/global_keys.dart';
@@ -28,6 +29,9 @@ class BookmarkFormModal extends ConsumerStatefulWidget {
 class BookmarkFormModalState extends ConsumerState<BookmarkFormModal> {
   @override
   void initState() {
+    if (widget.bookmark == null) {
+      ref.read(bookmarkFormProvider).tags = ref.read(appStatusProvider).defaultTags;
+    }
     if (widget.bookmark != null) {
       ref.read(bookmarkFormProvider.notifier).initializeProvider(widget.bookmark!);
     }
@@ -362,6 +366,7 @@ class _ModalContent extends ConsumerWidget {
                           separatorBuilder: (context, index) => const SizedBox(width: 8),
                           itemBuilder: (context, index) => InputChip(
                             label: Text(provider.tags[index]),
+                            isEnabled: enabledFields,
                             onDeleted: () => ref
                                 .read(bookmarkFormProvider.notifier)
                                 .setTags(provider.tags.where((tag) => tag != provider.tags[index]).toList()),

@@ -5,6 +5,7 @@ import 'package:linkdy/router/names.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmarks.dart';
 import 'package:linkdy/screens/onboarding/ui/onboarding.dart';
 import 'package:linkdy/screens/settings/ui/customization/customization.dart';
+import 'package:linkdy/screens/settings/ui/default_tags/default_tags.dart';
 import 'package:linkdy/screens/settings/ui/general_settings/general_settings.dart';
 import 'package:linkdy/screens/settings/ui/settings.dart';
 import 'package:linkdy/screens/filtered_bookmarks/ui/filtered_bookmarks.dart';
@@ -59,6 +60,10 @@ final List<RouteBase> appRoutes = [
   GoRoute(
     path: RoutesPaths.customization,
     builder: (context, state) => const Customization(),
+  ),
+  GoRoute(
+    path: RoutesPaths.defaultTags,
+    builder: (context, state) => const DefaultTagsScreen(),
   ),
   GoRoute(
     path: RoutesPaths.generalSettings,

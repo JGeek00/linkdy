@@ -7,6 +7,7 @@ class AppStatusModel {
   int selectedColor;
   OpenLinksBrowser openLinksBrowser;
   bool showFavicon;
+  List<String> defaultTags;
 
   AppStatusModel({
     this.selectedTheme = SelectedTheme.system,
@@ -15,5 +16,6 @@ class AppStatusModel {
     this.selectedColor = 0,
     this.openLinksBrowser = OpenLinksBrowser.integrated,
     this.showFavicon = true,
+    required this.defaultTags,
   });
 }

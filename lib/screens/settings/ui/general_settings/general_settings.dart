@@ -5,6 +5,8 @@ import 'package:linkdy/screens/settings/ui/general_settings/browser_mode_selecti
 import 'package:linkdy/screens/settings/ui/general_settings/disconnect_modal.dart';
 import 'package:linkdy/widgets/section_label.dart';
 
+import 'package:linkdy/router/paths.dart';
+import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/providers/app_status.provider.dart';
 import 'package:linkdy/constants/enums.dart';
@@ -71,8 +73,9 @@ class GeneralSettings extends ConsumerWidget {
                     ),
                     SectionLabel(label: t.settings.generalSettings.tags),
                     ListTile(
-                      title: Text(t.settings.generalSettings.defaultTags),
-                      subtitle: Text(t.settings.generalSettings.defaultTagsDescription),
+                      title: Text(t.settings.generalSettings.defaultTags.defaultTags),
+                      subtitle: Text(t.settings.generalSettings.defaultTags.defaultTagsDescription),
+                      onTap: () => ref.watch(routerProvider).push(RoutesPaths.defaultTags),
                     ),
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 16),

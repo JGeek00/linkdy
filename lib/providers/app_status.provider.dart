@@ -23,6 +23,7 @@ class AppStatus extends _$AppStatus {
           OpenLinksBrowserExtension.fromString(sharedPreferences.getString(SharedPreferencesKeys.openLinksBrowser)) ??
               OpenLinksBrowser.integrated,
       showFavicon: sharedPreferences.getBool(SharedPreferencesKeys.showFavicon) ?? true,
+      defaultTags: sharedPreferences.getStringList(SharedPreferencesKeys.defaultTags) ?? [],
     );
   }
 
@@ -59,6 +60,20 @@ class AppStatus extends _$AppStatus {
     state.showFavicon = value;
     ref.read(sharedPreferencesProvider).setBool(SharedPreferencesKeys.showFavicon, value);
     ref.read(faviconStoreProvider.notifier).clearFavicons();
+    ref.notifyListeners();
+  }
+
+  void addDefaultTag(String value) {
+    final newTags = [...state.defaultTags, value];
+    state.defaultTags = newTags;
+    ref.read(sharedPreferencesProvider).setStringList(SharedPreferencesKeys.defaultTags, newTags);
+    ref.notifyListeners();
+  }
+
+  void removeDefaultTag(String value) {
+    final newTags = state.defaultTags.where((e) => e != value).toList();
+    state.defaultTags = newTags;
+    ref.read(sharedPreferencesProvider).setStringList(SharedPreferencesKeys.defaultTags, newTags);
     ref.notifyListeners();
   }
 }

@@ -7,7 +7,7 @@ part of 'filtered_bookmarks.provider.dart';
 // **************************************************************************
 
 String _$tagBookmarksRequestHash() =>
-    r'abcde0e4ef3aecf21708a24573ddd4279211e288';
+    r'795205672ccd02914dbb2e15dbcf93bac94c645c';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -372,7 +372,7 @@ final filteredBookmarksRequestLoadMoreProvider =
 
 typedef FilteredBookmarksRequestLoadMoreRef
     = AutoDisposeFutureProviderRef<void>;
-String _$filteredBookmarksHash() => r'2239ac5e2eb27ffee118a5c513f191702faea8de';
+String _$filteredBookmarksHash() => r'8f5229e1bb6b0d50c7df4fcb6c3ef6c2aab898af';
 
 /// See also [FilteredBookmarks].
 @ProviderFor(FilteredBookmarks)

@@ -9,5 +9,6 @@ class RoutesPaths {
   static const archivedBookmarks = "/bookmarks/archived";
   static const settings = "/settings";
   static const customization = "/settings/customization";
+  static const defaultTags = "/settings/default-tags";
   static const generalSettings = "/settings/general";
 }

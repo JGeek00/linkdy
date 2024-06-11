@@ -204,8 +204,14 @@
       "browserCustomTab": "Pestaña personalizada del navegador",
       "systemBrowser": "Navegador del sistema",
       "tags": "Etiquetas",
-      "defaultTags": "Etiquetas por defecto",
-      "defaultTagsDescription": "Define una lista de etiquetas que se añadirán por defecto al crear un marcador"
+      "defaultTags": {
+        "defaultTags": "Etiquetas por defecto",
+        "defaultTagsDescription": "Define una lista de etiquetas que se añadirán por defecto al crear un marcador",
+        "newTag": "Nueva etiqueta",
+        "addTag": "Añadir etiqueta",
+        "removeThisTag": "Eliminar esta etiqueta",
+        "noDefaultTags": "No hay etiquetas por defecto"
+      }
     }
   },
   "webview": {

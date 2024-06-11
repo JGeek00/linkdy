@@ -204,8 +204,14 @@
       "browserCustomTab": "Browser custom tab",
       "systemBrowser": "System browser",
       "tags": "Tags",
-      "defaultTags": "Default tags",
-      "defaultTagsDescription": "Define a list of tags that will be added by default when creating a bookmark"
+      "defaultTags": {
+        "defaultTags": "Default tags",
+        "defaultTagsDescription": "Define a list of tags that will be added by default when creating a bookmark",
+        "newTag": "New tag",
+        "addTag": "Add tag",
+        "removeThisTag": "Remove this tag",
+        "noDefaultTags": "There are no default tags"
+      }
     }
   },
   "webview": {
