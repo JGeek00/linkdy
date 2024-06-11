@@ -4,7 +4,8 @@
     <application
         android:label="Linkdy"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:enableOnBackInvokedCallback="true">
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
