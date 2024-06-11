@@ -49,7 +49,7 @@ class Connect extends _$Connect {
 
   void validateIpDomain(String value) {
     state.testConnection = null;
-    if (Regexps.ipAddress.hasMatch(value) || Regexps.domain.hasMatch(value)) {
+    if (value != "") {
       state.ipDomainError = null;
     } else {
       state.ipDomainError = t.onboarding.invalidIpDomain;
