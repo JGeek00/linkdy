@@ -198,7 +198,11 @@
         "description": "Sunucu bağlantısını kesmek istediğinizden emin misiniz?\nİlk kuruluma yönlendirileceksiniz."
       },
       "useInAppBrowser": "Uygulama tarayıcısında kullanın",
-      "useInAppBrowserDescription": "Yer işaretlerini sistem tarayıcısı yerine entegre tarayıcı ile açar. Tablet modunda dahili tarayıcı her zaman kullanılacaktır."
+      "useInAppBrowserDescription": "Yer işaretlerini sistem tarayıcısı yerine entegre tarayıcı ile açar. Tablet modunda dahili tarayıcı her zaman kullanılacaktır.",
+      "openLinksWith": "Open links with...",
+      "internalBrowser": "App internal browser",
+      "browserCustomTab": "Browser custom tab",
+      "systemBrowser": "System browser"
     }
   },
   "webview": {

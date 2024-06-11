@@ -82,7 +82,7 @@ class _List extends ConsumerWidget {
               Icons.open_in_new_rounded,
               color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
-            onTap: () => openUrl(Urls.linkdingRepo),
+            onTap: () => openUrlCustomTab(Urls.linkdingRepo),
           ),
           CustomListTile(
             title: t.settings.appVersion,
@@ -99,7 +99,7 @@ class _List extends ConsumerWidget {
               children: [
                 if (Platform.isAndroid)
                   IconButton(
-                    onPressed: () => openUrl(Urls.playStoreLink),
+                    onPressed: () => openUrlCustomTab(Urls.playStoreLink),
                     icon: SvgPicture.asset(
                       'assets/resources/google-play.svg',
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -109,7 +109,7 @@ class _List extends ConsumerWidget {
                     tooltip: t.settings.visitGooglePlay,
                   ),
                 IconButton(
-                  onPressed: () => openUrl(Urls.gitHubRepo),
+                  onPressed: () => openUrlCustomTab(Urls.gitHubRepo),
                   icon: SvgPicture.asset(
                     'assets/resources/github.svg',
                     color: Theme.of(context).colorScheme.onSurfaceVariant,

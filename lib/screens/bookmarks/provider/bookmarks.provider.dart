@@ -160,15 +160,19 @@ class Bookmarks extends _$Bookmarks {
   }
 
   void selectBookmark(Bookmark bookmark, double width) {
-    if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == true) {
-      ref.watch(routerProvider).push(RoutesPaths.webview, extra: bookmark);
-    } else if (width <= Sizes.tabletBreakpoint && ref.watch(appStatusProvider).useInAppBrowser == false) {
-      openUrl(bookmark.url!);
-    } else if (bookmark != state.selectedBookmark) {
-      state.webViewRouter.go(_webViewRoutePath, extra: bookmark);
+    if (ref.watch(appStatusProvider).openLinksBrowser == OpenLinksBrowser.browserCustomTab) {
+      openUrlCustomTab(bookmark.url!);
+    } else if (ref.watch(appStatusProvider).openLinksBrowser == OpenLinksBrowser.systemBrowser) {
+      openUrlSystemBrowser(bookmark.url!);
+    } else {
+      if (width <= Sizes.tabletBreakpoint) {
+        ref.watch(routerProvider).push(RoutesPaths.webview, extra: bookmark);
+      } else if (bookmark != state.selectedBookmark) {
+        state.webViewRouter.go(_webViewRoutePath, extra: bookmark);
+      }
+      state.selectedBookmark = bookmark;
+      ref.notifyListeners();
     }
-    state.selectedBookmark = bookmark;
-    ref.notifyListeners();
   }
 
   Future<void> refresh() async {

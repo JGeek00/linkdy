@@ -198,7 +198,11 @@
         "description": "¿Estás seguro que deseas desconectarte del servidor?\nSerás redirigido a la configuración inicial."
       },
       "useInAppBrowser": "Usar navegador de la aplicación",
-      "useInAppBrowserDescription": "Abre los marcadores con el navegador integrado en vez de con el navegador del sietema. En modo tablet siempre se usará el navegador integrado."
+      "useInAppBrowserDescription": "Abre los marcadores con el navegador integrado en vez de con el navegador del sietema. En modo tablet siempre se usará el navegador integrado.",
+      "openLinksWith": "Abrir enlaces con...",
+      "internalBrowser": "Navegador interno de la app",
+      "browserCustomTab": "Pestaña personalizada del navegador",
+      "systemBrowser": "Navegador del sistema"
     }
   },
   "webview": {

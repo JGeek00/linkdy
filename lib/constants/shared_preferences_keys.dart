@@ -5,4 +5,5 @@ class SharedPreferencesKeys {
   static const selectedColor = "selectedColor";
   static const useInAppBrowser = "useInAppBrowser";
   static const showFavicon = "showFavicon";
+  static const openLinksBrowser = "openLinksBrowser";
 }

@@ -38,7 +38,7 @@ dependencies:
   riverpod_annotation: ^2.3.5
   dynamic_color: ^1.7.0
   shared_preferences: ^2.2.2
-  url_launcher: ^6.2.5
+  url_launcher: ^6.3.0
   animations: ^2.0.11
   segmented_button_slide: ^1.0.4
   dio: ^5.4.1

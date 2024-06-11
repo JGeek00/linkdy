@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 3
-/// Strings: 570 (190 per locale)
+/// Strings: 582 (194 per locale)
 ///
-/// Built on 2024-04-14 at 18:40 UTC
+/// Built on 2024-06-11 at 12:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -498,6 +498,10 @@ class _StringsSettingsGeneralSettingsEn {
 	late final _StringsSettingsGeneralSettingsDisconnectModalEn disconnectModal = _StringsSettingsGeneralSettingsDisconnectModalEn._(_root);
 	String get useInAppBrowser => 'Use in app browser';
 	String get useInAppBrowserDescription => 'Opens the bookmarks with the integrated browser instead of with the system browser. On tablet mode the internal browser will always be used.';
+	String get openLinksWith => 'Open links with...';
+	String get internalBrowser => 'App internal browser';
+	String get browserCustomTab => 'Browser custom tab';
+	String get systemBrowser => 'System browser';
 }
 
 // Path: settings.generalSettings.disconnectModal
@@ -884,6 +888,10 @@ class _StringsSettingsGeneralSettingsEs implements _StringsSettingsGeneralSettin
 	@override late final _StringsSettingsGeneralSettingsDisconnectModalEs disconnectModal = _StringsSettingsGeneralSettingsDisconnectModalEs._(_root);
 	@override String get useInAppBrowser => 'Usar navegador de la aplicación';
 	@override String get useInAppBrowserDescription => 'Abre los marcadores con el navegador integrado en vez de con el navegador del sietema. En modo tablet siempre se usará el navegador integrado.';
+	@override String get openLinksWith => 'Abrir enlaces con...';
+	@override String get internalBrowser => 'Navegador interno de la app';
+	@override String get browserCustomTab => 'Pestaña personalizada del navegador';
+	@override String get systemBrowser => 'Navegador del sistema';
 }
 
 // Path: settings.generalSettings.disconnectModal
@@ -1270,6 +1278,10 @@ class _StringsSettingsGeneralSettingsTr implements _StringsSettingsGeneralSettin
 	@override late final _StringsSettingsGeneralSettingsDisconnectModalTr disconnectModal = _StringsSettingsGeneralSettingsDisconnectModalTr._(_root);
 	@override String get useInAppBrowser => 'Uygulama tarayıcısında kullanın';
 	@override String get useInAppBrowserDescription => 'Yer işaretlerini sistem tarayıcısı yerine entegre tarayıcı ile açar. Tablet modunda dahili tarayıcı her zaman kullanılacaktır.';
+	@override String get openLinksWith => 'Open links with...';
+	@override String get internalBrowser => 'App internal browser';
+	@override String get browserCustomTab => 'Browser custom tab';
+	@override String get systemBrowser => 'System browser';
 }
 
 // Path: settings.generalSettings.disconnectModal
@@ -1461,6 +1473,10 @@ extension on Translations {
 			case 'settings.generalSettings.disconnectModal.description': return 'Are you sure you want to disconnect from the server?\nYou will be redirected to the initial setup.';
 			case 'settings.generalSettings.useInAppBrowser': return 'Use in app browser';
 			case 'settings.generalSettings.useInAppBrowserDescription': return 'Opens the bookmarks with the integrated browser instead of with the system browser. On tablet mode the internal browser will always be used.';
+			case 'settings.generalSettings.openLinksWith': return 'Open links with...';
+			case 'settings.generalSettings.internalBrowser': return 'App internal browser';
+			case 'settings.generalSettings.browserCustomTab': return 'Browser custom tab';
+			case 'settings.generalSettings.systemBrowser': return 'System browser';
 			case 'webview.goBack': return 'Go back';
 			case 'webview.goForward': return 'Go forward';
 			case 'webview.reload': return 'Reload';
@@ -1659,6 +1675,10 @@ extension on _StringsEs {
 			case 'settings.generalSettings.disconnectModal.description': return '¿Estás seguro que deseas desconectarte del servidor?\nSerás redirigido a la configuración inicial.';
 			case 'settings.generalSettings.useInAppBrowser': return 'Usar navegador de la aplicación';
 			case 'settings.generalSettings.useInAppBrowserDescription': return 'Abre los marcadores con el navegador integrado en vez de con el navegador del sietema. En modo tablet siempre se usará el navegador integrado.';
+			case 'settings.generalSettings.openLinksWith': return 'Abrir enlaces con...';
+			case 'settings.generalSettings.internalBrowser': return 'Navegador interno de la app';
+			case 'settings.generalSettings.browserCustomTab': return 'Pestaña personalizada del navegador';
+			case 'settings.generalSettings.systemBrowser': return 'Navegador del sistema';
 			case 'webview.goBack': return 'Ir atrás';
 			case 'webview.goForward': return 'Ir adelante';
 			case 'webview.reload': return 'Recargar';
@@ -1857,6 +1877,10 @@ extension on _StringsTr {
 			case 'settings.generalSettings.disconnectModal.description': return 'Sunucu bağlantısını kesmek istediğinizden emin misiniz?\nİlk kuruluma yönlendirileceksiniz.';
 			case 'settings.generalSettings.useInAppBrowser': return 'Uygulama tarayıcısında kullanın';
 			case 'settings.generalSettings.useInAppBrowserDescription': return 'Yer işaretlerini sistem tarayıcısı yerine entegre tarayıcı ile açar. Tablet modunda dahili tarayıcı her zaman kullanılacaktır.';
+			case 'settings.generalSettings.openLinksWith': return 'Open links with...';
+			case 'settings.generalSettings.internalBrowser': return 'App internal browser';
+			case 'settings.generalSettings.browserCustomTab': return 'Browser custom tab';
+			case 'settings.generalSettings.systemBrowser': return 'System browser';
 			case 'webview.goBack': return 'Geri dön';
 			case 'webview.goForward': return 'İleri git';
 			case 'webview.reload': return 'Yenile';

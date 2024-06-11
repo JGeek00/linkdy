@@ -5,7 +5,7 @@ class AppStatusModel {
   bool supportsDynamicTheme;
   bool useDynamicTheme;
   int selectedColor;
-  bool useInAppBrowser;
+  OpenLinksBrowser openLinksBrowser;
   bool showFavicon;
 
   AppStatusModel({
@@ -13,7 +13,7 @@ class AppStatusModel {
     this.supportsDynamicTheme = false,
     this.useDynamicTheme = true,
     this.selectedColor = 0,
-    this.useInAppBrowser = true,
+    this.openLinksBrowser = OpenLinksBrowser.integrated,
     this.showFavicon = true,
   });
 }

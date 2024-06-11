@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:linkdy/constants/shared_preferences_keys.dart';
-import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
+import 'package:linkdy/constants/shared_preferences_keys.dart';
 import 'package:linkdy/providers/shared_preferences.provider.dart';
 import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/models/providers_models/app_status.model.dart';
@@ -19,7 +19,9 @@ class AppStatus extends _$AppStatus {
       selectedColor: sharedPreferences.getInt(SharedPreferencesKeys.selectedColor) ?? 0,
       selectedTheme: SelectedTheme.values[sharedPreferences.getInt(SharedPreferencesKeys.selectedTheme) ?? 0],
       useDynamicTheme: sharedPreferences.getBool(SharedPreferencesKeys.useDynamicTheme) ?? true,
-      useInAppBrowser: sharedPreferences.getBool(SharedPreferencesKeys.useInAppBrowser) ?? true,
+      openLinksBrowser:
+          OpenLinksBrowserExtension.fromString(sharedPreferences.getString(SharedPreferencesKeys.openLinksBrowser)) ??
+              OpenLinksBrowser.integrated,
       showFavicon: sharedPreferences.getBool(SharedPreferencesKeys.showFavicon) ?? true,
     );
   }
@@ -46,9 +48,10 @@ class AppStatus extends _$AppStatus {
     ref.notifyListeners();
   }
 
-  void setUseInAppBrowser(bool value) {
-    state.useInAppBrowser = value;
-    ref.read(sharedPreferencesProvider).setBool(SharedPreferencesKeys.useInAppBrowser, value);
+  void updateSelectedBrowser(OpenLinksBrowser? value) {
+    if (value == null) return;
+    state.openLinksBrowser = value;
+    ref.read(sharedPreferencesProvider).setString(SharedPreferencesKeys.openLinksBrowser, value.toString());
     ref.notifyListeners();
   }
 

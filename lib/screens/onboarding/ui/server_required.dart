@@ -10,7 +10,7 @@ import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/utils/open_url.dart';
 
 class OnboardingServerRequired extends ConsumerWidget {
-  const OnboardingServerRequired({Key? key}) : super(key: key);
+  const OnboardingServerRequired({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -42,7 +42,7 @@ class OnboardingServerRequired extends ConsumerWidget {
                     const SizedBox(height: 16),
                     Card(
                       child: InkWell(
-                        onTap: () => openUrl(Urls.linkdingInstallationInstructions),
+                        onTap: () => openUrlCustomTab(Urls.linkdingInstallationInstructions),
                         borderRadius: BorderRadius.circular(10),
                         child: Padding(
                           padding: const EdgeInsets.all(24),

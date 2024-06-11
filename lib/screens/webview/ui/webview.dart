@@ -143,7 +143,7 @@ class WebViewScreen extends HookConsumerWidget {
                             ),
                           ),
                           PopupMenuItem(
-                            onTap: () => openUrl(bookmark.url!),
+                            onTap: () => openUrlCustomTab(bookmark.url!),
                             child: Row(
                               children: [
                                 const Icon(Icons.open_in_browser_rounded),
