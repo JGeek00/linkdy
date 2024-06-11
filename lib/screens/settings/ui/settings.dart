@@ -102,6 +102,15 @@ class _List extends ConsumerWidget {
                       onTap: () => openUrlCustomTab(Urls.linkdingRepo),
                     ),
                     CustomListTile(
+                      title: t.settings.contactDeveloper,
+                      subtitle: t.settings.contactDeveloperDescription,
+                      trailing: Icon(
+                        Icons.open_in_new_rounded,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                      onTap: () => openUrlCustomTab(Urls.support),
+                    ),
+                    CustomListTile(
                       title: t.settings.appVersion,
                       subtitle: ref.watch(appInfoProvider).version,
                     ),

@@ -176,6 +176,8 @@
     "visitGitHubRepo": "Visita el repositorio de la aplicación en GitHub",
     "linkdingRepository": "Repositorio de Linkding",
     "linkdingRepositoryDescription": "Enlace al repositorio de Linkding en GitHub",
+    "contactDeveloper": "Contacta con el desarrollador",
+    "contactDeveloperDescription": "Si tienes un problema, quieres sugerir una funcionalidad, o hacer una pregunta",
     "customization": {
       "customization": "Personalización",
       "customizationDescription": "Configura el tema y la paleta de colores.",

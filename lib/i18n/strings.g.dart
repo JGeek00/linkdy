@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 3
-/// Strings: 603 (201 per locale)
+/// Strings: 609 (203 per locale)
 ///
-/// Built on 2024-06-11 at 17:17 UTC
+/// Built on 2024-06-11 at 20:02 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -276,6 +276,8 @@ class _StringsSettingsEn {
 	String get visitGitHubRepo => 'Visit the application repository at GitHub';
 	String get linkdingRepository => 'Linkding repository';
 	String get linkdingRepositoryDescription => 'Link to the Linkding repository on GitHub';
+	String get contactDeveloper => 'Contact the developer';
+	String get contactDeveloperDescription => 'If you have an issue, want to request a new feature, or ask a question';
 	late final _StringsSettingsCustomizationEn customization = _StringsSettingsCustomizationEn._(_root);
 	late final _StringsSettingsGeneralSettingsEn generalSettings = _StringsSettingsGeneralSettingsEn._(_root);
 }
@@ -683,6 +685,8 @@ class _StringsSettingsEs implements _StringsSettingsEn {
 	@override String get visitGitHubRepo => 'Visita el repositorio de la aplicación en GitHub';
 	@override String get linkdingRepository => 'Repositorio de Linkding';
 	@override String get linkdingRepositoryDescription => 'Enlace al repositorio de Linkding en GitHub';
+	@override String get contactDeveloper => 'Contacta con el desarrollador';
+	@override String get contactDeveloperDescription => 'Si tienes un problema, quieres sugerir una funcionalidad, o hacer una pregunta';
 	@override late final _StringsSettingsCustomizationEs customization = _StringsSettingsCustomizationEs._(_root);
 	@override late final _StringsSettingsGeneralSettingsEs generalSettings = _StringsSettingsGeneralSettingsEs._(_root);
 }
@@ -1090,6 +1094,8 @@ class _StringsSettingsTr implements _StringsSettingsEn {
 	@override String get visitGitHubRepo => 'GitHub\'daki uygulama deposunu ziyaret et';
 	@override String get linkdingRepository => 'Linkding deposu';
 	@override String get linkdingRepositoryDescription => 'GitHub\'daki Linkding deposuna bağlantı';
+	@override String get contactDeveloper => 'Contact the developer';
+	@override String get contactDeveloperDescription => 'If you have an issue, want to request a new feature, or ask a question';
 	@override late final _StringsSettingsCustomizationTr customization = _StringsSettingsCustomizationTr._(_root);
 	@override late final _StringsSettingsGeneralSettingsTr generalSettings = _StringsSettingsGeneralSettingsTr._(_root);
 }
@@ -1506,6 +1512,8 @@ extension on Translations {
 			case 'settings.visitGitHubRepo': return 'Visit the application repository at GitHub';
 			case 'settings.linkdingRepository': return 'Linkding repository';
 			case 'settings.linkdingRepositoryDescription': return 'Link to the Linkding repository on GitHub';
+			case 'settings.contactDeveloper': return 'Contact the developer';
+			case 'settings.contactDeveloperDescription': return 'If you have an issue, want to request a new feature, or ask a question';
 			case 'settings.customization.customization': return 'Customization';
 			case 'settings.customization.customizationDescription': return 'Set the app theme and color palette.';
 			case 'settings.customization.theme': return 'Theme';
@@ -1715,6 +1723,8 @@ extension on _StringsEs {
 			case 'settings.visitGitHubRepo': return 'Visita el repositorio de la aplicación en GitHub';
 			case 'settings.linkdingRepository': return 'Repositorio de Linkding';
 			case 'settings.linkdingRepositoryDescription': return 'Enlace al repositorio de Linkding en GitHub';
+			case 'settings.contactDeveloper': return 'Contacta con el desarrollador';
+			case 'settings.contactDeveloperDescription': return 'Si tienes un problema, quieres sugerir una funcionalidad, o hacer una pregunta';
 			case 'settings.customization.customization': return 'Personalización';
 			case 'settings.customization.customizationDescription': return 'Configura el tema y la paleta de colores.';
 			case 'settings.customization.theme': return 'Tema';
@@ -1924,6 +1934,8 @@ extension on _StringsTr {
 			case 'settings.visitGitHubRepo': return 'GitHub\'daki uygulama deposunu ziyaret et';
 			case 'settings.linkdingRepository': return 'Linkding deposu';
 			case 'settings.linkdingRepositoryDescription': return 'GitHub\'daki Linkding deposuna bağlantı';
+			case 'settings.contactDeveloper': return 'Contact the developer';
+			case 'settings.contactDeveloperDescription': return 'If you have an issue, want to request a new feature, or ask a question';
 			case 'settings.customization.customization': return 'Özelleştirme';
 			case 'settings.customization.customizationDescription': return 'Uygulama temasını ve renk paletini ayarlayın.';
 			case 'settings.customization.theme': return 'Tema';
