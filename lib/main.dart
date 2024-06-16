@@ -8,6 +8,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:linkdy/utils/sentry_handle_error.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:receive_sharing_intent_plus/receive_sharing_intent_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -57,6 +58,7 @@ void main() async {
       (options) {
         options.dsn = dotenv.env['SENTRY_DSN'];
         options.sendDefaultPii = false;
+        options.beforeSend = sentryHandleError;
       },
       appRunner: () => startApp(),
     );
