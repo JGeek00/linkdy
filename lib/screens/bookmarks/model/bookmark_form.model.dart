@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:linkdy/constants/enums.dart';
-import 'package:linkdy/models/data/check_bookmark.dart';
 
 class BookmarkFormModel {
   final TextEditingController urlController;
   String? urlError;
-  CheckBookmark? checkBookmark;
+  bool? bookmarkValid;
   LoadStatus? checkBookmarkLoadStatus;
   final TextEditingController titleController;
   final TextEditingController descriptionController;
@@ -21,7 +20,7 @@ class BookmarkFormModel {
   BookmarkFormModel({
     required this.urlController,
     this.urlError,
-    this.checkBookmark,
+    this.bookmarkValid,
     this.checkBookmarkLoadStatus,
     required this.titleController,
     required this.descriptionController,

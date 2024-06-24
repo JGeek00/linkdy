@@ -48,14 +48,7 @@ class BookmarkForm extends _$BookmarkForm {
 
   void initializeProvider(Bookmark bookmark) {
     state.editBookmarkId = bookmark.id;
-    state.checkBookmark = CheckBookmark(
-      bookmark: bookmark,
-      metadata: Metadata(
-        url: bookmark.url,
-        description: bookmark.websiteDescription,
-        title: bookmark.websiteTitle,
-      ),
-    );
+    state.bookmarkValid = true;
     state.checkBookmarkLoadStatus = LoadStatus.loaded;
     state.urlController.text = bookmark.url ?? '';
     state.titleController.text = bookmark.title ?? '';
@@ -79,7 +72,7 @@ class BookmarkForm extends _$BookmarkForm {
   }
 
   void validateUrl(String value) {
-    state.checkBookmark = null;
+    state.bookmarkValid = null;
     state.checkBookmarkLoadStatus = null;
     if (Regexps.urlWithoutProtocol.hasMatch(value)) {
       state.urlError = null;
@@ -93,13 +86,15 @@ class BookmarkForm extends _$BookmarkForm {
   void checkUrlDetails({required bool updateState}) async {
     if (state.urlError == null && state.urlController.text != "") {
       state.checkBookmarkLoadStatus = LoadStatus.loading;
-      state.checkBookmark = null;
+      state.bookmarkValid = null;
       if (updateState == true) {
         ref.notifyListeners();
       }
       final result = await ref.read(checkBookmarkProvider(state.urlController.text).future);
       if (result.successful == true) {
-        state.checkBookmark = result.content;
+        state.titleController.text = result.content?.metadata?.title ?? "";
+        state.descriptionController.text = result.content?.metadata?.description ?? "";
+        state.bookmarkValid = true;
         state.checkBookmarkLoadStatus = LoadStatus.loaded;
       } else {
         state.checkBookmarkLoadStatus = LoadStatus.error;
@@ -121,10 +116,8 @@ class BookmarkForm extends _$BookmarkForm {
   void saveBookmark() async {
     final newBookmark = SetBookmarkData(
       url: state.urlController.text,
-      title: state.titleController.text != "" ? state.titleController.text : state.checkBookmark?.metadata?.title ?? '',
-      description: state.descriptionController.text != ""
-          ? state.descriptionController.text
-          : state.checkBookmark?.metadata?.description ?? '',
+      title: state.titleController.text,
+      description: state.descriptionController.text,
       isArchived: false,
       unread: state.markAsUnread,
       shared: state.share,

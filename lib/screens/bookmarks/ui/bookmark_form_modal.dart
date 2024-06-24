@@ -73,7 +73,7 @@ class BookmarkFormModalState extends ConsumerState<BookmarkFormModal> {
                         ],
                       ),
                       IconButton(
-                        onPressed: ref.watch(bookmarkFormProvider).checkBookmark != null
+                        onPressed: ref.watch(bookmarkFormProvider).bookmarkValid == true
                             ? () => ref.read(bookmarkFormProvider.notifier).saveBookmark()
                             : null,
                         icon: const Icon(Icons.save_rounded),
@@ -116,7 +116,7 @@ class BookmarkFormModalState extends ConsumerState<BookmarkFormModal> {
                     ),
                     actions: [
                       IconButton(
-                        onPressed: ref.watch(bookmarkFormProvider).checkBookmark != null
+                        onPressed: ref.watch(bookmarkFormProvider).bookmarkValid == true
                             ? () => ref.read(bookmarkFormProvider.notifier).saveBookmark()
                             : null,
                         icon: const Icon(Icons.save_rounded),
@@ -163,7 +163,7 @@ class _ModalContent extends ConsumerWidget {
 
     final tags = ref.watch(getTagsProvider);
 
-    final enabledFields = provider.checkBookmark != null;
+    final enabledFields = provider.bookmarkValid == true;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -208,14 +208,14 @@ class _ModalContent extends ConsumerWidget {
                   : null,
               style: ButtonStyle(
                 foregroundColor: provider.checkBookmarkLoadStatus == LoadStatus.loaded
-                    ? const MaterialStatePropertyAll(Colors.green)
+                    ? const WidgetStatePropertyAll(Colors.green)
                     : provider.checkBookmarkLoadStatus == LoadStatus.error
-                        ? const MaterialStatePropertyAll(Colors.red)
+                        ? const WidgetStatePropertyAll(Colors.red)
                         : null,
                 backgroundColor: provider.checkBookmarkLoadStatus == LoadStatus.loaded
-                    ? MaterialStatePropertyAll(Colors.green.withOpacity(0.15))
+                    ? WidgetStatePropertyAll(Colors.green.withOpacity(0.15))
                     : provider.checkBookmarkLoadStatus == LoadStatus.error
-                        ? MaterialStatePropertyAll(Colors.red.withOpacity(0.15))
+                        ? WidgetStatePropertyAll(Colors.red.withOpacity(0.15))
                         : null,
               ),
               child: Row(
@@ -267,9 +267,8 @@ class _ModalContent extends ConsumerWidget {
                 ),
               ),
               labelText: t.bookmarks.addBookmark.title,
-              hintText: provider.checkBookmark?.metadata?.title,
               floatingLabelBehavior:
-                  provider.checkBookmark != null ? FloatingLabelBehavior.always : FloatingLabelBehavior.auto,
+                  provider.bookmarkValid == true ? FloatingLabelBehavior.always : FloatingLabelBehavior.auto,
               helperText: t.bookmarks.addBookmark.leaveEmptyUseWebsiteTitle,
               enabled: enabledFields,
             ),
@@ -288,9 +287,8 @@ class _ModalContent extends ConsumerWidget {
                 ),
               ),
               labelText: t.bookmarks.addBookmark.description,
-              hintText: provider.checkBookmark?.metadata?.description,
               floatingLabelBehavior:
-                  provider.checkBookmark != null ? FloatingLabelBehavior.always : FloatingLabelBehavior.auto,
+                  provider.bookmarkValid == true ? FloatingLabelBehavior.always : FloatingLabelBehavior.auto,
               helperText: t.bookmarks.addBookmark.leaveEmptyUseWebsiteDescription,
               enabled: enabledFields,
             ),
@@ -423,7 +421,7 @@ class _ModalContent extends ConsumerWidget {
           title: Text(t.bookmarks.addBookmark.markAsUnread),
           subtitle: Text(t.bookmarks.addBookmark.markAsUnreadDescription),
           value: provider.markAsUnread,
-          onChanged: provider.checkBookmark != null
+          onChanged: provider.bookmarkValid == true
               ? (v) => ref.read(bookmarkFormProvider.notifier).updateMarkAsUnread(v)
               : null,
         ),
@@ -433,7 +431,7 @@ class _ModalContent extends ConsumerWidget {
           subtitle: Text(t.bookmarks.addBookmark.shareDescription),
           value: provider.share,
           onChanged:
-              provider.checkBookmark != null ? (v) => ref.read(bookmarkFormProvider.notifier).updateShare(v) : null,
+              provider.bookmarkValid == true ? (v) => ref.read(bookmarkFormProvider.notifier).updateShare(v) : null,
         ),
         const SizedBox(height: 16),
       ],
