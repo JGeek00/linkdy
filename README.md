@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <b>Linkdy</b> is a <a href="https://github.com/sissbruecker/linkding" target="_blank" rel="noopener noreferrer"><b>Linkding</b></a> client created with Flutter. <a href="https://github.com/sissbruecker/linkding" target="_blank" rel="noopener noreferrer">Linkding</a> is a self hosted bookmark manager. The objective of this project is to give all it's users an application to manage the bookmarks from a mobile device or a desktop computer.
+  <b>Linkdy</b> is a <a href="https://github.com/sissbruecker/linkding" target="_blank" rel="noopener noreferrer"><b>Linkding</b></a> client created with Flutter. <a href="https://github.com/sissbruecker/linkding" target="_blank" rel="noopener noreferrer">Linkding</a> is a self hosted bookmark manager. The objective of this project is to give all it's users an application to manage the bookmarks from a mobile device.
 </p>
 
 <p align="center">

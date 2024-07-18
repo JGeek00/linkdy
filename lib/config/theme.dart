@@ -5,9 +5,7 @@ ThemeData lightTheme(ColorScheme? dynamicColorScheme) => ThemeData(
       colorScheme: dynamicColorScheme,
       snackBarTheme: SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         elevation: 4,
       ),
       brightness: Brightness.light,
@@ -18,6 +16,9 @@ ThemeData lightTheme(ColorScheme? dynamicColorScheme) => ThemeData(
         iconColor:
             dynamicColorScheme != null ? dynamicColorScheme.onSurfaceVariant : const Color.fromRGBO(117, 117, 117, 1),
       ),
+      cardTheme: CardTheme(surfaceTintColor: dynamicColorScheme?.surfaceTint),
+      popupMenuTheme: PopupMenuThemeData(surfaceTintColor: dynamicColorScheme?.surfaceTint),
+      navigationBarTheme: NavigationBarThemeData(surfaceTintColor: dynamicColorScheme?.surfaceTint),
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: {
           TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
@@ -30,9 +31,7 @@ ThemeData darkTheme(ColorScheme? dynamicColorScheme) => ThemeData(
       colorScheme: dynamicColorScheme,
       snackBarTheme: SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         elevation: 4,
       ),
       brightness: Brightness.dark,
@@ -43,6 +42,9 @@ ThemeData darkTheme(ColorScheme? dynamicColorScheme) => ThemeData(
         iconColor:
             dynamicColorScheme != null ? dynamicColorScheme.onSurfaceVariant : const Color.fromRGBO(187, 187, 187, 1),
       ),
+      cardTheme: CardTheme(surfaceTintColor: dynamicColorScheme?.surfaceTint),
+      popupMenuTheme: PopupMenuThemeData(surfaceTintColor: dynamicColorScheme?.surfaceTint),
+      navigationBarTheme: NavigationBarThemeData(surfaceTintColor: dynamicColorScheme?.surfaceTint),
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: {
           TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
