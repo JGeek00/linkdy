@@ -116,6 +116,7 @@ class _List extends ConsumerWidget {
                         tooltip: t.bookmarks.search.clearSearch,
                       )
                     : null,
+                contentPadding: const EdgeInsets.symmetric(vertical: 12),
               ),
               textInputAction: TextInputAction.search,
             ),
