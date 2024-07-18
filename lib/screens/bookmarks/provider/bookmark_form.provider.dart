@@ -92,8 +92,18 @@ class BookmarkForm extends _$BookmarkForm {
       }
       final result = await ref.read(checkBookmarkProvider(state.urlController.text).future);
       if (result.successful == true) {
-        state.titleController.text = result.content?.metadata?.title ?? "";
-        state.descriptionController.text = result.content?.metadata?.description ?? "";
+        if (result.content?.bookmark != null) {
+          state.titleController.text = result.content?.bookmark?.title ?? "";
+          state.descriptionController.text = result.content?.metadata?.description ?? "";
+          state.tags = result.content?.bookmark?.tagNames ?? [];
+          state.notesController.text = result.content?.bookmark?.notes ?? "";
+          state.markAsUnread = result.content?.bookmark?.unread ?? false;
+          state.share = result.content?.bookmark?.shared ?? false;
+          state.bookmarkExists = true;
+        } else {
+          state.titleController.text = result.content?.metadata?.title ?? "";
+          state.descriptionController.text = result.content?.metadata?.description ?? "";
+        }
         state.bookmarkValid = true;
         state.checkBookmarkLoadStatus = LoadStatus.loaded;
       } else {

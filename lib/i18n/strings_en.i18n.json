@@ -94,7 +94,8 @@
       "leaveEmptyUseWebsiteTitle": "Leave empty to use the website's title.",
       "leaveEmptyUseWebsiteDescription": "Leave empty to use the website's description.",
       "share": "Share",
-      "shareDescription": "Share this bookmark with other registered users and anonymous users."
+      "shareDescription": "Share this bookmark with other registered users and anonymous users.",
+      "urlAlreadyBookmarked": "This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark."
     },
     "search": {
       "searchBookmarks": "Search bookmarks",

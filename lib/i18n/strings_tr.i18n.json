@@ -94,7 +94,8 @@
       "leaveEmptyUseWebsiteTitle": "Web sitesinin başlığını kullanmak için boş bırakın.",
       "leaveEmptyUseWebsiteDescription": "Web sitesinin açıklamasını kullanmak için boş bırakın.",
       "share": "Share",
-      "shareDescription": "Share this bookmark with other registered users and anonymous users."
+      "shareDescription": "Share this bookmark with other registered users and anonymous users.",
+      "urlAlreadyBookmarked": "This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark."
     },
     "search": {
       "searchBookmarks": "Yer işaretlerini ara",

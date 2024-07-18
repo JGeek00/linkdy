@@ -94,7 +94,8 @@
       "leaveEmptyUseWebsiteTitle": "Dejar vacío para usar el título del sitio web.",
       "leaveEmptyUseWebsiteDescription": "Dejar vacío para usar la descripción del sitio web.",
       "share": "Compartir",
-      "shareDescription": "Comparte este marcador con otros usuarios registrados y usuarios anónimos."
+      "shareDescription": "Comparte este marcador con otros usuarios registrados y usuarios anónimos.",
+      "urlAlreadyBookmarked": "Esta URL ya está marcada como favorita. El formulario se ha rellenado previamente con el marcador existente, y al guardar el formulario se actualizará el marcador existente."
     },
     "search": {
       "searchBookmarks": "Buscar marcadores",

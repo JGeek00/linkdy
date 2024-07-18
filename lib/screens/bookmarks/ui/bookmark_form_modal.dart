@@ -248,6 +248,20 @@ class _ModalContent extends ConsumerWidget {
             ),
           ),
         ),
+        if (provider.bookmarkExists == true)
+          Card(
+            margin: const EdgeInsets.all(16),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                children: [
+                  const Icon(Icons.info_rounded),
+                  const SizedBox(width: 16),
+                  Flexible(child: Text(t.bookmarks.addBookmark.urlAlreadyBookmarked)),
+                ],
+              ),
+            ),
+          ),
         SectionLabel(
           label: t.bookmarks.addBookmark.bookmarkDetails,
           padding: const EdgeInsets.symmetric(

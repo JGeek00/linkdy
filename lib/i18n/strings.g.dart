@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 3
-/// Strings: 609 (203 per locale)
+/// Strings: 612 (204 per locale)
 ///
-/// Built on 2024-06-11 at 20:02 UTC
+/// Built on 2024-07-18 at 17:32 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -365,6 +365,7 @@ class _StringsBookmarksAddBookmarkEn {
 	String get leaveEmptyUseWebsiteDescription => 'Leave empty to use the website\'s description.';
 	String get share => 'Share';
 	String get shareDescription => 'Share this bookmark with other registered users and anonymous users.';
+	String get urlAlreadyBookmarked => 'This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark.';
 }
 
 // Path: bookmarks.search
@@ -774,6 +775,7 @@ class _StringsBookmarksAddBookmarkEs implements _StringsBookmarksAddBookmarkEn {
 	@override String get leaveEmptyUseWebsiteDescription => 'Dejar vacío para usar la descripción del sitio web.';
 	@override String get share => 'Compartir';
 	@override String get shareDescription => 'Comparte este marcador con otros usuarios registrados y usuarios anónimos.';
+	@override String get urlAlreadyBookmarked => 'Esta URL ya está marcada como favorita. El formulario se ha rellenado previamente con el marcador existente, y al guardar el formulario se actualizará el marcador existente.';
 }
 
 // Path: bookmarks.search
@@ -1183,6 +1185,7 @@ class _StringsBookmarksAddBookmarkTr implements _StringsBookmarksAddBookmarkEn {
 	@override String get leaveEmptyUseWebsiteDescription => 'Web sitesinin açıklamasını kullanmak için boş bırakın.';
 	@override String get share => 'Share';
 	@override String get shareDescription => 'Share this bookmark with other registered users and anonymous users.';
+	@override String get urlAlreadyBookmarked => 'This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark.';
 }
 
 // Path: bookmarks.search
@@ -1446,6 +1449,7 @@ extension on Translations {
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Leave empty to use the website\'s description.';
 			case 'bookmarks.addBookmark.share': return 'Share';
 			case 'bookmarks.addBookmark.shareDescription': return 'Share this bookmark with other registered users and anonymous users.';
+			case 'bookmarks.addBookmark.urlAlreadyBookmarked': return 'This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark.';
 			case 'bookmarks.search.searchBookmarks': return 'Search bookmarks';
 			case 'bookmarks.search.clearSearch': return 'Clear search';
 			case 'bookmarks.search.inputSearchTerm': return 'Input a search term';
@@ -1657,6 +1661,7 @@ extension on _StringsEs {
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Dejar vacío para usar la descripción del sitio web.';
 			case 'bookmarks.addBookmark.share': return 'Compartir';
 			case 'bookmarks.addBookmark.shareDescription': return 'Comparte este marcador con otros usuarios registrados y usuarios anónimos.';
+			case 'bookmarks.addBookmark.urlAlreadyBookmarked': return 'Esta URL ya está marcada como favorita. El formulario se ha rellenado previamente con el marcador existente, y al guardar el formulario se actualizará el marcador existente.';
 			case 'bookmarks.search.searchBookmarks': return 'Buscar marcadores';
 			case 'bookmarks.search.clearSearch': return 'Limpiar búsqueda';
 			case 'bookmarks.search.inputSearchTerm': return 'Introduce un término de búsqueda';
@@ -1868,6 +1873,7 @@ extension on _StringsTr {
 			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Web sitesinin açıklamasını kullanmak için boş bırakın.';
 			case 'bookmarks.addBookmark.share': return 'Share';
 			case 'bookmarks.addBookmark.shareDescription': return 'Share this bookmark with other registered users and anonymous users.';
+			case 'bookmarks.addBookmark.urlAlreadyBookmarked': return 'This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark.';
 			case 'bookmarks.search.searchBookmarks': return 'Yer işaretlerini ara';
 			case 'bookmarks.search.clearSearch': return 'Aramayı temizle';
 			case 'bookmarks.search.inputSearchTerm': return 'Bir arama terimi girin';

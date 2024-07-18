@@ -16,6 +16,7 @@ class BookmarkFormModel {
   final TextEditingController notesController;
   int? editBookmarkId;
   bool share;
+  bool bookmarkExists = false;
 
   BookmarkFormModel({
     required this.urlController,
