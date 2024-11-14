@@ -48,7 +48,7 @@ Check the privacy policy [here](https://github.com/JGeek00/linkdy/wiki/Privacy-p
 
 ### Android signing
 1. Clone ``android/key.properties.sample`` and rename it to ``key.properties``.
-2. Fill the varialbes with the values.
+2. Fill the variables with the values.
 3. Put your ``keystore.jks`` file inside ``android/app/``.
 4. Run ``flutter build apk --release`` or ``flutter build appbundle --release`` to compile and sign the production build.
 
