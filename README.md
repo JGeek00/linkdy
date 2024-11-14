@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://github.com/JGeek00/linkdy/raw/master/assets/other/banner.png" />
+  <img src="assets/other/banner.png" />
 </h1>
 
 <p align="center">
@@ -12,9 +12,6 @@
   </a>
   <a href="https://apps.apple.com/us/app/linkdy/id6479930976" target="_blank" rel="noopener noreferrer">
     <img src="/assets/other/get-appstore.png" width="300px">
-  </a>
-  <a href="https://github.com/JGeek00/linkdy/releases" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/other/get-github.png" width="300px">
   </a>
 </p>
 
