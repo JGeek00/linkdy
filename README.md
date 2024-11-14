@@ -27,7 +27,7 @@
 </ul>
 
 ## Privacy policy
-Check the privacy policy [here](https://github.com/JGeek00/linkdy/wiki/Privacy-policy).
+Check the privacy policy [here](https://pastebin.com/raw/Yiw4h6KK).
 
 ### Development
 1. Clone this repository.
