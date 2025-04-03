@@ -60,18 +60,19 @@ class CustomSettingsTile extends StatelessWidget {
                         Text(
                           subtitle!,
                           style: TextStyle(
-                              color: Theme.of(context).listTileTheme.textColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
+                            color: Theme.of(context).listTileTheme.textColor,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                    ]
+                    ],
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
-        if (trailing != null) ...[const SizedBox(width: 10), trailing!]
+        if (trailing != null) ...[const SizedBox(width: 10), trailing!],
       ],
     );
 
@@ -84,12 +85,14 @@ class CustomSettingsTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(28),
           onTap: onTap,
           child: Container(
-              width: double.maxFinite,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(28),
-                  color: thisItem == selectedItem ? Theme.of(context).colorScheme.primaryContainer : null),
-              child: tileBody),
+            width: double.maxFinite,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(28),
+              color: thisItem == selectedItem ? Theme.of(context).colorScheme.primaryContainer : null,
+            ),
+            child: tileBody,
+          ),
         ),
       ),
     );

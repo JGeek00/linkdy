@@ -25,13 +25,15 @@ class CustomSwitchListTile extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: disabled != null && disabled == true
-          ? null
-          : () => onChanged(!value),
+        onTap: disabled != null && disabled == true ? null : () => onChanged(!value),
         child: Padding(
-          padding: padding ?? const EdgeInsets.only(
-            top: 12, left: 16, right: 18, bottom: 16
-          ),
+          padding: padding ??
+              const EdgeInsets.only(
+                top: 12,
+                left: 16,
+                right: 18,
+                bottom: 16,
+              ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -55,31 +57,29 @@ class CustomSwitchListTile extends StatelessWidget {
                             : Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
-                    if (subtitle != null) ... [
+                    if (subtitle != null) ...[
                       const SizedBox(height: 5),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width-110,
+                        width: MediaQuery.of(context).size.width - 110,
                         child: Text(
                           subtitle!,
                           style: TextStyle(
                             fontSize: 14,
                             color: disabled != null && disabled == true
-                              ? Theme.of(context).listTileTheme.textColor!.withOpacity(0.38)
-                              : Theme.of(context).listTileTheme.textColor
+                                ? Theme.of(context).listTileTheme.textColor!.withOpacity(0.38)
+                                : Theme.of(context).listTileTheme.textColor,
                           ),
                         ),
                       ),
-                    ]
+                    ],
                   ],
                 ),
               ),
               const SizedBox(width: 16),
               Switch(
-                value: value, 
-                onChanged: disabled != null && disabled == true
-                  ? null
-                  : onChanged,
-              )
+                value: value,
+                onChanged: disabled != null && disabled == true ? null : onChanged,
+              ),
             ],
           ),
         ),

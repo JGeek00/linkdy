@@ -101,8 +101,8 @@ class GeneralSettings extends ConsumerWidget {
                             t.settings.generalSettings.disconnectFromServer,
                           ),
                           style: const ButtonStyle(
-                            foregroundColor: MaterialStatePropertyAll(Colors.white),
-                            backgroundColor: MaterialStatePropertyAll(Colors.red),
+                            foregroundColor: WidgetStatePropertyAll(Colors.white),
+                            backgroundColor: WidgetStatePropertyAll(Colors.red),
                           ),
                         ),
                       ],

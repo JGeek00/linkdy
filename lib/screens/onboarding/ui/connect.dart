@@ -208,14 +208,14 @@ class _ConnectForm extends ConsumerWidget {
           onPressed: provider.testConnection == null ? () => ref.read(connectProvider.notifier).testConnection() : null,
           style: ButtonStyle(
             foregroundColor: provider.testConnection == LoadStatus.loaded
-                ? const MaterialStatePropertyAll(Colors.green)
+                ? const WidgetStatePropertyAll(Colors.green)
                 : provider.testConnection == LoadStatus.error
-                    ? const MaterialStatePropertyAll(Colors.red)
+                    ? const WidgetStatePropertyAll(Colors.red)
                     : null,
             backgroundColor: provider.testConnection == LoadStatus.loaded
-                ? MaterialStatePropertyAll(Colors.green.withOpacity(0.15))
+                ? WidgetStatePropertyAll(Colors.green.withOpacity(0.15))
                 : provider.testConnection == LoadStatus.error
-                    ? MaterialStatePropertyAll(Colors.red.withOpacity(0.15))
+                    ? WidgetStatePropertyAll(Colors.red.withOpacity(0.15))
                     : null,
           ),
           child: Row(

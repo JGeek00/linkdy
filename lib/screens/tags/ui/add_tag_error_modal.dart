@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:linkdy/i18n/strings.g.dart';
 
 class AddTagErrorModal extends StatelessWidget {
-  const AddTagErrorModal({Key? key}) : super(key: key);
+  const AddTagErrorModal({super.key});
 
   @override
   Widget build(BuildContext context) {

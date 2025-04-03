@@ -14,7 +14,7 @@ class CustomListTile extends StatelessWidget {
   final Color? color;
 
   const CustomListTile({
-    Key? key,
+    super.key,
     required this.title,
     this.subtitle,
     this.subtitleWidget,
@@ -26,7 +26,7 @@ class CustomListTile extends StatelessWidget {
     this.disabled,
     this.onHover,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -76,20 +76,21 @@ class CustomListTile extends StatelessWidget {
                               Text(
                                 subtitle!,
                                 style: TextStyle(
-                                    color: disabled == true
-                                        ? Theme.of(context).colorScheme.onSurfaceVariant.withOpacity(0.38)
-                                        : Theme.of(context).colorScheme.onSurfaceVariant,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400),
+                                  color: disabled == true
+                                      ? Theme.of(context).colorScheme.onSurfaceVariant.withOpacity(0.38)
+                                      : Theme.of(context).colorScheme.onSurfaceVariant,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                          ]
+                          ],
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
-              if (trailing != null) ...[const SizedBox(width: 16), trailing!]
+              if (trailing != null) ...[const SizedBox(width: 16), trailing!],
             ],
           ),
         ),

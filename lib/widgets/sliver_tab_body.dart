@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SliverTabBody extends StatelessWidget {
   final Widget child;
 
-  const SliverTabBody({Key? key, required this.child}) : super(key: key);
+  const SliverTabBody({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +28,10 @@ class SliverTabBodyRefresh extends StatelessWidget {
   final Future<void> Function() onRefresh;
 
   const SliverTabBodyRefresh({
-    Key? key,
+    super.key,
     required this.child,
     required this.onRefresh,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

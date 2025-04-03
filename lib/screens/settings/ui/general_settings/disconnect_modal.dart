@@ -5,7 +5,7 @@ import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/providers/api_client.provider.dart';
 
 class DisconnectModal extends ConsumerWidget {
-  const DisconnectModal({Key? key}) : super(key: key);
+  const DisconnectModal({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

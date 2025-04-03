@@ -4,9 +4,9 @@ class ProcessDialog extends StatelessWidget {
   final String message;
 
   const ProcessDialog({
-    Key? key,
+    super.key,
     required this.message,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class ProcessDialog extends StatelessWidget {
                   message,
                   style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
                 ),
-              )
+              ),
             ],
           ),
         ),
