@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:linkdy/constants/urls.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
+import 'package:super_context_menu/super_context_menu.dart';
 
 import 'package:linkdy/i18n/strings.g.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/providers/app_status.provider.dart';
 import 'package:linkdy/utils/date_to_string.dart';
-import 'package:super_context_menu/super_context_menu.dart';
 
 // Wait until the context menu close animation animation finishes
 Duration _durationTime = const Duration(milliseconds: 150);
@@ -136,8 +134,13 @@ class BookmarkItem extends ConsumerWidget {
                             if (ref.watch(appStatusProvider).showFavicon == true)
                               Padding(
                                 padding: const EdgeInsets.only(right: 8),
-                                child: ref.watch(faviconStoreProvider).loadingFavicons == true
-                                    ? ClipRRect(
+                                child: Image.network(
+                                  Urls.gstatic(bookmark.url),
+                                  width: 16,
+                                  height: 16,
+                                  loadingBuilder: (context, child, loadingProgress) {
+                                    if (loadingProgress != null) {
+                                      return ClipRRect(
                                         borderRadius: BorderRadius.circular(4),
                                         child: Skeletonizer(
                                           enabled: true,
@@ -148,59 +151,11 @@ class BookmarkItem extends ConsumerWidget {
                                             color: Colors.black,
                                           ),
                                         ),
-                                      )
-                                    : Builder(
-                                        builder: (context) {
-                                          final faviconItem = ref
-                                              .watch(faviconStoreProvider)
-                                              .favicons
-                                              .where((f) => f.url == bookmark.url!)
-                                              .toList();
-                                          if (faviconItem.isEmpty) return const SizedBox();
-                                          if (faviconItem[0].isSvg == true) {
-                                            return SvgPicture.network(
-                                              faviconItem[0].favicon,
-                                              width: 16,
-                                              height: 16,
-                                              placeholderBuilder: (context) => ClipRRect(
-                                                borderRadius: BorderRadius.circular(4),
-                                                child: Skeletonizer(
-                                                  enabled: true,
-                                                  ignoreContainers: true,
-                                                  child: Container(
-                                                    width: 16,
-                                                    height: 16,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                            );
-                                          } else {
-                                            return Image.network(
-                                              faviconItem[0].favicon,
-                                              width: 16,
-                                              height: 16,
-                                              loadingBuilder: (context, child, loadingProgress) {
-                                                if (loadingProgress != null) {
-                                                  return ClipRRect(
-                                                    borderRadius: BorderRadius.circular(4),
-                                                    child: Skeletonizer(
-                                                      enabled: true,
-                                                      ignoreContainers: true,
-                                                      child: Container(
-                                                        width: 16,
-                                                        height: 16,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                return child;
-                                              },
-                                            );
-                                          }
-                                        },
-                                      ),
+                                      );
+                                    }
+                                    return child;
+                                  },
+                                ),
                               ),
                             Expanded(
                               child: Text(

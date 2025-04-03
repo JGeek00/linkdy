@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/webview/ui/webview.dart';
-import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
 import 'package:linkdy/screens/bookmarks/model/search_bookmarks.model.dart';
@@ -31,7 +30,7 @@ FutureOr<void> fetchSearchBookmarks(FetchSearchBookmarksRef ref, int limit) asyn
       );
 
   if (result.successful == true) {
-    ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
+    // ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
     ref.read(searchBookmarksProvider).bookmarks = result.content!.results!;
     ref.read(searchBookmarksProvider).maxNumber = result.content!.count!;
     ref.read(searchBookmarksProvider).currentPage = 0;
@@ -56,7 +55,6 @@ FutureOr<void> fetchSearchBookmarksLoadMore(FetchSearchBookmarksLoadMoreRef ref)
       );
 
   if (result.successful == true) {
-    ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
     provider.bookmarks = [...provider.bookmarks, ...result.content!.results!];
     provider.maxNumber = result.content!.count!;
     provider.currentPage = provider.currentPage + 1;

@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:linkdy/screens/bookmarks/ui/visualization_modal.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
-import 'package:linkdy/screens/bookmarks/ui/bookmark_item.dart';
+import 'package:linkdy/widgets/bookmark_item.dart';
 import 'package:linkdy/screens/bookmarks/ui/bookmark_form_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/delete_bookmark_modal.dart';
 import 'package:linkdy/screens/bookmarks/ui/search_bookmarks.dart';

@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/webview/ui/webview.dart';
-import 'package:linkdy/screens/bookmarks/provider/favicon_loader.provider.dart';
 import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/filtered_bookmarks/model/filtered_bookmarks.model.dart';
@@ -36,7 +35,7 @@ FutureOr<void> tagBookmarksRequest(TagBookmarksRequestRef ref, Tag? tag, String?
       );
 
   if (bookmarksResult.successful == true) {
-    ref.read(faviconStoreProvider.notifier).loadFavicons(bookmarksResult.content!.results!);
+    // ref.read(faviconStoreProvider.notifier).loadFavicons(bookmarksResult.content!.results!);
     ref.read(filteredBookmarksProvider).bookmarks = bookmarksResult.content!.results!;
     ref.read(filteredBookmarksProvider).maxNumber = bookmarksResult.content!.count!;
     if (tag == null) ref.read(filteredBookmarksProvider).tag = tagResult!.content!;
@@ -63,7 +62,6 @@ FutureOr<void> tagBookmarksRequestLoadMore(FilteredBookmarksRequestLoadMoreRef r
       );
 
   if (result.successful == true) {
-    ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
     provider.bookmarks = [...provider.bookmarks, ...result.content!.results!];
     provider.maxNumber = result.content!.count!;
     provider.currentPage = provider.currentPage + 1;
@@ -85,7 +83,7 @@ FutureOr<void> filteredBookmarksRequest(FilteredBookmarksRequestRef ref, Filtere
           );
 
   if (bookmarksResult.successful == true) {
-    ref.read(faviconStoreProvider.notifier).loadFavicons(bookmarksResult.content!.results!);
+    // ref.read(faviconStoreProvider.notifier).loadFavicons(bookmarksResult.content!.results!);
     ref.read(filteredBookmarksProvider).bookmarks = bookmarksResult.content!.results!;
     ref.read(filteredBookmarksProvider).maxNumber = bookmarksResult.content!.count!;
     ref.read(filteredBookmarksProvider).currentPage = 0;
@@ -117,7 +115,7 @@ FutureOr<void> filteredBookmarksRequestLoadMore(TagBookmarksRequestLoadMoreRef r
           );
 
   if (result.successful == true) {
-    ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
+    // ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
     provider.bookmarks = [...provider.bookmarks, ...result.content!.results!];
     provider.maxNumber = result.content!.count!;
     provider.currentPage = provider.currentPage + 1;
