@@ -879,11 +879,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: master
-      resolved-ref: cacb2a2643632ed87bcd377558398b6a81d1b2b6
+      ref: "1.8.3"
+      resolved-ref: "2e0b90606d78569f97d58981461180be9699b9e0"
       url: "https://github.com/JGeek00/receive_sharing_intent"
     source: git
-    version: "1.8.2"
+    version: "1.8.3"
   riverpod:
     dependency: transitive
     description:

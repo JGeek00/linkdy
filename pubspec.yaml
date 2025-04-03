@@ -66,7 +66,7 @@ dependencies:
   receive_sharing_intent:
     git:
       url: https://github.com/JGeek00/receive_sharing_intent
-      ref: master
+      ref: 1.8.3
 
 dev_dependencies:
   build_runner: ^2.4.8
