@@ -8,10 +8,10 @@ class DeleteBookmarkModal extends StatelessWidget {
   final void Function(Bookmark) onDelete;
 
   const DeleteBookmarkModal({
-    Key? key,
+    super.key,
     required this.bookmark,
     required this.onDelete,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

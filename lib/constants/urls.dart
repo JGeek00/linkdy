@@ -6,5 +6,5 @@ class Urls {
   static const linkdingRepo = "https://github.com/sissbruecker/linkding";
   static const support = "https://appsupport.jgeek00.com";
   static gstatic(url) =>
-      "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${url}&size=16";
+      "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=$url&size=16";
 }
