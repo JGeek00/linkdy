@@ -126,9 +126,6 @@ class CustomTabContentList extends StatelessWidget {
             ),
           );
         }
-
-      default:
-        return const SizedBox();
     }
   }
 }

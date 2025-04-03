@@ -143,9 +143,6 @@ class _List extends ConsumerWidget {
 
         case FilteredBookmarksMode.shared:
           return t.bookmarks.shared;
-
-        default:
-          return "";
       }
     }
 
@@ -159,9 +156,6 @@ class _List extends ConsumerWidget {
 
         case FilteredBookmarksMode.shared:
           return t.tags.filteredBookmarks.noSharedBookmarks;
-
-        default:
-          return "";
       }
     }
 
