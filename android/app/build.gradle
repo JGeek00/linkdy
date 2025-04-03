@@ -31,16 +31,16 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace "com.jgeek00.linkdy"
-    compileSdkVersion 34
+    compileSdkVersion 35
     ndkVersion flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '21'
     }
 
     sourceSets {
@@ -50,7 +50,7 @@ android {
     defaultConfig {
         applicationId "com.jgeek00.linkdy"
         minSdkVersion 26
-        targetSdkVersion 34
+        targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }

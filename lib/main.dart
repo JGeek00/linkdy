@@ -4,13 +4,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:linkdy/utils/sentry_handle_error.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:receive_sharing_intent_plus/receive_sharing_intent_plus.dart';
+import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -67,40 +66,46 @@ void main() async {
   }
 }
 
-class MyApp extends HookConsumerWidget {
+class MyApp extends StatefulHookConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends ConsumerState<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+
+    ReceiveSharingIntent.instance.getMediaStream().listen(
+      (value) {
+        if (value.isNotEmpty &&
+            (value.first.type == SharedMediaType.url || (value.first.type == SharedMediaType.text))) {
+          ref.read(receiveSharingIntentUrlProvider.notifier).setValue(value.first.path);
+          ref.read(routerProvider).go(RoutesPaths.bookmarks);
+        }
+      },
+      onError: (e, stackTrace) => Sentry.captureException(e, stackTrace: stackTrace),
+    );
+
+    ReceiveSharingIntent.instance.getInitialMedia().then(
+      (value) {
+        if (value.isNotEmpty &&
+            (value.first.type == SharedMediaType.url || (value.first.type == SharedMediaType.text))) {
+          ref.read(receiveSharingIntentUrlProvider.notifier).setValue(value.first.path);
+          ref.read(routerProvider).go(RoutesPaths.bookmarks);
+          ReceiveSharingIntent.instance.reset();
+        }
+      },
+      onError: (e, stackTrace) => Sentry.captureException(e, stackTrace: stackTrace),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final selectedColor = ref.watch(appStatusProvider).selectedColor;
     final useDynamicColor = ref.watch(appStatusProvider).useDynamicTheme;
-
-    useEffect(
-      () {
-        // When app is on background
-        ReceiveSharingIntentPlus.getTextStream().listen(
-          (value) {
-            if (value.isNotEmpty) {
-              ref.read(receiveSharingIntentUrlProvider.notifier).setValue(value);
-              ref.read(routerProvider).go(RoutesPaths.bookmarks);
-            }
-          },
-          onError: (e, stackTrace) => Sentry.captureException(e, stackTrace: stackTrace),
-        );
-
-        // When app is closed
-        ReceiveSharingIntentPlus.getInitialText().then((value) {
-          if (value != null) {
-            ref.read(receiveSharingIntentUrlProvider.notifier).setValue(value);
-            ref.read(routerProvider).go(RoutesPaths.bookmarks);
-          }
-          ReceiveSharingIntentPlus.reset();
-        });
-
-        return null;
-      },
-      [],
-    );
 
     return DynamicColorBuilder(
       builder: (lightDynamic, darkDynamic) {

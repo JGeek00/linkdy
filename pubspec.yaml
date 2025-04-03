@@ -63,7 +63,10 @@ dependencies:
       url: https://github.com/JGeek00/flutter_split_view
       ref: master-alt
   super_context_menu: ^0.8.16
-  receive_sharing_intent_plus: ^1.0.1
+  receive_sharing_intent:
+    git:
+      url: https://github.com/JGeek00/receive_sharing_intent
+      ref: master
 
 dev_dependencies:
   build_runner: ^2.4.8
