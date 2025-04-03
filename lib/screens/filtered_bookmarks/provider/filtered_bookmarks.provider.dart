@@ -6,6 +6,7 @@ import 'package:linkdy/screens/webview/ui/webview.dart';
 import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/filtered_bookmarks/model/filtered_bookmarks.model.dart';
+import 'package:linkdy/screens/webview/ui/invalid_bookmark.dart';
 
 import 'package:linkdy/config/sizes.dart';
 import 'package:linkdy/constants/global_keys.dart';
@@ -35,7 +36,6 @@ FutureOr<void> tagBookmarksRequest(TagBookmarksRequestRef ref, Tag? tag, String?
       );
 
   if (bookmarksResult.successful == true) {
-    // ref.read(faviconStoreProvider.notifier).loadFavicons(bookmarksResult.content!.results!);
     ref.read(filteredBookmarksProvider).bookmarks = bookmarksResult.content!.results!;
     ref.read(filteredBookmarksProvider).maxNumber = bookmarksResult.content!.count!;
     if (tag == null) ref.read(filteredBookmarksProvider).tag = tagResult!.content!;
@@ -83,7 +83,6 @@ FutureOr<void> filteredBookmarksRequest(FilteredBookmarksRequestRef ref, Filtere
           );
 
   if (bookmarksResult.successful == true) {
-    // ref.read(faviconStoreProvider.notifier).loadFavicons(bookmarksResult.content!.results!);
     ref.read(filteredBookmarksProvider).bookmarks = bookmarksResult.content!.results!;
     ref.read(filteredBookmarksProvider).maxNumber = bookmarksResult.content!.count!;
     ref.read(filteredBookmarksProvider).currentPage = 0;
@@ -115,7 +114,6 @@ FutureOr<void> filteredBookmarksRequestLoadMore(TagBookmarksRequestLoadMoreRef r
           );
 
   if (result.successful == true) {
-    // ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
     provider.bookmarks = [...provider.bookmarks, ...result.content!.results!];
     provider.maxNumber = result.content!.count!;
     provider.currentPage = provider.currentPage + 1;
@@ -141,10 +139,20 @@ class FilteredBookmarks extends _$FilteredBookmarks {
             routes: [
               GoRoute(
                 path: _webViewRoute,
-                pageBuilder: (context, state) => CustomTransitionPage(
-                  child: WebViewScreen(bookmark: state.extra as Bookmark),
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
-                ),
+                pageBuilder: (context, state) {
+                  final extra = state.extra;
+                  if (extra is Bookmark) {
+                    return CustomTransitionPage(
+                      child: WebViewScreen(bookmark: extra),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                    );
+                  } else {
+                    return CustomTransitionPage(
+                      child: const InvalidBookmarkScreen(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                    );
+                  }
+                },
               ),
             ],
           ),

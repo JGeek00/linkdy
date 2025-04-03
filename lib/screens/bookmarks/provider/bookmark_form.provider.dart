@@ -62,14 +62,20 @@ class BookmarkForm extends _$BookmarkForm {
   }
 
   void initializeProviderUrl(String url) {
-    final decoded = Uri.decodeComponent(url);
-    var value = decoded.contains(":~:text=") ? decoded.split(":~:text=")[1] : null;
-    state.urlController.text = value ?? decoded;
-    if (Regexps.urlWithoutProtocol.hasMatch(value ?? decoded)) {
-      state.urlError = null;
-      checkUrlDetails(updateState: false);
-    } else {
+    try {
+      final decoded = Uri.decodeComponent(url);
+      var value = decoded.contains(":~:text=") ? decoded.split(":~:text=")[1] : null;
+      state.urlController.text = value ?? decoded;
+      if (Regexps.urlWithoutProtocol.hasMatch(value ?? decoded)) {
+        state.urlError = null;
+        checkUrlDetails(updateState: false);
+      } else {
+        state.urlError = t.bookmarks.addBookmark.invalidUrl;
+      }
+    } catch (e) {
+      state.urlController.text = url;
       state.urlError = t.bookmarks.addBookmark.invalidUrl;
+      ref.notifyListeners();
     }
   }
 

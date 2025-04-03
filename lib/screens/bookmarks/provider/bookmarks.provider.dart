@@ -5,6 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:linkdy/screens/webview/ui/webview.dart';
 import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
 import 'package:linkdy/screens/bookmarks/model/bookmarks.model.dart';
+import 'package:linkdy/screens/webview/ui/invalid_bookmark.dart';
 
 import 'package:linkdy/config/sizes.dart';
 import 'package:linkdy/constants/global_keys.dart';
@@ -33,7 +34,7 @@ FutureOr<void> bookmarksRequest(
         sort: "${type == SortingType.title ? "title" : "added"}_${way == SortingWay.ascendant ? "asc" : "desc"}",
       );
 
-  if (result.successful == true) {
+  if (result.successful == true && result.content?.results != null && result.content?.count != null) {
     ref.read(bookmarksProvider).bookmarks = result.content!.results!;
     ref.read(bookmarksProvider).maxNumber = result.content!.count!;
     ref.read(bookmarksProvider).currentPage = 0;
@@ -89,10 +90,20 @@ class Bookmarks extends _$Bookmarks {
             routes: [
               GoRoute(
                 path: _webViewRoute,
-                pageBuilder: (context, state) => CustomTransitionPage(
-                  child: WebViewScreen(bookmark: state.extra as Bookmark),
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
-                ),
+                pageBuilder: (context, state) {
+                  final extra = state.extra;
+                  if (extra is Bookmark) {
+                    return CustomTransitionPage(
+                      child: WebViewScreen(bookmark: extra),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                    );
+                  } else {
+                    return CustomTransitionPage(
+                      child: const InvalidBookmarkScreen(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                    );
+                  }
+                },
               ),
             ],
           ),

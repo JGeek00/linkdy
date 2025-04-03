@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 3
-/// Strings: 621 (207 per locale)
+/// Strings: 624 (208 per locale)
 ///
-/// Built on 2025-04-03 at 20:13 UTC
+/// Built on 2025-04-03 at 20:45 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -296,6 +296,7 @@ class _StringsWebviewEn {
 	String get copyLinkClipboard => 'Copy link to clipboard';
 	String get linkCopiedClipboard => 'Link copied to the clipboard.';
 	String get share => 'Share';
+	String get invalidBookmarkData => 'The bookmark has invalid data or it\'s corrupted.';
 }
 
 // Path: colors
@@ -709,6 +710,7 @@ class _StringsWebviewEs implements _StringsWebviewEn {
 	@override String get copyLinkClipboard => 'Copiar enlace al portapapeles';
 	@override String get linkCopiedClipboard => 'Enlace copiado al portapapeles.';
 	@override String get share => 'Compartir';
+	@override String get invalidBookmarkData => 'El marcador tiene datos inválidos o está corrupto.';
 }
 
 // Path: colors
@@ -1122,6 +1124,7 @@ class _StringsWebviewTr implements _StringsWebviewEn {
 	@override String get copyLinkClipboard => 'Bağlantıyı panoya kopyala';
 	@override String get linkCopiedClipboard => 'Bağlantı panoya kopyalandı.';
 	@override String get share => 'Paylaş';
+	@override String get invalidBookmarkData => 'The bookmark has invalid data or it\'s corrupted.';
 }
 
 // Path: colors
@@ -1566,6 +1569,7 @@ extension on Translations {
 			case 'webview.copyLinkClipboard': return 'Copy link to clipboard';
 			case 'webview.linkCopiedClipboard': return 'Link copied to the clipboard.';
 			case 'webview.share': return 'Share';
+			case 'webview.invalidBookmarkData': return 'The bookmark has invalid data or it\'s corrupted.';
 			case 'colors.red': return 'Red';
 			case 'colors.green': return 'Green';
 			case 'colors.blue': return 'Blue';
@@ -1781,6 +1785,7 @@ extension on _StringsEs {
 			case 'webview.copyLinkClipboard': return 'Copiar enlace al portapapeles';
 			case 'webview.linkCopiedClipboard': return 'Enlace copiado al portapapeles.';
 			case 'webview.share': return 'Compartir';
+			case 'webview.invalidBookmarkData': return 'El marcador tiene datos inválidos o está corrupto.';
 			case 'colors.red': return 'Rojo';
 			case 'colors.green': return 'Verde';
 			case 'colors.blue': return 'Azul';
@@ -1996,6 +2001,7 @@ extension on _StringsTr {
 			case 'webview.copyLinkClipboard': return 'Bağlantıyı panoya kopyala';
 			case 'webview.linkCopiedClipboard': return 'Bağlantı panoya kopyalandı.';
 			case 'webview.share': return 'Paylaş';
+			case 'webview.invalidBookmarkData': return 'The bookmark has invalid data or it\'s corrupted.';
 			case 'colors.red': return 'Kırmızı';
 			case 'colors.green': return 'Yeşil';
 			case 'colors.blue': return 'Mavi';

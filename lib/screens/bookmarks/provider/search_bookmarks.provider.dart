@@ -6,6 +6,7 @@ import 'package:linkdy/screens/webview/ui/webview.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/provider/common_functions.dart';
 import 'package:linkdy/screens/bookmarks/model/search_bookmarks.model.dart';
+import 'package:linkdy/screens/webview/ui/invalid_bookmark.dart';
 
 import 'package:linkdy/config/sizes.dart';
 import 'package:linkdy/providers/app_status.provider.dart';
@@ -30,7 +31,6 @@ FutureOr<void> fetchSearchBookmarks(FetchSearchBookmarksRef ref, int limit) asyn
       );
 
   if (result.successful == true) {
-    // ref.read(faviconStoreProvider.notifier).loadFavicons(result.content!.results!);
     ref.read(searchBookmarksProvider).bookmarks = result.content!.results!;
     ref.read(searchBookmarksProvider).maxNumber = result.content!.count!;
     ref.read(searchBookmarksProvider).currentPage = 0;
@@ -81,10 +81,20 @@ class SearchBookmarks extends _$SearchBookmarks {
             routes: [
               GoRoute(
                 path: _webViewRoute,
-                pageBuilder: (context, state) => CustomTransitionPage(
-                  child: WebViewScreen(bookmark: state.extra as Bookmark),
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
-                ),
+                pageBuilder: (context, state) {
+                  final extra = state.extra;
+                  if (extra is Bookmark) {
+                    return CustomTransitionPage(
+                      child: WebViewScreen(bookmark: extra),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                    );
+                  } else {
+                    return CustomTransitionPage(
+                      child: const InvalidBookmarkScreen(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                    );
+                  }
+                },
               ),
             ],
           ),

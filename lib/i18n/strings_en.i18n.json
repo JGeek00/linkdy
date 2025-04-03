@@ -227,7 +227,8 @@
     "openInSystemBrowser": "Open in system browser",
     "copyLinkClipboard": "Copy link to clipboard",
     "linkCopiedClipboard": "Link copied to the clipboard.",
-    "share": "Share"
+    "share": "Share",
+    "invalidBookmarkData": "The bookmark has invalid data or it's corrupted."
   },
   "colors": {
     "red": "Red",

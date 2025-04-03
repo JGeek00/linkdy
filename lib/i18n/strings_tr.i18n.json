@@ -227,7 +227,8 @@
     "openInSystemBrowser": "Sistem tarayıcısında aç",
     "copyLinkClipboard": "Bağlantıyı panoya kopyala",
     "linkCopiedClipboard": "Bağlantı panoya kopyalandı.",
-    "share": "Paylaş"
+    "share": "Paylaş",
+    "invalidBookmarkData": "The bookmark has invalid data or it's corrupted."
   },
   "colors": {
     "red": "Kırmızı",
