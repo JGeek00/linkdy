@@ -77,6 +77,13 @@ class GeneralSettings extends ConsumerWidget {
                       subtitle: Text(t.settings.generalSettings.defaultTags.defaultTagsDescription),
                       onTap: () => ref.watch(routerProvider).push(RoutesPaths.defaultTags),
                     ),
+                    SectionLabel(label: t.settings.generalSettings.others),
+                    SwitchListTile(
+                      title: Text(t.settings.generalSettings.setMarkAsUnreadDefault),
+                      subtitle: Text(t.settings.generalSettings.setMarkAsUnreadDefaultDescription),
+                      value: ref.watch(appStatusProvider).markAsUnreadDefault,
+                      onChanged: ref.read(appStatusProvider.notifier).setMarkAsUnreadDefault,
+                    ),
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 16),
                       child: Divider(),

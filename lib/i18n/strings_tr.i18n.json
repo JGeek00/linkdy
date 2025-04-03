@@ -214,7 +214,10 @@
         "addTag": "AddTag",
         "removeThisTag": "Remove this tag",
         "noDefaultTags": "There are no default tags"
-      }
+      },
+      "others": "Others",
+      "setMarkAsUnreadDefault": "Set mark as unread by default",
+      "setMarkAsUnreadDefaultDescription": "Set the mark as unread option by default when creating a new bookmark."
     }
   },
   "webview": {

@@ -23,6 +23,7 @@ class AppStatus extends _$AppStatus {
               OpenLinksBrowser.integrated,
       showFavicon: sharedPreferences.getBool(SharedPreferencesKeys.showFavicon) ?? true,
       defaultTags: sharedPreferences.getStringList(SharedPreferencesKeys.defaultTags) ?? [],
+      markAsUnreadDefault: sharedPreferences.getBool(SharedPreferencesKeys.markAsUnreadDefault) ?? false,
     );
   }
 
@@ -72,6 +73,12 @@ class AppStatus extends _$AppStatus {
     final newTags = state.defaultTags.where((e) => e != value).toList();
     state.defaultTags = newTags;
     ref.read(sharedPreferencesProvider).setStringList(SharedPreferencesKeys.defaultTags, newTags);
+    ref.notifyListeners();
+  }
+
+  void setMarkAsUnreadDefault(bool value) {
+    state.markAsUnreadDefault = value;
+    ref.read(sharedPreferencesProvider).setBool(SharedPreferencesKeys.markAsUnreadDefault, value);
     ref.notifyListeners();
   }
 }

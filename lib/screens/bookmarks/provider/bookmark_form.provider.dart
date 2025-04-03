@@ -4,6 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
 import 'package:linkdy/screens/bookmarks/model/bookmark_form.model.dart';
 
+import 'package:linkdy/providers/app_status.provider.dart';
 import 'package:linkdy/constants/global_keys.dart';
 import 'package:linkdy/models/data/bookmarks.dart';
 import 'package:linkdy/utils/snackbar.dart';
@@ -43,6 +44,7 @@ class BookmarkForm extends _$BookmarkForm {
       tagsController: TextEditingController(),
       tags: [],
       notesController: TextEditingController(),
+      markAsUnread: ref.read(appStatusProvider).markAsUnreadDefault,
     );
   }
 
@@ -55,7 +57,7 @@ class BookmarkForm extends _$BookmarkForm {
     state.descriptionController.text = bookmark.description ?? '';
     state.tags = bookmark.tagNames ?? [];
     state.notesController.text = bookmark.notes ?? '';
-    state.markAsUnread = bookmark.unread ?? false;
+    state.markAsUnread = bookmark.unread ?? ref.read(appStatusProvider).markAsUnreadDefault;
     state.share = bookmark.shared ?? false;
   }
 
@@ -97,7 +99,7 @@ class BookmarkForm extends _$BookmarkForm {
           state.descriptionController.text = result.content?.metadata?.description ?? "";
           state.tags = result.content?.bookmark?.tagNames ?? [];
           state.notesController.text = result.content?.bookmark?.notes ?? "";
-          state.markAsUnread = result.content?.bookmark?.unread ?? false;
+          state.markAsUnread = result.content?.bookmark?.unread ?? ref.read(appStatusProvider).markAsUnreadDefault;
           state.share = result.content?.bookmark?.shared ?? false;
           state.bookmarkExists = true;
         } else {

@@ -8,6 +8,7 @@ class AppStatusModel {
   OpenLinksBrowser openLinksBrowser;
   bool showFavicon;
   List<String> defaultTags;
+  bool markAsUnreadDefault;
 
   AppStatusModel({
     this.selectedTheme = SelectedTheme.system,
@@ -17,5 +18,6 @@ class AppStatusModel {
     this.openLinksBrowser = OpenLinksBrowser.integrated,
     this.showFavicon = true,
     required this.defaultTags,
+    this.markAsUnreadDefault = false,
   });
 }

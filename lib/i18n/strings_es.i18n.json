@@ -214,7 +214,10 @@
         "addTag": "Añadir etiqueta",
         "removeThisTag": "Eliminar esta etiqueta",
         "noDefaultTags": "No hay etiquetas por defecto"
-      }
+      },
+      "others": "Otros",
+      "setMarkAsUnreadDefault": "Marcar como no leído por defecto",
+      "setMarkAsUnreadDefaultDescription": "Habilitar por defecto la opción de marcar como leído al crear un marcador."
     }
   },
   "webview": {

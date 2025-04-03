@@ -7,4 +7,5 @@ class SharedPreferencesKeys {
   static const showFavicon = "showFavicon";
   static const openLinksBrowser = "openLinksBrowser";
   static const defaultTags = "defaultTags";
+  static const markAsUnreadDefault = "markAsUnreadDefault";
 }
