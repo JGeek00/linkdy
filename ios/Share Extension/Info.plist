@@ -12,7 +12,7 @@
                 <dict>
                     <!-- Support sharing text -->
                     <key>NSExtensionActivationSupportsText</key>
-                    <true/>
+                    <true />
                     <!-- Sharing urls -->
                     <key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
                     <integer>1</integer>
