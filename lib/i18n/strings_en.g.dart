@@ -166,8 +166,10 @@ class TranslationsSettingsEn {
 	String get visitGitHubRepo => 'Visit the application repository at GitHub';
 	String get linkdingRepository => 'Linkding repository';
 	String get linkdingRepositoryDescription => 'Link to the Linkding repository on GitHub';
-	String get contactDeveloper => 'Contact the developer';
-	String get contactDeveloperDescription => 'If you have an issue, want to request a new feature, or ask a question';
+	String get moreInfoApp => 'More information about the app';
+	String get moreInfoAppDescription => 'Link to the app\'s information page';
+	String get moreApps => 'My other apps';
+	String get moreAppsDescription => 'More apps, contact, donations and more';
 	late final TranslationsSettingsCustomizationEn customization = TranslationsSettingsCustomizationEn._(_root);
 	late final TranslationsSettingsGeneralSettingsEn generalSettings = TranslationsSettingsGeneralSettingsEn._(_root);
 }
@@ -589,8 +591,10 @@ extension on Translations {
 			case 'settings.visitGitHubRepo': return 'Visit the application repository at GitHub';
 			case 'settings.linkdingRepository': return 'Linkding repository';
 			case 'settings.linkdingRepositoryDescription': return 'Link to the Linkding repository on GitHub';
-			case 'settings.contactDeveloper': return 'Contact the developer';
-			case 'settings.contactDeveloperDescription': return 'If you have an issue, want to request a new feature, or ask a question';
+			case 'settings.moreInfoApp': return 'More information about the app';
+			case 'settings.moreInfoAppDescription': return 'Link to the app\'s information page';
+			case 'settings.moreApps': return 'My other apps';
+			case 'settings.moreAppsDescription': return 'More apps, contact, donations and more';
 			case 'settings.customization.customization': return 'Customization';
 			case 'settings.customization.customizationDescription': return 'Set the app theme and color palette.';
 			case 'settings.customization.theme': return 'Theme';

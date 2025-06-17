@@ -102,13 +102,22 @@ class _List extends ConsumerWidget {
                       onTap: () => openUrlCustomTab(Urls.linkdingRepo),
                     ),
                     CustomListTile(
-                      title: t.settings.contactDeveloper,
-                      subtitle: t.settings.contactDeveloperDescription,
+                      title: t.settings.moreInfoApp,
+                      subtitle: t.settings.moreInfoAppDescription,
                       trailing: Icon(
                         Icons.open_in_new_rounded,
                         color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
-                      onTap: () => openUrlCustomTab(Urls.support),
+                      onTap: () => openUrlCustomTab(Urls.appDetailsPage),
+                    ),
+                    CustomListTile(
+                      title: t.settings.moreApps,
+                      subtitle: t.settings.moreAppsDescription,
+                      trailing: Icon(
+                        Icons.open_in_new_rounded,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                      onTap: () => openUrlCustomTab(Urls.appsWebsite),
                     ),
                     CustomListTile(
                       title: t.settings.appVersion,
@@ -117,35 +126,6 @@ class _List extends ConsumerWidget {
                     CustomListTile(
                       title: t.settings.createdBy,
                       subtitle: Strings.createdBy,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          if (Platform.isAndroid)
-                            IconButton(
-                              onPressed: () => openUrlCustomTab(Urls.playStoreLink),
-                              icon: SvgPicture.asset(
-                                'assets/resources/google-play.svg',
-                                color: Theme.of(context).colorScheme.onSurfaceVariant,
-                                width: 30,
-                                height: 30,
-                              ),
-                              tooltip: t.settings.visitGooglePlay,
-                            ),
-                          IconButton(
-                            onPressed: () => openUrlCustomTab(Urls.gitHubRepo),
-                            icon: SvgPicture.asset(
-                              'assets/resources/github.svg',
-                              color: Theme.of(context).colorScheme.onSurfaceVariant,
-                              width: 30,
-                              height: 30,
-                            ),
-                            tooltip: t.settings.visitGitHubRepo,
-                          ),
-                        ],
-                      ),
                     ),
                   ],
                 ),

@@ -163,8 +163,10 @@ class _TranslationsSettingsEs implements TranslationsSettingsEn {
 	@override String get visitGitHubRepo => 'Visita el repositorio de la aplicación en GitHub';
 	@override String get linkdingRepository => 'Repositorio de Linkding';
 	@override String get linkdingRepositoryDescription => 'Enlace al repositorio de Linkding en GitHub';
-	@override String get contactDeveloper => 'Contacta con el desarrollador';
-	@override String get contactDeveloperDescription => 'Si tienes un problema, quieres sugerir una funcionalidad, o hacer una pregunta';
+	@override String get moreInfoApp => 'Más información sobre la aplicación';
+	@override String get moreInfoAppDescription => 'Enlace a la página web de información de la aplicación';
+	@override String get moreApps => 'Mis otras aplicaciones';
+	@override String get moreAppsDescription => 'Más aplicaciones, contacto, donaciones y más';
 	@override late final _TranslationsSettingsCustomizationEs customization = _TranslationsSettingsCustomizationEs._(_root);
 	@override late final _TranslationsSettingsGeneralSettingsEs generalSettings = _TranslationsSettingsGeneralSettingsEs._(_root);
 }
@@ -586,8 +588,10 @@ extension on TranslationsEs {
 			case 'settings.visitGitHubRepo': return 'Visita el repositorio de la aplicación en GitHub';
 			case 'settings.linkdingRepository': return 'Repositorio de Linkding';
 			case 'settings.linkdingRepositoryDescription': return 'Enlace al repositorio de Linkding en GitHub';
-			case 'settings.contactDeveloper': return 'Contacta con el desarrollador';
-			case 'settings.contactDeveloperDescription': return 'Si tienes un problema, quieres sugerir una funcionalidad, o hacer una pregunta';
+			case 'settings.moreInfoApp': return 'Más información sobre la aplicación';
+			case 'settings.moreInfoAppDescription': return 'Enlace a la página web de información de la aplicación';
+			case 'settings.moreApps': return 'Mis otras aplicaciones';
+			case 'settings.moreAppsDescription': return 'Más aplicaciones, contacto, donaciones y más';
 			case 'settings.customization.customization': return 'Personalización';
 			case 'settings.customization.customizationDescription': return 'Configura el tema y la paleta de colores.';
 			case 'settings.customization.theme': return 'Tema';

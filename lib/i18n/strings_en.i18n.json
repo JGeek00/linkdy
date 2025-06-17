@@ -177,8 +177,10 @@
     "visitGitHubRepo": "Visit the application repository at GitHub",
     "linkdingRepository": "Linkding repository",
     "linkdingRepositoryDescription": "Link to the Linkding repository on GitHub",
-    "contactDeveloper": "Contact the developer",
-    "contactDeveloperDescription": "If you have an issue, want to request a new feature, or ask a question",
+    "moreInfoApp": "More information about the app",
+    "moreInfoAppDescription": "Link to the app's information page",
+    "moreApps": "My other apps",
+    "moreAppsDescription": "More apps, contact, donations and more",
     "customization": {
       "customization": "Customization",
       "customizationDescription": "Set the app theme and color palette.",

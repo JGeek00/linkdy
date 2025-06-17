@@ -163,8 +163,10 @@ class _TranslationsSettingsTr implements TranslationsSettingsEn {
 	@override String get visitGitHubRepo => 'GitHub\'daki uygulama deposunu ziyaret et';
 	@override String get linkdingRepository => 'Linkding deposu';
 	@override String get linkdingRepositoryDescription => 'GitHub\'daki Linkding deposuna bağlantı';
-	@override String get contactDeveloper => 'Contact the developer';
-	@override String get contactDeveloperDescription => 'If you have an issue, want to request a new feature, or ask a question';
+	@override String get moreInfoApp => 'Uygulama hakkında daha fazla bilgi';
+	@override String get moreInfoAppDescription => 'Uygulamanın bilgi sayfasına bağlantı';
+	@override String get moreApps => 'Diğer uygulamalarım';
+	@override String get moreAppsDescription => 'Daha fazla uygulama, iletişim, bağış ve daha fazlası';
 	@override late final _TranslationsSettingsCustomizationTr customization = _TranslationsSettingsCustomizationTr._(_root);
 	@override late final _TranslationsSettingsGeneralSettingsTr generalSettings = _TranslationsSettingsGeneralSettingsTr._(_root);
 }
@@ -586,8 +588,10 @@ extension on TranslationsTr {
 			case 'settings.visitGitHubRepo': return 'GitHub\'daki uygulama deposunu ziyaret et';
 			case 'settings.linkdingRepository': return 'Linkding deposu';
 			case 'settings.linkdingRepositoryDescription': return 'GitHub\'daki Linkding deposuna bağlantı';
-			case 'settings.contactDeveloper': return 'Contact the developer';
-			case 'settings.contactDeveloperDescription': return 'If you have an issue, want to request a new feature, or ask a question';
+			case 'settings.moreInfoApp': return 'Uygulama hakkında daha fazla bilgi';
+			case 'settings.moreInfoAppDescription': return 'Uygulamanın bilgi sayfasına bağlantı';
+			case 'settings.moreApps': return 'Diğer uygulamalarım';
+			case 'settings.moreAppsDescription': return 'Daha fazla uygulama, iletişim, bağış ve daha fazlası';
 			case 'settings.customization.customization': return 'Özelleştirme';
 			case 'settings.customization.customizationDescription': return 'Uygulama temasını ve renk paletini ayarlayın.';
 			case 'settings.customization.theme': return 'Tema';

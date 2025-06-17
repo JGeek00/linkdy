@@ -177,8 +177,10 @@
     "visitGitHubRepo": "GitHub'daki uygulama deposunu ziyaret et",
     "linkdingRepository": "Linkding deposu",
     "linkdingRepositoryDescription": "GitHub'daki Linkding deposuna bağlantı",
-    "contactDeveloper": "Contact the developer",
-    "contactDeveloperDescription": "If you have an issue, want to request a new feature, or ask a question",
+    "moreInfoApp": "Uygulama hakkında daha fazla bilgi",
+    "moreInfoAppDescription": "Uygulamanın bilgi sayfasına bağlantı",
+    "moreApps": "Diğer uygulamalarım",
+    "moreAppsDescription": "Daha fazla uygulama, iletişim, bağış ve daha fazlası",
     "customization": {
       "customization": "Özelleştirme",
       "customizationDescription": "Uygulama temasını ve renk paletini ayarlayın.",
