@@ -327,7 +327,7 @@ class _ModalContent extends ConsumerWidget {
                         child: EasyAutocomplete(
                           controller: provider.tagsController,
                           onChanged: ref.read(bookmarkFormProvider.notifier).validateTagInput,
-                          suggestions: tags.value?.content?.results?.map((t) => t.name!).toList() ?? [],
+                          suggestions: (tags.value?.content?.results?.map((t) => t.name!).toList() ?? [])..sort(),
                           textCapitalization: TextCapitalization.none,
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(
