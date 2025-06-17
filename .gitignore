@@ -47,3 +47,4 @@ app.*.map.json
 # Env file
 .env
 android/app/.cxx
+android/build/reports/problems

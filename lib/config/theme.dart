@@ -16,7 +16,7 @@ ThemeData lightTheme(ColorScheme? dynamicColorScheme) => ThemeData(
         iconColor:
             dynamicColorScheme != null ? dynamicColorScheme.onSurfaceVariant : const Color.fromRGBO(117, 117, 117, 1),
       ),
-      cardTheme: CardTheme(surfaceTintColor: dynamicColorScheme?.surfaceTint),
+      cardTheme: CardThemeData(surfaceTintColor: dynamicColorScheme?.surfaceTint),
       popupMenuTheme: PopupMenuThemeData(surfaceTintColor: dynamicColorScheme?.surfaceTint),
       navigationBarTheme: NavigationBarThemeData(surfaceTintColor: dynamicColorScheme?.surfaceTint),
       pageTransitionsTheme: const PageTransitionsTheme(
@@ -42,7 +42,7 @@ ThemeData darkTheme(ColorScheme? dynamicColorScheme) => ThemeData(
         iconColor:
             dynamicColorScheme != null ? dynamicColorScheme.onSurfaceVariant : const Color.fromRGBO(187, 187, 187, 1),
       ),
-      cardTheme: CardTheme(surfaceTintColor: dynamicColorScheme?.surfaceTint),
+      cardTheme: CardThemeData(surfaceTintColor: dynamicColorScheme?.surfaceTint),
       popupMenuTheme: PopupMenuThemeData(surfaceTintColor: dynamicColorScheme?.surfaceTint),
       navigationBarTheme: NavigationBarThemeData(surfaceTintColor: dynamicColorScheme?.surfaceTint),
       pageTransitionsTheme: const PageTransitionsTheme(
