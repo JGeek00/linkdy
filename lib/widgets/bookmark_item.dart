@@ -41,11 +41,13 @@ class BookmarkItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    String validateStrings(String? string1, String? string2) {
+    String validateStrings(String? string1, String? string2, String? string3) {
       if (string1 != null && string1.isNotEmpty) {
         return string1;
       } else if (string2 != null && string2.isNotEmpty) {
         return string2;
+      } else if (string3 != null && string3.isNotEmpty) {
+        return string3;
       } else {
         return "";
       }
@@ -159,7 +161,7 @@ class BookmarkItem extends ConsumerWidget {
                               ),
                             Expanded(
                               child: Text(
-                                validateStrings(bookmark.title, bookmark.websiteTitle),
+                                validateStrings(bookmark.title, bookmark.websiteTitle, bookmark.url),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.left,
@@ -174,7 +176,7 @@ class BookmarkItem extends ConsumerWidget {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          validateStrings(bookmark.description, bookmark.websiteDescription),
+                          validateStrings(bookmark.description, bookmark.websiteDescription, bookmark.url),
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.left,
