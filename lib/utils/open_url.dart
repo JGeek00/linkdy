@@ -13,6 +13,7 @@ void openUrlCustomTab(String url) async {
           shareState: flutter_custom_tabs.CustomTabsShareState.browserDefault,
           urlBarHidingEnabled: true,
           showTitle: true,
+          browser: flutter_custom_tabs.CustomTabsBrowserConfiguration(prefersDefaultBrowser: true),
         ),
         safariVCOptions: const flutter_custom_tabs.SafariViewControllerOptions(
           barCollapsingEnabled: true,
