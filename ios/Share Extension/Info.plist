@@ -4,16 +4,20 @@
     <dict>
         <key>AppGroupId</key>
         <string>$(CUSTOM_GROUP_ID)</string>
+        <key>CFBundleVersion</key>
+        <string>$(FLUTTER_BUILD_NUMBER)</string>
         <key>NSExtension</key>
         <dict>
             <key>NSExtensionAttributes</key>
             <dict>
                 <key>NSExtensionActivationRule</key>
                 <dict>
-                    <!-- Support sharing text -->
+                    <!--Add
+                    this flag, if you want to support sharing text into your app-->
                     <key>NSExtensionActivationSupportsText</key>
                     <true />
-                    <!-- Sharing urls -->
+                    <!--Add
+                    this tag, if you want to support sharing urls into your app-->
                     <key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
                     <integer>1</integer>
                 </dict>
