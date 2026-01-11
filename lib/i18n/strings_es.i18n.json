@@ -74,7 +74,7 @@
       "validateUrl": "Validar URL",
       "urlValid": "La URL es válida",
       "urlNotValid": "La URL no es válida",
-      "cannotCheckUrl": "No se pudo comprobar la URL",
+      "cannotCheckUrl": "No se pudo comprobar la URL, pero puedes guardarla de todas formas.",
       "invalidUrl": "URL no válida",
       "checkingUrl": "Comprobando URL...",
       "title": "Title",

@@ -73,7 +73,7 @@
       "validateUrl": "Bağlantı adresini doğrula",
       "urlValid": "Bağlantı adresi geçerli",
       "urlNotValid": "Bağlantı adresi geçerli değil",
-      "cannotCheckUrl": "Bağlantı adresi kontrol edilemedi",
+      "cannotCheckUrl": "Bağlantı adresi kontrol edilemedi, ancak yine de kaydedebilirsiniz.",
       "invalidUrl": "Geçersiz bağlantı adresi",
       "url": "Bağlantı adresi",
       "checkingUrl": "Bağlantı adresi kontrol ediliyor...",

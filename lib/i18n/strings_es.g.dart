@@ -234,7 +234,7 @@ class _TranslationsBookmarksAddBookmarkEs implements TranslationsBookmarksAddBoo
 	@override String get validateUrl => 'Validar URL';
 	@override String get urlValid => 'La URL es válida';
 	@override String get urlNotValid => 'La URL no es válida';
-	@override String get cannotCheckUrl => 'No se pudo comprobar la URL';
+	@override String get cannotCheckUrl => 'No se pudo comprobar la URL, pero puedes guardarla de todas formas.';
 	@override String get invalidUrl => 'URL no válida';
 	@override String get checkingUrl => 'Comprobando URL...';
 	@override String get title => 'Title';
@@ -500,7 +500,7 @@ extension on TranslationsEs {
 			case 'bookmarks.addBookmark.validateUrl': return 'Validar URL';
 			case 'bookmarks.addBookmark.urlValid': return 'La URL es válida';
 			case 'bookmarks.addBookmark.urlNotValid': return 'La URL no es válida';
-			case 'bookmarks.addBookmark.cannotCheckUrl': return 'No se pudo comprobar la URL';
+			case 'bookmarks.addBookmark.cannotCheckUrl': return 'No se pudo comprobar la URL, pero puedes guardarla de todas formas.';
 			case 'bookmarks.addBookmark.invalidUrl': return 'URL no válida';
 			case 'bookmarks.addBookmark.checkingUrl': return 'Comprobando URL...';
 			case 'bookmarks.addBookmark.title': return 'Title';
