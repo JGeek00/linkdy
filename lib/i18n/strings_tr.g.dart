@@ -233,7 +233,7 @@ class _TranslationsBookmarksAddBookmarkTr implements TranslationsBookmarksAddBoo
 	@override String get validateUrl => 'Bağlantı adresini doğrula';
 	@override String get urlValid => 'Bağlantı adresi geçerli';
 	@override String get urlNotValid => 'Bağlantı adresi geçerli değil';
-	@override String get cannotCheckUrl => 'Bağlantı adresi kontrol edilemedi';
+	@override String get cannotCheckUrl => 'Bağlantı adresi kontrol edilemedi, ancak yine de kaydedebilirsiniz.';
 	@override String get invalidUrl => 'Geçersiz bağlantı adresi';
 	@override String get url => 'Bağlantı adresi';
 	@override String get checkingUrl => 'Bağlantı adresi kontrol ediliyor...';
@@ -499,7 +499,7 @@ extension on TranslationsTr {
 			case 'bookmarks.addBookmark.validateUrl': return 'Bağlantı adresini doğrula';
 			case 'bookmarks.addBookmark.urlValid': return 'Bağlantı adresi geçerli';
 			case 'bookmarks.addBookmark.urlNotValid': return 'Bağlantı adresi geçerli değil';
-			case 'bookmarks.addBookmark.cannotCheckUrl': return 'Bağlantı adresi kontrol edilemedi';
+			case 'bookmarks.addBookmark.cannotCheckUrl': return 'Bağlantı adresi kontrol edilemedi, ancak yine de kaydedebilirsiniz.';
 			case 'bookmarks.addBookmark.invalidUrl': return 'Geçersiz bağlantı adresi';
 			case 'bookmarks.addBookmark.url': return 'Bağlantı adresi';
 			case 'bookmarks.addBookmark.checkingUrl': return 'Bağlantı adresi kontrol ediliyor...';

@@ -502,7 +502,7 @@ extension on Translations {
 			case 'bookmarks.addBookmark.validateUrl': return 'Validate URL';
 			case 'bookmarks.addBookmark.urlValid': return 'The URL is valid';
 			case 'bookmarks.addBookmark.urlNotValid': return 'The URL is not valid';
-			case 'bookmarks.addBookmark.cannotCheckUrl': return 'The URL couldn\'t be checked';
+			case 'bookmarks.addBookmark.cannotCheckUrl': return 'The URL couldn\'t be checked, but you can save it anyway.';
 			case 'bookmarks.addBookmark.invalidUrl': return 'Invalid URL';
 			case 'bookmarks.addBookmark.url': return 'URL';
 			case 'bookmarks.addBookmark.checkingUrl': return 'Checking URL...';

@@ -115,7 +115,12 @@ class BookmarkForm extends _$BookmarkForm {
         state.bookmarkValid = true;
         state.checkBookmarkLoadStatus = LoadStatus.loaded;
       } else {
+        // URL check failed (e.g., authenticated URLs), but if URL format is valid,
+        // allow saving anyway since Linkding accepts these URLs
         state.checkBookmarkLoadStatus = LoadStatus.error;
+        if (state.urlError == null) {
+          state.bookmarkValid = true;
+        }
       }
       ref.notifyListeners();
     }

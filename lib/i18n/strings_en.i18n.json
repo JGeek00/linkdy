@@ -73,7 +73,7 @@
       "validateUrl": "Validate URL",
       "urlValid": "The URL is valid",
       "urlNotValid": "The URL is not valid",
-      "cannotCheckUrl": "The URL couldn't be checked",
+      "cannotCheckUrl": "The URL couldn't be checked, but you can save it anyway.",
       "invalidUrl": "Invalid URL",
       "url": "URL",
       "checkingUrl": "Checking URL...",
