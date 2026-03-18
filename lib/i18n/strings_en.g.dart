@@ -3,12 +3,13 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 part of 'strings.g.dart';
 
 // Path: <root>
 typedef TranslationsEn = Translations; // ignore: unused_element
-class Translations implements BaseTranslations<AppLocale, Translations> {
+class Translations with BaseTranslations<AppLocale, Translations> {
 	/// Returns the current translations of the given [context].
 	///
 	/// Usage:
@@ -55,14 +56,32 @@ class TranslationsGenericEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Confirm'
 	String get confirm => 'Confirm';
+
+	/// en: 'Cancel'
 	String get cancel => 'Cancel';
+
+	/// en: 'Next'
 	String get next => 'Next';
+
+	/// en: 'Save'
 	String get save => 'Save';
+
+	/// en: 'Close'
 	String get close => 'Close';
+
+	/// en: 'Error'
 	String get error => 'Error';
+
+	/// en: 'Optional'
 	String get optional => 'Optional';
+
+	/// en: 'Your authorization token is not valid anymore. Please, reauthenticate.'
 	String get authTokenNotValid => 'Your authorization token is not valid anymore. Please, reauthenticate.';
+
+	/// en: 'Options'
 	String get options => 'Options';
 }
 
@@ -73,35 +92,95 @@ class TranslationsOnboardingEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Welcome to Linkdy'
 	String get title => 'Welcome to Linkdy';
+
+	/// en: 'An application to manage your bookmarks.'
 	String get subtitle => 'An application to manage your bookmarks.';
+
+	/// en: 'Start'
 	String get start => 'Start';
+
+	/// en: 'Next'
 	String get next => 'Next';
+
+	/// en: 'Previous'
 	String get previous => 'Previous';
+
+	/// en: 'Server required'
 	String get serverRequired => 'Server required';
+
+	/// en: 'Linkdy it's not an standalone app, it requires the Linkding server to work. In order to use this application, you must deploy Linkding on your home server, VPS or any other computer.'
 	String get serverRequiredDescription => 'Linkdy it\'s not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.';
+
+	/// en: 'Check the installation instructions on the official GitHub repository.'
 	String get installationInstructions => 'Check the installation instructions on the official GitHub repository.';
+
+	/// en: 'I confirm that I have an instance of the Linkding server already running.'
 	String get serverRunningConfirmation => 'I confirm that I have an instance of the Linkding server already running.';
+
+	/// en: 'Create a connection'
 	String get createConnection => 'Create a connection';
+
+	/// en: 'Enter all the required details to create a connection to your server.'
 	String get createConnectionSubtitle => 'Enter all the required details to create a connection to your server.';
+
+	/// en: 'IP address or domain'
 	String get ipAddressOrDomain => 'IP address or domain';
+
+	/// en: 'Port'
 	String get port => 'Port';
+
+	/// en: 'Path'
 	String get path => 'Path';
+
+	/// en: 'Invalid path'
 	String get invalidPath => 'Invalid path';
+
+	/// en: 'Token'
 	String get token => 'Token';
+
+	/// en: 'Required'
 	String get required => 'Required';
+
+	/// en: 'Server details'
 	String get serverDetails => 'Server details';
+
+	/// en: 'Authentication'
 	String get authentication => 'Authentication';
+
+	/// en: 'Test connection url'
 	String get testConnectionUrl => 'Test connection url';
+
+	/// en: 'Connection with server established'
 	String get connectionServerEstablished => 'Connection with server established';
+
+	/// en: 'Testing connection...'
 	String get testingConnection => 'Testing connection...';
+
+	/// en: 'Connection with server failed'
 	String get connectionServerFailed => 'Connection with server failed';
+
+	/// en: 'Connect'
 	String get connect => 'Connect';
+
+	/// en: 'Connecting...'
 	String get connecting => 'Connecting...';
+
+	/// en: 'Cannot connect to the server.'
 	String get cannotConnectToServer => 'Cannot connect to the server.';
+
+	/// en: 'Invalid token.'
 	String get invalidToken => 'Invalid token.';
+
+	/// en: 'Invalid IP address or domain'
 	String get invalidIpDomain => 'Invalid IP address or domain';
+
+	/// en: 'Invalid port'
 	String get invalidPort => 'Invalid port';
+
+	/// en: 'Token is required'
 	String get tokenRequired => 'Token is required';
 }
 
@@ -112,25 +191,63 @@ class TranslationsBookmarksEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Bookmarks'
 	String get bookmarks => 'Bookmarks';
+
+	/// en: 'No bookmarks added'
 	String get noBookmarksAdded => 'No bookmarks added';
+
+	/// en: 'Cannot load the bookmarks'
 	String get cannotLoadBookmarks => 'Cannot load the bookmarks';
+
 	late final TranslationsBookmarksDatesEn dates = TranslationsBookmarksDatesEn._(_root);
+
+	/// en: 'Shared'
 	String get shared => 'Shared';
+
+	/// en: 'Archived'
 	String get archived => 'Archived';
+
+	/// en: 'Show only read'
 	String get showOnlyRead => 'Show only read';
+
+	/// en: 'Show only unread'
 	String get showOnlyUnread => 'Show only unread';
+
+	/// en: 'Show all bookmarks'
 	String get showAllBookmarks => 'Show all bookmarks';
+
+	/// en: 'Read status'
 	String get readStatus => 'Read status';
+
+	/// en: 'All'
 	String get all => 'All';
+
+	/// en: 'Unread'
 	String get unread => 'Unread';
+
+	/// en: 'Read'
 	String get read => 'Read';
+
+	/// en: 'Filter and sort'
 	String get filterSort => 'Filter and sort';
+
+	/// en: 'Sorting'
 	String get sorting => 'Sorting';
+
+	/// en: 'Date'
 	String get date => 'Date';
+
+	/// en: 'Title'
 	String get title => 'Title';
+
+	/// en: 'Ascendant'
 	String get ascendant => 'Ascendant';
+
+	/// en: 'Descendant'
 	String get descendant => 'Descendant';
+
 	late final TranslationsBookmarksAddBookmarkEn addBookmark = TranslationsBookmarksAddBookmarkEn._(_root);
 	late final TranslationsBookmarksSearchEn search = TranslationsBookmarksSearchEn._(_root);
 	late final TranslationsBookmarksBookmarkOptionsEn bookmarkOptions = TranslationsBookmarksBookmarkOptionsEn._(_root);
@@ -144,8 +261,13 @@ class TranslationsTagsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Tags'
 	String get tags => 'Tags';
+
+	/// en: 'Created: $created'
 	String created({required Object created}) => 'Created: ${created}';
+
 	late final TranslationsTagsCreateTagEn createTag = TranslationsTagsCreateTagEn._(_root);
 	late final TranslationsTagsFilteredBookmarksEn filteredBookmarks = TranslationsTagsFilteredBookmarksEn._(_root);
 }
@@ -157,19 +279,46 @@ class TranslationsSettingsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Settings'
 	String get settings => 'Settings';
+
+	/// en: 'App settings'
 	String get appSettings => 'App settings';
+
+	/// en: 'About the app'
 	String get aboutApp => 'About the app';
+
+	/// en: 'App version'
 	String get appVersion => 'App version';
+
+	/// en: 'Created by'
 	String get createdBy => 'Created by';
+
+	/// en: 'Visit the application page at Google Play'
 	String get visitGooglePlay => 'Visit the application page at Google Play';
+
+	/// en: 'Visit the application repository at GitHub'
 	String get visitGitHubRepo => 'Visit the application repository at GitHub';
+
+	/// en: 'Linkding repository'
 	String get linkdingRepository => 'Linkding repository';
+
+	/// en: 'Link to the Linkding repository on GitHub'
 	String get linkdingRepositoryDescription => 'Link to the Linkding repository on GitHub';
+
+	/// en: 'More information about the app'
 	String get moreInfoApp => 'More information about the app';
+
+	/// en: 'Link to the app's information page'
 	String get moreInfoAppDescription => 'Link to the app\'s information page';
+
+	/// en: 'My other apps'
 	String get moreApps => 'My other apps';
+
+	/// en: 'More apps, contact, donations and more'
 	String get moreAppsDescription => 'More apps, contact, donations and more';
+
 	late final TranslationsSettingsCustomizationEn customization = TranslationsSettingsCustomizationEn._(_root);
 	late final TranslationsSettingsGeneralSettingsEn generalSettings = TranslationsSettingsGeneralSettingsEn._(_root);
 }
@@ -181,13 +330,29 @@ class TranslationsWebviewEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Go back'
 	String get goBack => 'Go back';
+
+	/// en: 'Go forward'
 	String get goForward => 'Go forward';
+
+	/// en: 'Reload'
 	String get reload => 'Reload';
+
+	/// en: 'Open in system browser'
 	String get openInSystemBrowser => 'Open in system browser';
+
+	/// en: 'Copy link to clipboard'
 	String get copyLinkClipboard => 'Copy link to clipboard';
+
+	/// en: 'Link copied to the clipboard.'
 	String get linkCopiedClipboard => 'Link copied to the clipboard.';
+
+	/// en: 'Share'
 	String get share => 'Share';
+
+	/// en: 'The bookmark has invalid data or it's corrupted.'
 	String get invalidBookmarkData => 'The bookmark has invalid data or it\'s corrupted.';
 }
 
@@ -198,16 +363,38 @@ class TranslationsColorsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Red'
 	String get red => 'Red';
+
+	/// en: 'Green'
 	String get green => 'Green';
+
+	/// en: 'Blue'
 	String get blue => 'Blue';
+
+	/// en: 'Yellow'
 	String get yellow => 'Yellow';
+
+	/// en: 'Orange'
 	String get orange => 'Orange';
+
+	/// en: 'Brown'
 	String get brown => 'Brown';
+
+	/// en: 'Cyan'
 	String get cyan => 'Cyan';
+
+	/// en: 'Purple'
 	String get purple => 'Purple';
+
+	/// en: 'Pink'
 	String get pink => 'Pink';
+
+	/// en: 'Deep orange'
 	String get deepOrange => 'Deep orange';
+
+	/// en: 'Indigo'
 	String get indigo => 'Indigo';
 }
 
@@ -218,7 +405,11 @@ class TranslationsBookmarksDatesEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Today, $time'
 	String todayAt({required Object time}) => 'Today, ${time}';
+
+	/// en: 'Yesterday, $time'
 	String yesterdayAt({required Object time}) => 'Yesterday, ${time}';
 }
 
@@ -229,35 +420,95 @@ class TranslationsBookmarksAddBookmarkEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Add new bookmark'
 	String get addBookmark => 'Add new bookmark';
+
+	/// en: 'Edit bookmark'
 	String get editBookmark => 'Edit bookmark';
+
+	/// en: 'Bookmark URL'
 	String get bookmarkUrl => 'Bookmark URL';
+
+	/// en: 'Bookmark details'
 	String get bookmarkDetails => 'Bookmark details';
+
+	/// en: 'Validate URL'
 	String get validateUrl => 'Validate URL';
+
+	/// en: 'The URL is valid'
 	String get urlValid => 'The URL is valid';
+
+	/// en: 'The URL is not valid'
 	String get urlNotValid => 'The URL is not valid';
-	String get cannotCheckUrl => 'The URL couldn\'t be checked';
+
+	/// en: 'The URL couldn't be checked, but you can save it anyway.'
+	String get cannotCheckUrl => 'The URL couldn\'t be checked, but you can save it anyway.';
+
+	/// en: 'Invalid URL'
 	String get invalidUrl => 'Invalid URL';
+
+	/// en: 'URL'
 	String get url => 'URL';
+
+	/// en: 'Checking URL...'
 	String get checkingUrl => 'Checking URL...';
+
+	/// en: 'Title'
 	String get title => 'Title';
+
+	/// en: 'Description'
 	String get description => 'Description';
+
+	/// en: 'Mark as unread'
 	String get markAsUnread => 'Mark as unread';
+
+	/// en: 'Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.'
 	String get markAsUnreadDescription => 'Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.';
+
+	/// en: 'Notes'
 	String get notes => 'Notes';
+
+	/// en: 'Add notes'
 	String get addNotes => 'Add notes';
+
+	/// en: 'Tags'
 	String get tags => 'Tags';
+
+	/// en: 'No tags added'
 	String get noTagsAdded => 'No tags added';
+
+	/// en: 'Tag cannot contain whitespaces'
 	String get tagNoWhitespaces => 'Tag cannot contain whitespaces';
+
+	/// en: 'Add tag'
 	String get addTag => 'Add tag';
+
+	/// en: 'Others'
 	String get others => 'Others';
+
+	/// en: 'Saving bookmark...'
 	String get savingBookmark => 'Saving bookmark...';
+
+	/// en: 'Bookmark saved successfully.'
 	String get bookmarkSavedSuccessfully => 'Bookmark saved successfully.';
+
+	/// en: 'An error occured when saving the new bookmark.'
 	String get errorSavingBookmark => 'An error occured when saving the new bookmark.';
+
+	/// en: 'Leave empty to use the website's title.'
 	String get leaveEmptyUseWebsiteTitle => 'Leave empty to use the website\'s title.';
+
+	/// en: 'Leave empty to use the website's description.'
 	String get leaveEmptyUseWebsiteDescription => 'Leave empty to use the website\'s description.';
+
+	/// en: 'Share'
 	String get share => 'Share';
+
+	/// en: 'Share this bookmark with other registered users and anonymous users.'
 	String get shareDescription => 'Share this bookmark with other registered users and anonymous users.';
+
+	/// en: 'This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark.'
 	String get urlAlreadyBookmarked => 'This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark.';
 }
 
@@ -268,10 +519,20 @@ class TranslationsBookmarksSearchEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Search bookmarks'
 	String get searchBookmarks => 'Search bookmarks';
+
+	/// en: 'Clear search'
 	String get clearSearch => 'Clear search';
+
+	/// en: 'Input a search term'
 	String get inputSearchTerm => 'Input a search term';
+
+	/// en: 'Cannot search content due to an error'
 	String get cannotSearchError => 'Cannot search content due to an error';
+
+	/// en: 'The inputted search term doesn't have any results'
 	String get inputtedSearchTermNoResults => 'The inputted search term doesn\'t have any results';
 }
 
@@ -282,35 +543,95 @@ class TranslationsBookmarksBookmarkOptionsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Edit'
 	String get edit => 'Edit';
+
+	/// en: 'Delete'
 	String get delete => 'Delete';
+
+	/// en: 'Read'
 	String get read => 'Read';
+
+	/// en: 'Unread'
 	String get unread => 'Unread';
+
+	/// en: 'Mark as unread'
 	String get markAsUnread => 'Mark as unread';
+
+	/// en: 'Mark as read'
 	String get markAsRead => 'Mark as read';
+
+	/// en: 'Share options'
 	String get shareOptions => 'Share options';
+
+	/// en: 'Shared'
 	String get shared => 'Shared';
+
+	/// en: 'Archive'
 	String get archive => 'Archive';
+
+	/// en: 'Unarchive'
 	String get unarchive => 'Unarchive';
+
+	/// en: 'Deleting bookmark...'
 	String get deletingBookmark => 'Deleting bookmark...';
+
+	/// en: 'Bookmark deleted successfully'
 	String get bookmarkDeleted => 'Bookmark deleted successfully';
+
+	/// en: 'The bookmark couldn't be deleted due to an error.'
 	String get bookmarkNotDeleted => 'The bookmark couldn\'t be deleted due to an error.';
+
+	/// en: 'Delete bookmark'
 	String get deleteBookmark => 'Delete bookmark';
+
+	/// en: 'The following bookmark will be deleted:'
 	String get followingBookmarkDeleted => 'The following bookmark will be deleted:';
+
+	/// en: 'Marking as read...'
 	String get markingAsRead => 'Marking as read...';
+
+	/// en: 'Marking as unread...'
 	String get markingAsUnead => 'Marking as unread...';
+
+	/// en: 'Bookmark marked as read successfully.'
 	String get markedAsReadSuccessfully => 'Bookmark marked as read successfully.';
+
+	/// en: 'Bookmark marked as unread successfully.'
 	String get markedAsUnreadSuccessfully => 'Bookmark marked as unread successfully.';
+
+	/// en: 'The bookmark couldn't be marked as read.'
 	String get bookmarkNotMarkedAsRead => 'The bookmark couldn\'t be marked as read.';
+
+	/// en: 'The bookmark couldn't be marked as unread.'
 	String get bookmarkNotMarkedAsUnread => 'The bookmark couldn\'t be marked as unread.';
+
+	/// en: 'Archiving bookmark...'
 	String get archivingBookmark => 'Archiving bookmark...';
+
+	/// en: 'Unarchiving bookmark...'
 	String get unarchivingBookmark => 'Unarchiving bookmark...';
+
+	/// en: 'Bookmark archived successfully.'
 	String get bookmarkArchivedSuccessfully => 'Bookmark archived successfully.';
+
+	/// en: 'Bookmark unarchived successfully.'
 	String get bookmarkUnrchivedSuccessfully => 'Bookmark unarchived successfully.';
+
+	/// en: 'The bookmark couldn't be archived.'
 	String get bookmarkNotArchived => 'The bookmark couldn\'t be archived.';
+
+	/// en: 'The bookmark couldn't be unarchived.'
 	String get bookmarkNotUnrchived => 'The bookmark couldn\'t be unarchived.';
+
+	/// en: 'Share using a third party app'
 	String get shareThirdPartyApp => 'Share using a third party app';
+
+	/// en: 'Share internally'
 	String get shareInternally => 'Share internally';
+
+	/// en: 'Unshare internally'
 	String get unshareInternally => 'Unshare internally';
 }
 
@@ -321,18 +642,44 @@ class TranslationsBookmarksShareOptionsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Share options'
 	String get shareOptions => 'Share options';
+
+	/// en: 'Share internally'
 	String get shareInternally => 'Share internally';
+
+	/// en: 'Unshare internally'
 	String get unshareInternally => 'Unshare internally';
+
+	/// en: 'Share internally with the rest of the users of this Linkding instance'
 	String get shareInternallyDescription => 'Share internally with the rest of the users of this Linkding instance';
+
+	/// en: 'Unshare this internally shared bookmark'
 	String get unshareInternallyDescription => 'Unshare this internally shared bookmark';
+
+	/// en: 'Share bookmark URL externally'
 	String get shareExternally => 'Share bookmark URL externally';
+
+	/// en: 'Share the bookmark URL externally using a third party application'
 	String get shareExternallyDescription => 'Share the bookmark URL externally using a third party application';
+
+	/// en: 'Sharing bookmark...'
 	String get sharingBookmark => 'Sharing bookmark...';
+
+	/// en: 'Unsharing bookmark...'
 	String get unsharingBookmark => 'Unsharing bookmark...';
+
+	/// en: 'Bookmark shared successfully.'
 	String get bookmarkSharedSuccessfully => 'Bookmark shared successfully.';
+
+	/// en: 'Bookmark couldn't be shared.'
 	String get bookmarkNotShared => 'Bookmark couldn\'t be shared.';
+
+	/// en: 'Bookmark unshared successfully.'
 	String get bookmarkUnsharedSuccessfully => 'Bookmark unshared successfully.';
+
+	/// en: 'Bookmark couldn't be unshared.'
 	String get bookmarkNotUnshared => 'Bookmark couldn\'t be unshared.';
 }
 
@@ -343,9 +690,17 @@ class TranslationsTagsCreateTagEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Create tag'
 	String get createTag => 'Create tag';
+
+	/// en: 'Name'
 	String get name => 'Name';
+
+	/// en: 'Creating tag...'
 	String get creatingTag => 'Creating tag...';
+
+	/// en: 'An error occured when creating the tag.'
 	String get errorCreatingTag => 'An error occured when creating the tag.';
 }
 
@@ -356,8 +711,14 @@ class TranslationsTagsFilteredBookmarksEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'There are no bookmarks with this tag'
 	String get noBookmarksWithThisTag => 'There are no bookmarks with this tag';
+
+	/// en: 'There are no archived bookmarks'
 	String get noArchivedBookmarks => 'There are no archived bookmarks';
+
+	/// en: 'There are no shared bookmarks'
 	String get noSharedBookmarks => 'There are no shared bookmarks';
 }
 
@@ -368,13 +729,29 @@ class TranslationsSettingsCustomizationEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Customization'
 	String get customization => 'Customization';
+
+	/// en: 'Set the app theme and color palette.'
 	String get customizationDescription => 'Set the app theme and color palette.';
+
+	/// en: 'Theme'
 	String get theme => 'Theme';
+
+	/// en: 'Light'
 	String get light => 'Light';
+
+	/// en: 'Dark'
 	String get dark => 'Dark';
+
+	/// en: 'System defined'
 	String get systemDefined => 'System defined';
+
+	/// en: 'Color'
 	String get color => 'Color';
+
+	/// en: 'Use dynamic theme'
 	String get useDynamicTheme => 'Use dynamic theme';
 }
 
@@ -385,23 +762,57 @@ class TranslationsSettingsGeneralSettingsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'General settings'
 	String get generalSettings => 'General settings';
+
+	/// en: 'General tweaks for the application.'
 	String get generalSettingsDescription => 'General tweaks for the application.';
+
+	/// en: 'Bookmarks'
 	String get bookmarks => 'Bookmarks';
+
+	/// en: 'Show favicon'
 	String get showFavicon => 'Show favicon';
+
+	/// en: 'Show the website's favicon on each bookmark.'
 	String get showFaviconDescription => 'Show the website\'s favicon on each bookmark.';
+
+	/// en: 'Disconnect from server'
 	String get disconnectFromServer => 'Disconnect from server';
+
 	late final TranslationsSettingsGeneralSettingsDisconnectModalEn disconnectModal = TranslationsSettingsGeneralSettingsDisconnectModalEn._(_root);
+
+	/// en: 'Use in app browser'
 	String get useInAppBrowser => 'Use in app browser';
+
+	/// en: 'Opens the bookmarks with the integrated browser instead of with the system browser. On tablet mode the internal browser will always be used.'
 	String get useInAppBrowserDescription => 'Opens the bookmarks with the integrated browser instead of with the system browser. On tablet mode the internal browser will always be used.';
+
+	/// en: 'Open links with...'
 	String get openLinksWith => 'Open links with...';
+
+	/// en: 'App internal browser'
 	String get internalBrowser => 'App internal browser';
+
+	/// en: 'Browser custom tab'
 	String get browserCustomTab => 'Browser custom tab';
+
+	/// en: 'System browser'
 	String get systemBrowser => 'System browser';
+
+	/// en: 'Tags'
 	String get tags => 'Tags';
+
 	late final TranslationsSettingsGeneralSettingsDefaultTagsEn defaultTags = TranslationsSettingsGeneralSettingsDefaultTagsEn._(_root);
+
+	/// en: 'Others'
 	String get others => 'Others';
+
+	/// en: 'Set mark as unread by default'
 	String get setMarkAsUnreadDefault => 'Set mark as unread by default';
+
+	/// en: 'Set the mark as unread option by default when creating a new bookmark.'
 	String get setMarkAsUnreadDefaultDescription => 'Set the mark as unread option by default when creating a new bookmark.';
 }
 
@@ -412,7 +823,11 @@ class TranslationsSettingsGeneralSettingsDisconnectModalEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Disconnect'
 	String get title => 'Disconnect';
+
+	/// en: 'Are you sure you want to disconnect from the server? You will be redirected to the initial setup.'
 	String get description => 'Are you sure you want to disconnect from the server?\nYou will be redirected to the initial setup.';
 }
 
@@ -423,231 +838,245 @@ class TranslationsSettingsGeneralSettingsDefaultTagsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+
+	/// en: 'Default tags'
 	String get defaultTags => 'Default tags';
+
+	/// en: 'Define a list of tags that will be added by default when creating a bookmark'
 	String get defaultTagsDescription => 'Define a list of tags that will be added by default when creating a bookmark';
+
+	/// en: 'New tag'
 	String get newTag => 'New tag';
+
+	/// en: 'Add tag'
 	String get addTag => 'Add tag';
+
+	/// en: 'Remove this tag'
 	String get removeThisTag => 'Remove this tag';
+
+	/// en: 'There are no default tags'
 	String get noDefaultTags => 'There are no default tags';
 }
 
-/// Flat map(s) containing all translations.
+/// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
+///
+/// The Dart AOT compiler has issues with very large switch statements,
+/// so the map is split into smaller functions (512 entries each).
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
-		switch (path) {
-			case 'generic.confirm': return 'Confirm';
-			case 'generic.cancel': return 'Cancel';
-			case 'generic.next': return 'Next';
-			case 'generic.save': return 'Save';
-			case 'generic.close': return 'Close';
-			case 'generic.error': return 'Error';
-			case 'generic.optional': return 'Optional';
-			case 'generic.authTokenNotValid': return 'Your authorization token is not valid anymore. Please, reauthenticate.';
-			case 'generic.options': return 'Options';
-			case 'onboarding.title': return 'Welcome to Linkdy';
-			case 'onboarding.subtitle': return 'An application to manage your bookmarks.';
-			case 'onboarding.start': return 'Start';
-			case 'onboarding.next': return 'Next';
-			case 'onboarding.previous': return 'Previous';
-			case 'onboarding.serverRequired': return 'Server required';
-			case 'onboarding.serverRequiredDescription': return 'Linkdy it\'s not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.';
-			case 'onboarding.installationInstructions': return 'Check the installation instructions on the official GitHub repository.';
-			case 'onboarding.serverRunningConfirmation': return 'I confirm that I have an instance of the Linkding server already running.';
-			case 'onboarding.createConnection': return 'Create a connection';
-			case 'onboarding.createConnectionSubtitle': return 'Enter all the required details to create a connection to your server.';
-			case 'onboarding.ipAddressOrDomain': return 'IP address or domain';
-			case 'onboarding.port': return 'Port';
-			case 'onboarding.path': return 'Path';
-			case 'onboarding.invalidPath': return 'Invalid path';
-			case 'onboarding.token': return 'Token';
-			case 'onboarding.required': return 'Required';
-			case 'onboarding.serverDetails': return 'Server details';
-			case 'onboarding.authentication': return 'Authentication';
-			case 'onboarding.testConnectionUrl': return 'Test connection url';
-			case 'onboarding.connectionServerEstablished': return 'Connection with server established';
-			case 'onboarding.testingConnection': return 'Testing connection...';
-			case 'onboarding.connectionServerFailed': return 'Connection with server failed';
-			case 'onboarding.connect': return 'Connect';
-			case 'onboarding.connecting': return 'Connecting...';
-			case 'onboarding.cannotConnectToServer': return 'Cannot connect to the server.';
-			case 'onboarding.invalidToken': return 'Invalid token.';
-			case 'onboarding.invalidIpDomain': return 'Invalid IP address or domain';
-			case 'onboarding.invalidPort': return 'Invalid port';
-			case 'onboarding.tokenRequired': return 'Token is required';
-			case 'bookmarks.bookmarks': return 'Bookmarks';
-			case 'bookmarks.noBookmarksAdded': return 'No bookmarks added';
-			case 'bookmarks.cannotLoadBookmarks': return 'Cannot load the bookmarks';
-			case 'bookmarks.dates.todayAt': return ({required Object time}) => 'Today, ${time}';
-			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Yesterday, ${time}';
-			case 'bookmarks.shared': return 'Shared';
-			case 'bookmarks.archived': return 'Archived';
-			case 'bookmarks.showOnlyRead': return 'Show only read';
-			case 'bookmarks.showOnlyUnread': return 'Show only unread';
-			case 'bookmarks.showAllBookmarks': return 'Show all bookmarks';
-			case 'bookmarks.readStatus': return 'Read status';
-			case 'bookmarks.all': return 'All';
-			case 'bookmarks.unread': return 'Unread';
-			case 'bookmarks.read': return 'Read';
-			case 'bookmarks.filterSort': return 'Filter and sort';
-			case 'bookmarks.sorting': return 'Sorting';
-			case 'bookmarks.date': return 'Date';
-			case 'bookmarks.title': return 'Title';
-			case 'bookmarks.ascendant': return 'Ascendant';
-			case 'bookmarks.descendant': return 'Descendant';
-			case 'bookmarks.addBookmark.addBookmark': return 'Add new bookmark';
-			case 'bookmarks.addBookmark.editBookmark': return 'Edit bookmark';
-			case 'bookmarks.addBookmark.bookmarkUrl': return 'Bookmark URL';
-			case 'bookmarks.addBookmark.bookmarkDetails': return 'Bookmark details';
-			case 'bookmarks.addBookmark.validateUrl': return 'Validate URL';
-			case 'bookmarks.addBookmark.urlValid': return 'The URL is valid';
-			case 'bookmarks.addBookmark.urlNotValid': return 'The URL is not valid';
-			case 'bookmarks.addBookmark.cannotCheckUrl': return 'The URL couldn\'t be checked, but you can save it anyway.';
-			case 'bookmarks.addBookmark.invalidUrl': return 'Invalid URL';
-			case 'bookmarks.addBookmark.url': return 'URL';
-			case 'bookmarks.addBookmark.checkingUrl': return 'Checking URL...';
-			case 'bookmarks.addBookmark.title': return 'Title';
-			case 'bookmarks.addBookmark.description': return 'Description';
-			case 'bookmarks.addBookmark.markAsUnread': return 'Mark as unread';
-			case 'bookmarks.addBookmark.markAsUnreadDescription': return 'Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.';
-			case 'bookmarks.addBookmark.notes': return 'Notes';
-			case 'bookmarks.addBookmark.addNotes': return 'Add notes';
-			case 'bookmarks.addBookmark.tags': return 'Tags';
-			case 'bookmarks.addBookmark.noTagsAdded': return 'No tags added';
-			case 'bookmarks.addBookmark.tagNoWhitespaces': return 'Tag cannot contain whitespaces';
-			case 'bookmarks.addBookmark.addTag': return 'Add tag';
-			case 'bookmarks.addBookmark.others': return 'Others';
-			case 'bookmarks.addBookmark.savingBookmark': return 'Saving bookmark...';
-			case 'bookmarks.addBookmark.bookmarkSavedSuccessfully': return 'Bookmark saved successfully.';
-			case 'bookmarks.addBookmark.errorSavingBookmark': return 'An error occured when saving the new bookmark.';
-			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Leave empty to use the website\'s title.';
-			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Leave empty to use the website\'s description.';
-			case 'bookmarks.addBookmark.share': return 'Share';
-			case 'bookmarks.addBookmark.shareDescription': return 'Share this bookmark with other registered users and anonymous users.';
-			case 'bookmarks.addBookmark.urlAlreadyBookmarked': return 'This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark.';
-			case 'bookmarks.search.searchBookmarks': return 'Search bookmarks';
-			case 'bookmarks.search.clearSearch': return 'Clear search';
-			case 'bookmarks.search.inputSearchTerm': return 'Input a search term';
-			case 'bookmarks.search.cannotSearchError': return 'Cannot search content due to an error';
-			case 'bookmarks.search.inputtedSearchTermNoResults': return 'The inputted search term doesn\'t have any results';
-			case 'bookmarks.bookmarkOptions.edit': return 'Edit';
-			case 'bookmarks.bookmarkOptions.delete': return 'Delete';
-			case 'bookmarks.bookmarkOptions.read': return 'Read';
-			case 'bookmarks.bookmarkOptions.unread': return 'Unread';
-			case 'bookmarks.bookmarkOptions.markAsUnread': return 'Mark as unread';
-			case 'bookmarks.bookmarkOptions.markAsRead': return 'Mark as read';
-			case 'bookmarks.bookmarkOptions.shareOptions': return 'Share options';
-			case 'bookmarks.bookmarkOptions.shared': return 'Shared';
-			case 'bookmarks.bookmarkOptions.archive': return 'Archive';
-			case 'bookmarks.bookmarkOptions.unarchive': return 'Unarchive';
-			case 'bookmarks.bookmarkOptions.deletingBookmark': return 'Deleting bookmark...';
-			case 'bookmarks.bookmarkOptions.bookmarkDeleted': return 'Bookmark deleted successfully';
-			case 'bookmarks.bookmarkOptions.bookmarkNotDeleted': return 'The bookmark couldn\'t be deleted due to an error.';
-			case 'bookmarks.bookmarkOptions.deleteBookmark': return 'Delete bookmark';
-			case 'bookmarks.bookmarkOptions.followingBookmarkDeleted': return 'The following bookmark will be deleted:';
-			case 'bookmarks.bookmarkOptions.markingAsRead': return 'Marking as read...';
-			case 'bookmarks.bookmarkOptions.markingAsUnead': return 'Marking as unread...';
-			case 'bookmarks.bookmarkOptions.markedAsReadSuccessfully': return 'Bookmark marked as read successfully.';
-			case 'bookmarks.bookmarkOptions.markedAsUnreadSuccessfully': return 'Bookmark marked as unread successfully.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead': return 'The bookmark couldn\'t be marked as read.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread': return 'The bookmark couldn\'t be marked as unread.';
-			case 'bookmarks.bookmarkOptions.archivingBookmark': return 'Archiving bookmark...';
-			case 'bookmarks.bookmarkOptions.unarchivingBookmark': return 'Unarchiving bookmark...';
-			case 'bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully': return 'Bookmark archived successfully.';
-			case 'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully': return 'Bookmark unarchived successfully.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotArchived': return 'The bookmark couldn\'t be archived.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotUnrchived': return 'The bookmark couldn\'t be unarchived.';
-			case 'bookmarks.bookmarkOptions.shareThirdPartyApp': return 'Share using a third party app';
-			case 'bookmarks.bookmarkOptions.shareInternally': return 'Share internally';
-			case 'bookmarks.bookmarkOptions.unshareInternally': return 'Unshare internally';
-			case 'bookmarks.shareOptions.shareOptions': return 'Share options';
-			case 'bookmarks.shareOptions.shareInternally': return 'Share internally';
-			case 'bookmarks.shareOptions.unshareInternally': return 'Unshare internally';
-			case 'bookmarks.shareOptions.shareInternallyDescription': return 'Share internally with the rest of the users of this Linkding instance';
-			case 'bookmarks.shareOptions.unshareInternallyDescription': return 'Unshare this internally shared bookmark';
-			case 'bookmarks.shareOptions.shareExternally': return 'Share bookmark URL externally';
-			case 'bookmarks.shareOptions.shareExternallyDescription': return 'Share the bookmark URL externally using a third party application';
-			case 'bookmarks.shareOptions.sharingBookmark': return 'Sharing bookmark...';
-			case 'bookmarks.shareOptions.unsharingBookmark': return 'Unsharing bookmark...';
-			case 'bookmarks.shareOptions.bookmarkSharedSuccessfully': return 'Bookmark shared successfully.';
-			case 'bookmarks.shareOptions.bookmarkNotShared': return 'Bookmark couldn\'t be shared.';
-			case 'bookmarks.shareOptions.bookmarkUnsharedSuccessfully': return 'Bookmark unshared successfully.';
-			case 'bookmarks.shareOptions.bookmarkNotUnshared': return 'Bookmark couldn\'t be unshared.';
-			case 'tags.tags': return 'Tags';
-			case 'tags.created': return ({required Object created}) => 'Created: ${created}';
-			case 'tags.createTag.createTag': return 'Create tag';
-			case 'tags.createTag.name': return 'Name';
-			case 'tags.createTag.creatingTag': return 'Creating tag...';
-			case 'tags.createTag.errorCreatingTag': return 'An error occured when creating the tag.';
-			case 'tags.filteredBookmarks.noBookmarksWithThisTag': return 'There are no bookmarks with this tag';
-			case 'tags.filteredBookmarks.noArchivedBookmarks': return 'There are no archived bookmarks';
-			case 'tags.filteredBookmarks.noSharedBookmarks': return 'There are no shared bookmarks';
-			case 'settings.settings': return 'Settings';
-			case 'settings.appSettings': return 'App settings';
-			case 'settings.aboutApp': return 'About the app';
-			case 'settings.appVersion': return 'App version';
-			case 'settings.createdBy': return 'Created by';
-			case 'settings.visitGooglePlay': return 'Visit the application page at Google Play';
-			case 'settings.visitGitHubRepo': return 'Visit the application repository at GitHub';
-			case 'settings.linkdingRepository': return 'Linkding repository';
-			case 'settings.linkdingRepositoryDescription': return 'Link to the Linkding repository on GitHub';
-			case 'settings.moreInfoApp': return 'More information about the app';
-			case 'settings.moreInfoAppDescription': return 'Link to the app\'s information page';
-			case 'settings.moreApps': return 'My other apps';
-			case 'settings.moreAppsDescription': return 'More apps, contact, donations and more';
-			case 'settings.customization.customization': return 'Customization';
-			case 'settings.customization.customizationDescription': return 'Set the app theme and color palette.';
-			case 'settings.customization.theme': return 'Theme';
-			case 'settings.customization.light': return 'Light';
-			case 'settings.customization.dark': return 'Dark';
-			case 'settings.customization.systemDefined': return 'System defined';
-			case 'settings.customization.color': return 'Color';
-			case 'settings.customization.useDynamicTheme': return 'Use dynamic theme';
-			case 'settings.generalSettings.generalSettings': return 'General settings';
-			case 'settings.generalSettings.generalSettingsDescription': return 'General tweaks for the application.';
-			case 'settings.generalSettings.bookmarks': return 'Bookmarks';
-			case 'settings.generalSettings.showFavicon': return 'Show favicon';
-			case 'settings.generalSettings.showFaviconDescription': return 'Show the website\'s favicon on each bookmark.';
-			case 'settings.generalSettings.disconnectFromServer': return 'Disconnect from server';
-			case 'settings.generalSettings.disconnectModal.title': return 'Disconnect';
-			case 'settings.generalSettings.disconnectModal.description': return 'Are you sure you want to disconnect from the server?\nYou will be redirected to the initial setup.';
-			case 'settings.generalSettings.useInAppBrowser': return 'Use in app browser';
-			case 'settings.generalSettings.useInAppBrowserDescription': return 'Opens the bookmarks with the integrated browser instead of with the system browser. On tablet mode the internal browser will always be used.';
-			case 'settings.generalSettings.openLinksWith': return 'Open links with...';
-			case 'settings.generalSettings.internalBrowser': return 'App internal browser';
-			case 'settings.generalSettings.browserCustomTab': return 'Browser custom tab';
-			case 'settings.generalSettings.systemBrowser': return 'System browser';
-			case 'settings.generalSettings.tags': return 'Tags';
-			case 'settings.generalSettings.defaultTags.defaultTags': return 'Default tags';
-			case 'settings.generalSettings.defaultTags.defaultTagsDescription': return 'Define a list of tags that will be added by default when creating a bookmark';
-			case 'settings.generalSettings.defaultTags.newTag': return 'New tag';
-			case 'settings.generalSettings.defaultTags.addTag': return 'Add tag';
-			case 'settings.generalSettings.defaultTags.removeThisTag': return 'Remove this tag';
-			case 'settings.generalSettings.defaultTags.noDefaultTags': return 'There are no default tags';
-			case 'settings.generalSettings.others': return 'Others';
-			case 'settings.generalSettings.setMarkAsUnreadDefault': return 'Set mark as unread by default';
-			case 'settings.generalSettings.setMarkAsUnreadDefaultDescription': return 'Set the mark as unread option by default when creating a new bookmark.';
-			case 'webview.goBack': return 'Go back';
-			case 'webview.goForward': return 'Go forward';
-			case 'webview.reload': return 'Reload';
-			case 'webview.openInSystemBrowser': return 'Open in system browser';
-			case 'webview.copyLinkClipboard': return 'Copy link to clipboard';
-			case 'webview.linkCopiedClipboard': return 'Link copied to the clipboard.';
-			case 'webview.share': return 'Share';
-			case 'webview.invalidBookmarkData': return 'The bookmark has invalid data or it\'s corrupted.';
-			case 'colors.red': return 'Red';
-			case 'colors.green': return 'Green';
-			case 'colors.blue': return 'Blue';
-			case 'colors.yellow': return 'Yellow';
-			case 'colors.orange': return 'Orange';
-			case 'colors.brown': return 'Brown';
-			case 'colors.cyan': return 'Cyan';
-			case 'colors.purple': return 'Purple';
-			case 'colors.pink': return 'Pink';
-			case 'colors.deepOrange': return 'Deep orange';
-			case 'colors.indigo': return 'Indigo';
-			default: return null;
-		}
+		return switch (path) {
+			'generic.confirm' => 'Confirm',
+			'generic.cancel' => 'Cancel',
+			'generic.next' => 'Next',
+			'generic.save' => 'Save',
+			'generic.close' => 'Close',
+			'generic.error' => 'Error',
+			'generic.optional' => 'Optional',
+			'generic.authTokenNotValid' => 'Your authorization token is not valid anymore. Please, reauthenticate.',
+			'generic.options' => 'Options',
+			'onboarding.title' => 'Welcome to Linkdy',
+			'onboarding.subtitle' => 'An application to manage your bookmarks.',
+			'onboarding.start' => 'Start',
+			'onboarding.next' => 'Next',
+			'onboarding.previous' => 'Previous',
+			'onboarding.serverRequired' => 'Server required',
+			'onboarding.serverRequiredDescription' => 'Linkdy it\'s not an standalone app, it requires the Linkding server to work.\nIn order to use this application, you must deploy Linkding on your home server, VPS or any other computer.',
+			'onboarding.installationInstructions' => 'Check the installation instructions on the official GitHub repository.',
+			'onboarding.serverRunningConfirmation' => 'I confirm that I have an instance of the Linkding server already running.',
+			'onboarding.createConnection' => 'Create a connection',
+			'onboarding.createConnectionSubtitle' => 'Enter all the required details to create a connection to your server.',
+			'onboarding.ipAddressOrDomain' => 'IP address or domain',
+			'onboarding.port' => 'Port',
+			'onboarding.path' => 'Path',
+			'onboarding.invalidPath' => 'Invalid path',
+			'onboarding.token' => 'Token',
+			'onboarding.required' => 'Required',
+			'onboarding.serverDetails' => 'Server details',
+			'onboarding.authentication' => 'Authentication',
+			'onboarding.testConnectionUrl' => 'Test connection url',
+			'onboarding.connectionServerEstablished' => 'Connection with server established',
+			'onboarding.testingConnection' => 'Testing connection...',
+			'onboarding.connectionServerFailed' => 'Connection with server failed',
+			'onboarding.connect' => 'Connect',
+			'onboarding.connecting' => 'Connecting...',
+			'onboarding.cannotConnectToServer' => 'Cannot connect to the server.',
+			'onboarding.invalidToken' => 'Invalid token.',
+			'onboarding.invalidIpDomain' => 'Invalid IP address or domain',
+			'onboarding.invalidPort' => 'Invalid port',
+			'onboarding.tokenRequired' => 'Token is required',
+			'bookmarks.bookmarks' => 'Bookmarks',
+			'bookmarks.noBookmarksAdded' => 'No bookmarks added',
+			'bookmarks.cannotLoadBookmarks' => 'Cannot load the bookmarks',
+			'bookmarks.dates.todayAt' => ({required Object time}) => 'Today, ${time}',
+			'bookmarks.dates.yesterdayAt' => ({required Object time}) => 'Yesterday, ${time}',
+			'bookmarks.shared' => 'Shared',
+			'bookmarks.archived' => 'Archived',
+			'bookmarks.showOnlyRead' => 'Show only read',
+			'bookmarks.showOnlyUnread' => 'Show only unread',
+			'bookmarks.showAllBookmarks' => 'Show all bookmarks',
+			'bookmarks.readStatus' => 'Read status',
+			'bookmarks.all' => 'All',
+			'bookmarks.unread' => 'Unread',
+			'bookmarks.read' => 'Read',
+			'bookmarks.filterSort' => 'Filter and sort',
+			'bookmarks.sorting' => 'Sorting',
+			'bookmarks.date' => 'Date',
+			'bookmarks.title' => 'Title',
+			'bookmarks.ascendant' => 'Ascendant',
+			'bookmarks.descendant' => 'Descendant',
+			'bookmarks.addBookmark.addBookmark' => 'Add new bookmark',
+			'bookmarks.addBookmark.editBookmark' => 'Edit bookmark',
+			'bookmarks.addBookmark.bookmarkUrl' => 'Bookmark URL',
+			'bookmarks.addBookmark.bookmarkDetails' => 'Bookmark details',
+			'bookmarks.addBookmark.validateUrl' => 'Validate URL',
+			'bookmarks.addBookmark.urlValid' => 'The URL is valid',
+			'bookmarks.addBookmark.urlNotValid' => 'The URL is not valid',
+			'bookmarks.addBookmark.cannotCheckUrl' => 'The URL couldn\'t be checked, but you can save it anyway.',
+			'bookmarks.addBookmark.invalidUrl' => 'Invalid URL',
+			'bookmarks.addBookmark.url' => 'URL',
+			'bookmarks.addBookmark.checkingUrl' => 'Checking URL...',
+			'bookmarks.addBookmark.title' => 'Title',
+			'bookmarks.addBookmark.description' => 'Description',
+			'bookmarks.addBookmark.markAsUnread' => 'Mark as unread',
+			'bookmarks.addBookmark.markAsUnreadDescription' => 'Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.',
+			'bookmarks.addBookmark.notes' => 'Notes',
+			'bookmarks.addBookmark.addNotes' => 'Add notes',
+			'bookmarks.addBookmark.tags' => 'Tags',
+			'bookmarks.addBookmark.noTagsAdded' => 'No tags added',
+			'bookmarks.addBookmark.tagNoWhitespaces' => 'Tag cannot contain whitespaces',
+			'bookmarks.addBookmark.addTag' => 'Add tag',
+			'bookmarks.addBookmark.others' => 'Others',
+			'bookmarks.addBookmark.savingBookmark' => 'Saving bookmark...',
+			'bookmarks.addBookmark.bookmarkSavedSuccessfully' => 'Bookmark saved successfully.',
+			'bookmarks.addBookmark.errorSavingBookmark' => 'An error occured when saving the new bookmark.',
+			'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle' => 'Leave empty to use the website\'s title.',
+			'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription' => 'Leave empty to use the website\'s description.',
+			'bookmarks.addBookmark.share' => 'Share',
+			'bookmarks.addBookmark.shareDescription' => 'Share this bookmark with other registered users and anonymous users.',
+			'bookmarks.addBookmark.urlAlreadyBookmarked' => 'This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark.',
+			'bookmarks.search.searchBookmarks' => 'Search bookmarks',
+			'bookmarks.search.clearSearch' => 'Clear search',
+			'bookmarks.search.inputSearchTerm' => 'Input a search term',
+			'bookmarks.search.cannotSearchError' => 'Cannot search content due to an error',
+			'bookmarks.search.inputtedSearchTermNoResults' => 'The inputted search term doesn\'t have any results',
+			'bookmarks.bookmarkOptions.edit' => 'Edit',
+			'bookmarks.bookmarkOptions.delete' => 'Delete',
+			'bookmarks.bookmarkOptions.read' => 'Read',
+			'bookmarks.bookmarkOptions.unread' => 'Unread',
+			'bookmarks.bookmarkOptions.markAsUnread' => 'Mark as unread',
+			'bookmarks.bookmarkOptions.markAsRead' => 'Mark as read',
+			'bookmarks.bookmarkOptions.shareOptions' => 'Share options',
+			'bookmarks.bookmarkOptions.shared' => 'Shared',
+			'bookmarks.bookmarkOptions.archive' => 'Archive',
+			'bookmarks.bookmarkOptions.unarchive' => 'Unarchive',
+			'bookmarks.bookmarkOptions.deletingBookmark' => 'Deleting bookmark...',
+			'bookmarks.bookmarkOptions.bookmarkDeleted' => 'Bookmark deleted successfully',
+			'bookmarks.bookmarkOptions.bookmarkNotDeleted' => 'The bookmark couldn\'t be deleted due to an error.',
+			'bookmarks.bookmarkOptions.deleteBookmark' => 'Delete bookmark',
+			'bookmarks.bookmarkOptions.followingBookmarkDeleted' => 'The following bookmark will be deleted:',
+			'bookmarks.bookmarkOptions.markingAsRead' => 'Marking as read...',
+			'bookmarks.bookmarkOptions.markingAsUnead' => 'Marking as unread...',
+			'bookmarks.bookmarkOptions.markedAsReadSuccessfully' => 'Bookmark marked as read successfully.',
+			'bookmarks.bookmarkOptions.markedAsUnreadSuccessfully' => 'Bookmark marked as unread successfully.',
+			'bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead' => 'The bookmark couldn\'t be marked as read.',
+			'bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread' => 'The bookmark couldn\'t be marked as unread.',
+			'bookmarks.bookmarkOptions.archivingBookmark' => 'Archiving bookmark...',
+			'bookmarks.bookmarkOptions.unarchivingBookmark' => 'Unarchiving bookmark...',
+			'bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully' => 'Bookmark archived successfully.',
+			'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully' => 'Bookmark unarchived successfully.',
+			'bookmarks.bookmarkOptions.bookmarkNotArchived' => 'The bookmark couldn\'t be archived.',
+			'bookmarks.bookmarkOptions.bookmarkNotUnrchived' => 'The bookmark couldn\'t be unarchived.',
+			'bookmarks.bookmarkOptions.shareThirdPartyApp' => 'Share using a third party app',
+			'bookmarks.bookmarkOptions.shareInternally' => 'Share internally',
+			'bookmarks.bookmarkOptions.unshareInternally' => 'Unshare internally',
+			'bookmarks.shareOptions.shareOptions' => 'Share options',
+			'bookmarks.shareOptions.shareInternally' => 'Share internally',
+			'bookmarks.shareOptions.unshareInternally' => 'Unshare internally',
+			'bookmarks.shareOptions.shareInternallyDescription' => 'Share internally with the rest of the users of this Linkding instance',
+			'bookmarks.shareOptions.unshareInternallyDescription' => 'Unshare this internally shared bookmark',
+			'bookmarks.shareOptions.shareExternally' => 'Share bookmark URL externally',
+			'bookmarks.shareOptions.shareExternallyDescription' => 'Share the bookmark URL externally using a third party application',
+			'bookmarks.shareOptions.sharingBookmark' => 'Sharing bookmark...',
+			'bookmarks.shareOptions.unsharingBookmark' => 'Unsharing bookmark...',
+			'bookmarks.shareOptions.bookmarkSharedSuccessfully' => 'Bookmark shared successfully.',
+			'bookmarks.shareOptions.bookmarkNotShared' => 'Bookmark couldn\'t be shared.',
+			'bookmarks.shareOptions.bookmarkUnsharedSuccessfully' => 'Bookmark unshared successfully.',
+			'bookmarks.shareOptions.bookmarkNotUnshared' => 'Bookmark couldn\'t be unshared.',
+			'tags.tags' => 'Tags',
+			'tags.created' => ({required Object created}) => 'Created: ${created}',
+			'tags.createTag.createTag' => 'Create tag',
+			'tags.createTag.name' => 'Name',
+			'tags.createTag.creatingTag' => 'Creating tag...',
+			'tags.createTag.errorCreatingTag' => 'An error occured when creating the tag.',
+			'tags.filteredBookmarks.noBookmarksWithThisTag' => 'There are no bookmarks with this tag',
+			'tags.filteredBookmarks.noArchivedBookmarks' => 'There are no archived bookmarks',
+			'tags.filteredBookmarks.noSharedBookmarks' => 'There are no shared bookmarks',
+			'settings.settings' => 'Settings',
+			'settings.appSettings' => 'App settings',
+			'settings.aboutApp' => 'About the app',
+			'settings.appVersion' => 'App version',
+			'settings.createdBy' => 'Created by',
+			'settings.visitGooglePlay' => 'Visit the application page at Google Play',
+			'settings.visitGitHubRepo' => 'Visit the application repository at GitHub',
+			'settings.linkdingRepository' => 'Linkding repository',
+			'settings.linkdingRepositoryDescription' => 'Link to the Linkding repository on GitHub',
+			'settings.moreInfoApp' => 'More information about the app',
+			'settings.moreInfoAppDescription' => 'Link to the app\'s information page',
+			'settings.moreApps' => 'My other apps',
+			'settings.moreAppsDescription' => 'More apps, contact, donations and more',
+			'settings.customization.customization' => 'Customization',
+			'settings.customization.customizationDescription' => 'Set the app theme and color palette.',
+			'settings.customization.theme' => 'Theme',
+			'settings.customization.light' => 'Light',
+			'settings.customization.dark' => 'Dark',
+			'settings.customization.systemDefined' => 'System defined',
+			'settings.customization.color' => 'Color',
+			'settings.customization.useDynamicTheme' => 'Use dynamic theme',
+			'settings.generalSettings.generalSettings' => 'General settings',
+			'settings.generalSettings.generalSettingsDescription' => 'General tweaks for the application.',
+			'settings.generalSettings.bookmarks' => 'Bookmarks',
+			'settings.generalSettings.showFavicon' => 'Show favicon',
+			'settings.generalSettings.showFaviconDescription' => 'Show the website\'s favicon on each bookmark.',
+			'settings.generalSettings.disconnectFromServer' => 'Disconnect from server',
+			'settings.generalSettings.disconnectModal.title' => 'Disconnect',
+			'settings.generalSettings.disconnectModal.description' => 'Are you sure you want to disconnect from the server?\nYou will be redirected to the initial setup.',
+			'settings.generalSettings.useInAppBrowser' => 'Use in app browser',
+			'settings.generalSettings.useInAppBrowserDescription' => 'Opens the bookmarks with the integrated browser instead of with the system browser. On tablet mode the internal browser will always be used.',
+			'settings.generalSettings.openLinksWith' => 'Open links with...',
+			'settings.generalSettings.internalBrowser' => 'App internal browser',
+			'settings.generalSettings.browserCustomTab' => 'Browser custom tab',
+			'settings.generalSettings.systemBrowser' => 'System browser',
+			'settings.generalSettings.tags' => 'Tags',
+			'settings.generalSettings.defaultTags.defaultTags' => 'Default tags',
+			'settings.generalSettings.defaultTags.defaultTagsDescription' => 'Define a list of tags that will be added by default when creating a bookmark',
+			'settings.generalSettings.defaultTags.newTag' => 'New tag',
+			'settings.generalSettings.defaultTags.addTag' => 'Add tag',
+			'settings.generalSettings.defaultTags.removeThisTag' => 'Remove this tag',
+			'settings.generalSettings.defaultTags.noDefaultTags' => 'There are no default tags',
+			'settings.generalSettings.others' => 'Others',
+			'settings.generalSettings.setMarkAsUnreadDefault' => 'Set mark as unread by default',
+			'settings.generalSettings.setMarkAsUnreadDefaultDescription' => 'Set the mark as unread option by default when creating a new bookmark.',
+			'webview.goBack' => 'Go back',
+			'webview.goForward' => 'Go forward',
+			'webview.reload' => 'Reload',
+			'webview.openInSystemBrowser' => 'Open in system browser',
+			'webview.copyLinkClipboard' => 'Copy link to clipboard',
+			'webview.linkCopiedClipboard' => 'Link copied to the clipboard.',
+			'webview.share' => 'Share',
+			'webview.invalidBookmarkData' => 'The bookmark has invalid data or it\'s corrupted.',
+			'colors.red' => 'Red',
+			'colors.green' => 'Green',
+			'colors.blue' => 'Blue',
+			'colors.yellow' => 'Yellow',
+			'colors.orange' => 'Orange',
+			'colors.brown' => 'Brown',
+			'colors.cyan' => 'Cyan',
+			'colors.purple' => 'Purple',
+			'colors.pink' => 'Pink',
+			'colors.deepOrange' => 'Deep orange',
+			'colors.indigo' => 'Indigo',
+			_ => null,
+		};
 	}
 }
-

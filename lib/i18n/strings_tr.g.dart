@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -10,7 +11,7 @@ import 'package:slang/generated.dart';
 import 'strings.g.dart';
 
 // Path: <root>
-class TranslationsTr implements Translations {
+class TranslationsTr with BaseTranslations<AppLocale, Translations> implements Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsTr({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
@@ -428,223 +429,225 @@ class _TranslationsSettingsGeneralSettingsDefaultTagsTr implements TranslationsS
 	@override String get noDefaultTags => 'There are no default tags';
 }
 
-/// Flat map(s) containing all translations.
+/// The flat map containing all translations for locale <tr>.
 /// Only for edge cases! For simple maps, use the map function of this library.
+///
+/// The Dart AOT compiler has issues with very large switch statements,
+/// so the map is split into smaller functions (512 entries each).
 extension on TranslationsTr {
 	dynamic _flatMapFunction(String path) {
-		switch (path) {
-			case 'generic.confirm': return 'Onayla';
-			case 'generic.cancel': return 'İptal';
-			case 'generic.next': return 'Sonraki';
-			case 'generic.save': return 'Kaydet';
-			case 'generic.close': return 'Kapat';
-			case 'generic.error': return 'Hata';
-			case 'generic.optional': return 'İsteğe bağlı';
-			case 'generic.authTokenNotValid': return 'Yetkilendirme jetonunuz artık geçerli değil. Lütfen yeniden kimlik doğrulaması yapın.';
-			case 'generic.options': return 'Seçenekler';
-			case 'onboarding.title': return 'Linkdy\'ye hoş geldiniz';
-			case 'onboarding.subtitle': return 'Yer işaretlerinizi yönetmek için bir uygulama.';
-			case 'onboarding.start': return 'Başlat';
-			case 'onboarding.next': return 'Sonraki';
-			case 'onboarding.previous': return 'Önceki';
-			case 'onboarding.serverRequired': return 'Sunucu gerekli';
-			case 'onboarding.serverRequiredDescription': return 'Linkdy bağımsız bir uygulama değildir, Linkding sunucusunun çalışmasını gerektirir.\nBu uygulamayı kullanmak için Linkding\'i ev sunucunuza, VPS\'ye veya başka bir bilgisayara dağıtmanız gerekir.';
-			case 'onboarding.installationInstructions': return 'Resmi GitHub deposundaki kurulum talimatlarını kontrol edin.';
-			case 'onboarding.serverRunningConfirmation': return 'Halihazırda çalışan bir Linkding sunucusu örneğim olduğunu onaylıyorum.';
-			case 'onboarding.createConnection': return 'Bağlantı oluştur';
-			case 'onboarding.createConnectionSubtitle': return 'Sunucunuzla bağlantı kurmak için gerekli tüm ayrıntıları girin.';
-			case 'onboarding.ipAddressOrDomain': return 'IP adresi veya alan adı';
-			case 'onboarding.port': return 'Bağlantı noktası';
-			case 'onboarding.path': return 'Yol';
-			case 'onboarding.invalidPath': return 'Geçersiz yol';
-			case 'onboarding.token': return 'Jeton';
-			case 'onboarding.required': return 'Gerekli';
-			case 'onboarding.serverDetails': return 'Sunucu bilgileri';
-			case 'onboarding.authentication': return 'Kimlik Doğrulama';
-			case 'onboarding.testConnectionUrl': return 'Bağlantı adresini test edin';
-			case 'onboarding.connectionServerEstablished': return 'Sunucu ile bağlantı kuruldu';
-			case 'onboarding.testingConnection': return 'Bağlantı test ediliyor...';
-			case 'onboarding.connectionServerFailed': return 'Sunucu ile bağlantı başarısız oldu';
-			case 'onboarding.connect': return 'Bağlan';
-			case 'onboarding.connecting': return 'Bağlanıyor...';
-			case 'onboarding.cannotConnectToServer': return 'Sunucuya bağlanılamıyor.';
-			case 'onboarding.invalidToken': return 'Geçersiz belirteç.';
-			case 'onboarding.invalidIpDomain': return 'Geçersiz IP adresi veya etki alanı';
-			case 'onboarding.invalidPort': return 'Geçersiz bağlantı noktası';
-			case 'onboarding.tokenRequired': return 'Jeton gereklidir';
-			case 'bookmarks.bookmarks': return 'Yer İşaretleri';
-			case 'bookmarks.noBookmarksAdded': return 'Yer işareti eklenmedi';
-			case 'bookmarks.cannotLoadBookmarks': return 'Yer işaretleri yüklenemiyor';
-			case 'bookmarks.dates.todayAt': return ({required Object time}) => 'Bugün, ${time}';
-			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Dün, ${time}';
-			case 'bookmarks.shared': return 'Ortak';
-			case 'bookmarks.archived': return 'Arşivlendi';
-			case 'bookmarks.showOnlyRead': return 'Sadece okunanı göster';
-			case 'bookmarks.showOnlyUnread': return 'Sadece okunmamışları göster';
-			case 'bookmarks.showAllBookmarks': return 'Tüm yer işaretlerini göster';
-			case 'bookmarks.readStatus': return 'Okuma durumu';
-			case 'bookmarks.all': return 'Tümü';
-			case 'bookmarks.unread': return 'Okunmadı';
-			case 'bookmarks.read': return 'Oku';
-			case 'bookmarks.filterSort': return 'Filtrele ve sırala';
-			case 'bookmarks.sorting': return 'Sıralama';
-			case 'bookmarks.date': return 'Tarih';
-			case 'bookmarks.title': return 'Başlık';
-			case 'bookmarks.ascendant': return 'Yükselen';
-			case 'bookmarks.descendant': return 'Alt öğe';
-			case 'bookmarks.addBookmark.addBookmark': return 'Yeni yer işareti ekle';
-			case 'bookmarks.addBookmark.editBookmark': return 'Yer işaretini düzenle';
-			case 'bookmarks.addBookmark.bookmarkUrl': return 'Yer İşareti bağlantısı';
-			case 'bookmarks.addBookmark.bookmarkDetails': return 'Yer işareti ayrıntıları';
-			case 'bookmarks.addBookmark.validateUrl': return 'Bağlantı adresini doğrula';
-			case 'bookmarks.addBookmark.urlValid': return 'Bağlantı adresi geçerli';
-			case 'bookmarks.addBookmark.urlNotValid': return 'Bağlantı adresi geçerli değil';
-			case 'bookmarks.addBookmark.cannotCheckUrl': return 'Bağlantı adresi kontrol edilemedi, ancak yine de kaydedebilirsiniz.';
-			case 'bookmarks.addBookmark.invalidUrl': return 'Geçersiz bağlantı adresi';
-			case 'bookmarks.addBookmark.url': return 'Bağlantı adresi';
-			case 'bookmarks.addBookmark.checkingUrl': return 'Bağlantı adresi kontrol ediliyor...';
-			case 'bookmarks.addBookmark.title': return 'Başlık';
-			case 'bookmarks.addBookmark.description': return 'Açıklama';
-			case 'bookmarks.addBookmark.markAsUnread': return 'Okunmadı olarak işaretle';
-			case 'bookmarks.addBookmark.markAsUnreadDescription': return 'Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.';
-			case 'bookmarks.addBookmark.notes': return 'Notlar';
-			case 'bookmarks.addBookmark.addNotes': return 'Not ekle';
-			case 'bookmarks.addBookmark.tags': return 'Etiketler';
-			case 'bookmarks.addBookmark.noTagsAdded': return 'Etiket eklenmedi';
-			case 'bookmarks.addBookmark.tagNoWhitespaces': return 'Etiket boşluk içeremez';
-			case 'bookmarks.addBookmark.addTag': return 'Etiket ekle';
-			case 'bookmarks.addBookmark.others': return 'Diğerleri';
-			case 'bookmarks.addBookmark.savingBookmark': return 'Yer işareti kaydediliyor...';
-			case 'bookmarks.addBookmark.bookmarkSavedSuccessfully': return 'Yer işareti başarıyla kaydedildi.';
-			case 'bookmarks.addBookmark.errorSavingBookmark': return 'Yeni yer işareti kaydedilirken bir hata oluştu.';
-			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Web sitesinin başlığını kullanmak için boş bırakın.';
-			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Web sitesinin açıklamasını kullanmak için boş bırakın.';
-			case 'bookmarks.addBookmark.share': return 'Share';
-			case 'bookmarks.addBookmark.shareDescription': return 'Share this bookmark with other registered users and anonymous users.';
-			case 'bookmarks.addBookmark.urlAlreadyBookmarked': return 'This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark.';
-			case 'bookmarks.search.searchBookmarks': return 'Yer işaretlerini ara';
-			case 'bookmarks.search.clearSearch': return 'Aramayı temizle';
-			case 'bookmarks.search.inputSearchTerm': return 'Bir arama terimi girin';
-			case 'bookmarks.search.cannotSearchError': return 'Bir hata nedeniyle içerik aranamıyor';
-			case 'bookmarks.search.inputtedSearchTermNoResults': return 'Girilen arama teriminin herhangi bir sonucu yok';
-			case 'bookmarks.bookmarkOptions.edit': return 'Düzenle';
-			case 'bookmarks.bookmarkOptions.delete': return 'Sil';
-			case 'bookmarks.bookmarkOptions.read': return 'Oku';
-			case 'bookmarks.bookmarkOptions.unread': return 'Okunmadı';
-			case 'bookmarks.bookmarkOptions.markAsUnread': return 'Okunmadı olarak işaretle';
-			case 'bookmarks.bookmarkOptions.markAsRead': return 'Okundu olarak işaretle';
-			case 'bookmarks.bookmarkOptions.shareOptions': return 'Paylaşım seçenekleri';
-			case 'bookmarks.bookmarkOptions.shared': return 'Ortak';
-			case 'bookmarks.bookmarkOptions.archive': return 'Arşivle';
-			case 'bookmarks.bookmarkOptions.unarchive': return 'Arşivden çıkar';
-			case 'bookmarks.bookmarkOptions.deletingBookmark': return 'Yer işareti siliniyor...';
-			case 'bookmarks.bookmarkOptions.bookmarkDeleted': return 'Yer işareti başarıyla silindi';
-			case 'bookmarks.bookmarkOptions.bookmarkNotDeleted': return 'Yer işareti bir hata nedeniyle silinemedi.';
-			case 'bookmarks.bookmarkOptions.deleteBookmark': return 'Yer işaretini sil';
-			case 'bookmarks.bookmarkOptions.followingBookmarkDeleted': return 'Aşağıdaki yer işareti silinecek:';
-			case 'bookmarks.bookmarkOptions.markingAsRead': return 'Okundu olarak işaretleniyor...';
-			case 'bookmarks.bookmarkOptions.markingAsUnead': return 'Okunmadı olarak işaretleniyor...';
-			case 'bookmarks.bookmarkOptions.markedAsReadSuccessfully': return 'Yer işareti başarıyla okundu olarak işaretlendi.';
-			case 'bookmarks.bookmarkOptions.markedAsUnreadSuccessfully': return 'Yer işareti başarıyla okunmadı olarak işaretlendi.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead': return 'Yer işareti okundu olarak işaretlenemedi.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread': return 'Yer işareti okunmadı olarak işaretlenemedi.';
-			case 'bookmarks.bookmarkOptions.archivingBookmark': return 'Yer işareti arşivleniyor...';
-			case 'bookmarks.bookmarkOptions.unarchivingBookmark': return 'Yer işareti arşivden çıkarılıyor...';
-			case 'bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully': return 'Yer işareti başarıyla arşivlendi.';
-			case 'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully': return 'Yer işareti başarıyla arşivden kaldırıldı.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotArchived': return 'Yer işareti arşivlenemedi.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotUnrchived': return 'Yer işareti arşivden çıkarılamadı.';
-			case 'bookmarks.bookmarkOptions.shareThirdPartyApp': return 'Üçüncü taraf bir uygulama kullanarak paylaşma';
-			case 'bookmarks.bookmarkOptions.shareInternally': return 'Dahili olarak paylaşın';
-			case 'bookmarks.bookmarkOptions.unshareInternally': return 'Dahili olarak paylaşımı kaldır';
-			case 'bookmarks.shareOptions.shareOptions': return 'Paylaşım seçenekleri';
-			case 'bookmarks.shareOptions.shareInternally': return 'Dahili olarak paylaşın';
-			case 'bookmarks.shareOptions.unshareInternally': return 'Dahili olarak paylaşımı kaldır';
-			case 'bookmarks.shareOptions.shareInternallyDescription': return 'Bu Linkding örneğinin geri kalan kullanıcılarıyla dahili olarak paylaşın';
-			case 'bookmarks.shareOptions.unshareInternallyDescription': return 'Dahili olarak paylaşılan bu yer işaretinin paylaşımını kaldır';
-			case 'bookmarks.shareOptions.shareExternally': return 'Yer işareti bağlantısını harici olarak paylaş';
-			case 'bookmarks.shareOptions.shareExternallyDescription': return 'Üçüncü taraf bir uygulama kullanarak yer işareti bağlantısını harici olarak paylaşın';
-			case 'bookmarks.shareOptions.sharingBookmark': return 'Yer işareti paylaşılıyor...';
-			case 'bookmarks.shareOptions.unsharingBookmark': return 'Yer işareti paylaşımı kaldırılıyor...';
-			case 'bookmarks.shareOptions.bookmarkSharedSuccessfully': return 'Yer işareti başarıyla paylaşıldı.';
-			case 'bookmarks.shareOptions.bookmarkNotShared': return 'Yer işareti paylaşılamadı.';
-			case 'bookmarks.shareOptions.bookmarkUnsharedSuccessfully': return 'Yer işareti başarıyla paylaşılmadı.';
-			case 'bookmarks.shareOptions.bookmarkNotUnshared': return 'Yer işareti paylaşımı kaldırılamadı.';
-			case 'tags.tags': return 'Etiketler';
-			case 'tags.created': return ({required Object created}) => 'Oluşturuldu: ${created}';
-			case 'tags.createTag.createTag': return 'Etiket oluştur';
-			case 'tags.createTag.name': return 'Adı';
-			case 'tags.createTag.creatingTag': return 'Etiket oluşturuluyor...';
-			case 'tags.createTag.errorCreatingTag': return 'Etiket oluşturulurken bir hata oluştu.';
-			case 'tags.filteredBookmarks.noBookmarksWithThisTag': return 'Bu etikete sahip yer işareti yok';
-			case 'tags.filteredBookmarks.noArchivedBookmarks': return 'Arşivlenmiş yer işareti yok';
-			case 'tags.filteredBookmarks.noSharedBookmarks': return 'Paylaşılmış yer işareti yok';
-			case 'settings.settings': return 'Ayarlar';
-			case 'settings.appSettings': return 'Uygulama ayarları';
-			case 'settings.aboutApp': return 'Uygulama hakkında';
-			case 'settings.appVersion': return 'Uygulama sürümü';
-			case 'settings.createdBy': return 'Geliştirici';
-			case 'settings.visitGooglePlay': return 'Google Play\'deki uygulama sayfasını ziyaret et';
-			case 'settings.visitGitHubRepo': return 'GitHub\'daki uygulama deposunu ziyaret et';
-			case 'settings.linkdingRepository': return 'Linkding deposu';
-			case 'settings.linkdingRepositoryDescription': return 'GitHub\'daki Linkding deposuna bağlantı';
-			case 'settings.moreInfoApp': return 'Uygulama hakkında daha fazla bilgi';
-			case 'settings.moreInfoAppDescription': return 'Uygulamanın bilgi sayfasına bağlantı';
-			case 'settings.moreApps': return 'Diğer uygulamalarım';
-			case 'settings.moreAppsDescription': return 'Daha fazla uygulama, iletişim, bağış ve daha fazlası';
-			case 'settings.customization.customization': return 'Özelleştirme';
-			case 'settings.customization.customizationDescription': return 'Uygulama temasını ve renk paletini ayarlayın.';
-			case 'settings.customization.theme': return 'Tema';
-			case 'settings.customization.light': return 'Açık';
-			case 'settings.customization.dark': return 'Koyu';
-			case 'settings.customization.systemDefined': return 'Sistem tanımlı';
-			case 'settings.customization.color': return 'Renk';
-			case 'settings.customization.useDynamicTheme': return 'Dinamik tema kullan';
-			case 'settings.generalSettings.generalSettings': return 'Genel Ayarlar';
-			case 'settings.generalSettings.generalSettingsDescription': return 'Uygulama için genel düzenlemeler.';
-			case 'settings.generalSettings.bookmarks': return 'Yer İmleri';
-			case 'settings.generalSettings.showFavicon': return 'Site simgesini göster';
-			case 'settings.generalSettings.showFaviconDescription': return 'Her yer işaretinde web sitesinin simgesini gösterin.';
-			case 'settings.generalSettings.disconnectFromServer': return 'Sunucu ile bağlantıyı kes';
-			case 'settings.generalSettings.disconnectModal.title': return 'Bağlantıyı kes';
-			case 'settings.generalSettings.disconnectModal.description': return 'Sunucu bağlantısını kesmek istediğinizden emin misiniz?\nİlk kuruluma yönlendirileceksiniz.';
-			case 'settings.generalSettings.useInAppBrowser': return 'Uygulama tarayıcısında kullanın';
-			case 'settings.generalSettings.useInAppBrowserDescription': return 'Yer işaretlerini sistem tarayıcısı yerine entegre tarayıcı ile açar. Tablet modunda dahili tarayıcı her zaman kullanılacaktır.';
-			case 'settings.generalSettings.openLinksWith': return 'Open links with...';
-			case 'settings.generalSettings.internalBrowser': return 'App internal browser';
-			case 'settings.generalSettings.browserCustomTab': return 'Browser custom tab';
-			case 'settings.generalSettings.systemBrowser': return 'System browser';
-			case 'settings.generalSettings.tags': return 'Tags';
-			case 'settings.generalSettings.defaultTags.defaultTags': return 'Default tags';
-			case 'settings.generalSettings.defaultTags.defaultTagsDescription': return 'Define a list of tags that will be added by default when creating a bookmark';
-			case 'settings.generalSettings.defaultTags.newTag': return 'New tag';
-			case 'settings.generalSettings.defaultTags.addTag': return 'AddTag';
-			case 'settings.generalSettings.defaultTags.removeThisTag': return 'Remove this tag';
-			case 'settings.generalSettings.defaultTags.noDefaultTags': return 'There are no default tags';
-			case 'settings.generalSettings.others': return 'Others';
-			case 'settings.generalSettings.setMarkAsUnreadDefault': return 'Set mark as unread by default';
-			case 'settings.generalSettings.setMarkAsUnreadDefaultDescription': return 'Set the mark as unread option by default when creating a new bookmark.';
-			case 'webview.goBack': return 'Geri dön';
-			case 'webview.goForward': return 'İleri git';
-			case 'webview.reload': return 'Yenile';
-			case 'webview.openInSystemBrowser': return 'Sistem tarayıcısında aç';
-			case 'webview.copyLinkClipboard': return 'Bağlantıyı panoya kopyala';
-			case 'webview.linkCopiedClipboard': return 'Bağlantı panoya kopyalandı.';
-			case 'webview.share': return 'Paylaş';
-			case 'webview.invalidBookmarkData': return 'The bookmark has invalid data or it\'s corrupted.';
-			case 'colors.red': return 'Kırmızı';
-			case 'colors.green': return 'Yeşil';
-			case 'colors.blue': return 'Mavi';
-			case 'colors.yellow': return 'Sarı';
-			case 'colors.orange': return 'Turuncu';
-			case 'colors.brown': return 'Kahverengi';
-			case 'colors.cyan': return 'Camgöbeği';
-			case 'colors.purple': return 'Mor';
-			case 'colors.pink': return 'Pembe';
-			case 'colors.deepOrange': return 'Koyu turuncu';
-			case 'colors.indigo': return 'Çivit';
-			default: return null;
-		}
+		return switch (path) {
+			'generic.confirm' => 'Onayla',
+			'generic.cancel' => 'İptal',
+			'generic.next' => 'Sonraki',
+			'generic.save' => 'Kaydet',
+			'generic.close' => 'Kapat',
+			'generic.error' => 'Hata',
+			'generic.optional' => 'İsteğe bağlı',
+			'generic.authTokenNotValid' => 'Yetkilendirme jetonunuz artık geçerli değil. Lütfen yeniden kimlik doğrulaması yapın.',
+			'generic.options' => 'Seçenekler',
+			'onboarding.title' => 'Linkdy\'ye hoş geldiniz',
+			'onboarding.subtitle' => 'Yer işaretlerinizi yönetmek için bir uygulama.',
+			'onboarding.start' => 'Başlat',
+			'onboarding.next' => 'Sonraki',
+			'onboarding.previous' => 'Önceki',
+			'onboarding.serverRequired' => 'Sunucu gerekli',
+			'onboarding.serverRequiredDescription' => 'Linkdy bağımsız bir uygulama değildir, Linkding sunucusunun çalışmasını gerektirir.\nBu uygulamayı kullanmak için Linkding\'i ev sunucunuza, VPS\'ye veya başka bir bilgisayara dağıtmanız gerekir.',
+			'onboarding.installationInstructions' => 'Resmi GitHub deposundaki kurulum talimatlarını kontrol edin.',
+			'onboarding.serverRunningConfirmation' => 'Halihazırda çalışan bir Linkding sunucusu örneğim olduğunu onaylıyorum.',
+			'onboarding.createConnection' => 'Bağlantı oluştur',
+			'onboarding.createConnectionSubtitle' => 'Sunucunuzla bağlantı kurmak için gerekli tüm ayrıntıları girin.',
+			'onboarding.ipAddressOrDomain' => 'IP adresi veya alan adı',
+			'onboarding.port' => 'Bağlantı noktası',
+			'onboarding.path' => 'Yol',
+			'onboarding.invalidPath' => 'Geçersiz yol',
+			'onboarding.token' => 'Jeton',
+			'onboarding.required' => 'Gerekli',
+			'onboarding.serverDetails' => 'Sunucu bilgileri',
+			'onboarding.authentication' => 'Kimlik Doğrulama',
+			'onboarding.testConnectionUrl' => 'Bağlantı adresini test edin',
+			'onboarding.connectionServerEstablished' => 'Sunucu ile bağlantı kuruldu',
+			'onboarding.testingConnection' => 'Bağlantı test ediliyor...',
+			'onboarding.connectionServerFailed' => 'Sunucu ile bağlantı başarısız oldu',
+			'onboarding.connect' => 'Bağlan',
+			'onboarding.connecting' => 'Bağlanıyor...',
+			'onboarding.cannotConnectToServer' => 'Sunucuya bağlanılamıyor.',
+			'onboarding.invalidToken' => 'Geçersiz belirteç.',
+			'onboarding.invalidIpDomain' => 'Geçersiz IP adresi veya etki alanı',
+			'onboarding.invalidPort' => 'Geçersiz bağlantı noktası',
+			'onboarding.tokenRequired' => 'Jeton gereklidir',
+			'bookmarks.bookmarks' => 'Yer İşaretleri',
+			'bookmarks.noBookmarksAdded' => 'Yer işareti eklenmedi',
+			'bookmarks.cannotLoadBookmarks' => 'Yer işaretleri yüklenemiyor',
+			'bookmarks.dates.todayAt' => ({required Object time}) => 'Bugün, ${time}',
+			'bookmarks.dates.yesterdayAt' => ({required Object time}) => 'Dün, ${time}',
+			'bookmarks.shared' => 'Ortak',
+			'bookmarks.archived' => 'Arşivlendi',
+			'bookmarks.showOnlyRead' => 'Sadece okunanı göster',
+			'bookmarks.showOnlyUnread' => 'Sadece okunmamışları göster',
+			'bookmarks.showAllBookmarks' => 'Tüm yer işaretlerini göster',
+			'bookmarks.readStatus' => 'Okuma durumu',
+			'bookmarks.all' => 'Tümü',
+			'bookmarks.unread' => 'Okunmadı',
+			'bookmarks.read' => 'Oku',
+			'bookmarks.filterSort' => 'Filtrele ve sırala',
+			'bookmarks.sorting' => 'Sıralama',
+			'bookmarks.date' => 'Tarih',
+			'bookmarks.title' => 'Başlık',
+			'bookmarks.ascendant' => 'Yükselen',
+			'bookmarks.descendant' => 'Alt öğe',
+			'bookmarks.addBookmark.addBookmark' => 'Yeni yer işareti ekle',
+			'bookmarks.addBookmark.editBookmark' => 'Yer işaretini düzenle',
+			'bookmarks.addBookmark.bookmarkUrl' => 'Yer İşareti bağlantısı',
+			'bookmarks.addBookmark.bookmarkDetails' => 'Yer işareti ayrıntıları',
+			'bookmarks.addBookmark.validateUrl' => 'Bağlantı adresini doğrula',
+			'bookmarks.addBookmark.urlValid' => 'Bağlantı adresi geçerli',
+			'bookmarks.addBookmark.urlNotValid' => 'Bağlantı adresi geçerli değil',
+			'bookmarks.addBookmark.cannotCheckUrl' => 'Bağlantı adresi kontrol edilemedi, ancak yine de kaydedebilirsiniz.',
+			'bookmarks.addBookmark.invalidUrl' => 'Geçersiz bağlantı adresi',
+			'bookmarks.addBookmark.url' => 'Bağlantı adresi',
+			'bookmarks.addBookmark.checkingUrl' => 'Bağlantı adresi kontrol ediliyor...',
+			'bookmarks.addBookmark.title' => 'Başlık',
+			'bookmarks.addBookmark.description' => 'Açıklama',
+			'bookmarks.addBookmark.markAsUnread' => 'Okunmadı olarak işaretle',
+			'bookmarks.addBookmark.markAsUnreadDescription' => 'Unread bookmarks can be filtered for, and marked as read after you had a chance to look at them.',
+			'bookmarks.addBookmark.notes' => 'Notlar',
+			'bookmarks.addBookmark.addNotes' => 'Not ekle',
+			'bookmarks.addBookmark.tags' => 'Etiketler',
+			'bookmarks.addBookmark.noTagsAdded' => 'Etiket eklenmedi',
+			'bookmarks.addBookmark.tagNoWhitespaces' => 'Etiket boşluk içeremez',
+			'bookmarks.addBookmark.addTag' => 'Etiket ekle',
+			'bookmarks.addBookmark.others' => 'Diğerleri',
+			'bookmarks.addBookmark.savingBookmark' => 'Yer işareti kaydediliyor...',
+			'bookmarks.addBookmark.bookmarkSavedSuccessfully' => 'Yer işareti başarıyla kaydedildi.',
+			'bookmarks.addBookmark.errorSavingBookmark' => 'Yeni yer işareti kaydedilirken bir hata oluştu.',
+			'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle' => 'Web sitesinin başlığını kullanmak için boş bırakın.',
+			'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription' => 'Web sitesinin açıklamasını kullanmak için boş bırakın.',
+			'bookmarks.addBookmark.share' => 'Share',
+			'bookmarks.addBookmark.shareDescription' => 'Share this bookmark with other registered users and anonymous users.',
+			'bookmarks.addBookmark.urlAlreadyBookmarked' => 'This URL is already bookmarked. The form has been pre-filled with the existing bookmark, and saving the form will update the existing bookmark.',
+			'bookmarks.search.searchBookmarks' => 'Yer işaretlerini ara',
+			'bookmarks.search.clearSearch' => 'Aramayı temizle',
+			'bookmarks.search.inputSearchTerm' => 'Bir arama terimi girin',
+			'bookmarks.search.cannotSearchError' => 'Bir hata nedeniyle içerik aranamıyor',
+			'bookmarks.search.inputtedSearchTermNoResults' => 'Girilen arama teriminin herhangi bir sonucu yok',
+			'bookmarks.bookmarkOptions.edit' => 'Düzenle',
+			'bookmarks.bookmarkOptions.delete' => 'Sil',
+			'bookmarks.bookmarkOptions.read' => 'Oku',
+			'bookmarks.bookmarkOptions.unread' => 'Okunmadı',
+			'bookmarks.bookmarkOptions.markAsUnread' => 'Okunmadı olarak işaretle',
+			'bookmarks.bookmarkOptions.markAsRead' => 'Okundu olarak işaretle',
+			'bookmarks.bookmarkOptions.shareOptions' => 'Paylaşım seçenekleri',
+			'bookmarks.bookmarkOptions.shared' => 'Ortak',
+			'bookmarks.bookmarkOptions.archive' => 'Arşivle',
+			'bookmarks.bookmarkOptions.unarchive' => 'Arşivden çıkar',
+			'bookmarks.bookmarkOptions.deletingBookmark' => 'Yer işareti siliniyor...',
+			'bookmarks.bookmarkOptions.bookmarkDeleted' => 'Yer işareti başarıyla silindi',
+			'bookmarks.bookmarkOptions.bookmarkNotDeleted' => 'Yer işareti bir hata nedeniyle silinemedi.',
+			'bookmarks.bookmarkOptions.deleteBookmark' => 'Yer işaretini sil',
+			'bookmarks.bookmarkOptions.followingBookmarkDeleted' => 'Aşağıdaki yer işareti silinecek:',
+			'bookmarks.bookmarkOptions.markingAsRead' => 'Okundu olarak işaretleniyor...',
+			'bookmarks.bookmarkOptions.markingAsUnead' => 'Okunmadı olarak işaretleniyor...',
+			'bookmarks.bookmarkOptions.markedAsReadSuccessfully' => 'Yer işareti başarıyla okundu olarak işaretlendi.',
+			'bookmarks.bookmarkOptions.markedAsUnreadSuccessfully' => 'Yer işareti başarıyla okunmadı olarak işaretlendi.',
+			'bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead' => 'Yer işareti okundu olarak işaretlenemedi.',
+			'bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread' => 'Yer işareti okunmadı olarak işaretlenemedi.',
+			'bookmarks.bookmarkOptions.archivingBookmark' => 'Yer işareti arşivleniyor...',
+			'bookmarks.bookmarkOptions.unarchivingBookmark' => 'Yer işareti arşivden çıkarılıyor...',
+			'bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully' => 'Yer işareti başarıyla arşivlendi.',
+			'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully' => 'Yer işareti başarıyla arşivden kaldırıldı.',
+			'bookmarks.bookmarkOptions.bookmarkNotArchived' => 'Yer işareti arşivlenemedi.',
+			'bookmarks.bookmarkOptions.bookmarkNotUnrchived' => 'Yer işareti arşivden çıkarılamadı.',
+			'bookmarks.bookmarkOptions.shareThirdPartyApp' => 'Üçüncü taraf bir uygulama kullanarak paylaşma',
+			'bookmarks.bookmarkOptions.shareInternally' => 'Dahili olarak paylaşın',
+			'bookmarks.bookmarkOptions.unshareInternally' => 'Dahili olarak paylaşımı kaldır',
+			'bookmarks.shareOptions.shareOptions' => 'Paylaşım seçenekleri',
+			'bookmarks.shareOptions.shareInternally' => 'Dahili olarak paylaşın',
+			'bookmarks.shareOptions.unshareInternally' => 'Dahili olarak paylaşımı kaldır',
+			'bookmarks.shareOptions.shareInternallyDescription' => 'Bu Linkding örneğinin geri kalan kullanıcılarıyla dahili olarak paylaşın',
+			'bookmarks.shareOptions.unshareInternallyDescription' => 'Dahili olarak paylaşılan bu yer işaretinin paylaşımını kaldır',
+			'bookmarks.shareOptions.shareExternally' => 'Yer işareti bağlantısını harici olarak paylaş',
+			'bookmarks.shareOptions.shareExternallyDescription' => 'Üçüncü taraf bir uygulama kullanarak yer işareti bağlantısını harici olarak paylaşın',
+			'bookmarks.shareOptions.sharingBookmark' => 'Yer işareti paylaşılıyor...',
+			'bookmarks.shareOptions.unsharingBookmark' => 'Yer işareti paylaşımı kaldırılıyor...',
+			'bookmarks.shareOptions.bookmarkSharedSuccessfully' => 'Yer işareti başarıyla paylaşıldı.',
+			'bookmarks.shareOptions.bookmarkNotShared' => 'Yer işareti paylaşılamadı.',
+			'bookmarks.shareOptions.bookmarkUnsharedSuccessfully' => 'Yer işareti başarıyla paylaşılmadı.',
+			'bookmarks.shareOptions.bookmarkNotUnshared' => 'Yer işareti paylaşımı kaldırılamadı.',
+			'tags.tags' => 'Etiketler',
+			'tags.created' => ({required Object created}) => 'Oluşturuldu: ${created}',
+			'tags.createTag.createTag' => 'Etiket oluştur',
+			'tags.createTag.name' => 'Adı',
+			'tags.createTag.creatingTag' => 'Etiket oluşturuluyor...',
+			'tags.createTag.errorCreatingTag' => 'Etiket oluşturulurken bir hata oluştu.',
+			'tags.filteredBookmarks.noBookmarksWithThisTag' => 'Bu etikete sahip yer işareti yok',
+			'tags.filteredBookmarks.noArchivedBookmarks' => 'Arşivlenmiş yer işareti yok',
+			'tags.filteredBookmarks.noSharedBookmarks' => 'Paylaşılmış yer işareti yok',
+			'settings.settings' => 'Ayarlar',
+			'settings.appSettings' => 'Uygulama ayarları',
+			'settings.aboutApp' => 'Uygulama hakkında',
+			'settings.appVersion' => 'Uygulama sürümü',
+			'settings.createdBy' => 'Geliştirici',
+			'settings.visitGooglePlay' => 'Google Play\'deki uygulama sayfasını ziyaret et',
+			'settings.visitGitHubRepo' => 'GitHub\'daki uygulama deposunu ziyaret et',
+			'settings.linkdingRepository' => 'Linkding deposu',
+			'settings.linkdingRepositoryDescription' => 'GitHub\'daki Linkding deposuna bağlantı',
+			'settings.moreInfoApp' => 'Uygulama hakkında daha fazla bilgi',
+			'settings.moreInfoAppDescription' => 'Uygulamanın bilgi sayfasına bağlantı',
+			'settings.moreApps' => 'Diğer uygulamalarım',
+			'settings.moreAppsDescription' => 'Daha fazla uygulama, iletişim, bağış ve daha fazlası',
+			'settings.customization.customization' => 'Özelleştirme',
+			'settings.customization.customizationDescription' => 'Uygulama temasını ve renk paletini ayarlayın.',
+			'settings.customization.theme' => 'Tema',
+			'settings.customization.light' => 'Açık',
+			'settings.customization.dark' => 'Koyu',
+			'settings.customization.systemDefined' => 'Sistem tanımlı',
+			'settings.customization.color' => 'Renk',
+			'settings.customization.useDynamicTheme' => 'Dinamik tema kullan',
+			'settings.generalSettings.generalSettings' => 'Genel Ayarlar',
+			'settings.generalSettings.generalSettingsDescription' => 'Uygulama için genel düzenlemeler.',
+			'settings.generalSettings.bookmarks' => 'Yer İmleri',
+			'settings.generalSettings.showFavicon' => 'Site simgesini göster',
+			'settings.generalSettings.showFaviconDescription' => 'Her yer işaretinde web sitesinin simgesini gösterin.',
+			'settings.generalSettings.disconnectFromServer' => 'Sunucu ile bağlantıyı kes',
+			'settings.generalSettings.disconnectModal.title' => 'Bağlantıyı kes',
+			'settings.generalSettings.disconnectModal.description' => 'Sunucu bağlantısını kesmek istediğinizden emin misiniz?\nİlk kuruluma yönlendirileceksiniz.',
+			'settings.generalSettings.useInAppBrowser' => 'Uygulama tarayıcısında kullanın',
+			'settings.generalSettings.useInAppBrowserDescription' => 'Yer işaretlerini sistem tarayıcısı yerine entegre tarayıcı ile açar. Tablet modunda dahili tarayıcı her zaman kullanılacaktır.',
+			'settings.generalSettings.openLinksWith' => 'Open links with...',
+			'settings.generalSettings.internalBrowser' => 'App internal browser',
+			'settings.generalSettings.browserCustomTab' => 'Browser custom tab',
+			'settings.generalSettings.systemBrowser' => 'System browser',
+			'settings.generalSettings.tags' => 'Tags',
+			'settings.generalSettings.defaultTags.defaultTags' => 'Default tags',
+			'settings.generalSettings.defaultTags.defaultTagsDescription' => 'Define a list of tags that will be added by default when creating a bookmark',
+			'settings.generalSettings.defaultTags.newTag' => 'New tag',
+			'settings.generalSettings.defaultTags.addTag' => 'AddTag',
+			'settings.generalSettings.defaultTags.removeThisTag' => 'Remove this tag',
+			'settings.generalSettings.defaultTags.noDefaultTags' => 'There are no default tags',
+			'settings.generalSettings.others' => 'Others',
+			'settings.generalSettings.setMarkAsUnreadDefault' => 'Set mark as unread by default',
+			'settings.generalSettings.setMarkAsUnreadDefaultDescription' => 'Set the mark as unread option by default when creating a new bookmark.',
+			'webview.goBack' => 'Geri dön',
+			'webview.goForward' => 'İleri git',
+			'webview.reload' => 'Yenile',
+			'webview.openInSystemBrowser' => 'Sistem tarayıcısında aç',
+			'webview.copyLinkClipboard' => 'Bağlantıyı panoya kopyala',
+			'webview.linkCopiedClipboard' => 'Bağlantı panoya kopyalandı.',
+			'webview.share' => 'Paylaş',
+			'webview.invalidBookmarkData' => 'The bookmark has invalid data or it\'s corrupted.',
+			'colors.red' => 'Kırmızı',
+			'colors.green' => 'Yeşil',
+			'colors.blue' => 'Mavi',
+			'colors.yellow' => 'Sarı',
+			'colors.orange' => 'Turuncu',
+			'colors.brown' => 'Kahverengi',
+			'colors.cyan' => 'Camgöbeği',
+			'colors.purple' => 'Mor',
+			'colors.pink' => 'Pembe',
+			'colors.deepOrange' => 'Koyu turuncu',
+			'colors.indigo' => 'Çivit',
+			_ => null,
+		};
 	}
 }
-

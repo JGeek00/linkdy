@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -10,7 +11,7 @@ import 'package:slang/generated.dart';
 import 'strings.g.dart';
 
 // Path: <root>
-class TranslationsEs implements Translations {
+class TranslationsEs with BaseTranslations<AppLocale, Translations> implements Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsEs({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
@@ -428,223 +429,225 @@ class _TranslationsSettingsGeneralSettingsDefaultTagsEs implements TranslationsS
 	@override String get noDefaultTags => 'No hay etiquetas por defecto';
 }
 
-/// Flat map(s) containing all translations.
+/// The flat map containing all translations for locale <es>.
 /// Only for edge cases! For simple maps, use the map function of this library.
+///
+/// The Dart AOT compiler has issues with very large switch statements,
+/// so the map is split into smaller functions (512 entries each).
 extension on TranslationsEs {
 	dynamic _flatMapFunction(String path) {
-		switch (path) {
-			case 'generic.confirm': return 'Confirmar';
-			case 'generic.cancel': return 'Cancelar';
-			case 'generic.next': return 'Siguiente';
-			case 'generic.save': return 'Guardar';
-			case 'generic.close': return 'Cerrar';
-			case 'generic.error': return 'Error';
-			case 'generic.optional': return 'Opcional';
-			case 'generic.authTokenNotValid': return 'Su token de autorización ya no es válido. Por favor, vuelva a autenticarse.';
-			case 'generic.options': return 'Opciones';
-			case 'onboarding.title': return 'Bienvenido a Linkdy';
-			case 'onboarding.subtitle': return 'Una aplicación para gestionar tus enlaces favoritos.';
-			case 'onboarding.start': return 'Comenzar';
-			case 'onboarding.next': return 'Siguiente';
-			case 'onboarding.previous': return 'Anterior';
-			case 'onboarding.serverRequired': return 'Servidor requerido';
-			case 'onboarding.serverRequiredDescription': return 'Linkdy no es una aplicación independiente, requiere el servidor Linkding para funcionar.\nPara utilizar esta aplicación, debe instalar Linkding en su servidor doméstico, VPS o cualquier otro ordenador.';
-			case 'onboarding.installationInstructions': return 'Mira las instrucciones de instalación en el repositorio oficial en GitHub.';
-			case 'onboarding.serverRunningConfirmation': return 'Confirmo que tengo una instancia del servidor Linkding ya en funcionamiento.';
-			case 'onboarding.createConnection': return 'Crear una conexión';
-			case 'onboarding.createConnectionSubtitle': return 'Introduce todos los detalles requeridos para crear una conexión con el servidor';
-			case 'onboarding.ipAddressOrDomain': return 'Dirección IP o dominio';
-			case 'onboarding.port': return 'Puerto';
-			case 'onboarding.path': return 'Ruta';
-			case 'onboarding.invalidPath': return 'Ruta no válida';
-			case 'onboarding.token': return 'Token';
-			case 'onboarding.required': return 'Requerido';
-			case 'onboarding.serverDetails': return 'Detalles del servidor';
-			case 'onboarding.authentication': return 'Autenticación';
-			case 'onboarding.testConnectionUrl': return 'Probar URL de conexión';
-			case 'onboarding.testingConnection': return 'Probando conexión...';
-			case 'onboarding.connectionServerEstablished': return 'Conexión con servidor establecida';
-			case 'onboarding.connectionServerFailed': return 'Conexión con servidor fallida';
-			case 'onboarding.connect': return 'Conectar';
-			case 'onboarding.connecting': return 'Conectando...';
-			case 'onboarding.cannotConnectToServer': return 'No se puede conectar con el servidor.';
-			case 'onboarding.invalidToken': return 'Token no válido.';
-			case 'onboarding.invalidIpDomain': return 'Dirección IP o dominio no válido';
-			case 'onboarding.invalidPort': return 'Puerto no válido';
-			case 'onboarding.tokenRequired': return 'Token requerido';
-			case 'bookmarks.bookmarks': return 'Marcadores';
-			case 'bookmarks.noBookmarksAdded': return 'No hay marcadores añadidos';
-			case 'bookmarks.cannotLoadBookmarks': return 'No se pueden cargar los marcadores';
-			case 'bookmarks.dates.todayAt': return ({required Object time}) => 'Hoy, ${time}';
-			case 'bookmarks.dates.yesterdayAt': return ({required Object time}) => 'Ayer, ${time}';
-			case 'bookmarks.shared': return 'Compartidos';
-			case 'bookmarks.archived': return 'Archivados';
-			case 'bookmarks.showOnlyRead': return 'Mostrar solo leídos';
-			case 'bookmarks.showOnlyUnread': return 'Mostrar solo no leídos';
-			case 'bookmarks.showAllBookmarks': return 'Mostrar todos los marcadores';
-			case 'bookmarks.readStatus': return 'Estado de lectura';
-			case 'bookmarks.all': return 'Todos';
-			case 'bookmarks.unread': return 'No leídos';
-			case 'bookmarks.read': return 'Leídos';
-			case 'bookmarks.filterSort': return 'Filtrar y ordenar';
-			case 'bookmarks.sorting': return 'Ordenación';
-			case 'bookmarks.date': return 'Fecha';
-			case 'bookmarks.title': return 'Título';
-			case 'bookmarks.ascendant': return 'Ascendiente';
-			case 'bookmarks.descendant': return 'Descendiente';
-			case 'bookmarks.addBookmark.addBookmark': return 'Añadir nuevo marcador';
-			case 'bookmarks.addBookmark.editBookmark': return 'Editar marcador';
-			case 'bookmarks.addBookmark.url': return 'URL';
-			case 'bookmarks.addBookmark.bookmarkUrl': return 'URL del marcador';
-			case 'bookmarks.addBookmark.bookmarkDetails': return 'Detalles del marcador';
-			case 'bookmarks.addBookmark.validateUrl': return 'Validar URL';
-			case 'bookmarks.addBookmark.urlValid': return 'La URL es válida';
-			case 'bookmarks.addBookmark.urlNotValid': return 'La URL no es válida';
-			case 'bookmarks.addBookmark.cannotCheckUrl': return 'No se pudo comprobar la URL, pero puedes guardarla de todas formas.';
-			case 'bookmarks.addBookmark.invalidUrl': return 'URL no válida';
-			case 'bookmarks.addBookmark.checkingUrl': return 'Comprobando URL...';
-			case 'bookmarks.addBookmark.title': return 'Title';
-			case 'bookmarks.addBookmark.description': return 'Description';
-			case 'bookmarks.addBookmark.markAsUnread': return 'Marcar como no leído';
-			case 'bookmarks.addBookmark.markAsUnreadDescription': return 'Los marcadores no leídos pueden filtrarse y marcarse como leídos después de haberlos consultado.';
-			case 'bookmarks.addBookmark.notes': return 'Notas';
-			case 'bookmarks.addBookmark.addNotes': return 'Añadir notas';
-			case 'bookmarks.addBookmark.tags': return 'Etiquetas';
-			case 'bookmarks.addBookmark.noTagsAdded': return 'No hay etiquetas añadidas';
-			case 'bookmarks.addBookmark.tagNoWhitespaces': return 'La etiqueta no puede contener espacios';
-			case 'bookmarks.addBookmark.addTag': return 'Añadir etiqueta';
-			case 'bookmarks.addBookmark.others': return 'Otros';
-			case 'bookmarks.addBookmark.savingBookmark': return 'Guardando marcador...';
-			case 'bookmarks.addBookmark.bookmarkSavedSuccessfully': return 'Marcador guardado correctamente';
-			case 'bookmarks.addBookmark.errorSavingBookmark': return 'Ocurrió un error al guardar el nuevo marcador.';
-			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle': return 'Dejar vacío para usar el título del sitio web.';
-			case 'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription': return 'Dejar vacío para usar la descripción del sitio web.';
-			case 'bookmarks.addBookmark.share': return 'Compartir';
-			case 'bookmarks.addBookmark.shareDescription': return 'Comparte este marcador con otros usuarios registrados y usuarios anónimos.';
-			case 'bookmarks.addBookmark.urlAlreadyBookmarked': return 'Esta URL ya está marcada como favorita. El formulario se ha rellenado previamente con el marcador existente, y al guardar el formulario se actualizará el marcador existente.';
-			case 'bookmarks.search.searchBookmarks': return 'Buscar marcadores';
-			case 'bookmarks.search.clearSearch': return 'Limpiar búsqueda';
-			case 'bookmarks.search.inputSearchTerm': return 'Introduce un término de búsqueda';
-			case 'bookmarks.search.cannotSearchError': return 'No se puede buscar el contenido por un error';
-			case 'bookmarks.search.inputtedSearchTermNoResults': return 'El término de búsqueda introducido no tiene resultados';
-			case 'bookmarks.bookmarkOptions.edit': return 'Editar';
-			case 'bookmarks.bookmarkOptions.delete': return 'Eliminar';
-			case 'bookmarks.bookmarkOptions.read': return 'Leído';
-			case 'bookmarks.bookmarkOptions.unread': return 'No leído';
-			case 'bookmarks.bookmarkOptions.markAsUnread': return 'Marcar como no leído';
-			case 'bookmarks.bookmarkOptions.markAsRead': return 'Marcar como leído';
-			case 'bookmarks.bookmarkOptions.shareOptions': return 'Opciones de compartir';
-			case 'bookmarks.bookmarkOptions.shared': return 'Compartido';
-			case 'bookmarks.bookmarkOptions.archive': return 'Archivar';
-			case 'bookmarks.bookmarkOptions.unarchive': return 'Desarchivar';
-			case 'bookmarks.bookmarkOptions.deletingBookmark': return 'Eliminando marcador...';
-			case 'bookmarks.bookmarkOptions.bookmarkDeleted': return 'Marcador eliminado correctamente';
-			case 'bookmarks.bookmarkOptions.bookmarkNotDeleted': return 'El marcador no se ha podido eliminar debido a un error.';
-			case 'bookmarks.bookmarkOptions.deleteBookmark': return 'Eliminar marcador';
-			case 'bookmarks.bookmarkOptions.followingBookmarkDeleted': return 'El siguiente marcador será eliminado:';
-			case 'bookmarks.bookmarkOptions.markingAsRead': return 'Marcando como leído...';
-			case 'bookmarks.bookmarkOptions.markingAsUnead': return 'Marcando como no leído...';
-			case 'bookmarks.bookmarkOptions.markedAsReadSuccessfully': return 'Marcador marcado como leído correctamente.';
-			case 'bookmarks.bookmarkOptions.markedAsUnreadSuccessfully': return 'Marcador marcado como no leído correctamente.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead': return 'El marcador no se ha podido marcar como leído.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread': return 'El marcador no se ha podido marcar como no leído.';
-			case 'bookmarks.bookmarkOptions.archivingBookmark': return 'Archivando marcador...';
-			case 'bookmarks.bookmarkOptions.unarchivingBookmark': return 'Desarchivando marcador...';
-			case 'bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully': return 'Marcador archivado correctamente.';
-			case 'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully': return 'Marcador desarchivado correctamente.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotArchived': return 'El marcador no pudo ser archivado.';
-			case 'bookmarks.bookmarkOptions.bookmarkNotUnrchived': return 'El marcador no pudo ser desarchivado.';
-			case 'bookmarks.bookmarkOptions.shareThirdPartyApp': return 'Compartir usando una app de terceros';
-			case 'bookmarks.bookmarkOptions.shareInternally': return 'Compartir internamente';
-			case 'bookmarks.bookmarkOptions.unshareInternally': return 'Descompartir internamente';
-			case 'bookmarks.shareOptions.shareOptions': return 'Opciones de compartir';
-			case 'bookmarks.shareOptions.shareInternally': return 'Compartir internamente';
-			case 'bookmarks.shareOptions.unshareInternally': return 'Descompartir internamente';
-			case 'bookmarks.shareOptions.shareInternallyDescription': return 'Compartir internamente con el resto de usuarios de la instancia de Linkding';
-			case 'bookmarks.shareOptions.unshareInternallyDescription': return 'Descompartir el marcador compartido internamente';
-			case 'bookmarks.shareOptions.shareExternally': return 'Compartir URL del marcador externamente';
-			case 'bookmarks.shareOptions.shareExternallyDescription': return 'Compartir la URL del marcador externamente usando una aplicación de terceros';
-			case 'bookmarks.shareOptions.sharingBookmark': return 'Compartiendo marcador...';
-			case 'bookmarks.shareOptions.unsharingBookmark': return 'Descompartiendo marcador...';
-			case 'bookmarks.shareOptions.bookmarkSharedSuccessfully': return 'Marcador compartido correctamente.';
-			case 'bookmarks.shareOptions.bookmarkNotShared': return 'El marcador no pudo ser compartido.';
-			case 'bookmarks.shareOptions.bookmarkUnsharedSuccessfully': return 'Marcador descompartido correctamente.';
-			case 'bookmarks.shareOptions.bookmarkNotUnshared': return 'El marcador no pudo ser descompartido.';
-			case 'tags.tags': return 'Etiquetas';
-			case 'tags.created': return ({required Object created}) => 'Creado: ${created}';
-			case 'tags.createTag.createTag': return 'Crear etiqueta';
-			case 'tags.createTag.name': return 'Nombre';
-			case 'tags.createTag.creatingTag': return 'Creando etiqueta...';
-			case 'tags.createTag.errorCreatingTag': return 'Ocurrió un error al crear la etiqueta.';
-			case 'tags.filteredBookmarks.noBookmarksWithThisTag': return 'No hay marcadores con esta etiqueta';
-			case 'tags.filteredBookmarks.noArchivedBookmarks': return 'No hay marcadores archivados';
-			case 'tags.filteredBookmarks.noSharedBookmarks': return 'No hay marcadores compartidos';
-			case 'settings.settings': return 'Ajustes';
-			case 'settings.appSettings': return 'Ajustes de la aplicación';
-			case 'settings.aboutApp': return 'Sobre la aplicación';
-			case 'settings.appVersion': return 'Versión de la aplicación';
-			case 'settings.createdBy': return 'Creado por';
-			case 'settings.visitGooglePlay': return 'Visita la página de la aplicación en Google Play';
-			case 'settings.visitGitHubRepo': return 'Visita el repositorio de la aplicación en GitHub';
-			case 'settings.linkdingRepository': return 'Repositorio de Linkding';
-			case 'settings.linkdingRepositoryDescription': return 'Enlace al repositorio de Linkding en GitHub';
-			case 'settings.moreInfoApp': return 'Más información sobre la aplicación';
-			case 'settings.moreInfoAppDescription': return 'Enlace a la página web de información de la aplicación';
-			case 'settings.moreApps': return 'Mis otras aplicaciones';
-			case 'settings.moreAppsDescription': return 'Más aplicaciones, contacto, donaciones y más';
-			case 'settings.customization.customization': return 'Personalización';
-			case 'settings.customization.customizationDescription': return 'Configura el tema y la paleta de colores.';
-			case 'settings.customization.theme': return 'Tema';
-			case 'settings.customization.light': return 'Claro';
-			case 'settings.customization.dark': return 'Oscuro';
-			case 'settings.customization.systemDefined': return 'Definido por el sistema';
-			case 'settings.customization.color': return 'Color';
-			case 'settings.customization.useDynamicTheme': return 'Usar tema dinámico';
-			case 'settings.generalSettings.generalSettings': return 'Ajustes generales';
-			case 'settings.generalSettings.generalSettingsDescription': return 'Ajustes generales para la aplicación.';
-			case 'settings.generalSettings.bookmarks': return 'Marcadores';
-			case 'settings.generalSettings.showFavicon': return 'Mostrar favicon';
-			case 'settings.generalSettings.showFaviconDescription': return 'Mostrar el favicon del sitio web en cada marcador.';
-			case 'settings.generalSettings.disconnectFromServer': return 'Desconectar del servidor';
-			case 'settings.generalSettings.disconnectModal.title': return 'Desconectar';
-			case 'settings.generalSettings.disconnectModal.description': return '¿Estás seguro que deseas desconectarte del servidor?\nSerás redirigido a la configuración inicial.';
-			case 'settings.generalSettings.useInAppBrowser': return 'Usar navegador de la aplicación';
-			case 'settings.generalSettings.useInAppBrowserDescription': return 'Abre los marcadores con el navegador integrado en vez de con el navegador del sietema. En modo tablet siempre se usará el navegador integrado.';
-			case 'settings.generalSettings.openLinksWith': return 'Abrir enlaces con...';
-			case 'settings.generalSettings.internalBrowser': return 'Navegador interno de la app';
-			case 'settings.generalSettings.browserCustomTab': return 'Pestaña personalizada del navegador';
-			case 'settings.generalSettings.systemBrowser': return 'Navegador del sistema';
-			case 'settings.generalSettings.tags': return 'Etiquetas';
-			case 'settings.generalSettings.defaultTags.defaultTags': return 'Etiquetas por defecto';
-			case 'settings.generalSettings.defaultTags.defaultTagsDescription': return 'Define una lista de etiquetas que se añadirán por defecto al crear un marcador';
-			case 'settings.generalSettings.defaultTags.newTag': return 'Nueva etiqueta';
-			case 'settings.generalSettings.defaultTags.addTag': return 'Añadir etiqueta';
-			case 'settings.generalSettings.defaultTags.removeThisTag': return 'Eliminar esta etiqueta';
-			case 'settings.generalSettings.defaultTags.noDefaultTags': return 'No hay etiquetas por defecto';
-			case 'settings.generalSettings.others': return 'Otros';
-			case 'settings.generalSettings.setMarkAsUnreadDefault': return 'Marcar como no leído por defecto';
-			case 'settings.generalSettings.setMarkAsUnreadDefaultDescription': return 'Habilitar por defecto la opción de marcar como leído al crear un marcador.';
-			case 'webview.goBack': return 'Ir atrás';
-			case 'webview.goForward': return 'Ir adelante';
-			case 'webview.reload': return 'Recargar';
-			case 'webview.openInSystemBrowser': return 'Abrir en el navegador del sistema';
-			case 'webview.copyLinkClipboard': return 'Copiar enlace al portapapeles';
-			case 'webview.linkCopiedClipboard': return 'Enlace copiado al portapapeles.';
-			case 'webview.share': return 'Compartir';
-			case 'webview.invalidBookmarkData': return 'El marcador tiene datos inválidos o está corrupto.';
-			case 'colors.red': return 'Rojo';
-			case 'colors.green': return 'Verde';
-			case 'colors.blue': return 'Azul';
-			case 'colors.yellow': return 'Amarillo';
-			case 'colors.orange': return 'Naranja';
-			case 'colors.brown': return 'Marron';
-			case 'colors.cyan': return 'Cian';
-			case 'colors.purple': return 'Morado';
-			case 'colors.pink': return 'Rosa';
-			case 'colors.deepOrange': return 'Naranja oscuro';
-			case 'colors.indigo': return 'Índigo';
-			default: return null;
-		}
+		return switch (path) {
+			'generic.confirm' => 'Confirmar',
+			'generic.cancel' => 'Cancelar',
+			'generic.next' => 'Siguiente',
+			'generic.save' => 'Guardar',
+			'generic.close' => 'Cerrar',
+			'generic.error' => 'Error',
+			'generic.optional' => 'Opcional',
+			'generic.authTokenNotValid' => 'Su token de autorización ya no es válido. Por favor, vuelva a autenticarse.',
+			'generic.options' => 'Opciones',
+			'onboarding.title' => 'Bienvenido a Linkdy',
+			'onboarding.subtitle' => 'Una aplicación para gestionar tus enlaces favoritos.',
+			'onboarding.start' => 'Comenzar',
+			'onboarding.next' => 'Siguiente',
+			'onboarding.previous' => 'Anterior',
+			'onboarding.serverRequired' => 'Servidor requerido',
+			'onboarding.serverRequiredDescription' => 'Linkdy no es una aplicación independiente, requiere el servidor Linkding para funcionar.\nPara utilizar esta aplicación, debe instalar Linkding en su servidor doméstico, VPS o cualquier otro ordenador.',
+			'onboarding.installationInstructions' => 'Mira las instrucciones de instalación en el repositorio oficial en GitHub.',
+			'onboarding.serverRunningConfirmation' => 'Confirmo que tengo una instancia del servidor Linkding ya en funcionamiento.',
+			'onboarding.createConnection' => 'Crear una conexión',
+			'onboarding.createConnectionSubtitle' => 'Introduce todos los detalles requeridos para crear una conexión con el servidor',
+			'onboarding.ipAddressOrDomain' => 'Dirección IP o dominio',
+			'onboarding.port' => 'Puerto',
+			'onboarding.path' => 'Ruta',
+			'onboarding.invalidPath' => 'Ruta no válida',
+			'onboarding.token' => 'Token',
+			'onboarding.required' => 'Requerido',
+			'onboarding.serverDetails' => 'Detalles del servidor',
+			'onboarding.authentication' => 'Autenticación',
+			'onboarding.testConnectionUrl' => 'Probar URL de conexión',
+			'onboarding.testingConnection' => 'Probando conexión...',
+			'onboarding.connectionServerEstablished' => 'Conexión con servidor establecida',
+			'onboarding.connectionServerFailed' => 'Conexión con servidor fallida',
+			'onboarding.connect' => 'Conectar',
+			'onboarding.connecting' => 'Conectando...',
+			'onboarding.cannotConnectToServer' => 'No se puede conectar con el servidor.',
+			'onboarding.invalidToken' => 'Token no válido.',
+			'onboarding.invalidIpDomain' => 'Dirección IP o dominio no válido',
+			'onboarding.invalidPort' => 'Puerto no válido',
+			'onboarding.tokenRequired' => 'Token requerido',
+			'bookmarks.bookmarks' => 'Marcadores',
+			'bookmarks.noBookmarksAdded' => 'No hay marcadores añadidos',
+			'bookmarks.cannotLoadBookmarks' => 'No se pueden cargar los marcadores',
+			'bookmarks.dates.todayAt' => ({required Object time}) => 'Hoy, ${time}',
+			'bookmarks.dates.yesterdayAt' => ({required Object time}) => 'Ayer, ${time}',
+			'bookmarks.shared' => 'Compartidos',
+			'bookmarks.archived' => 'Archivados',
+			'bookmarks.showOnlyRead' => 'Mostrar solo leídos',
+			'bookmarks.showOnlyUnread' => 'Mostrar solo no leídos',
+			'bookmarks.showAllBookmarks' => 'Mostrar todos los marcadores',
+			'bookmarks.readStatus' => 'Estado de lectura',
+			'bookmarks.all' => 'Todos',
+			'bookmarks.unread' => 'No leídos',
+			'bookmarks.read' => 'Leídos',
+			'bookmarks.filterSort' => 'Filtrar y ordenar',
+			'bookmarks.sorting' => 'Ordenación',
+			'bookmarks.date' => 'Fecha',
+			'bookmarks.title' => 'Título',
+			'bookmarks.ascendant' => 'Ascendiente',
+			'bookmarks.descendant' => 'Descendiente',
+			'bookmarks.addBookmark.addBookmark' => 'Añadir nuevo marcador',
+			'bookmarks.addBookmark.editBookmark' => 'Editar marcador',
+			'bookmarks.addBookmark.url' => 'URL',
+			'bookmarks.addBookmark.bookmarkUrl' => 'URL del marcador',
+			'bookmarks.addBookmark.bookmarkDetails' => 'Detalles del marcador',
+			'bookmarks.addBookmark.validateUrl' => 'Validar URL',
+			'bookmarks.addBookmark.urlValid' => 'La URL es válida',
+			'bookmarks.addBookmark.urlNotValid' => 'La URL no es válida',
+			'bookmarks.addBookmark.cannotCheckUrl' => 'No se pudo comprobar la URL, pero puedes guardarla de todas formas.',
+			'bookmarks.addBookmark.invalidUrl' => 'URL no válida',
+			'bookmarks.addBookmark.checkingUrl' => 'Comprobando URL...',
+			'bookmarks.addBookmark.title' => 'Title',
+			'bookmarks.addBookmark.description' => 'Description',
+			'bookmarks.addBookmark.markAsUnread' => 'Marcar como no leído',
+			'bookmarks.addBookmark.markAsUnreadDescription' => 'Los marcadores no leídos pueden filtrarse y marcarse como leídos después de haberlos consultado.',
+			'bookmarks.addBookmark.notes' => 'Notas',
+			'bookmarks.addBookmark.addNotes' => 'Añadir notas',
+			'bookmarks.addBookmark.tags' => 'Etiquetas',
+			'bookmarks.addBookmark.noTagsAdded' => 'No hay etiquetas añadidas',
+			'bookmarks.addBookmark.tagNoWhitespaces' => 'La etiqueta no puede contener espacios',
+			'bookmarks.addBookmark.addTag' => 'Añadir etiqueta',
+			'bookmarks.addBookmark.others' => 'Otros',
+			'bookmarks.addBookmark.savingBookmark' => 'Guardando marcador...',
+			'bookmarks.addBookmark.bookmarkSavedSuccessfully' => 'Marcador guardado correctamente',
+			'bookmarks.addBookmark.errorSavingBookmark' => 'Ocurrió un error al guardar el nuevo marcador.',
+			'bookmarks.addBookmark.leaveEmptyUseWebsiteTitle' => 'Dejar vacío para usar el título del sitio web.',
+			'bookmarks.addBookmark.leaveEmptyUseWebsiteDescription' => 'Dejar vacío para usar la descripción del sitio web.',
+			'bookmarks.addBookmark.share' => 'Compartir',
+			'bookmarks.addBookmark.shareDescription' => 'Comparte este marcador con otros usuarios registrados y usuarios anónimos.',
+			'bookmarks.addBookmark.urlAlreadyBookmarked' => 'Esta URL ya está marcada como favorita. El formulario se ha rellenado previamente con el marcador existente, y al guardar el formulario se actualizará el marcador existente.',
+			'bookmarks.search.searchBookmarks' => 'Buscar marcadores',
+			'bookmarks.search.clearSearch' => 'Limpiar búsqueda',
+			'bookmarks.search.inputSearchTerm' => 'Introduce un término de búsqueda',
+			'bookmarks.search.cannotSearchError' => 'No se puede buscar el contenido por un error',
+			'bookmarks.search.inputtedSearchTermNoResults' => 'El término de búsqueda introducido no tiene resultados',
+			'bookmarks.bookmarkOptions.edit' => 'Editar',
+			'bookmarks.bookmarkOptions.delete' => 'Eliminar',
+			'bookmarks.bookmarkOptions.read' => 'Leído',
+			'bookmarks.bookmarkOptions.unread' => 'No leído',
+			'bookmarks.bookmarkOptions.markAsUnread' => 'Marcar como no leído',
+			'bookmarks.bookmarkOptions.markAsRead' => 'Marcar como leído',
+			'bookmarks.bookmarkOptions.shareOptions' => 'Opciones de compartir',
+			'bookmarks.bookmarkOptions.shared' => 'Compartido',
+			'bookmarks.bookmarkOptions.archive' => 'Archivar',
+			'bookmarks.bookmarkOptions.unarchive' => 'Desarchivar',
+			'bookmarks.bookmarkOptions.deletingBookmark' => 'Eliminando marcador...',
+			'bookmarks.bookmarkOptions.bookmarkDeleted' => 'Marcador eliminado correctamente',
+			'bookmarks.bookmarkOptions.bookmarkNotDeleted' => 'El marcador no se ha podido eliminar debido a un error.',
+			'bookmarks.bookmarkOptions.deleteBookmark' => 'Eliminar marcador',
+			'bookmarks.bookmarkOptions.followingBookmarkDeleted' => 'El siguiente marcador será eliminado:',
+			'bookmarks.bookmarkOptions.markingAsRead' => 'Marcando como leído...',
+			'bookmarks.bookmarkOptions.markingAsUnead' => 'Marcando como no leído...',
+			'bookmarks.bookmarkOptions.markedAsReadSuccessfully' => 'Marcador marcado como leído correctamente.',
+			'bookmarks.bookmarkOptions.markedAsUnreadSuccessfully' => 'Marcador marcado como no leído correctamente.',
+			'bookmarks.bookmarkOptions.bookmarkNotMarkedAsRead' => 'El marcador no se ha podido marcar como leído.',
+			'bookmarks.bookmarkOptions.bookmarkNotMarkedAsUnread' => 'El marcador no se ha podido marcar como no leído.',
+			'bookmarks.bookmarkOptions.archivingBookmark' => 'Archivando marcador...',
+			'bookmarks.bookmarkOptions.unarchivingBookmark' => 'Desarchivando marcador...',
+			'bookmarks.bookmarkOptions.bookmarkArchivedSuccessfully' => 'Marcador archivado correctamente.',
+			'bookmarks.bookmarkOptions.bookmarkUnrchivedSuccessfully' => 'Marcador desarchivado correctamente.',
+			'bookmarks.bookmarkOptions.bookmarkNotArchived' => 'El marcador no pudo ser archivado.',
+			'bookmarks.bookmarkOptions.bookmarkNotUnrchived' => 'El marcador no pudo ser desarchivado.',
+			'bookmarks.bookmarkOptions.shareThirdPartyApp' => 'Compartir usando una app de terceros',
+			'bookmarks.bookmarkOptions.shareInternally' => 'Compartir internamente',
+			'bookmarks.bookmarkOptions.unshareInternally' => 'Descompartir internamente',
+			'bookmarks.shareOptions.shareOptions' => 'Opciones de compartir',
+			'bookmarks.shareOptions.shareInternally' => 'Compartir internamente',
+			'bookmarks.shareOptions.unshareInternally' => 'Descompartir internamente',
+			'bookmarks.shareOptions.shareInternallyDescription' => 'Compartir internamente con el resto de usuarios de la instancia de Linkding',
+			'bookmarks.shareOptions.unshareInternallyDescription' => 'Descompartir el marcador compartido internamente',
+			'bookmarks.shareOptions.shareExternally' => 'Compartir URL del marcador externamente',
+			'bookmarks.shareOptions.shareExternallyDescription' => 'Compartir la URL del marcador externamente usando una aplicación de terceros',
+			'bookmarks.shareOptions.sharingBookmark' => 'Compartiendo marcador...',
+			'bookmarks.shareOptions.unsharingBookmark' => 'Descompartiendo marcador...',
+			'bookmarks.shareOptions.bookmarkSharedSuccessfully' => 'Marcador compartido correctamente.',
+			'bookmarks.shareOptions.bookmarkNotShared' => 'El marcador no pudo ser compartido.',
+			'bookmarks.shareOptions.bookmarkUnsharedSuccessfully' => 'Marcador descompartido correctamente.',
+			'bookmarks.shareOptions.bookmarkNotUnshared' => 'El marcador no pudo ser descompartido.',
+			'tags.tags' => 'Etiquetas',
+			'tags.created' => ({required Object created}) => 'Creado: ${created}',
+			'tags.createTag.createTag' => 'Crear etiqueta',
+			'tags.createTag.name' => 'Nombre',
+			'tags.createTag.creatingTag' => 'Creando etiqueta...',
+			'tags.createTag.errorCreatingTag' => 'Ocurrió un error al crear la etiqueta.',
+			'tags.filteredBookmarks.noBookmarksWithThisTag' => 'No hay marcadores con esta etiqueta',
+			'tags.filteredBookmarks.noArchivedBookmarks' => 'No hay marcadores archivados',
+			'tags.filteredBookmarks.noSharedBookmarks' => 'No hay marcadores compartidos',
+			'settings.settings' => 'Ajustes',
+			'settings.appSettings' => 'Ajustes de la aplicación',
+			'settings.aboutApp' => 'Sobre la aplicación',
+			'settings.appVersion' => 'Versión de la aplicación',
+			'settings.createdBy' => 'Creado por',
+			'settings.visitGooglePlay' => 'Visita la página de la aplicación en Google Play',
+			'settings.visitGitHubRepo' => 'Visita el repositorio de la aplicación en GitHub',
+			'settings.linkdingRepository' => 'Repositorio de Linkding',
+			'settings.linkdingRepositoryDescription' => 'Enlace al repositorio de Linkding en GitHub',
+			'settings.moreInfoApp' => 'Más información sobre la aplicación',
+			'settings.moreInfoAppDescription' => 'Enlace a la página web de información de la aplicación',
+			'settings.moreApps' => 'Mis otras aplicaciones',
+			'settings.moreAppsDescription' => 'Más aplicaciones, contacto, donaciones y más',
+			'settings.customization.customization' => 'Personalización',
+			'settings.customization.customizationDescription' => 'Configura el tema y la paleta de colores.',
+			'settings.customization.theme' => 'Tema',
+			'settings.customization.light' => 'Claro',
+			'settings.customization.dark' => 'Oscuro',
+			'settings.customization.systemDefined' => 'Definido por el sistema',
+			'settings.customization.color' => 'Color',
+			'settings.customization.useDynamicTheme' => 'Usar tema dinámico',
+			'settings.generalSettings.generalSettings' => 'Ajustes generales',
+			'settings.generalSettings.generalSettingsDescription' => 'Ajustes generales para la aplicación.',
+			'settings.generalSettings.bookmarks' => 'Marcadores',
+			'settings.generalSettings.showFavicon' => 'Mostrar favicon',
+			'settings.generalSettings.showFaviconDescription' => 'Mostrar el favicon del sitio web en cada marcador.',
+			'settings.generalSettings.disconnectFromServer' => 'Desconectar del servidor',
+			'settings.generalSettings.disconnectModal.title' => 'Desconectar',
+			'settings.generalSettings.disconnectModal.description' => '¿Estás seguro que deseas desconectarte del servidor?\nSerás redirigido a la configuración inicial.',
+			'settings.generalSettings.useInAppBrowser' => 'Usar navegador de la aplicación',
+			'settings.generalSettings.useInAppBrowserDescription' => 'Abre los marcadores con el navegador integrado en vez de con el navegador del sietema. En modo tablet siempre se usará el navegador integrado.',
+			'settings.generalSettings.openLinksWith' => 'Abrir enlaces con...',
+			'settings.generalSettings.internalBrowser' => 'Navegador interno de la app',
+			'settings.generalSettings.browserCustomTab' => 'Pestaña personalizada del navegador',
+			'settings.generalSettings.systemBrowser' => 'Navegador del sistema',
+			'settings.generalSettings.tags' => 'Etiquetas',
+			'settings.generalSettings.defaultTags.defaultTags' => 'Etiquetas por defecto',
+			'settings.generalSettings.defaultTags.defaultTagsDescription' => 'Define una lista de etiquetas que se añadirán por defecto al crear un marcador',
+			'settings.generalSettings.defaultTags.newTag' => 'Nueva etiqueta',
+			'settings.generalSettings.defaultTags.addTag' => 'Añadir etiqueta',
+			'settings.generalSettings.defaultTags.removeThisTag' => 'Eliminar esta etiqueta',
+			'settings.generalSettings.defaultTags.noDefaultTags' => 'No hay etiquetas por defecto',
+			'settings.generalSettings.others' => 'Otros',
+			'settings.generalSettings.setMarkAsUnreadDefault' => 'Marcar como no leído por defecto',
+			'settings.generalSettings.setMarkAsUnreadDefaultDescription' => 'Habilitar por defecto la opción de marcar como leído al crear un marcador.',
+			'webview.goBack' => 'Ir atrás',
+			'webview.goForward' => 'Ir adelante',
+			'webview.reload' => 'Recargar',
+			'webview.openInSystemBrowser' => 'Abrir en el navegador del sistema',
+			'webview.copyLinkClipboard' => 'Copiar enlace al portapapeles',
+			'webview.linkCopiedClipboard' => 'Enlace copiado al portapapeles.',
+			'webview.share' => 'Compartir',
+			'webview.invalidBookmarkData' => 'El marcador tiene datos inválidos o está corrupto.',
+			'colors.red' => 'Rojo',
+			'colors.green' => 'Verde',
+			'colors.blue' => 'Azul',
+			'colors.yellow' => 'Amarillo',
+			'colors.orange' => 'Naranja',
+			'colors.brown' => 'Marron',
+			'colors.cyan' => 'Cian',
+			'colors.purple' => 'Morado',
+			'colors.pink' => 'Rosa',
+			'colors.deepOrange' => 'Naranja oscuro',
+			'colors.indigo' => 'Índigo',
+			_ => null,
+		};
 	}
 }
-
