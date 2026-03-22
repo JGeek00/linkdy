@@ -1099,6 +1099,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.14.0"
+  slideable:
+    dependency: "direct main"
+    description:
+      name: slideable
+      sha256: "6ab04552c1fba1767e91f09d6e3bc6acf69d87c0fadb8c19656f621ffd93fdf6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   source_gen:
     dependency: transitive
     description:

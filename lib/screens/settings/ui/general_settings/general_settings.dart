@@ -71,6 +71,12 @@ class GeneralSettings extends ConsumerWidget {
                       subtitle: Text(browserLabel()),
                       onTap: openBrowserSelectionSheet,
                     ),
+                    SwitchListTile(
+                      title: Text(t.settings.generalSettings.enableSlideOptions),
+                      subtitle: Text(t.settings.generalSettings.enableSlideOptionsDescription),
+                      value: ref.watch(appStatusProvider).enableSlideOptions,
+                      onChanged: ref.read(appStatusProvider.notifier).setEnableSlideOptions,
+                    ),
                     SectionLabel(label: t.settings.generalSettings.tags),
                     ListTile(
                       title: Text(t.settings.generalSettings.defaultTags.defaultTags),

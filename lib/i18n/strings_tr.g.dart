@@ -401,6 +401,8 @@ class _TranslationsSettingsGeneralSettingsTr implements TranslationsSettingsGene
 	@override String get others => 'Others';
 	@override String get setMarkAsUnreadDefault => 'Set mark as unread by default';
 	@override String get setMarkAsUnreadDefaultDescription => 'Set the mark as unread option by default when creating a new bookmark.';
+	@override String get enableSlideOptions => 'Enable slide options';
+	@override String get enableSlideOptionsDescription => 'Enable slide options on the bookmark list';
 }
 
 // Path: settings.generalSettings.disconnectModal
@@ -628,6 +630,8 @@ extension on TranslationsTr {
 			'settings.generalSettings.others' => 'Others',
 			'settings.generalSettings.setMarkAsUnreadDefault' => 'Set mark as unread by default',
 			'settings.generalSettings.setMarkAsUnreadDefaultDescription' => 'Set the mark as unread option by default when creating a new bookmark.',
+			'settings.generalSettings.enableSlideOptions' => 'Enable slide options',
+			'settings.generalSettings.enableSlideOptionsDescription' => 'Enable slide options on the bookmark list',
 			'webview.goBack' => 'Geri dön',
 			'webview.goForward' => 'İleri git',
 			'webview.reload' => 'Yenile',

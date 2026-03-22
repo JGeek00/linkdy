@@ -9,6 +9,7 @@ class AppStatusModel {
   bool showFavicon;
   List<String> defaultTags;
   bool markAsUnreadDefault;
+  bool enableSlideOptions;
 
   AppStatusModel({
     this.selectedTheme = SelectedTheme.system,
@@ -19,5 +20,6 @@ class AppStatusModel {
     this.showFavicon = true,
     required this.defaultTags,
     this.markAsUnreadDefault = false,
+    this.enableSlideOptions = true,
   });
 }

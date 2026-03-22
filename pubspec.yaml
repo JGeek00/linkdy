@@ -63,6 +63,7 @@ dependencies:
       ref: master-alt
   super_context_menu: ^0.9.1
   listen_sharing_intent: ^1.9.2
+  slideable: ^0.0.3
 
 dev_dependencies:
   build_runner: ^2.5.1

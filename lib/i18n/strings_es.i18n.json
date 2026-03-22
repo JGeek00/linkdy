@@ -219,7 +219,9 @@
       },
       "others": "Otros",
       "setMarkAsUnreadDefault": "Marcar como no leído por defecto",
-      "setMarkAsUnreadDefaultDescription": "Habilitar por defecto la opción de marcar como leído al crear un marcador."
+      "setMarkAsUnreadDefaultDescription": "Habilitar por defecto la opción de marcar como leído al crear un marcador.",
+      "enableSlideOptions": "Habilitar opciones al deslizar",
+      "enableSlideOptionsDescription": "Habilitar opciones al deslizar en la lista de marcadores"
     }
   },
   "webview": {

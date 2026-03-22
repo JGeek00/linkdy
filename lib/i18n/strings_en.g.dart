@@ -814,6 +814,12 @@ class TranslationsSettingsGeneralSettingsEn {
 
 	/// en: 'Set the mark as unread option by default when creating a new bookmark.'
 	String get setMarkAsUnreadDefaultDescription => 'Set the mark as unread option by default when creating a new bookmark.';
+
+	/// en: 'Enable slide options'
+	String get enableSlideOptions => 'Enable slide options';
+
+	/// en: 'Enable slide options on the bookmark list'
+	String get enableSlideOptionsDescription => 'Enable slide options on the bookmark list';
 }
 
 // Path: settings.generalSettings.disconnectModal
@@ -1057,6 +1063,8 @@ extension on Translations {
 			'settings.generalSettings.others' => 'Others',
 			'settings.generalSettings.setMarkAsUnreadDefault' => 'Set mark as unread by default',
 			'settings.generalSettings.setMarkAsUnreadDefaultDescription' => 'Set the mark as unread option by default when creating a new bookmark.',
+			'settings.generalSettings.enableSlideOptions' => 'Enable slide options',
+			'settings.generalSettings.enableSlideOptionsDescription' => 'Enable slide options on the bookmark list',
 			'webview.goBack' => 'Go back',
 			'webview.goForward' => 'Go forward',
 			'webview.reload' => 'Reload',

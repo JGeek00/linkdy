@@ -24,6 +24,7 @@ class AppStatus extends _$AppStatus {
       showFavicon: sharedPreferences.getBool(SharedPreferencesKeys.showFavicon) ?? true,
       defaultTags: sharedPreferences.getStringList(SharedPreferencesKeys.defaultTags) ?? [],
       markAsUnreadDefault: sharedPreferences.getBool(SharedPreferencesKeys.markAsUnreadDefault) ?? false,
+      enableSlideOptions: sharedPreferences.getBool(SharedPreferencesKeys.enableSlideOptions) ?? true,
     );
   }
 
@@ -79,6 +80,12 @@ class AppStatus extends _$AppStatus {
   void setMarkAsUnreadDefault(bool value) {
     state.markAsUnreadDefault = value;
     ref.read(sharedPreferencesProvider).setBool(SharedPreferencesKeys.markAsUnreadDefault, value);
+    ref.notifyListeners();
+  }
+
+  void setEnableSlideOptions(bool value) {
+    state.enableSlideOptions = value;
+    ref.read(sharedPreferencesProvider).setBool(SharedPreferencesKeys.enableSlideOptions, value);
     ref.notifyListeners();
   }
 }

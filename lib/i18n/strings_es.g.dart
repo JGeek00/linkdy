@@ -401,6 +401,8 @@ class _TranslationsSettingsGeneralSettingsEs implements TranslationsSettingsGene
 	@override String get others => 'Otros';
 	@override String get setMarkAsUnreadDefault => 'Marcar como no leído por defecto';
 	@override String get setMarkAsUnreadDefaultDescription => 'Habilitar por defecto la opción de marcar como leído al crear un marcador.';
+	@override String get enableSlideOptions => 'Habilitar opciones al deslizar';
+	@override String get enableSlideOptionsDescription => 'Habilitar opciones al deslizar en la lista de marcadores';
 }
 
 // Path: settings.generalSettings.disconnectModal
@@ -628,6 +630,8 @@ extension on TranslationsEs {
 			'settings.generalSettings.others' => 'Otros',
 			'settings.generalSettings.setMarkAsUnreadDefault' => 'Marcar como no leído por defecto',
 			'settings.generalSettings.setMarkAsUnreadDefaultDescription' => 'Habilitar por defecto la opción de marcar como leído al crear un marcador.',
+			'settings.generalSettings.enableSlideOptions' => 'Habilitar opciones al deslizar',
+			'settings.generalSettings.enableSlideOptionsDescription' => 'Habilitar opciones al deslizar en la lista de marcadores',
 			'webview.goBack' => 'Ir atrás',
 			'webview.goForward' => 'Ir adelante',
 			'webview.reload' => 'Recargar',

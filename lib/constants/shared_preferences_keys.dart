@@ -8,4 +8,5 @@ class SharedPreferencesKeys {
   static const openLinksBrowser = "openLinksBrowser";
   static const defaultTags = "defaultTags";
   static const markAsUnreadDefault = "markAsUnreadDefault";
+  static const enableSlideOptions = "enableSlideOptions";
 }

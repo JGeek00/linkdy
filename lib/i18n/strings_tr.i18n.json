@@ -219,7 +219,9 @@
       },
       "others": "Others",
       "setMarkAsUnreadDefault": "Set mark as unread by default",
-      "setMarkAsUnreadDefaultDescription": "Set the mark as unread option by default when creating a new bookmark."
+      "setMarkAsUnreadDefaultDescription": "Set the mark as unread option by default when creating a new bookmark.",
+      "enableSlideOptions": "Enable slide options",
+      "enableSlideOptionsDescription": "Enable slide options on the bookmark list"
     }
   },
   "webview": {
