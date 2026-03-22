@@ -2,7 +2,7 @@ PODS:
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - flutter_custom_tabs_ios (2.4.0):
+  - flutter_custom_tabs_ios (2.5.0):
     - Flutter
   - flutter_native_splash (2.4.3):
     - Flutter
@@ -10,18 +10,13 @@ PODS:
     - Flutter
   - listen_sharing_intent (1.9.2):
     - Flutter
-  - objective_c (0.0.1):
-    - Flutter
   - package_info_plus (0.4.5):
     - Flutter
-  - path_provider_foundation (0.0.1):
+  - Sentry/HybridSDK (8.58.0)
+  - sentry_flutter (9.15.0):
     - Flutter
     - FlutterMacOS
-  - Sentry/HybridSDK (8.56.2)
-  - sentry_flutter (9.8.0):
-    - Flutter
-    - FlutterMacOS
-    - Sentry/HybridSDK (= 8.56.2)
+    - Sentry/HybridSDK (= 8.58.0)
   - share_plus (0.0.1):
     - Flutter
   - shared_preferences_foundation (0.0.1):
@@ -42,9 +37,7 @@ DEPENDENCIES:
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - irondash_engine_context (from `.symlinks/plugins/irondash_engine_context/ios`)
   - listen_sharing_intent (from `.symlinks/plugins/listen_sharing_intent/ios`)
-  - objective_c (from `.symlinks/plugins/objective_c/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
-  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - sentry_flutter (from `.symlinks/plugins/sentry_flutter/ios`)
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
@@ -69,12 +62,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/irondash_engine_context/ios"
   listen_sharing_intent:
     :path: ".symlinks/plugins/listen_sharing_intent/ios"
-  objective_c:
-    :path: ".symlinks/plugins/objective_c/ios"
   package_info_plus:
     :path: ".symlinks/plugins/package_info_plus/ios"
-  path_provider_foundation:
-    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   sentry_flutter:
     :path: ".symlinks/plugins/sentry_flutter/ios"
   share_plus:
@@ -89,22 +78,20 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/darwin"
 
 SPEC CHECKSUMS:
-  device_info_plus: 97af1d7e84681a90d0693e63169a5d50e0839a0d
+  device_info_plus: bf2e3232933866d73fe290f2942f2156cdd10342
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
-  flutter_custom_tabs_ios: 89e60122b553c69a79bfd45eb8eb99d911c1a9c0
+  flutter_custom_tabs_ios: 706423b5f8773208a87b2e5a5ba757a899ed7cbd
   flutter_native_splash: df59bb2e1421aa0282cb2e95618af4dcb0c56c29
   irondash_engine_context: 3458bf979b90d616ffb8ae03a150bafe2e860cc9
   listen_sharing_intent: 74a842adcbcf7bedf7bbc938c749da9155141b9a
-  objective_c: 77e887b5ba1827970907e10e832eec1683f3431d
   package_info_plus: c0502532a26c7662a62a356cebe2692ec5fe4ec4
-  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
-  Sentry: b53951377b78e21a734f5dc8318e333dbfc682d7
-  sentry_flutter: f074f75557daea0e1dd9607381a05cc0e3e456fe
+  Sentry: d587a8fe91ca13503ecd69a1905f3e8a0fcf61be
+  sentry_flutter: d17e659e7ca47f9a40d65c93605f85b7346ece89
   share_plus: 8b6f8b3447e494cca5317c8c3073de39b3600d1f
-  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
+  shared_preferences_foundation: 5086985c1d43c5ba4d5e69a4e8083a389e2909e6
   super_native_extensions: 4916b3c627a9c7fffdc48a23a9eca0b1ac228fa7
-  url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
-  webview_flutter_wkwebview: a4af96a051138e28e29f60101d094683b9f82188
+  url_launcher_ios: bb13df5870e8c4234ca12609d04010a21be43dfa
+  webview_flutter_wkwebview: 29eb20d43355b48fe7d07113835b9128f84e3af4
 
 PODFILE CHECKSUM: f4a1a94f7b997c60f34f5ec510acd4c2ebcd8b70
 
