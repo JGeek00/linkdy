@@ -168,6 +168,7 @@ class _TranslationsSettingsEs implements TranslationsSettingsEn {
 	@override String get moreInfoAppDescription => 'Enlace a la página web de información de la aplicación';
 	@override String get moreApps => 'Mis otras aplicaciones';
 	@override String get moreAppsDescription => 'Más aplicaciones, contacto, donaciones y más';
+	@override String get selectAnOption => 'Selecciona una opción';
 	@override late final _TranslationsSettingsCustomizationEs customization = _TranslationsSettingsCustomizationEs._(_root);
 	@override late final _TranslationsSettingsGeneralSettingsEs generalSettings = _TranslationsSettingsGeneralSettingsEs._(_root);
 }
@@ -598,6 +599,7 @@ extension on TranslationsEs {
 			'settings.moreInfoAppDescription' => 'Enlace a la página web de información de la aplicación',
 			'settings.moreApps' => 'Mis otras aplicaciones',
 			'settings.moreAppsDescription' => 'Más aplicaciones, contacto, donaciones y más',
+			'settings.selectAnOption' => 'Selecciona una opción',
 			'settings.customization.customization' => 'Personalización',
 			'settings.customization.customizationDescription' => 'Configura el tema y la paleta de colores.',
 			'settings.customization.theme' => 'Tema',

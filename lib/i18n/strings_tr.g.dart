@@ -168,6 +168,7 @@ class _TranslationsSettingsTr implements TranslationsSettingsEn {
 	@override String get moreInfoAppDescription => 'Uygulamanın bilgi sayfasına bağlantı';
 	@override String get moreApps => 'Diğer uygulamalarım';
 	@override String get moreAppsDescription => 'Daha fazla uygulama, iletişim, bağış ve daha fazlası';
+	@override String get selectAnOption => 'Bir seçenek seçin';
 	@override late final _TranslationsSettingsCustomizationTr customization = _TranslationsSettingsCustomizationTr._(_root);
 	@override late final _TranslationsSettingsGeneralSettingsTr generalSettings = _TranslationsSettingsGeneralSettingsTr._(_root);
 }
@@ -598,6 +599,7 @@ extension on TranslationsTr {
 			'settings.moreInfoAppDescription' => 'Uygulamanın bilgi sayfasına bağlantı',
 			'settings.moreApps' => 'Diğer uygulamalarım',
 			'settings.moreAppsDescription' => 'Daha fazla uygulama, iletişim, bağış ve daha fazlası',
+			'settings.selectAnOption' => 'Bir seçenek seçin',
 			'settings.customization.customization' => 'Özelleştirme',
 			'settings.customization.customizationDescription' => 'Uygulama temasını ve renk paletini ayarlayın.',
 			'settings.customization.theme' => 'Tema',

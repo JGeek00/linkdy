@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_split_view/flutter_split_view.dart';
 
 import 'package:linkdy/screens/settings/ui/customization/customization.dart';
 import 'package:linkdy/screens/settings/provider/settings.provider.dart';
@@ -24,10 +23,11 @@ class SettingsScreen extends ConsumerWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth > Sizes.tabletBreakpoint) {
-          return const SplitView.material(
-            hideDivider: true,
-            flexWidth: FlexWidth(mainViewFlexWidth: 1, secondaryViewFlexWidth: 2),
-            child: _List(tabletView: true),
+          return Row(
+            children: [
+              const Expanded(flex: 1, child: _List(tabletView: true)),
+              Expanded(flex: 2, child: Material(child: const _DetailPanel())),
+            ],
           );
         } else {
           return const _List(tabletView: false);
@@ -163,7 +163,6 @@ class _SettingsTile extends ConsumerWidget {
         selectedItem: ref.watch(settingsProvider).selectedScreen,
         onTap: () {
           ref.read(settingsProvider.notifier).setSelectedScreen(thisItem);
-          SplitView.of(context).setSecondary(screenToNavigate);
         },
       );
     } else {
@@ -175,6 +174,29 @@ class _SettingsTile extends ConsumerWidget {
           Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (context) => screenToNavigate));
         },
       );
+    }
+  }
+}
+
+class _DetailPanel extends ConsumerWidget {
+  const _DetailPanel();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedScreen = ref.watch(settingsProvider).selectedScreen;
+
+    switch (selectedScreen) {
+      case 0:
+        return const Customization();
+      case 1:
+        return const GeneralSettings();
+      default:
+        return Center(
+          child: Text(
+            t.settings.selectAnOption,
+            style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
+          ),
+        );
     }
   }
 }

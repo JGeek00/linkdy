@@ -319,6 +319,9 @@ class TranslationsSettingsEn {
 	/// en: 'More apps, contact, donations and more'
 	String get moreAppsDescription => 'More apps, contact, donations and more';
 
+	/// en: 'Select an option'
+	String get selectAnOption => 'Select an option';
+
 	late final TranslationsSettingsCustomizationEn customization = TranslationsSettingsCustomizationEn._(_root);
 	late final TranslationsSettingsGeneralSettingsEn generalSettings = TranslationsSettingsGeneralSettingsEn._(_root);
 }
@@ -1031,6 +1034,7 @@ extension on Translations {
 			'settings.moreInfoAppDescription' => 'Link to the app\'s information page',
 			'settings.moreApps' => 'My other apps',
 			'settings.moreAppsDescription' => 'More apps, contact, donations and more',
+			'settings.selectAnOption' => 'Select an option',
 			'settings.customization.customization' => 'Customization',
 			'settings.customization.customizationDescription' => 'Set the app theme and color palette.',
 			'settings.customization.theme' => 'Theme',

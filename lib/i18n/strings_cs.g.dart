@@ -168,6 +168,7 @@ class _TranslationsSettingsCs implements TranslationsSettingsEn {
 	@override String get moreInfoAppDescription => 'Odkaz na webové stránky aplikace';
 	@override String get moreApps => 'Moje další aplikace';
 	@override String get moreAppsDescription => 'Další projekty, kontakt, podpora a další';
+	@override String get selectAnOption => 'Vyberte možnost';
 	@override late final _TranslationsSettingsCustomizationCs customization = _TranslationsSettingsCustomizationCs._(_root);
 	@override late final _TranslationsSettingsGeneralSettingsCs generalSettings = _TranslationsSettingsGeneralSettingsCs._(_root);
 }
@@ -598,6 +599,7 @@ extension on TranslationsCs {
 			'settings.moreInfoAppDescription' => 'Odkaz na webové stránky aplikace',
 			'settings.moreApps' => 'Moje další aplikace',
 			'settings.moreAppsDescription' => 'Další projekty, kontakt, podpora a další',
+			'settings.selectAnOption' => 'Vyberte možnost',
 			'settings.customization.customization' => 'Přizpůsobení',
 			'settings.customization.customizationDescription' => 'Nastavte motiv aplikace a barevnou paletu.',
 			'settings.customization.theme' => 'Motiv',
