@@ -42,6 +42,7 @@ class BookmarksScreen extends HookConsumerWidget {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (sharedUrl == null) return;
+      debugPrint("LINKDY_ORDER form $sharedUrl");
       openBookmarkFormModal(context: context, width: width, url: fixUrlTitle(sharedUrl));
       ref.read(receiveSharingIntentUrlProvider.notifier).setValue(null);
     });
