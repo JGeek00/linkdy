@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -12,7 +11,6 @@ part 'router.provider.g.dart';
 GoRouter router(RouterRef ref) {
   return GoRouter(
     redirect: (context, state) {
-      debugPrint("LINKDY_ORDER router ${state.uri} error=${state.error}");
       if (ref.watch(apiClientProvider) == null) {
         return RoutesPaths.onboarding;
       }

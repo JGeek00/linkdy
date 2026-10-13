@@ -25,22 +25,8 @@ import 'package:linkdy/providers/router.provider.dart';
 import 'package:linkdy/providers/shared_preferences.provider.dart';
 import 'package:linkdy/utils/http_overrides.dart';
 
-// Diagnostic only: let the real payload callback overtake the platform route.
-class _DelayedShareRoute extends WidgetsBindingObserver {
-  @override
-  Future<bool> didPushRouteInformation(RouteInformation routeInformation) async {
-    if (routeInformation.uri.scheme == 'sharemedia-com.jgeek00.linkdy') {
-      debugPrint('LINKDY_ORDER holding platform route ${routeInformation.uri}');
-      await Future<void>.delayed(const Duration(milliseconds: 250));
-      debugPrint('LINKDY_ORDER releasing platform route ${routeInformation.uri}');
-    }
-    return false;
-  }
-}
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  WidgetsBinding.instance.addObserver(_DelayedShareRoute());
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
   LocaleSettings.useDeviceLocale();
@@ -94,7 +80,6 @@ class _MyAppState extends ConsumerState<MyApp> {
 
     ReceiveSharingIntent.instance.getMediaStream().listen(
       (value) {
-        debugPrint("LINKDY_ORDER stream ${value.map((item) => item.path).toList()}");
         if (value.isNotEmpty &&
             (value.first.type == SharedMediaType.url || (value.first.type == SharedMediaType.text))) {
           ref.read(receiveSharingIntentUrlProvider.notifier).setValue(value.first.path);
@@ -106,7 +91,6 @@ class _MyAppState extends ConsumerState<MyApp> {
 
     ReceiveSharingIntent.instance.getInitialMedia().then(
       (value) {
-        debugPrint("LINKDY_ORDER initial ${value.map((item) => item.path).toList()}");
         if (value.isNotEmpty &&
             (value.first.type == SharedMediaType.url || (value.first.type == SharedMediaType.text))) {
           ref.read(receiveSharingIntentUrlProvider.notifier).setValue(value.first.path);
