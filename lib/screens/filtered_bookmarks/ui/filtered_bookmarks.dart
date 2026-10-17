@@ -49,7 +49,7 @@ class FilteredBookmarksScreen extends HookConsumerWidget {
           if (tagId != null) {
             ref.read(filteredBookmarksProvider).tagId = tagId;
           }
-          ref.read(tagBookmarksRequestProvider(tag, tagId, ref.read(filteredBookmarksProvider).limit));
+          ref.read(tagBookmarksRequestProvider(tag, tagId, ref.read(filteredBookmarksProvider).limit).future);
         } else {
           ref.read(
             filteredBookmarksRequestProvider(filteredBookmarksMode, ref.read(filteredBookmarksProvider).limit),

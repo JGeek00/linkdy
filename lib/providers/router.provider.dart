@@ -8,7 +8,7 @@ import 'package:linkdy/providers/api_client.provider.dart';
 part 'router.provider.g.dart';
 
 @Riverpod(keepAlive: true)
-GoRouter router(RouterRef ref) {
+GoRouter router(Ref ref) {
   return GoRouter(
     redirect: (context, state) {
       if (ref.watch(apiClientProvider) == null) {

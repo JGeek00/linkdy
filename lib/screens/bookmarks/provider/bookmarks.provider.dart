@@ -21,33 +21,38 @@ part 'bookmarks.provider.g.dart';
 
 @riverpod
 FutureOr<void> bookmarksRequest(
-  BookmarksRequestRef ref,
+  Ref ref,
   ReadStatus readStatus,
   SortingType type,
   SortingWay way,
   int limit,
 ) async {
-  final result = await ref.watch(apiClientProvider)!.fetchBookmarks(
-        limit: limit,
-        offset: 0,
-        unread: readStatus,
-        sort: "${type == SortingType.title ? "title" : "added"}_${way == SortingWay.ascendant ? "asc" : "desc"}",
-      );
+  final keepAlive = ref.keepAlive();
+  try {
+    final result = await ref.watch(apiClientProvider)!.fetchBookmarks(
+          limit: limit,
+          offset: 0,
+          unread: readStatus,
+          sort: "${type == SortingType.title ? "title" : "added"}_${way == SortingWay.ascendant ? "asc" : "desc"}",
+        );
 
-  if (result.successful == true && result.content?.results != null && result.content?.count != null) {
-    ref.read(bookmarksProvider).bookmarks = result.content!.results!;
-    ref.read(bookmarksProvider).maxNumber = result.content!.count!;
-    ref.read(bookmarksProvider).currentPage = 0;
-    ref.read(bookmarksProvider).loadingMore = false;
-    ref.read(bookmarksProvider).inialLoadStatus = LoadStatus.loaded;
-  } else {
-    ref.read(bookmarksProvider).inialLoadStatus = LoadStatus.error;
+    if (result.successful == true && result.content?.results != null && result.content?.count != null) {
+      ref.read(bookmarksProvider).bookmarks = result.content!.results!;
+      ref.read(bookmarksProvider).maxNumber = result.content!.count!;
+      ref.read(bookmarksProvider).currentPage = 0;
+      ref.read(bookmarksProvider).loadingMore = false;
+      ref.read(bookmarksProvider).inialLoadStatus = LoadStatus.loaded;
+    } else {
+      ref.read(bookmarksProvider).inialLoadStatus = LoadStatus.error;
+    }
+    ref.read(bookmarksProvider.notifier).notifyListeners();
+  } finally {
+    keepAlive.close();
   }
-  ref.read(bookmarksProvider.notifier).notifyListeners();
 }
 
 @riverpod
-FutureOr<void> bookmarksRequestLoadMore(BookmarksRequestLoadMoreRef ref) async {
+FutureOr<void> bookmarksRequestLoadMore(Ref ref) async {
   final provider = ref.watch(bookmarksProvider);
 
   final sortingType = ref.watch(bookmarksProvider).sortingType;
@@ -110,7 +115,7 @@ class Bookmarks extends _$Bookmarks {
         ],
       ),
     );
-    ref.read(bookmarksRequestProvider(model.readStatus, model.sortingType, model.sortingWay, model.limit));
+    ref.read(bookmarksRequestProvider(model.readStatus, model.sortingType, model.sortingWay, model.limit).future);
     return model;
   }
 
@@ -138,19 +143,19 @@ class Bookmarks extends _$Bookmarks {
 
   void setReadStatus(ReadStatus status) {
     state.readStatus = status;
-    ref.read(bookmarksRequestProvider(status, state.sortingType, state.sortingWay, state.limit));
+    ref.read(bookmarksRequestProvider(status, state.sortingType, state.sortingWay, state.limit).future);
     ref.notifyListeners();
   }
 
   void setSortingType(SortingType type) {
     state.sortingType = type;
-    ref.read(bookmarksRequestProvider(state.readStatus, type, state.sortingWay, state.limit));
+    ref.read(bookmarksRequestProvider(state.readStatus, type, state.sortingWay, state.limit).future);
     ref.notifyListeners();
   }
 
   void setSortingWay(SortingWay way) {
     state.sortingWay = way;
-    ref.read(bookmarksRequestProvider(state.readStatus, state.sortingType, way, state.limit));
+    ref.read(bookmarksRequestProvider(state.readStatus, state.sortingType, way, state.limit).future);
     ref.notifyListeners();
   }
 

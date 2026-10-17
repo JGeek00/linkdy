@@ -6,189 +6,164 @@ part of 'search_bookmarks.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fetchSearchBookmarksHash() =>
-    r'a854d28b2c2b6761cfd716bcbe081b54fbbf29ef';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [fetchSearchBookmarks].
 @ProviderFor(fetchSearchBookmarks)
-const fetchSearchBookmarksProvider = FetchSearchBookmarksFamily();
+final fetchSearchBookmarksProvider = FetchSearchBookmarksFamily._();
 
-/// See also [fetchSearchBookmarks].
-class FetchSearchBookmarksFamily extends Family<AsyncValue<void>> {
-  /// See also [fetchSearchBookmarks].
-  const FetchSearchBookmarksFamily();
-
-  /// See also [fetchSearchBookmarks].
-  FetchSearchBookmarksProvider call(
-    int limit,
-  ) {
-    return FetchSearchBookmarksProvider(
-      limit,
-    );
-  }
-
-  @override
-  FetchSearchBookmarksProvider getProviderOverride(
-    covariant FetchSearchBookmarksProvider provider,
-  ) {
-    return call(
-      provider.limit,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'fetchSearchBookmarksProvider';
-}
-
-/// See also [fetchSearchBookmarks].
-class FetchSearchBookmarksProvider extends AutoDisposeFutureProvider<void> {
-  /// See also [fetchSearchBookmarks].
-  FetchSearchBookmarksProvider(
-    int limit,
-  ) : this._internal(
-          (ref) => fetchSearchBookmarks(
-            ref as FetchSearchBookmarksRef,
-            limit,
-          ),
-          from: fetchSearchBookmarksProvider,
+final class FetchSearchBookmarksProvider
+    extends $FunctionalProvider<AsyncValue<void>, void, FutureOr<void>>
+    with $FutureModifier<void>, $FutureProvider<void> {
+  FetchSearchBookmarksProvider._(
+      {required FetchSearchBookmarksFamily super.from,
+      required int super.argument})
+      : super(
+          retry: null,
           name: r'fetchSearchBookmarksProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$fetchSearchBookmarksHash,
-          dependencies: FetchSearchBookmarksFamily._dependencies,
-          allTransitiveDependencies:
-              FetchSearchBookmarksFamily._allTransitiveDependencies,
-          limit: limit,
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
         );
 
-  FetchSearchBookmarksProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.limit,
-  }) : super.internal();
-
-  final int limit;
+  @override
+  String debugGetCreateSourceHash() => _$fetchSearchBookmarksHash();
 
   @override
-  Override overrideWith(
-    FutureOr<void> Function(FetchSearchBookmarksRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: FetchSearchBookmarksProvider._internal(
-        (ref) => create(ref as FetchSearchBookmarksRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        limit: limit,
-      ),
-    );
+  String toString() {
+    return r'fetchSearchBookmarksProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  AutoDisposeFutureProviderElement<void> createElement() {
-    return _FetchSearchBookmarksProviderElement(this);
+  $FutureProviderElement<void> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<void> create(Ref ref) {
+    final argument = this.argument as int;
+    return fetchSearchBookmarks(
+      ref,
+      argument,
+    );
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FetchSearchBookmarksProvider && other.limit == limit;
+    return other is FetchSearchBookmarksProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, limit.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-mixin FetchSearchBookmarksRef on AutoDisposeFutureProviderRef<void> {
-  /// The parameter `limit` of this provider.
-  int get limit;
-}
+String _$fetchSearchBookmarksHash() =>
+    r'd4db022f9356eeba7327f4daab2f174d59c0e7b1';
 
-class _FetchSearchBookmarksProviderElement
-    extends AutoDisposeFutureProviderElement<void>
-    with FetchSearchBookmarksRef {
-  _FetchSearchBookmarksProviderElement(super.provider);
+final class FetchSearchBookmarksFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<void>, int> {
+  FetchSearchBookmarksFamily._()
+      : super(
+          retry: null,
+          name: r'fetchSearchBookmarksProvider',
+          dependencies: null,
+          $allTransitiveDependencies: null,
+          isAutoDispose: true,
+        );
+
+  FetchSearchBookmarksProvider call(
+    int limit,
+  ) =>
+      FetchSearchBookmarksProvider._(argument: limit, from: this);
 
   @override
-  int get limit => (origin as FetchSearchBookmarksProvider).limit;
+  String toString() => r'fetchSearchBookmarksProvider';
+}
+
+@ProviderFor(fetchSearchBookmarksLoadMore)
+final fetchSearchBookmarksLoadMoreProvider =
+    FetchSearchBookmarksLoadMoreProvider._();
+
+final class FetchSearchBookmarksLoadMoreProvider
+    extends $FunctionalProvider<AsyncValue<void>, void, FutureOr<void>>
+    with $FutureModifier<void>, $FutureProvider<void> {
+  FetchSearchBookmarksLoadMoreProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'fetchSearchBookmarksLoadMoreProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$fetchSearchBookmarksLoadMoreHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<void> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<void> create(Ref ref) {
+    return fetchSearchBookmarksLoadMore(ref);
+  }
 }
 
 String _$fetchSearchBookmarksLoadMoreHash() =>
-    r'f07a6a89f5a87a0f26d3a8d2d49f1d98ce36a287';
+    r'1049ac4fdb1598074bfe8066e33cd6e5f2cf4253';
 
-/// See also [fetchSearchBookmarksLoadMore].
-@ProviderFor(fetchSearchBookmarksLoadMore)
-final fetchSearchBookmarksLoadMoreProvider =
-    AutoDisposeFutureProvider<void>.internal(
-  fetchSearchBookmarksLoadMore,
-  name: r'fetchSearchBookmarksLoadMoreProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$fetchSearchBookmarksLoadMoreHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef FetchSearchBookmarksLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$searchBookmarksHash() => r'545924de28fd2ce74b8c243db8dda33c5fd079a2';
-
-/// See also [SearchBookmarks].
 @ProviderFor(SearchBookmarks)
-final searchBookmarksProvider =
-    AutoDisposeNotifierProvider<SearchBookmarks, SearchBookmarksModel>.internal(
-  SearchBookmarks.new,
-  name: r'searchBookmarksProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$searchBookmarksHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final searchBookmarksProvider = SearchBookmarksProvider._();
 
-typedef _$SearchBookmarks = AutoDisposeNotifier<SearchBookmarksModel>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class SearchBookmarksProvider
+    extends $NotifierProvider<SearchBookmarks, SearchBookmarksModel> {
+  SearchBookmarksProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'searchBookmarksProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$searchBookmarksHash();
+
+  @$internal
+  @override
+  SearchBookmarks create() => SearchBookmarks();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(SearchBookmarksModel value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<SearchBookmarksModel>(value),
+    );
+  }
+}
+
+String _$searchBookmarksHash() => r'dfa36324f7f6c67b97581b09994670bf466b3982';
+
+abstract class _$SearchBookmarks extends $Notifier<SearchBookmarksModel> {
+  SearchBookmarksModel build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final ref = this.ref as $Ref<SearchBookmarksModel, SearchBookmarksModel>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<SearchBookmarksModel, SearchBookmarksModel>,
+        SearchBookmarksModel,
+        Object?,
+        Object?>;
+    element.handleCreate(ref, build);
+  }
+}

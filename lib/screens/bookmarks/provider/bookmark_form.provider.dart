@@ -22,13 +22,13 @@ import 'package:linkdy/providers/api_client.provider.dart';
 part 'bookmark_form.provider.g.dart';
 
 @riverpod
-Future<ApiResponse<CheckBookmark>> checkBookmark(CheckBookmarkRef ref, String url) async {
+Future<ApiResponse<CheckBookmark>> checkBookmark(Ref ref, String url) async {
   final result = await ref.watch(apiClientProvider)!.fetchCheckAddBookmark(url: url);
   return result;
 }
 
 @riverpod
-FutureOr<ApiResponse<TagsResponse>> getTags(GetTagsRef ref) async {
+FutureOr<ApiResponse<TagsResponse>> getTags(Ref ref) async {
   final result = await ref.watch(apiClientProvider)!.fetchTags();
   return result;
 }

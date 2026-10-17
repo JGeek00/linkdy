@@ -11,7 +11,7 @@ import 'package:linkdy/utils/process_modal.dart';
 
 class BookmarkCommonFunctions {
   static Future<bool> deleteBookmark<T>({
-    required AutoDisposeNotifierProviderRef<T> ref,
+    required Ref ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
     required GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
@@ -39,7 +39,7 @@ class BookmarkCommonFunctions {
   }
 
   static Future<Bookmark?> markAsReadUnread<T>({
-    required AutoDisposeNotifierProviderRef<T> ref,
+    required Ref ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
     required GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
@@ -86,7 +86,7 @@ class BookmarkCommonFunctions {
   }
 
   static Future<bool> archiveUnarchive<T>({
-    required AutoDisposeNotifierProviderRef<T> ref,
+    required Ref ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
     required GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
@@ -124,7 +124,7 @@ class BookmarkCommonFunctions {
   }
 
   static Future<Bookmark?> shareUnshare<T>({
-    required AutoDisposeNotifierProviderRef<T> ref,
+    required Ref ref,
     required Bookmark bookmark,
     required ApiClientService apiClient,
     required GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,

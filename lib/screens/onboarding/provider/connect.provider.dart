@@ -124,7 +124,7 @@ class Connect extends _$Connect {
 }
 
 @riverpod
-FutureOr<bool> connectToServer(ConnectToServerRef ref) async {
+FutureOr<bool> connectToServer(Ref ref) async {
   final serverInstance = ServerInstance(
     id: uuid.v4(),
     method: ConnectionMethod.values[ref.watch(connectProvider).method].name,

@@ -81,7 +81,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Page Not Found'), findsOneWidget);
 
-    await tester.tap(find.text('Home'));
+    await tester.tap(find.text('Go to home page'));
     await tester.pumpAndSettle();
 
     expect(find.byType(BookmarksScreen), findsOneWidget);

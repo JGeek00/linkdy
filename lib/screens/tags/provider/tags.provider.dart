@@ -8,7 +8,7 @@ import 'package:linkdy/providers/api_client.provider.dart';
 part 'tags.provider.g.dart';
 
 @riverpod
-FutureOr<ApiResponse<TagsResponse>> tagsRequest(TagsRequestRef ref) async {
+FutureOr<ApiResponse<TagsResponse>> tagsRequest(Ref ref) async {
   final result = await ref.watch(apiClientProvider)!.fetchTags();
   return result;
 }

@@ -6,20 +6,48 @@ part of 'dio_interceptor.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dioInterceptorHash() => r'16ba03ce5f4547c91566a38f348cf85df73fbfca';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [dioInterceptor].
 @ProviderFor(dioInterceptor)
-final dioInterceptorProvider = Provider<InterceptorsWrapper>.internal(
-  dioInterceptor,
-  name: r'dioInterceptorProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$dioInterceptorHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final dioInterceptorProvider = DioInterceptorProvider._();
 
-typedef DioInterceptorRef = ProviderRef<InterceptorsWrapper>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class DioInterceptorProvider extends $FunctionalProvider<
+    InterceptorsWrapper,
+    InterceptorsWrapper,
+    InterceptorsWrapper> with $Provider<InterceptorsWrapper> {
+  DioInterceptorProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'dioInterceptorProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$dioInterceptorHash();
+
+  @$internal
+  @override
+  $ProviderElement<InterceptorsWrapper> $createElement(
+          $ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  InterceptorsWrapper create(Ref ref) {
+    return dioInterceptor(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(InterceptorsWrapper value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<InterceptorsWrapper>(value),
+    );
+  }
+}
+
+String _$dioInterceptorHash() => r'db8839028385dd972623750ea3a7b3dd9d8ca283';

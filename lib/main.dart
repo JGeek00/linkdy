@@ -86,7 +86,9 @@ class _MyAppState extends ConsumerState<MyApp> {
           ref.read(routerProvider).go(RoutesPaths.bookmarks);
         }
       },
-      onError: (e, stackTrace) => Sentry.captureException(e, stackTrace: stackTrace),
+      onError: (e, stackTrace) {
+        Sentry.captureException(e, stackTrace: stackTrace);
+      },
     );
 
     ReceiveSharingIntent.instance.getInitialMedia().then(
@@ -98,7 +100,9 @@ class _MyAppState extends ConsumerState<MyApp> {
           ReceiveSharingIntent.instance.reset();
         }
       },
-      onError: (e, stackTrace) => Sentry.captureException(e, stackTrace: stackTrace),
+      onError: (e, stackTrace) {
+        Sentry.captureException(e, stackTrace: stackTrace);
+      },
     );
   }
 

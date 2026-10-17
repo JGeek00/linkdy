@@ -22,81 +22,96 @@ import 'package:linkdy/providers/api_client.provider.dart';
 part 'filtered_bookmarks.provider.g.dart';
 
 @riverpod
-FutureOr<void> tagBookmarksRequest(TagBookmarksRequestRef ref, Tag? tag, String? tagId, int limit) async {
-  final tagResult = tag == null ? await ref.read(apiClientProvider)!.fetchTagById(tagId!) : null;
-  if (tagResult != null && tagResult.successful == false) {
-    ref.read(filteredBookmarksProvider.notifier).setInitialLoadStatus(LoadStatus.error);
-    return;
+FutureOr<void> tagBookmarksRequest(Ref ref, Tag? tag, String? tagId, int limit) async {
+  final keepAlive = ref.keepAlive();
+  try {
+    final tagResult = tag == null ? await ref.read(apiClientProvider)!.fetchTagById(tagId!) : null;
+    if (tagResult != null && tagResult.successful == false) {
+      ref.read(filteredBookmarksProvider.notifier).setInitialLoadStatus(LoadStatus.error);
+      return;
+    }
+
+    final bookmarksResult = await ref.read(apiClientProvider)!.fetchBookmarks(
+          q: tag != null ? "#${tag.name}" : tagResult!.content!.name,
+          limit: limit,
+          offset: 0,
+        );
+
+    if (bookmarksResult.successful == true) {
+      ref.read(filteredBookmarksProvider).bookmarks = bookmarksResult.content!.results!;
+      ref.read(filteredBookmarksProvider).maxNumber = bookmarksResult.content!.count!;
+      if (tag == null) ref.read(filteredBookmarksProvider).tag = tagResult!.content!;
+      ref.read(filteredBookmarksProvider).currentPage = 0;
+      ref.read(filteredBookmarksProvider).loadingMore = false;
+      ref.read(filteredBookmarksProvider).initialLoadStatus = LoadStatus.loaded;
+    } else {
+      ref.read(filteredBookmarksProvider).initialLoadStatus = LoadStatus.error;
+    }
+
+    ref.read(filteredBookmarksProvider.notifier).notifyListeners();
+  } finally {
+    keepAlive.close();
   }
-
-  final bookmarksResult = await ref.read(apiClientProvider)!.fetchBookmarks(
-        q: tag != null ? "#${tag.name}" : tagResult!.content!.name,
-        limit: limit,
-        offset: 0,
-      );
-
-  if (bookmarksResult.successful == true) {
-    ref.read(filteredBookmarksProvider).bookmarks = bookmarksResult.content!.results!;
-    ref.read(filteredBookmarksProvider).maxNumber = bookmarksResult.content!.count!;
-    if (tag == null) ref.read(filteredBookmarksProvider).tag = tagResult!.content!;
-    ref.read(filteredBookmarksProvider).currentPage = 0;
-    ref.read(filteredBookmarksProvider).loadingMore = false;
-    ref.read(filteredBookmarksProvider).initialLoadStatus = LoadStatus.loaded;
-  } else {
-    ref.read(filteredBookmarksProvider).initialLoadStatus = LoadStatus.error;
-  }
-
-  ref.read(filteredBookmarksProvider.notifier).notifyListeners();
 }
 
 @riverpod
-FutureOr<void> tagBookmarksRequestLoadMore(FilteredBookmarksRequestLoadMoreRef ref) async {
+FutureOr<void> tagBookmarksRequestLoadMore(Ref ref) async {
   final provider = ref.read(filteredBookmarksProvider);
+  final keepAlive = ref.keepAlive();
 
   final newOffset = provider.limit * (provider.currentPage + 1);
 
-  final result = await ref.read(apiClientProvider)!.fetchBookmarks(
-        q: provider.tag!.name,
-        limit: provider.limit,
-        offset: newOffset,
-      );
+  try {
+    final result = await ref.read(apiClientProvider)!.fetchBookmarks(
+          q: provider.tag!.name,
+          limit: provider.limit,
+          offset: newOffset,
+        );
 
-  if (result.successful == true) {
-    provider.bookmarks = [...provider.bookmarks, ...result.content!.results!];
-    provider.maxNumber = result.content!.count!;
-    provider.currentPage = provider.currentPage + 1;
+    if (result.successful == true) {
+      provider.bookmarks = [...provider.bookmarks, ...result.content!.results!];
+      provider.maxNumber = result.content!.count!;
+      provider.currentPage = provider.currentPage + 1;
+    }
+
+    ref.read(filteredBookmarksProvider.notifier).setLoadingMore(false);
+  } finally {
+    keepAlive.close();
   }
-
-  ref.read(filteredBookmarksProvider.notifier).setLoadingMore(false);
 }
 
 @riverpod
-FutureOr<void> filteredBookmarksRequest(FilteredBookmarksRequestRef ref, FilteredBookmarksMode mode, int limit) async {
-  final bookmarksResult = mode == FilteredBookmarksMode.shared
-      ? await ref.read(apiClientProvider)!.fetchSharedBookmarks(
-            limit: limit,
-            offset: 0,
-          )
-      : await ref.read(apiClientProvider)!.fetchArchivedBookmarks(
-            limit: limit,
-            offset: 0,
-          );
+FutureOr<void> filteredBookmarksRequest(Ref ref, FilteredBookmarksMode mode, int limit) async {
+  final keepAlive = ref.keepAlive();
+  try {
+    final bookmarksResult = mode == FilteredBookmarksMode.shared
+        ? await ref.read(apiClientProvider)!.fetchSharedBookmarks(
+              limit: limit,
+              offset: 0,
+            )
+        : await ref.read(apiClientProvider)!.fetchArchivedBookmarks(
+              limit: limit,
+              offset: 0,
+            );
 
-  if (bookmarksResult.successful == true) {
-    ref.read(filteredBookmarksProvider).bookmarks = bookmarksResult.content!.results!;
-    ref.read(filteredBookmarksProvider).maxNumber = bookmarksResult.content!.count!;
-    ref.read(filteredBookmarksProvider).currentPage = 0;
-    ref.read(filteredBookmarksProvider).loadingMore = false;
-    ref.read(filteredBookmarksProvider).initialLoadStatus = LoadStatus.loaded;
-  } else {
-    ref.read(filteredBookmarksProvider).initialLoadStatus = LoadStatus.error;
+    if (bookmarksResult.successful == true) {
+      ref.read(filteredBookmarksProvider).bookmarks = bookmarksResult.content!.results!;
+      ref.read(filteredBookmarksProvider).maxNumber = bookmarksResult.content!.count!;
+      ref.read(filteredBookmarksProvider).currentPage = 0;
+      ref.read(filteredBookmarksProvider).loadingMore = false;
+      ref.read(filteredBookmarksProvider).initialLoadStatus = LoadStatus.loaded;
+    } else {
+      ref.read(filteredBookmarksProvider).initialLoadStatus = LoadStatus.error;
+    }
+
+    ref.read(filteredBookmarksProvider.notifier).notifyListeners();
+  } finally {
+    keepAlive.close();
   }
-
-  ref.read(filteredBookmarksProvider.notifier).notifyListeners();
 }
 
 @riverpod
-FutureOr<void> filteredBookmarksRequestLoadMore(TagBookmarksRequestLoadMoreRef ref) async {
+FutureOr<void> filteredBookmarksRequestLoadMore(Ref ref) async {
   final provider = ref.read(filteredBookmarksProvider);
 
   final newOffset = provider.limit * (provider.currentPage + 1);

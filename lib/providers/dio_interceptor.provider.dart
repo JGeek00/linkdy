@@ -14,7 +14,7 @@ import 'package:linkdy/providers/api_client.provider.dart';
 part 'dio_interceptor.provider.g.dart';
 
 @Riverpod(keepAlive: true)
-InterceptorsWrapper dioInterceptor(DioInterceptorRef ref) {
+InterceptorsWrapper dioInterceptor(Ref ref) {
   return InterceptorsWrapper(
     onError: (error, handler) async {
       if (error.response?.statusCode == 401) {

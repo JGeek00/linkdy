@@ -6,19 +6,46 @@ part of 'app_info.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appInfoHash() => r'c1b99fe8e0ba1b1ba04aa2c1ae066a3de9f1dac1';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [appInfo].
 @ProviderFor(appInfo)
-final appInfoProvider = Provider<PackageInfo>.internal(
-  appInfo,
-  name: r'appInfoProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$appInfoHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final appInfoProvider = AppInfoProvider._();
 
-typedef AppInfoRef = ProviderRef<PackageInfo>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class AppInfoProvider
+    extends $FunctionalProvider<PackageInfo, PackageInfo, PackageInfo>
+    with $Provider<PackageInfo> {
+  AppInfoProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'appInfoProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$appInfoHash();
+
+  @$internal
+  @override
+  $ProviderElement<PackageInfo> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  PackageInfo create(Ref ref) {
+    return appInfo(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(PackageInfo value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<PackageInfo>(value),
+    );
+  }
+}
+
+String _$appInfoHash() => r'f635a0c02c0658d51515778fe3e407d42310dd2a';

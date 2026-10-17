@@ -21,29 +21,34 @@ import 'package:linkdy/providers/api_client.provider.dart';
 part 'search_bookmarks.provider.g.dart';
 
 @riverpod
-FutureOr<void> fetchSearchBookmarks(FetchSearchBookmarksRef ref, int limit) async {
+FutureOr<void> fetchSearchBookmarks(Ref ref, int limit) async {
   if (ref.watch(searchBookmarksProvider).searchTerm == "") return null;
 
-  final result = await ref.read(apiClientProvider)!.fetchBookmarks(
-        q: ref.watch(searchBookmarksProvider).searchTerm,
-        limit: limit,
-        offset: 0,
-      );
+  final keepAlive = ref.keepAlive();
+  try {
+    final result = await ref.read(apiClientProvider)!.fetchBookmarks(
+          q: ref.watch(searchBookmarksProvider).searchTerm,
+          limit: limit,
+          offset: 0,
+        );
 
-  if (result.successful == true) {
-    ref.read(searchBookmarksProvider).bookmarks = result.content!.results!;
-    ref.read(searchBookmarksProvider).maxNumber = result.content!.count!;
-    ref.read(searchBookmarksProvider).currentPage = 0;
-    ref.read(searchBookmarksProvider).loadingMore = false;
-    ref.read(searchBookmarksProvider).inialLoadStatus = LoadStatus.loaded;
-  } else {
-    ref.read(searchBookmarksProvider).inialLoadStatus = LoadStatus.error;
+    if (result.successful == true) {
+      ref.read(searchBookmarksProvider).bookmarks = result.content!.results!;
+      ref.read(searchBookmarksProvider).maxNumber = result.content!.count!;
+      ref.read(searchBookmarksProvider).currentPage = 0;
+      ref.read(searchBookmarksProvider).loadingMore = false;
+      ref.read(searchBookmarksProvider).inialLoadStatus = LoadStatus.loaded;
+    } else {
+      ref.read(searchBookmarksProvider).inialLoadStatus = LoadStatus.error;
+    }
+    ref.read(searchBookmarksProvider.notifier).notifyListeners();
+  } finally {
+    keepAlive.close();
   }
-  ref.read(searchBookmarksProvider.notifier).notifyListeners();
 }
 
 @riverpod
-FutureOr<void> fetchSearchBookmarksLoadMore(FetchSearchBookmarksLoadMoreRef ref) async {
+FutureOr<void> fetchSearchBookmarksLoadMore(Ref ref) async {
   final provider = ref.watch(searchBookmarksProvider);
 
   final newOffset = provider.limit * (provider.currentPage + 1);
@@ -101,7 +106,7 @@ class SearchBookmarks extends _$SearchBookmarks {
         ],
       ),
     );
-    ref.read(fetchSearchBookmarksProvider(model.limit));
+    ref.read(fetchSearchBookmarksProvider(model.limit).future);
     return model;
   }
 

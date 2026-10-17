@@ -65,9 +65,9 @@ class VisualizationModal extends ConsumerWidget {
                           colors: SegmentedButtonSlideColors(
                             barColor: Theme.of(context).colorScheme.primary.withOpacity(0.2),
                             backgroundSelectedColor: Theme.of(context).colorScheme.primary,
-                            foregroundSelectedColor: Theme.of(context).colorScheme.onPrimary,
-                            foregroundUnselectedColor: Theme.of(context).colorScheme.onSurface,
-                            hoverColor: Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                          selectedTextStyle: TextStyle(
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -88,9 +88,9 @@ class VisualizationModal extends ConsumerWidget {
                           colors: SegmentedButtonSlideColors(
                             barColor: Theme.of(context).colorScheme.primary.withOpacity(0.2),
                             backgroundSelectedColor: Theme.of(context).colorScheme.primary,
-                            foregroundSelectedColor: Theme.of(context).colorScheme.onPrimary,
-                            foregroundUnselectedColor: Theme.of(context).colorScheme.onSurface,
-                            hoverColor: Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                          selectedTextStyle: TextStyle(
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
                         const SizedBox(height: 16),
@@ -110,9 +110,9 @@ class VisualizationModal extends ConsumerWidget {
                           colors: SegmentedButtonSlideColors(
                             barColor: Theme.of(context).colorScheme.primary.withOpacity(0.2),
                             backgroundSelectedColor: Theme.of(context).colorScheme.primary,
-                            foregroundSelectedColor: Theme.of(context).colorScheme.onPrimary,
-                            foregroundUnselectedColor: Theme.of(context).colorScheme.onSurface,
-                            hoverColor: Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                          selectedTextStyle: TextStyle(
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
                       ],

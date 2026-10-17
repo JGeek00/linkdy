@@ -4,6 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 part 'shared_preferences.provider.g.dart';
 
 @Riverpod(keepAlive: true)
-SharedPreferences sharedPreferences(SharedPreferencesRef ref) {
+SharedPreferences sharedPreferences(Ref ref) {
   throw UnimplementedError();
 }

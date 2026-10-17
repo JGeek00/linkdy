@@ -6,34 +6,95 @@ part of 'app_status.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$selectedThemeHash() => r'b820484a59ed72419c5b4cad0b894a030b54c702';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [selectedTheme].
-@ProviderFor(selectedTheme)
-final selectedThemeProvider = AutoDisposeProvider<ThemeMode>.internal(
-  selectedTheme,
-  name: r'selectedThemeProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$selectedThemeHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef SelectedThemeRef = AutoDisposeProviderRef<ThemeMode>;
-String _$appStatusHash() => r'745dcff38d083afce16217c439f7667bda875a6d';
-
-/// See also [AppStatus].
 @ProviderFor(AppStatus)
-final appStatusProvider = NotifierProvider<AppStatus, AppStatusModel>.internal(
-  AppStatus.new,
-  name: r'appStatusProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$appStatusHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final appStatusProvider = AppStatusProvider._();
 
-typedef _$AppStatus = Notifier<AppStatusModel>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class AppStatusProvider
+    extends $NotifierProvider<AppStatus, AppStatusModel> {
+  AppStatusProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'appStatusProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$appStatusHash();
+
+  @$internal
+  @override
+  AppStatus create() => AppStatus();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(AppStatusModel value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<AppStatusModel>(value),
+    );
+  }
+}
+
+String _$appStatusHash() => r'399eafc0b828017889e7594ead4c6455168d3696';
+
+abstract class _$AppStatus extends $Notifier<AppStatusModel> {
+  AppStatusModel build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final ref = this.ref as $Ref<AppStatusModel, AppStatusModel>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<AppStatusModel, AppStatusModel>,
+        AppStatusModel,
+        Object?,
+        Object?>;
+    element.handleCreate(ref, build);
+  }
+}
+
+@ProviderFor(selectedTheme)
+final selectedThemeProvider = SelectedThemeProvider._();
+
+final class SelectedThemeProvider
+    extends $FunctionalProvider<ThemeMode, ThemeMode, ThemeMode>
+    with $Provider<ThemeMode> {
+  SelectedThemeProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'selectedThemeProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$selectedThemeHash();
+
+  @$internal
+  @override
+  $ProviderElement<ThemeMode> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  ThemeMode create(Ref ref) {
+    return selectedTheme(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(ThemeMode value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<ThemeMode>(value),
+    );
+  }
+}
+
+String _$selectedThemeHash() => r'be6aa273e37e95fb9ede5d7b3008b707557ca88b';

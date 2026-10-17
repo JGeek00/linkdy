@@ -97,7 +97,7 @@ class _List extends ConsumerWidget {
                 FocusManager.instance.primaryFocus?.unfocus();
                 ref.read(searchBookmarksProvider.notifier).setSearchTerm();
                 ref.read(searchBookmarksProvider.notifier).setInitialLoadStatus(LoadStatus.loading);
-                ref.read(fetchSearchBookmarksProvider(provider.limit));
+                ref.read(fetchSearchBookmarksProvider(provider.limit).future);
               },
               autofocus: true,
               decoration: InputDecoration(

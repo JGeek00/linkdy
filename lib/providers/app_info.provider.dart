@@ -4,6 +4,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'app_info.provider.g.dart';
 
 @Riverpod(keepAlive: true)
-PackageInfo appInfo(AppInfoRef ref) {
+PackageInfo appInfo(Ref ref) {
   throw UnimplementedError();
 }

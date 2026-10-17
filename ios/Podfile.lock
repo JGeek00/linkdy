@@ -1,80 +1,22 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_custom_tabs_ios (2.5.0):
-    - Flutter
-  - flutter_native_splash (2.4.3):
-    - Flutter
   - listen_sharing_intent (1.9.2):
     - Flutter
-  - package_info_plus (0.4.5):
-    - Flutter
-  - Sentry/HybridSDK (8.58.2)
-  - sentry_flutter (9.20.0):
-    - Flutter
-    - FlutterMacOS
-    - Sentry/HybridSDK (= 8.58.2)
-  - share_plus (0.0.1):
-    - Flutter
-  - shared_preferences_foundation (0.0.1):
-    - Flutter
-    - FlutterMacOS
-  - url_launcher_ios (0.0.1):
-    - Flutter
-  - webview_flutter_wkwebview (0.0.1):
-    - Flutter
-    - FlutterMacOS
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - flutter_custom_tabs_ios (from `.symlinks/plugins/flutter_custom_tabs_ios/ios`)
-  - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - listen_sharing_intent (from `.symlinks/plugins/listen_sharing_intent/ios`)
-  - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
-  - sentry_flutter (from `.symlinks/plugins/sentry_flutter/ios`)
-  - share_plus (from `.symlinks/plugins/share_plus/ios`)
-  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
-  - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
-  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/darwin`)
-
-SPEC REPOS:
-  trunk:
-    - Sentry
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  flutter_custom_tabs_ios:
-    :path: ".symlinks/plugins/flutter_custom_tabs_ios/ios"
-  flutter_native_splash:
-    :path: ".symlinks/plugins/flutter_native_splash/ios"
   listen_sharing_intent:
     :path: ".symlinks/plugins/listen_sharing_intent/ios"
-  package_info_plus:
-    :path: ".symlinks/plugins/package_info_plus/ios"
-  sentry_flutter:
-    :path: ".symlinks/plugins/sentry_flutter/ios"
-  share_plus:
-    :path: ".symlinks/plugins/share_plus/ios"
-  shared_preferences_foundation:
-    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
-  url_launcher_ios:
-    :path: ".symlinks/plugins/url_launcher_ios/ios"
-  webview_flutter_wkwebview:
-    :path: ".symlinks/plugins/webview_flutter_wkwebview/darwin"
 
 SPEC CHECKSUMS:
-  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
-  flutter_custom_tabs_ios: 706423b5f8773208a87b2e5a5ba757a899ed7cbd
-  flutter_native_splash: df59bb2e1421aa0282cb2e95618af4dcb0c56c29
-  listen_sharing_intent: 74a842adcbcf7bedf7bbc938c749da9155141b9a
-  package_info_plus: c0502532a26c7662a62a356cebe2692ec5fe4ec4
-  Sentry: de29b881e83bd91cf99a927f82f1fd86bfb39db2
-  sentry_flutter: aafdf112550e9550972852e71f44994bd4239254
-  share_plus: 8b6f8b3447e494cca5317c8c3073de39b3600d1f
-  shared_preferences_foundation: 5086985c1d43c5ba4d5e69a4e8083a389e2909e6
-  url_launcher_ios: bb13df5870e8c4234ca12609d04010a21be43dfa
-  webview_flutter_wkwebview: 29eb20d43355b48fe7d07113835b9128f84e3af4
+  Flutter: 71a624a5bc0c04062bf19101d501e466baf2fb47
+  listen_sharing_intent: fe0b9a59913cc124dd6cbd55cd9f881de5f75759
 
-PODFILE CHECKSUM: f4a1a94f7b997c60f34f5ec510acd4c2ebcd8b70
+PODFILE CHECKSUM: bfa5a11818a7520e19ea840aaa579ca20a159cd1
 
-COCOAPODS: 1.16.2
+COCOAPODS: 1.17.0

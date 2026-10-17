@@ -6,235 +6,192 @@ part of 'bookmarks.provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bookmarksRequestHash() => r'b1ac82693d1acf93e0c5c51bbfe8674e1cf3f487';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
+@ProviderFor(bookmarksRequest)
+final bookmarksRequestProvider = BookmarksRequestFamily._();
 
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
+final class BookmarksRequestProvider
+    extends $FunctionalProvider<AsyncValue<void>, void, FutureOr<void>>
+    with $FutureModifier<void>, $FutureProvider<void> {
+  BookmarksRequestProvider._(
+      {required BookmarksRequestFamily super.from,
+      required (
+        ReadStatus,
+        SortingType,
+        SortingWay,
+        int,
+      )
+          super.argument})
+      : super(
+          retry: null,
+          name: r'bookmarksRequestProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$bookmarksRequestHash();
+
+  @override
+  String toString() {
+    return r'bookmarksRequestProvider'
+        ''
+        '$argument';
   }
 
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
+  @$internal
+  @override
+  $FutureProviderElement<void> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<void> create(Ref ref) {
+    final argument = this.argument as (
+      ReadStatus,
+      SortingType,
+      SortingWay,
+      int,
+    );
+    return bookmarksRequest(
+      ref,
+      argument.$1,
+      argument.$2,
+      argument.$3,
+      argument.$4,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is BookmarksRequestProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
   }
 }
 
-/// See also [bookmarksRequest].
-@ProviderFor(bookmarksRequest)
-const bookmarksRequestProvider = BookmarksRequestFamily();
+String _$bookmarksRequestHash() => r'1cce9f2f61420e584eb21daa210562ca4eee7859';
 
-/// See also [bookmarksRequest].
-class BookmarksRequestFamily extends Family<AsyncValue<void>> {
-  /// See also [bookmarksRequest].
-  const BookmarksRequestFamily();
+final class BookmarksRequestFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+            FutureOr<void>,
+            (
+              ReadStatus,
+              SortingType,
+              SortingWay,
+              int,
+            )> {
+  BookmarksRequestFamily._()
+      : super(
+          retry: null,
+          name: r'bookmarksRequestProvider',
+          dependencies: null,
+          $allTransitiveDependencies: null,
+          isAutoDispose: true,
+        );
 
-  /// See also [bookmarksRequest].
   BookmarksRequestProvider call(
     ReadStatus readStatus,
     SortingType type,
     SortingWay way,
     int limit,
-  ) {
-    return BookmarksRequestProvider(
-      readStatus,
-      type,
-      way,
-      limit,
-    );
-  }
+  ) =>
+      BookmarksRequestProvider._(argument: (
+        readStatus,
+        type,
+        way,
+        limit,
+      ), from: this);
 
   @override
-  BookmarksRequestProvider getProviderOverride(
-    covariant BookmarksRequestProvider provider,
-  ) {
-    return call(
-      provider.readStatus,
-      provider.type,
-      provider.way,
-      provider.limit,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'bookmarksRequestProvider';
+  String toString() => r'bookmarksRequestProvider';
 }
 
-/// See also [bookmarksRequest].
-class BookmarksRequestProvider extends AutoDisposeFutureProvider<void> {
-  /// See also [bookmarksRequest].
-  BookmarksRequestProvider(
-    ReadStatus readStatus,
-    SortingType type,
-    SortingWay way,
-    int limit,
-  ) : this._internal(
-          (ref) => bookmarksRequest(
-            ref as BookmarksRequestRef,
-            readStatus,
-            type,
-            way,
-            limit,
-          ),
-          from: bookmarksRequestProvider,
-          name: r'bookmarksRequestProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$bookmarksRequestHash,
-          dependencies: BookmarksRequestFamily._dependencies,
-          allTransitiveDependencies:
-              BookmarksRequestFamily._allTransitiveDependencies,
-          readStatus: readStatus,
-          type: type,
-          way: way,
-          limit: limit,
+@ProviderFor(bookmarksRequestLoadMore)
+final bookmarksRequestLoadMoreProvider = BookmarksRequestLoadMoreProvider._();
+
+final class BookmarksRequestLoadMoreProvider
+    extends $FunctionalProvider<AsyncValue<void>, void, FutureOr<void>>
+    with $FutureModifier<void>, $FutureProvider<void> {
+  BookmarksRequestLoadMoreProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'bookmarksRequestLoadMoreProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
         );
 
-  BookmarksRequestProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.readStatus,
-    required this.type,
-    required this.way,
-    required this.limit,
-  }) : super.internal();
+  @override
+  String debugGetCreateSourceHash() => _$bookmarksRequestLoadMoreHash();
 
-  final ReadStatus readStatus;
-  final SortingType type;
-  final SortingWay way;
-  final int limit;
+  @$internal
+  @override
+  $FutureProviderElement<void> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
 
   @override
-  Override overrideWith(
-    FutureOr<void> Function(BookmarksRequestRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: BookmarksRequestProvider._internal(
-        (ref) => create(ref as BookmarksRequestRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        readStatus: readStatus,
-        type: type,
-        way: way,
-        limit: limit,
-      ),
-    );
+  FutureOr<void> create(Ref ref) {
+    return bookmarksRequestLoadMore(ref);
   }
-
-  @override
-  AutoDisposeFutureProviderElement<void> createElement() {
-    return _BookmarksRequestProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is BookmarksRequestProvider &&
-        other.readStatus == readStatus &&
-        other.type == type &&
-        other.way == way &&
-        other.limit == limit;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, readStatus.hashCode);
-    hash = _SystemHash.combine(hash, type.hashCode);
-    hash = _SystemHash.combine(hash, way.hashCode);
-    hash = _SystemHash.combine(hash, limit.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin BookmarksRequestRef on AutoDisposeFutureProviderRef<void> {
-  /// The parameter `readStatus` of this provider.
-  ReadStatus get readStatus;
-
-  /// The parameter `type` of this provider.
-  SortingType get type;
-
-  /// The parameter `way` of this provider.
-  SortingWay get way;
-
-  /// The parameter `limit` of this provider.
-  int get limit;
-}
-
-class _BookmarksRequestProviderElement
-    extends AutoDisposeFutureProviderElement<void> with BookmarksRequestRef {
-  _BookmarksRequestProviderElement(super.provider);
-
-  @override
-  ReadStatus get readStatus => (origin as BookmarksRequestProvider).readStatus;
-  @override
-  SortingType get type => (origin as BookmarksRequestProvider).type;
-  @override
-  SortingWay get way => (origin as BookmarksRequestProvider).way;
-  @override
-  int get limit => (origin as BookmarksRequestProvider).limit;
 }
 
 String _$bookmarksRequestLoadMoreHash() =>
-    r'3c1a68da25d2dc9d3b6520d3073186520dfe5e5d';
+    r'a5610ad197e54e2de7cc88c14ef3bd00dd774279';
 
-/// See also [bookmarksRequestLoadMore].
-@ProviderFor(bookmarksRequestLoadMore)
-final bookmarksRequestLoadMoreProvider =
-    AutoDisposeFutureProvider<void>.internal(
-  bookmarksRequestLoadMore,
-  name: r'bookmarksRequestLoadMoreProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$bookmarksRequestLoadMoreHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef BookmarksRequestLoadMoreRef = AutoDisposeFutureProviderRef<void>;
-String _$bookmarksHash() => r'21cfb29298db2edcea8ce2b162e2f312972e9f3b';
-
-/// See also [Bookmarks].
 @ProviderFor(Bookmarks)
-final bookmarksProvider =
-    AutoDisposeNotifierProvider<Bookmarks, BookmarksModel>.internal(
-  Bookmarks.new,
-  name: r'bookmarksProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$bookmarksHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final bookmarksProvider = BookmarksProvider._();
 
-typedef _$Bookmarks = AutoDisposeNotifier<BookmarksModel>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+final class BookmarksProvider
+    extends $NotifierProvider<Bookmarks, BookmarksModel> {
+  BookmarksProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'bookmarksProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$bookmarksHash();
+
+  @$internal
+  @override
+  Bookmarks create() => Bookmarks();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(BookmarksModel value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<BookmarksModel>(value),
+    );
+  }
+}
+
+String _$bookmarksHash() => r'c362f70e3b876f658a05adf75530454893d89bf6';
+
+abstract class _$Bookmarks extends $Notifier<BookmarksModel> {
+  BookmarksModel build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final ref = this.ref as $Ref<BookmarksModel, BookmarksModel>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<BookmarksModel, BookmarksModel>,
+        BookmarksModel,
+        Object?,
+        Object?>;
+    element.handleCreate(ref, build);
+  }
+}

@@ -91,7 +91,7 @@ class AppStatus extends _$AppStatus {
 }
 
 @riverpod
-ThemeMode selectedTheme(SelectedThemeRef ref) {
+ThemeMode selectedTheme(Ref ref) {
   switch (ref.watch(appStatusProvider).selectedTheme) {
     case SelectedTheme.system:
       return SchedulerBinding.instance.window.platformBrightness == Brightness.light ? ThemeMode.light : ThemeMode.dark;
