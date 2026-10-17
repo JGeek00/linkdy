@@ -25,6 +25,10 @@ final settingsNavigatorKey = GlobalKey<NavigatorState>();
 
 final List<RouteBase> appRoutes = [
   GoRoute(
+    path: '/',
+    redirect: (context, state) => RoutesPaths.bookmarks,
+  ),
+  GoRoute(
     path: RoutesPaths.onboarding,
     builder: (context, state) => const Onboarding(),
   ),
