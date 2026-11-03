@@ -38,7 +38,7 @@ class ApiClientService {
       await dioInstance.get("/bookmarks/?limit=1");
       return AuthResult.success;
     } on DioException catch (e) {
-      if (e.response != null && e.response!.statusCode == 401 || e.response!.statusCode == 403) {
+      if (e.response?.statusCode == 401 || e.response?.statusCode == 403) {
         return AuthResult.invalidToken;
       }
       return AuthResult.other;
