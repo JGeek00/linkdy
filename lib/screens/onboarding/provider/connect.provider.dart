@@ -123,54 +123,53 @@ class Connect extends _$Connect {
     }
     ref.notifyListeners();
   }
-}
 
-@riverpod
-FutureOr<bool> connectToServer(Ref ref) async {
-  final serverInstance = ServerInstance(
-    id: uuid.v4(),
-    method: ConnectionMethod.values[ref.watch(connectProvider).method].name,
-    ipDomain: ref.watch(connectProvider).ipDomainController.text,
-    token: ref.watch(connectProvider).tokenController.text,
-    path: ref.watch(connectProvider).pathController.text,
-    port: int.tryParse(ref.watch(connectProvider).portController.text),
-  );
-
-  final apiClient = ApiClientService(
-    serverInstance: serverInstance,
-    dioInstance: Dio(
-      BaseOptions(
-        baseUrl: apiBaseUrl(serverInstance),
-        headers: {
-          "Authorization": "Token ${serverInstance.token}",
-        },
-      ),
-    )..interceptors.add(ref.watch(dioInterceptorProvider)),
-  );
-
-  final processModal = ProcessModal();
-  processModal.open(t.onboarding.connecting);
-
-  final result = await apiClient.checkConnectionInstance();
-
-  processModal.close();
-  if (result == AuthResult.success) {
-    ref.read(apiClientProvider.notifier).setApiClient(apiClient);
-    ref.read(serverInstancesProvider.notifier).saveNewInstance(serverInstance);
-    ref.read(routerProvider).go(RoutesPaths.bookmarks);
-  } else if (result == AuthResult.invalidToken) {
-    showSnackbar(
-      key: ScaffoldMessengerKeys.onboarding,
-      label: t.onboarding.invalidToken,
-      color: Colors.red,
+  Future<bool> connectToServer() async {
+    final serverInstance = ServerInstance(
+      id: uuid.v4(),
+      method: ConnectionMethod.values[state.method].name,
+      ipDomain: state.ipDomainController.text,
+      token: state.tokenController.text,
+      path: state.pathController.text,
+      port: int.tryParse(state.portController.text),
     );
-  } else {
-    showSnackbar(
-      key: ScaffoldMessengerKeys.onboarding,
-      label: t.onboarding.cannotConnectToServer,
-      color: Colors.red,
+
+    final apiClient = ApiClientService(
+      serverInstance: serverInstance,
+      dioInstance: Dio(
+        BaseOptions(
+          baseUrl: apiBaseUrl(serverInstance),
+          headers: {
+            "Authorization": "Token ${serverInstance.token}",
+          },
+        ),
+      )..interceptors.add(ref.read(dioInterceptorProvider)),
     );
+
+    final processModal = ProcessModal();
+    processModal.open(t.onboarding.connecting);
+
+    final result = await apiClient.checkConnectionInstance();
+
+    processModal.close();
+    if (result == AuthResult.success) {
+      await ref.read(serverInstancesProvider.notifier).saveNewInstance(serverInstance);
+      ref.read(apiClientProvider.notifier).setApiClient(apiClient);
+      ref.read(routerProvider).go(RoutesPaths.bookmarks);
+    } else if (result == AuthResult.invalidToken) {
+      showSnackbar(
+        key: ScaffoldMessengerKeys.onboarding,
+        label: t.onboarding.invalidToken,
+        color: Colors.red,
+      );
+    } else {
+      showSnackbar(
+        key: ScaffoldMessengerKeys.onboarding,
+        label: t.onboarding.cannotConnectToServer,
+        color: Colors.red,
+      );
+    }
+
+    return result == AuthResult.success;
   }
-
-  return result == AuthResult.success;
 }

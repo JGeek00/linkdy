@@ -34,18 +34,18 @@ class ServerInstances extends _$ServerInstances {
     }
   }
 
-  void saveNewInstance(ServerInstance instance) {
+  Future<void> saveNewInstance(ServerInstance instance) async {
     state = [instance];
-    saveServerInstances([instance]);
+    await saveServerInstances([instance]);
   }
 
-  void saveServerInstances(List<ServerInstance> instances) async {
+  Future<void> saveServerInstances(List<ServerInstance> instances) async {
     final stringList = instances.map((i) => jsonEncode(i.toJson())).toList();
-    ref.read(sharedPreferencesProvider).setStringList(SharedPreferencesKeys.serversInstances, stringList);
+    await ref.read(sharedPreferencesProvider).setStringList(SharedPreferencesKeys.serversInstances, stringList);
   }
 
-  void removeServerInstances() {
+  Future<void> removeServerInstances() async {
     state = [];
-    ref.read(sharedPreferencesProvider).remove(SharedPreferencesKeys.serversInstances);
+    await ref.read(sharedPreferencesProvider).remove(SharedPreferencesKeys.serversInstances);
   }
 }

@@ -22,9 +22,9 @@ class DisconnectModal extends ConsumerWidget {
             ),
             const SizedBox(width: 8),
             TextButton(
-              onPressed: () {
+              onPressed: () async {
                 Navigator.pop(context);
-                ref.read(apiClientProvider.notifier).disconnectApiClient();
+                await ref.read(apiClientProvider.notifier).disconnectApiClient();
               },
               child: Text(t.generic.confirm),
             ),

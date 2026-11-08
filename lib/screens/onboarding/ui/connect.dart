@@ -54,7 +54,11 @@ class OnboardingConnect extends ConsumerWidget {
                 ),
               ),
               FilledButton.icon(
-                onPressed: ref.watch(connectProvider).validValues ? () => ref.read(connectToServerProvider) : null,
+                onPressed: ref.watch(connectProvider).validValues
+                  ? () async {
+                      await ref.read(connectProvider.notifier).connectToServer();
+                    }
+                  : null,
                 icon: const Icon(Icons.login_rounded),
                 label: Text(t.onboarding.connect),
               ),

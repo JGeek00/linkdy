@@ -22,8 +22,8 @@ InterceptorsWrapper dioInterceptor(Ref ref) {
           GoRouter.of(rootNavigatorKey.currentContext!).pop();
         }
         GoRouter.of(rootNavigatorKey.currentContext!).pushReplacement(RoutesPaths.onboarding);
-        ref.read(apiClientProvider.notifier).disconnectApiClient();
-        ref.read(serverInstancesProvider.notifier).removeServerInstances();
+        await ref.read(apiClientProvider.notifier).disconnectApiClient();
+        await ref.read(serverInstancesProvider.notifier).removeServerInstances();
         showSnackbar(key: ScaffoldMessengerKeys.root, label: t.generic.authTokenNotValid, color: Colors.red);
       }
       handler.next(error);

@@ -35,8 +35,8 @@ class ApiClient extends _$ApiClient {
     state = client;
   }
 
-  void disconnectApiClient() {
+  Future<void> disconnectApiClient() async {
     state = null;
-    ref.read(serverInstancesProvider.notifier).removeServerInstances();
+    await ref.read(serverInstancesProvider.notifier).removeServerInstances();
   }
 }

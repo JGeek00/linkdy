@@ -40,7 +40,7 @@ final class ConnectProvider extends $NotifierProvider<Connect, ConnectModel> {
   }
 }
 
-String _$connectHash() => r'15405d136ca9517c557e6a3e021a882213ee3be2';
+String _$connectHash() => r'd023ea77ded4bc4fd0b361cbba3bc904ec99c470';
 
 abstract class _$Connect extends $Notifier<ConnectModel> {
   ConnectModel build();
@@ -56,36 +56,3 @@ abstract class _$Connect extends $Notifier<ConnectModel> {
     element.handleCreate(ref, build);
   }
 }
-
-@ProviderFor(connectToServer)
-final connectToServerProvider = ConnectToServerProvider._();
-
-final class ConnectToServerProvider
-    extends $FunctionalProvider<AsyncValue<bool>, bool, FutureOr<bool>>
-    with $FutureModifier<bool>, $FutureProvider<bool> {
-  ConnectToServerProvider._()
-      : super(
-          from: null,
-          argument: null,
-          retry: null,
-          name: r'connectToServerProvider',
-          isAutoDispose: true,
-          dependencies: null,
-          $allTransitiveDependencies: null,
-        );
-
-  @override
-  String debugGetCreateSourceHash() => _$connectToServerHash();
-
-  @$internal
-  @override
-  $FutureProviderElement<bool> $createElement($ProviderPointer pointer) =>
-      $FutureProviderElement(pointer);
-
-  @override
-  FutureOr<bool> create(Ref ref) {
-    return connectToServer(ref);
-  }
-}
-
-String _$connectToServerHash() => r'ad20ee1473dad2022c0871d85af4686398512554';
