@@ -15,6 +15,8 @@ import 'package:linkdy/constants/enums.dart';
 import 'package:linkdy/utils/process_modal.dart';
 import 'package:linkdy/models/server_instance.dart';
 import 'package:linkdy/providers/api_client.provider.dart';
+import 'package:linkdy/providers/router.provider.dart';
+import 'package:linkdy/router/paths.dart';
 import 'package:linkdy/services/api_client.dart';
 import 'package:linkdy/constants/regexp.dart';
 
@@ -155,6 +157,7 @@ FutureOr<bool> connectToServer(Ref ref) async {
   if (result == AuthResult.success) {
     ref.read(apiClientProvider.notifier).setApiClient(apiClient);
     ref.read(serverInstancesProvider.notifier).saveNewInstance(serverInstance);
+    ref.read(routerProvider).go(RoutesPaths.bookmarks);
   } else if (result == AuthResult.invalidToken) {
     showSnackbar(
       key: ScaffoldMessengerKeys.onboarding,
@@ -169,5 +172,5 @@ FutureOr<bool> connectToServer(Ref ref) async {
     );
   }
 
-  return false;
+  return result == AuthResult.success;
 }
