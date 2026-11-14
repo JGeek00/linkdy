@@ -50,4 +50,4 @@ final class DioInterceptorProvider extends $FunctionalProvider<
   }
 }
 
-String _$dioInterceptorHash() => r'db8839028385dd972623750ea3a7b3dd9d8ca283';
+String _$dioInterceptorHash() => r'158f2d3719512de8d8505197b53c934cd625c96f';

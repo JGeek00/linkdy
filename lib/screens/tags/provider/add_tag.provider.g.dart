@@ -46,10 +46,10 @@ abstract class _$AddTag extends $Notifier<AddTagModel> {
   AddTagModel build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<AddTagModel, AddTagModel>;
     final element = ref.element as $ClassProviderElement<
         AnyNotifier<AddTagModel, AddTagModel>, AddTagModel, Object?, Object?>;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

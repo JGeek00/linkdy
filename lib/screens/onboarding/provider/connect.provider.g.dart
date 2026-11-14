@@ -46,13 +46,13 @@ abstract class _$Connect extends $Notifier<ConnectModel> {
   ConnectModel build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<ConnectModel, ConnectModel>;
     final element = ref.element as $ClassProviderElement<
         AnyNotifier<ConnectModel, ConnectModel>,
         ConnectModel,
         Object?,
         Object?>;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

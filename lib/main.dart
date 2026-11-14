@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:linkdy/config/sentry.dart';
 import 'package:linkdy/utils/sentry_handle_error.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:listen_sharing_intent/listen_sharing_intent.dart';
@@ -33,8 +33,6 @@ void main() async {
 
   HttpOverrides.global = MyHttpOverrides();
 
-  await dotenv.load(fileName: '.env');
-
   final sharedPreferences = await SharedPreferences.getInstance();
 
   final appInfo = await PackageInfo.fromPlatform();
@@ -51,11 +49,10 @@ void main() async {
         ),
       );
 
-  if ((kReleaseMode && (dotenv.env['SENTRY_DSN'] != null && dotenv.env['SENTRY_DSN'] != "")) ||
-      (dotenv.env['ENABLE_SENTRY'] == "true" && (dotenv.env['SENTRY_DSN'] != null && dotenv.env['SENTRY_DSN'] != ""))) {
+  if (kReleaseMode && sentryDsn.isNotEmpty) {
     SentryFlutter.init(
       (options) {
-        options.dsn = dotenv.env['SENTRY_DSN'];
+        options.dsn = sentryDsn;
         options.sendDefaultPii = false;
         options.beforeSend = sentryHandleError;
       },
@@ -118,12 +115,12 @@ class _MyAppState extends ConsumerState<MyApp> {
           title: 'Linkdy',
           theme: lightDynamic != null
               ? useDynamicColor == true
-                  ? lightTheme(lightDynamic)
+                  ? lightTheme(toFlutterColorScheme(lightDynamic))
                   : lightThemeOldVersions(colors[selectedColor])
               : lightThemeOldVersions(colors[selectedColor]),
           darkTheme: darkDynamic != null
               ? useDynamicColor == true
-                  ? darkTheme(darkDynamic)
+                  ? darkTheme(toFlutterColorScheme(darkDynamic))
                   : darkThemeOldVersions(colors[selectedColor])
               : darkThemeOldVersions(colors[selectedColor]),
           themeMode: ref.watch(selectedThemeProvider),

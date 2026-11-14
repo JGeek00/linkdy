@@ -41,19 +41,19 @@ final class ApiClientProvider
   }
 }
 
-String _$apiClientHash() => r'81e911e24bda3baf158a7d583271c4467821b11f';
+String _$apiClientHash() => r'eb834ac5dd0ec73ba862fbdae68b268bcf672266';
 
 abstract class _$ApiClient extends $Notifier<ApiClientService?> {
   ApiClientService? build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<ApiClientService?, ApiClientService?>;
     final element = ref.element as $ClassProviderElement<
         AnyNotifier<ApiClientService?, ApiClientService?>,
         ApiClientService?,
         Object?,
         Object?>;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

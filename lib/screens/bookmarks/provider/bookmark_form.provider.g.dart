@@ -165,13 +165,13 @@ abstract class _$BookmarkForm extends $Notifier<BookmarkFormModel> {
   BookmarkFormModel build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<BookmarkFormModel, BookmarkFormModel>;
     final element = ref.element as $ClassProviderElement<
         AnyNotifier<BookmarkFormModel, BookmarkFormModel>,
         BookmarkFormModel,
         Object?,
         Object?>;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

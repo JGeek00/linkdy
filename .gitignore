@@ -48,3 +48,5 @@ app.*.map.json
 .env
 android/app/.cxx
 android/build/reports/problems
+# Widget Preview related
+.widget_preview/

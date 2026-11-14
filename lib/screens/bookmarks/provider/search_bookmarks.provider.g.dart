@@ -62,7 +62,7 @@ final class FetchSearchBookmarksProvider
 }
 
 String _$fetchSearchBookmarksHash() =>
-    r'd4db022f9356eeba7327f4daab2f174d59c0e7b1';
+    r'c4afa5a0236ee9efcf528a6bf16436c97ec0a443';
 
 final class FetchSearchBookmarksFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<void>, int> {
@@ -151,19 +151,19 @@ final class SearchBookmarksProvider
   }
 }
 
-String _$searchBookmarksHash() => r'dfa36324f7f6c67b97581b09994670bf466b3982';
+String _$searchBookmarksHash() => r'0286b14260ba46ce615bdfa2f83fa14fa1637640';
 
 abstract class _$SearchBookmarks extends $Notifier<SearchBookmarksModel> {
   SearchBookmarksModel build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<SearchBookmarksModel, SearchBookmarksModel>;
     final element = ref.element as $ClassProviderElement<
         AnyNotifier<SearchBookmarksModel, SearchBookmarksModel>,
         SearchBookmarksModel,
         Object?,
         Object?>;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

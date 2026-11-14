@@ -46,13 +46,13 @@ abstract class _$WebView extends $Notifier<WebViewModel> {
   WebViewModel build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<WebViewModel, WebViewModel>;
     final element = ref.element as $ClassProviderElement<
         AnyNotifier<WebViewModel, WebViewModel>,
         WebViewModel,
         Object?,
         Object?>;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

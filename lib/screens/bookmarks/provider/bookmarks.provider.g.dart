@@ -75,7 +75,7 @@ final class BookmarksRequestProvider
   }
 }
 
-String _$bookmarksRequestHash() => r'1cce9f2f61420e584eb21daa210562ca4eee7859';
+String _$bookmarksRequestHash() => r'11884d6e8721b9b1a77ce9baf37c79d3a4f18091';
 
 final class BookmarksRequestFamily extends $Family
     with
@@ -179,19 +179,19 @@ final class BookmarksProvider
   }
 }
 
-String _$bookmarksHash() => r'c362f70e3b876f658a05adf75530454893d89bf6';
+String _$bookmarksHash() => r'e7a7aa5d4fafba8411eca3f340f2e2deea9943e9';
 
 abstract class _$Bookmarks extends $Notifier<BookmarksModel> {
   BookmarksModel build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<BookmarksModel, BookmarksModel>;
     final element = ref.element as $ClassProviderElement<
         AnyNotifier<BookmarksModel, BookmarksModel>,
         BookmarksModel,
         Object?,
         Object?>;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

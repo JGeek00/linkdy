@@ -41,19 +41,19 @@ final class ServerInstancesProvider
   }
 }
 
-String _$serverInstancesHash() => r'ee41f5a717b9f779aa4319cc711b479a47c1c9ef';
+String _$serverInstancesHash() => r'affcab7760fc3ab188f86593264283804661b18b';
 
 abstract class _$ServerInstances extends $Notifier<List<ServerInstance>> {
   List<ServerInstance> build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<List<ServerInstance>, List<ServerInstance>>;
     final element = ref.element as $ClassProviderElement<
         AnyNotifier<List<ServerInstance>, List<ServerInstance>>,
         List<ServerInstance>,
         Object?,
         Object?>;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

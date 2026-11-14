@@ -47,14 +47,14 @@ abstract class _$AppStatus extends $Notifier<AppStatusModel> {
   AppStatusModel build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<AppStatusModel, AppStatusModel>;
     final element = ref.element as $ClassProviderElement<
         AnyNotifier<AppStatusModel, AppStatusModel>,
         AppStatusModel,
         Object?,
         Object?>;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }
 

@@ -47,13 +47,13 @@ abstract class _$Settings extends $Notifier<SettingsModel> {
   SettingsModel build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<SettingsModel, SettingsModel>;
     final element = ref.element as $ClassProviderElement<
         AnyNotifier<SettingsModel, SettingsModel>,
         SettingsModel,
         Object?,
         Object?>;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }

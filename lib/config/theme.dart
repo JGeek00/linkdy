@@ -1,4 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart' as mui;
+
+/// Puente temporal: dynamic_color 2.x entrega el [ColorScheme] del paquete
+/// material_ui (clase distinta a la de Flutter aunque se llame igual).
+/// Convierte al [ColorScheme] de Flutter en el borde, hasta que se migre
+/// la app completa a material_ui.
+ColorScheme toFlutterColorScheme(mui.ColorScheme scheme) {
+  final base = ColorScheme.fromSeed(
+    seedColor: scheme.primary,
+    brightness: scheme.brightness,
+  );
+  return base.copyWith(
+    primary: scheme.primary,
+    onPrimary: scheme.onPrimary,
+    primaryContainer: scheme.primaryContainer,
+    onPrimaryContainer: scheme.onPrimaryContainer,
+    secondary: scheme.secondary,
+    onSecondary: scheme.onSecondary,
+    secondaryContainer: scheme.secondaryContainer,
+    onSecondaryContainer: scheme.onSecondaryContainer,
+    tertiary: scheme.tertiary,
+    onTertiary: scheme.onTertiary,
+    tertiaryContainer: scheme.tertiaryContainer,
+    onTertiaryContainer: scheme.onTertiaryContainer,
+    error: scheme.error,
+    onError: scheme.onError,
+    errorContainer: scheme.errorContainer,
+    onErrorContainer: scheme.onErrorContainer,
+    surface: scheme.surface,
+    onSurface: scheme.onSurface,
+    surfaceVariant: scheme.surfaceVariant,
+    onSurfaceVariant: scheme.onSurfaceVariant,
+    outline: scheme.outline,
+    outlineVariant: scheme.outlineVariant,
+    shadow: scheme.shadow,
+    scrim: scheme.scrim,
+    inverseSurface: scheme.inverseSurface,
+    onInverseSurface: scheme.onInverseSurface,
+    inversePrimary: scheme.inversePrimary,
+    surfaceTint: scheme.surfaceTint,
+  );
+}
 
 ThemeData lightTheme(ColorScheme? dynamicColorScheme) => ThemeData(
       useMaterial3: true,

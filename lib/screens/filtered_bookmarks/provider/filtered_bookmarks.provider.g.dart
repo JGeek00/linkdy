@@ -73,7 +73,7 @@ final class TagBookmarksRequestProvider
 }
 
 String _$tagBookmarksRequestHash() =>
-    r'964a889d4e023a9503985a776636fb2f2ba8f371';
+    r'1e0e0999396323c6b142e66b1b3eb499c24c37e7';
 
 final class TagBookmarksRequestFamily extends $Family
     with
@@ -141,7 +141,7 @@ final class TagBookmarksRequestLoadMoreProvider
 }
 
 String _$tagBookmarksRequestLoadMoreHash() =>
-    r'4df7298cbcdc19e9984f82f01bd6d8577bfa03d0';
+    r'39d79b62a849ba24331255fa9126192de4d24f23';
 
 @ProviderFor(filteredBookmarksRequest)
 final filteredBookmarksRequestProvider = FilteredBookmarksRequestFamily._();
@@ -205,7 +205,7 @@ final class FilteredBookmarksRequestProvider
 }
 
 String _$filteredBookmarksRequestHash() =>
-    r'652effd60d32e4abe3628c3047c29d6fd9c590af';
+    r'a577eb1713e30e4e8db8f40fc7eca24d81aaa3b2';
 
 final class FilteredBookmarksRequestFamily extends $Family
     with
@@ -310,7 +310,7 @@ abstract class _$FilteredBookmarks extends $Notifier<FilteredBookmarksModel> {
   FilteredBookmarksModel build();
   @$mustCallSuper
   @override
-  void runBuild() {
+  WhenComplete runBuild() {
     final ref =
         this.ref as $Ref<FilteredBookmarksModel, FilteredBookmarksModel>;
     final element = ref.element as $ClassProviderElement<
@@ -318,6 +318,6 @@ abstract class _$FilteredBookmarks extends $Notifier<FilteredBookmarksModel> {
         FilteredBookmarksModel,
         Object?,
         Object?>;
-    element.handleCreate(ref, build);
+    return element.handleCreate(ref, build);
   }
 }
