@@ -15,6 +15,7 @@ class ConnectModel {
   String? tokenError;
   bool validValues;
   LoadStatus? testConnection;
+  String? testConnectionError;
 
   ConnectModel({
     this.isConnecting = false,
@@ -29,5 +30,6 @@ class ConnectModel {
     this.tokenError,
     this.validValues = true,
     this.testConnection,
+    this.testConnectionError,
   });
 }

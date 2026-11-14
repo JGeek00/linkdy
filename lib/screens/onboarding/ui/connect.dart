@@ -247,11 +247,22 @@ class _ConnectForm extends ConsumerWidget {
               if (provider.testConnection == LoadStatus.error) ...[
                 const Icon(Icons.error_rounded),
                 const SizedBox(width: 8),
-                Text(t.onboarding.connectionServerFailed),
+                Flexible(child: Text(t.onboarding.connectionServerFailed)),
               ],
             ],
           ),
         ),
+        if (provider.testConnection == LoadStatus.error && provider.testConnectionError != null) ...[
+          const SizedBox(height: 12),
+          SelectableText(
+            provider.testConnectionError!,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 13,
+              color: Theme.of(context).colorScheme.error,
+            ),
+          ),
+        ],
         const SizedBox(height: 16),
       ],
     );

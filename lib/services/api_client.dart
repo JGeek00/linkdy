@@ -10,17 +10,69 @@ import 'package:linkdy/models/data/set_bookmark_data.dart';
 import 'package:linkdy/models/data/tags.dart';
 import 'package:linkdy/models/server_instance.dart';
 
-Future<bool> testServerReachability(String url) async {
+class ServerReachabilityResult {
+  final bool success;
+  final String? detail;
+
+  const ServerReachabilityResult.success()
+      : success = true,
+        detail = null;
+  const ServerReachabilityResult.failure(this.detail) : success = false;
+}
+
+/// Maps a Dio failure to a short technical message (English, shown verbatim
+/// under the generic translated error). Pure function to keep it unit-testable.
+String describeReachabilityFailure(DioException e) {
+  final raw = (e.error?.toString() ?? e.message ?? '').toLowerCase();
+  final extra = e.error?.toString() ?? e.message ?? '';
+
+  if (e.type == DioExceptionType.connectionTimeout ||
+      e.type == DioExceptionType.sendTimeout ||
+      e.type == DioExceptionType.receiveTimeout) {
+    return 'Connection timed out (${e.type.name}). Check host, port and Traefik reachability. $extra';
+  }
+  if (e.type == DioExceptionType.badCertificate) {
+    return 'TLS certificate rejected: $extra';
+  }
+  if (raw.contains('failed host lookup') ||
+      raw.contains('name or service not known') ||
+      raw.contains('nxdomain') ||
+      raw.contains('nodename nor servname') ||
+      raw.contains('no address associated with hostname')) {
+    return 'DNS lookup failed: $extra. Check LAN DNS / Tailscale MagicDNS, iOS Private Relay or Android Private DNS.';
+  }
+  if (raw.contains('connection refused')) {
+    return 'Connection refused: $extra. Check port forwarding and that Traefik/linkding is listening.';
+  }
+  if (raw.contains('cleartext')) {
+    return 'Cleartext HTTP blocked by the OS: $extra. Use HTTPS or enable cleartext traffic.';
+  }
+  if (raw.contains('handshake') ||
+      raw.contains('certificate') ||
+      raw.contains(' tls') ||
+      raw.contains(' ssl')) {
+    return 'TLS handshake failed: $extra';
+  }
+  if (raw.contains('network is unreachable') || raw.contains('no route to host')) {
+    return 'Network unreachable: $extra. Check Wi-Fi/VPN (Tailscale) and that .home.arpa resolves here.';
+  }
+  if (e.type == DioExceptionType.connectionError || e.type == DioExceptionType.unknown) {
+    return 'Connection failed (${e.type.name}): $extra';
+  }
+  return 'Connection failed (${e.type.name}): $extra';
+}
+
+Future<ServerReachabilityResult> testServerReachability(String url) async {
   try {
     await Dio(BaseOptions(connectTimeout: const Duration(seconds: 5))).get("$url/api/");
-    return true;
+    return const ServerReachabilityResult.success();
   } on DioException catch (e) {
     if (e.response?.statusCode != null) {
-      return true;
+      return const ServerReachabilityResult.success();
     }
-    return false;
+    return ServerReachabilityResult.failure(describeReachabilityFailure(e));
   } catch (e) {
-    return false;
+    return ServerReachabilityResult.failure(e.toString());
   }
 }
 

@@ -45,12 +45,14 @@ class Connect extends _$Connect {
 
   void setConnectionMethod(int method) {
     state.testConnection = null;
+    state.testConnectionError = null;
     state.method = method;
     ref.notifyListeners();
   }
 
   void validateIpDomain(String value) {
     state.testConnection = null;
+    state.testConnectionError = null;
     if (value != "") {
       state.ipDomainError = null;
     } else {
@@ -62,6 +64,7 @@ class Connect extends _$Connect {
 
   void validatePort(String value) {
     state.testConnection = null;
+    state.testConnectionError = null;
     if (value != '') {
       if (int.tryParse(value) != null && int.parse(value) <= 65535) {
         state.portError = null;
@@ -75,6 +78,7 @@ class Connect extends _$Connect {
 
   void validatePath(String value) {
     state.testConnection = null;
+    state.testConnectionError = null;
     if (value == "") {
       state.pathError = null;
     } else {
@@ -90,6 +94,7 @@ class Connect extends _$Connect {
 
   void validateToken(String value) {
     state.testConnection = null;
+    state.testConnectionError = null;
     if (value != "") {
       state.tokenError = null;
     } else {
@@ -110,16 +115,19 @@ class Connect extends _$Connect {
 
   void testConnection() async {
     state.testConnection = LoadStatus.loading;
+    state.testConnectionError = null;
     ref.notifyListeners();
 
     final connectionString =
         "${ConnectionMethod.values[state.method].name}://${state.ipDomainController.text}${state.portController.text != '' ? ':${state.portController.text}' : ""}${state.pathController.text}";
     final result = await testServerReachability(connectionString);
 
-    if (result == true) {
+    if (result.success == true) {
       state.testConnection = LoadStatus.loaded;
+      state.testConnectionError = null;
     } else {
       state.testConnection = LoadStatus.error;
+      state.testConnectionError = result.detail;
     }
     ref.notifyListeners();
   }
