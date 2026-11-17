@@ -1,4 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:linkdy/screens/bookmarks/provider/bookmarks.provider.dart';
@@ -136,7 +139,7 @@ class BookmarkForm extends _$BookmarkForm {
     ref.notifyListeners();
   }
 
-  void saveBookmark() async {
+  void saveBookmark({bool returnToSource = false}) async {
     final newBookmark = SetBookmarkData(
       url: state.urlController.text,
       title: state.titleController.text,
@@ -159,6 +162,10 @@ class BookmarkForm extends _$BookmarkForm {
 
     if (result.successful == true) {
       ref.read(bookmarksProvider.notifier).refresh();
+      if (returnToSource && defaultTargetPlatform == TargetPlatform.android) {
+        await SystemNavigator.pop();
+        return;
+      }
       ref.watch(routerProvider).pop();
       showSnackbar(
         key: ScaffoldMessengerKeys.bookmarks,
