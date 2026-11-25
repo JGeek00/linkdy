@@ -42,7 +42,12 @@ class BookmarksScreen extends HookConsumerWidget {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (sharedUrl == null) return;
-      openBookmarkFormModal(context: context, width: width, url: fixUrlTitle(sharedUrl));
+      openBookmarkFormModal(
+        context: context,
+        width: width,
+        url: fixUrlTitle(sharedUrl),
+        fromShareIntent: true,
+      );
       ref.read(receiveSharingIntentUrlProvider.notifier).setValue(null);
     });
 

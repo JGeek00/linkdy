@@ -15,11 +15,13 @@ import 'package:linkdy/constants/enums.dart';
 class BookmarkFormModal extends ConsumerStatefulWidget {
   final Bookmark? bookmark;
   final String? url;
+  final bool fromShareIntent;
 
   const BookmarkFormModal({
     super.key,
     this.bookmark,
     this.url,
+    this.fromShareIntent = false,
   });
 
   @override
@@ -74,7 +76,9 @@ class BookmarkFormModalState extends ConsumerState<BookmarkFormModal> {
                       ),
                       IconButton(
                         onPressed: ref.watch(bookmarkFormProvider).bookmarkValid == true
-                            ? () => ref.read(bookmarkFormProvider.notifier).saveBookmark()
+                            ? () => ref
+                                .read(bookmarkFormProvider.notifier)
+                                .saveBookmark(returnToSource: widget.fromShareIntent)
                             : null,
                         icon: const Icon(Icons.save_rounded),
                         tooltip: t.generic.save,
@@ -117,7 +121,9 @@ class BookmarkFormModalState extends ConsumerState<BookmarkFormModal> {
                     actions: [
                       IconButton(
                         onPressed: ref.watch(bookmarkFormProvider).bookmarkValid == true
-                            ? () => ref.read(bookmarkFormProvider.notifier).saveBookmark()
+                            ? () => ref
+                                .read(bookmarkFormProvider.notifier)
+                                .saveBookmark(returnToSource: widget.fromShareIntent)
                             : null,
                         icon: const Icon(Icons.save_rounded),
                         tooltip: t.generic.save,
@@ -458,6 +464,7 @@ void openBookmarkFormModal({
   required double width,
   String? url,
   Bookmark? bookmark,
+  bool fromShareIntent = false,
 }) {
   showGeneralDialog(
     context: context,
@@ -470,6 +477,10 @@ void openBookmarkFormModal({
         child: child,
       );
     },
-    pageBuilder: (context, animation, secondaryAnimation) => BookmarkFormModal(bookmark: bookmark, url: url),
+    pageBuilder: (context, animation, secondaryAnimation) => BookmarkFormModal(
+      bookmark: bookmark,
+      url: url,
+      fromShareIntent: fromShareIntent,
+    ),
   );
 }
